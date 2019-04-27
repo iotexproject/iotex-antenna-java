@@ -28,6 +28,7 @@ public class ECKeyPair {
     public static final X9ECParameters CURVE_PARAMS = CustomNamedCurves.getByName("secp256k1");
     static final ECDomainParameters CURVE = new ECDomainParameters(
             CURVE_PARAMS.getCurve(), CURVE_PARAMS.getG(), CURVE_PARAMS.getN(), CURVE_PARAMS.getH());
+    static final BigInteger HALF_CURVE_ORDER = CURVE_PARAMS.getN().shiftRight(1);
 
     private final BigInteger privateKey;
     private final BigInteger publicKey;
@@ -96,6 +97,10 @@ public class ECKeyPair {
             privKey = privKey.mod(CURVE.getN());
         }
         return new FixedPointCombMultiplier().multiply(CURVE.getG(), privKey);
+    }
+
+    public byte[] sign(byte[] data) {
+        return Sign.sign(this.privateKey, this.publicKey, Hash.sha3(data));
     }
 
     public String getAddress() {
