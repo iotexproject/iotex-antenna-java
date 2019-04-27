@@ -44,6 +44,14 @@ public class ECKeyPair {
         this.address = Bech32.encode(MainnetPrefix, grouped);
     }
 
+    public static ECKeyPair create() {
+        try {
+            return create(SECP256K1.createSecp256k1KeyPair());
+        } catch (Exception e) {
+            throw new RuntimeException("create secp256k1 key error", e);
+        }
+    }
+
     public static ECKeyPair create(KeyPair keyPair) {
         BCECPrivateKey privateKey = (BCECPrivateKey) keyPair.getPrivate();
         BCECPublicKey publicKey = (BCECPublicKey) keyPair.getPublic();
@@ -59,6 +67,10 @@ public class ECKeyPair {
 
     public static ECKeyPair create(BigInteger privateKey) {
         return new ECKeyPair(privateKey, publicKeyFromPrivate(privateKey));
+    }
+
+    public static ECKeyPair create(byte[] privateKey) {
+        return create(Numeric.toBigInt(privateKey));
     }
 
     /**
@@ -84,10 +96,6 @@ public class ECKeyPair {
             privKey = privKey.mod(CURVE.getN());
         }
         return new FixedPointCombMultiplier().multiply(CURVE.getG(), privKey);
-    }
-
-    public static ECKeyPair create(byte[] privateKey) {
-        return create(Numeric.toBigInt(privateKey));
     }
 
     public String getAddress() {
