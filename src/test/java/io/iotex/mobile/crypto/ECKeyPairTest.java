@@ -19,5 +19,6 @@ public class ECKeyPairTest {
     public void testCreateKeyPairByPrivate() {
         ECKeyPair keyPair = ECKeyPair.create(Numeric.hexStringToByteArray(TEST_PRIVATE));
         assertEquals(TEST_PUBLIC, Numeric.toHexString(keyPair.getPublicKey().toByteArray()));
+        assertEquals(TEST_ADDRESS, keyPair.getAddress());
     }
 }

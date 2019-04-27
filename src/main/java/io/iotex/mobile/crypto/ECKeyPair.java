@@ -19,16 +19,29 @@ import java.util.Arrays;
  * @author Yang XuePing
  */
 public class ECKeyPair {
+    // MainnetPrefix is the prefix added to the human readable address of mainnet
+    public static final String MainnetPrefix = "io";
+
+    // TestnetPrefix is the prefix added to the human readable address of testnet
+    public static final String TestnetPrefix = "it";
+
     public static final X9ECParameters CURVE_PARAMS = CustomNamedCurves.getByName("secp256k1");
     static final ECDomainParameters CURVE = new ECDomainParameters(
             CURVE_PARAMS.getCurve(), CURVE_PARAMS.getG(), CURVE_PARAMS.getN(), CURVE_PARAMS.getH());
 
     private final BigInteger privateKey;
     private final BigInteger publicKey;
+    private final String address;
 
     public ECKeyPair(BigInteger privateKey, BigInteger publicKey) {
         this.privateKey = privateKey;
         this.publicKey = publicKey;
+
+        byte[] pubBytes = publicKey.toByteArray();
+        byte[] hash256 = Hash.sha3(Arrays.copyOfRange(pubBytes, 1, pubBytes.length));
+        byte[] values = Arrays.copyOfRange(hash256, 12, hash256.length);
+        byte[] grouped = Bech32.convertBits(values, 0, values.length, 8, 5, true);
+        this.address = Bech32.encode(MainnetPrefix, grouped);
     }
 
     public static ECKeyPair create(KeyPair keyPair) {
@@ -39,7 +52,7 @@ public class ECKeyPair {
 
         byte[] publicKeyBytes = publicKey.getQ().getEncoded(false);
         BigInteger publicKeyValue =
-                new BigInteger(1, Arrays.copyOfRange(publicKeyBytes, 1, publicKeyBytes.length));
+                new BigInteger(1, Arrays.copyOfRange(publicKeyBytes, 0, publicKeyBytes.length));
 
         return new ECKeyPair(privateKeyValue, publicKeyValue);
     }
@@ -75,6 +88,10 @@ public class ECKeyPair {
 
     public static ECKeyPair create(byte[] privateKey) {
         return create(Numeric.toBigInt(privateKey));
+    }
+
+    public String getAddress() {
+        return address;
     }
 
     public BigInteger getPrivateKey() {
