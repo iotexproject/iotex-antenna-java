@@ -22,11 +22,11 @@ public final class SecureRandomUtils {
     private SecureRandomUtils() {
     }
 
-    static SecureRandom secureRandom() {
+    public static SecureRandom secureRandom() {
         return SECURE_RANDOM;
     }
 
-    static boolean isAndroidRuntime() {
+    public static boolean isAndroidRuntime() {
         if (isAndroid == -1) {
             final String runtime = System.getProperty("java.runtime.name");
             isAndroid = (runtime != null && runtime.equals("Android Runtime")) ? 1 : 0;
