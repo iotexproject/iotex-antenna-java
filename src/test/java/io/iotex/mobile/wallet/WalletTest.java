@@ -32,4 +32,13 @@ public class WalletTest {
         Assert.assertEquals(TEST_PRIVATE, Numeric.toHexString(keyPair.getPrivateKey().toByteArray()));
         Assert.assertEquals(TEST_PUBLIC, Numeric.toHexString(keyPair.getPublicKey().toByteArray()));
     }
+
+    @Test
+    public void testLoadErrorPassword() {
+        ECKeyPair keyPair = WalletUtils.loadKeyFromWalletFile("111111", TEST_KEYSTORE);
+        Assert.assertNotNull(keyPair);
+        Assert.assertEquals(TEST_ADDRESS, keyPair.getAddress());
+        Assert.assertEquals(TEST_PRIVATE, Numeric.toHexString(keyPair.getPrivateKey().toByteArray()));
+        Assert.assertEquals(TEST_PUBLIC, Numeric.toHexString(keyPair.getPublicKey().toByteArray()));
+    }
 }
