@@ -21,12 +21,12 @@ public class WalletTest {
         ECKeyPair keyPair = ECKeyPair.create(Numeric.hexStringToByteArray(TEST_PRIVATE));
         WalletFile walletFile = Wallet.createStandard("123456", keyPair);
         Assert.assertEquals(TEST_ADDRESS, walletFile.getAddress());
-        Assert.assertNotNull(WalletUtils.toWalletFileJson(walletFile));
+        Assert.assertNotNull(walletFile.toJsonString());
     }
 
     @Test
     public void testLoadKeystore() {
-        ECKeyPair keyPair = WalletUtils.loadKeystore("123456", TEST_KEYSTORE);
+        ECKeyPair keyPair = WalletUtils.loadKeyFromWalletFile("123456", TEST_KEYSTORE);
         Assert.assertNotNull(keyPair);
         Assert.assertEquals(TEST_ADDRESS, keyPair.getAddress());
         Assert.assertEquals(TEST_PRIVATE, Numeric.toHexString(keyPair.getPrivateKey().toByteArray()));
