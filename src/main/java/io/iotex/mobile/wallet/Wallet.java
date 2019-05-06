@@ -1,8 +1,8 @@
 package io.iotex.mobile.wallet;
 
+import com.lambdaworks.crypto.SCrypt;
 import io.iotex.mobile.crypto.ECKeyPair;
 import io.iotex.mobile.crypto.Hash;
-import io.iotex.mobile.crypto.SCrypt;
 import io.iotex.mobile.utils.Numeric;
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.generators.PKCS5S2ParametersGenerator;
@@ -14,7 +14,6 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import java.security.GeneralSecurityException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -112,11 +111,7 @@ public class Wallet {
 
     private static byte[] generateDerivedScryptKey(
             byte[] password, byte[] salt, int n, int r, int p, int dkLen) throws CipherException {
-        try {
-            return SCrypt.scrypt(password, salt, n, r, p, dkLen);
-        } catch (GeneralSecurityException e) {
-            throw new CipherException("scrypt exception", e);
-        }
+        return SCrypt.scryptN(password, salt, n, r, p, dkLen);
     }
 
     private static byte[] generateAes128CtrDerivedKey(
