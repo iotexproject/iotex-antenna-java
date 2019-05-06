@@ -114,4 +114,12 @@ public class ECKeyPair {
     public BigInteger getPublicKey() {
         return publicKey;
     }
+
+
+    public String getHexAddress() {
+        byte[] pubBytes = publicKey.toByteArray();
+        byte[] hash256 = Hash.sha3(Arrays.copyOfRange(pubBytes, 1, pubBytes.length));
+        byte[] values = Arrays.copyOfRange(hash256, 12, hash256.length);
+        return Numeric.toHexString(values);
+    }
 }

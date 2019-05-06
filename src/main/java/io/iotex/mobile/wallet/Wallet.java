@@ -83,7 +83,7 @@ public class Wallet {
             int n, int p) {
 
         WalletFile walletFile = new WalletFile();
-        walletFile.setAddress(ecKeyPair.getAddress());
+        walletFile.setAddress(ecKeyPair.getHexAddress());
 
         WalletFile.Crypto crypto = new WalletFile.Crypto();
         crypto.setCipher(CIPHER);

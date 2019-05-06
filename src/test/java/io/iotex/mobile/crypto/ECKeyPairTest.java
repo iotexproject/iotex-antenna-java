@@ -14,6 +14,7 @@ public class ECKeyPairTest {
     public static final String TEST_PRIVATE = "0806c458b262edd333a191e92f561aff338211ee3e18ab315a074a2d82aa343f";
     public static final String TEST_PUBLIC = "044e18306ae9ef4ec9d07bf6e705442d4d1a75e6cdf750330ca2d880f2cc54607c9c33deb9eae9c06e06e04fe9ce3d43962cc67d5aa34fbeb71270d4bad3d648d9";
     public static final String TEST_ADDRESS = "io187wzp08vnhjjpkydnr97qlh8kh0dpkkytfam8j";
+    public static final String TEST_HEX_ADDRESS = "3f9c20bcec9de520d88d98cbe07ee7b5ded0dac4";
 
     @Test
     public void testCreateKeyPairByPrivate() {
