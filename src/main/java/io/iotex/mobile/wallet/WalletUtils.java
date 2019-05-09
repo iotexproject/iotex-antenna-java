@@ -3,9 +3,9 @@ package io.iotex.mobile.wallet;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.iotex.mobile.crypto.ECKeyPair;
 
 import java.io.IOException;
+import java.math.BigInteger;
 
 /**
  * wallet file utils.
@@ -20,11 +20,25 @@ public class WalletUtils {
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
-    public static WalletFile createWalletFileByKey(String password, ECKeyPair keyPair) {
-        return Wallet.createStandard(password, keyPair);
+    /**
+     * create wallet file by private key.
+     *
+     * @param password   keystore password
+     * @param privateKey private key
+     * @return
+     */
+    public static WalletFile createWalletFileByKey(String password, BigInteger privateKey) {
+        return Wallet.createStandard(password, privateKey);
     }
 
-    public static ECKeyPair loadKeyFromWalletFile(String password, String keystore) {
+    /**
+     * load private key from keystore.
+     *
+     * @param password keystore password
+     * @param keystore keystore content
+     * @return private key.
+     */
+    public static BigInteger loadKeyFromWalletFile(String password, String keystore) {
         try {
             WalletFile walletFile = objectMapper.readValue(keystore, WalletFile.class);
             return Wallet.decrypt(password, walletFile);

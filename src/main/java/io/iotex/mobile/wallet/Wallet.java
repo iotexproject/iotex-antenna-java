@@ -1,7 +1,6 @@
 package io.iotex.mobile.wallet;
 
 import com.lambdaworks.crypto.SCrypt;
-import io.iotex.mobile.crypto.ECKeyPair;
 import io.iotex.mobile.crypto.Hash;
 import io.iotex.mobile.utils.Numeric;
 import org.bouncycastle.crypto.digests.SHA256Digest;
@@ -14,6 +13,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -45,7 +45,7 @@ public class Wallet {
     private static final int CURRENT_VERSION = 3;
     private static final String CIPHER = "aes-128-ctr";
 
-    public static WalletFile create(String password, ECKeyPair ecKeyPair, int n, int p)
+    public static WalletFile create(String password, BigInteger privateKey, int n, int p)
             throws CipherException {
 
         byte[] salt = generateRandomBytes(32);
@@ -57,32 +57,29 @@ public class Wallet {
         byte[] iv = generateRandomBytes(16);
 
         byte[] privateKeyBytes =
-                Numeric.toBytesPadded(ecKeyPair.getPrivateKey(), PRIVATE_KEY_SIZE);
+                Numeric.toBytesPadded(privateKey, PRIVATE_KEY_SIZE);
 
         byte[] cipherText = performCipherOperation(
                 Cipher.ENCRYPT_MODE, iv, encryptKey, privateKeyBytes);
 
         byte[] mac = generateMac(derivedKey, cipherText);
 
-        return createWalletFile(ecKeyPair, cipherText, iv, salt, mac, n, p);
+        return createWalletFile(cipherText, iv, salt, mac, n, p);
     }
 
-    public static WalletFile createStandard(String password, ECKeyPair ecKeyPair)
+    public static WalletFile createStandard(String password, BigInteger privateKey)
             throws CipherException {
-        return create(password, ecKeyPair, N_STANDARD, P_STANDARD);
+        return create(password, privateKey, N_STANDARD, P_STANDARD);
     }
 
-    public static WalletFile createLight(String password, ECKeyPair ecKeyPair)
+    public static WalletFile createLight(String password, BigInteger privateKey)
             throws CipherException {
-        return create(password, ecKeyPair, N_LIGHT, P_LIGHT);
+        return create(password, privateKey, N_LIGHT, P_LIGHT);
     }
 
-    private static WalletFile createWalletFile(
-            ECKeyPair ecKeyPair, byte[] cipherText, byte[] iv, byte[] salt, byte[] mac,
-            int n, int p) {
-
+    private static WalletFile createWalletFile(byte[] cipherText, byte[] iv, byte[] salt, byte[] mac,
+                                               int n, int p) {
         WalletFile walletFile = new WalletFile();
-        walletFile.setAddress(ecKeyPair.getHexAddress());
 
         WalletFile.Crypto crypto = new WalletFile.Crypto();
         crypto.setCipher(CIPHER);
@@ -150,7 +147,7 @@ public class Wallet {
         return Hash.sha3(result);
     }
 
-    public static ECKeyPair decrypt(String password, WalletFile walletFile)
+    public static BigInteger decrypt(String password, WalletFile walletFile)
             throws CipherException {
 
         validate(walletFile);
@@ -193,7 +190,7 @@ public class Wallet {
 
         byte[] encryptKey = Arrays.copyOfRange(derivedKey, 0, 16);
         byte[] privateKey = performCipherOperation(Cipher.DECRYPT_MODE, iv, encryptKey, cipherText);
-        return ECKeyPair.create(privateKey);
+        return Numeric.toBigInt(privateKey);
     }
 
     private static void validate(WalletFile walletFile) throws CipherException {

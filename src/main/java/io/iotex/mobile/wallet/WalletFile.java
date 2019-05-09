@@ -19,18 +19,9 @@ import java.io.IOException;
  * @author Yang XuePing
  */
 public class WalletFile {
-    private String address;
     private Crypto crypto;
     private String id;
     private int version;
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public Crypto getCrypto() {
         return crypto;
@@ -68,11 +59,6 @@ public class WalletFile {
 
         WalletFile that = (WalletFile) o;
 
-        if (getAddress() != null
-                ? !getAddress().equals(that.getAddress())
-                : that.getAddress() != null) {
-            return false;
-        }
         if (getCrypto() != null
                 ? !getCrypto().equals(that.getCrypto())
                 : that.getCrypto() != null) {
@@ -88,9 +74,8 @@ public class WalletFile {
 
     @Override
     public int hashCode() {
-        int result = getAddress() != null ? getAddress().hashCode() : 0;
+        int result = getId() != null ? getId().hashCode() : 0;
         result = 31 * result + (getCrypto() != null ? getCrypto().hashCode() : 0);
-        result = 31 * result + (getId() != null ? getId().hashCode() : 0);
         result = 31 * result + version;
         return result;
     }
