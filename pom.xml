@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.iotex.mobile</groupId>
-    <artifactId>iotex-mobile-framework</artifactId>
+    <artifactId>iotex-android-framework</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <dependencies>
