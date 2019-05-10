@@ -3,8 +3,11 @@ package io.iotex.mobile.account;
 import io.iotex.mobile.crypto.Hash;
 import io.iotex.mobile.crypto.SECP256K1;
 import io.iotex.mobile.utils.Numeric;
+import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPrivateKey;
+import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPublicKey;
 
 import java.math.BigInteger;
+import java.security.KeyPair;
 import java.util.Arrays;
 
 /**
@@ -20,7 +23,39 @@ public class EthAccount extends AbstractAccount implements Account {
     private EthAccount(BigInteger privateKey, BigInteger publicKey) {
         this.privateKey = privateKey;
         this.publicKey = publicKey;
-        this.address = computeAddress(publicKey);
+        this.address = computeAddress(publicKey());
+    }
+
+    /**
+     * create account by Secp256K1.
+     *
+     * @return
+     */
+    public static Account create() {
+        try {
+            return create(SECP256K1.createSecp256k1KeyPair());
+        } catch (Exception e) {
+            throw new RuntimeException("create secp256k1 key error", e);
+        }
+    }
+
+    /**
+     * create account by keypair.
+     *
+     * @param keyPair
+     * @return
+     */
+    public static Account create(KeyPair keyPair) {
+        BCECPrivateKey privateKey = (BCECPrivateKey) keyPair.getPrivate();
+        BCECPublicKey publicKey = (BCECPublicKey) keyPair.getPublic();
+
+        BigInteger privateKeyValue = privateKey.getD();
+
+        byte[] publicKeyBytes = publicKey.getQ().getEncoded(false);
+        BigInteger publicKeyValue =
+                new BigInteger(1, Arrays.copyOfRange(publicKeyBytes, 1, publicKeyBytes.length));
+
+        return new EthAccount(privateKeyValue, publicKeyValue);
     }
 
     /**
@@ -33,10 +68,14 @@ public class EthAccount extends AbstractAccount implements Account {
         return new EthAccount(privateKey, SECP256K1.publicKeyFromPrivate(privateKey, 1));
     }
 
-    private static String computeAddress(BigInteger publicKey) {
-        byte[] hash256 = Hash.sha3(Numeric.toBytesPadded(publicKey, 64));
-        byte[] values = Arrays.copyOfRange(hash256, 12, hash256.length);
-        return AddressPrefix + Numeric.toHexString(values);
+    private static String computeAddress(byte[] publicKey) {
+        byte[] hash256 = Hash.sha3(publicKey);
+        return AddressPrefix + Numeric.toHexString(hash256).substring(24);
+    }
+
+    @Override
+    public byte[] publicKey() {
+        return Numeric.toBytesPadded(publicKey, 64);
     }
 
     @Override

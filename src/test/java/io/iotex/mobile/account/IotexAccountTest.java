@@ -21,8 +21,8 @@ public class IotexAccountTest {
     @Test
     public void testCreateByPrivate() {
         Account account = IotexAccount.create(Numeric.hexStringToByteArray(TEST_PRIVATE));
-        assertEquals(TEST_PRIVATE, account.privateKey());
-        assertEquals(TEST_PUBLIC, account.publicKey());
+        assertEquals(TEST_PRIVATE, Numeric.toHexString(account.privateKey()));
+        assertEquals(TEST_PUBLIC, Numeric.toHexString(account.publicKey()));
         assertEquals(TEST_ADDRESS, account.address());
     }
 
@@ -33,8 +33,8 @@ public class IotexAccountTest {
             Account account = IotexAccount.create();
             assertNotNull(account);
             assertNotNull(account.privateKey());
-            assertEquals(64, account.privateKey().length());
-            assertEquals(130, account.publicKey().length());
+            assertEquals(32, account.privateKey().length);
+            assertEquals(65, account.publicKey().length);
             assertEquals(41, account.address().length());
             assertEquals("io", account.address().substring(0, 2));
         }

@@ -11,14 +11,14 @@ public interface Account {
      *
      * @return
      */
-    String privateKey();
+    byte[] privateKey();
 
     /**
      * get public key hex.
      *
      * @return
      */
-    String publicKey();
+    byte[] publicKey();
 
     /**
      * get account address.

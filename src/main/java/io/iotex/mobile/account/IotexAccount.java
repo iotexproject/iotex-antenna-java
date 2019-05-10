@@ -105,6 +105,12 @@ public class IotexAccount extends AbstractAccount implements Account {
         return Numeric.toHexString(values);
     }
 
+
+    @Override
+    public byte[] publicKey() {
+        return publicKey.toByteArray();
+    }
+
     @Override
     public byte[] sign(byte[] data) {
         return Signer.sign(this.privateKey, this.publicKey, Hash.sha3(data));
