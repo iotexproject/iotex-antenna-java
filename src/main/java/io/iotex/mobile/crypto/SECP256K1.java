@@ -64,10 +64,10 @@ public final class SECP256K1 {
      * @param privKey the private key to derive the public key from
      * @return BigInteger encoded public key
      */
-    public static BigInteger publicKeyFromPrivate(BigInteger privKey) {
+    public static BigInteger publicKeyFromPrivate(BigInteger privKey, int from) {
         ECPoint point = publicPointFromPrivate(privKey);
         byte[] encoded = point.getEncoded(false);
-        return new BigInteger(1, Arrays.copyOfRange(encoded, 0, encoded.length));
+        return new BigInteger(1, Arrays.copyOfRange(encoded, from, encoded.length));
     }
 
     /**

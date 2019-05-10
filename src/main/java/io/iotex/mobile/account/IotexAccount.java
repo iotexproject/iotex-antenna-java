@@ -17,13 +17,9 @@ import java.util.Arrays;
  *
  * @author Yang XuePing
  */
-public class IotexAccount implements Account {
+public class IotexAccount extends AbstractAccount implements Account {
     // AddressPrefix is the prefix added to the human readable address.
     public static final String AddressPrefix = "io";
-
-    private BigInteger privateKey;
-    private BigInteger publicKey;
-    private String address;
 
     // prevent create outer
     private IotexAccount(BigInteger privateKey, BigInteger publicKey) {
@@ -71,7 +67,7 @@ public class IotexAccount implements Account {
      * @return
      */
     public static Account create(BigInteger privateKey) {
-        return new IotexAccount(privateKey, SECP256K1.publicKeyFromPrivate(privateKey));
+        return new IotexAccount(privateKey, SECP256K1.publicKeyFromPrivate(privateKey, 0));
     }
 
     /**
@@ -107,21 +103,6 @@ public class IotexAccount implements Account {
         byte[] hash256 = Hash.sha3(Arrays.copyOfRange(pubBytes, 1, pubBytes.length));
         byte[] values = Arrays.copyOfRange(hash256, 12, hash256.length);
         return Numeric.toHexString(values);
-    }
-
-    @Override
-    public String privateKey() {
-        return Numeric.toHexString(Numeric.toBytesPadded(privateKey, 32));
-    }
-
-    @Override
-    public String publicKey() {
-        return Numeric.toHexString(publicKey.toByteArray());
-    }
-
-    @Override
-    public String address() {
-        return address;
     }
 
     @Override
