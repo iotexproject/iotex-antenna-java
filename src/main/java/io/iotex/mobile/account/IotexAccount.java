@@ -103,7 +103,7 @@ public class IotexAccount implements Account {
 
     @Override
     public String privateKey() {
-        return Numeric.toHexString(privateKey.toByteArray());
+        return Numeric.toHexString(Numeric.toBytesPadded(privateKey, 32));
     }
 
     @Override
