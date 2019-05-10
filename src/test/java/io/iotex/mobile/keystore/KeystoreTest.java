@@ -31,8 +31,8 @@ public class KeystoreTest {
         Account account = IotexAccount.create(KeystoreUtils.loadKeyFromWalletFile("123456", TEST_KEYSTORE));
         Assert.assertNotNull(account);
         Assert.assertEquals(TEST_ADDRESS, account.address());
-        Assert.assertEquals(TEST_PRIVATE, account.privateKey());
-        Assert.assertEquals(TEST_PUBLIC, account.publicKey());
+        Assert.assertEquals(TEST_PRIVATE, Numeric.toHexString(account.privateKey()));
+        Assert.assertEquals(TEST_PUBLIC, Numeric.toHexString(account.publicKey()));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class KeystoreTest {
         Account account = IotexAccount.create(KeystoreUtils.loadKeyFromWalletFile("iotexPassw0rd", TEST_KEYSTORE_JS));
         Assert.assertNotNull(account);
         Assert.assertEquals(TEST_ADDRESS, account.address());
-        Assert.assertEquals(TEST_PRIVATE, account.privateKey());
-        Assert.assertEquals(TEST_PUBLIC, account.publicKey());
+        Assert.assertEquals(TEST_PRIVATE, Numeric.toHexString(account.privateKey()));
+        Assert.assertEquals(TEST_PUBLIC, Numeric.toHexString(account.publicKey()));
     }
 }
