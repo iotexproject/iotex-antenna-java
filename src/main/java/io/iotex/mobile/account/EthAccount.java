@@ -80,6 +80,6 @@ public class EthAccount extends AbstractAccount implements Account {
 
     @Override
     public byte[] sign(byte[] data) {
-        return new byte[0];
+        throw new UnsupportedOperationException("please use web3j to sign");
     }
 }
