@@ -1,4 +1,4 @@
-package io.iotex.mobile.wallet;
+package io.iotex.mobile.keystore;
 
 import com.lambdaworks.crypto.SCrypt;
 import io.iotex.mobile.crypto.Hash;
@@ -24,15 +24,16 @@ import static io.iotex.mobile.crypto.SecureRandomUtils.secureRandom;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
- * <p>Ethereum wallet file management. For reference, refer to
- * * <a href="https://github.com/ethereum/wiki/wiki/Web3-Secret-Storage-Definition">
- * * Web3 Secret Storage Definition</a> or the
- * * <a href="https://github.com/ethereum/go-ethereum/blob/master/accounts/key_store_passphrase.go">
- * * Go Ethereum client implementation</a>.</p>
+ * <p>Ethereum keystore file management. For reference, refer to
+ * <a href="https://github.com/ethereum/wiki/wiki/Web3-Secret-Storage-Definition">
+ * Web3 Secret Storage Definition</a> or the
+ * <a href="https://github.com/ethereum/go-ethereum/blob/master/accounts/key_store_passphrase.go">
+ * Go Ethereum client implementation</a>.
+ * </p>
  *
  * @author Yang XuePing
  */
-public class Wallet {
+public class Keystore {
     static final int PRIVATE_KEY_SIZE = 32;
     static final String AES_128_CTR = "pbkdf2";
     static final String SCRYPT = "scrypt";
@@ -45,7 +46,7 @@ public class Wallet {
     private static final int CURRENT_VERSION = 3;
     private static final String CIPHER = "aes-128-ctr";
 
-    public static WalletFile create(String password, BigInteger privateKey, int n, int p)
+    public static KeystoreFile create(String password, BigInteger privateKey, int n, int p)
             throws CipherException {
 
         byte[] salt = generateRandomBytes(32);
@@ -67,30 +68,30 @@ public class Wallet {
         return createWalletFile(cipherText, iv, salt, mac, n, p);
     }
 
-    public static WalletFile createStandard(String password, BigInteger privateKey)
+    public static KeystoreFile createStandard(String password, BigInteger privateKey)
             throws CipherException {
         return create(password, privateKey, N_STANDARD, P_STANDARD);
     }
 
-    public static WalletFile createLight(String password, BigInteger privateKey)
+    public static KeystoreFile createLight(String password, BigInteger privateKey)
             throws CipherException {
         return create(password, privateKey, N_LIGHT, P_LIGHT);
     }
 
-    private static WalletFile createWalletFile(byte[] cipherText, byte[] iv, byte[] salt, byte[] mac,
-                                               int n, int p) {
-        WalletFile walletFile = new WalletFile();
+    private static KeystoreFile createWalletFile(byte[] cipherText, byte[] iv, byte[] salt, byte[] mac,
+                                                 int n, int p) {
+        KeystoreFile walletFile = new KeystoreFile();
 
-        WalletFile.Crypto crypto = new WalletFile.Crypto();
+        KeystoreFile.Crypto crypto = new KeystoreFile.Crypto();
         crypto.setCipher(CIPHER);
         crypto.setCiphertext(Numeric.toHexString(cipherText));
 
-        WalletFile.CipherParams cipherParams = new WalletFile.CipherParams();
+        KeystoreFile.CipherParams cipherParams = new KeystoreFile.CipherParams();
         cipherParams.setIv(Numeric.toHexString(iv));
         crypto.setCipherparams(cipherParams);
 
         crypto.setKdf(SCRYPT);
-        WalletFile.ScryptKdfParams kdfParams = new WalletFile.ScryptKdfParams();
+        KeystoreFile.ScryptKdfParams kdfParams = new KeystoreFile.ScryptKdfParams();
         kdfParams.setDklen(DKLEN);
         kdfParams.setN(n);
         kdfParams.setP(p);
@@ -147,12 +148,12 @@ public class Wallet {
         return Hash.sha3(result);
     }
 
-    public static BigInteger decrypt(String password, WalletFile walletFile)
+    public static BigInteger decrypt(String password, KeystoreFile walletFile)
             throws CipherException {
 
         validate(walletFile);
 
-        WalletFile.Crypto crypto = walletFile.getCrypto();
+        KeystoreFile.Crypto crypto = walletFile.getCrypto();
 
         byte[] mac = Numeric.hexStringToByteArray(crypto.getMac());
         byte[] iv = Numeric.hexStringToByteArray(crypto.getCipherparams().getIv());
@@ -160,19 +161,19 @@ public class Wallet {
 
         byte[] derivedKey;
 
-        WalletFile.KdfParams kdfParams = crypto.getKdfparams();
-        if (kdfParams instanceof WalletFile.ScryptKdfParams) {
-            WalletFile.ScryptKdfParams scryptKdfParams =
-                    (WalletFile.ScryptKdfParams) crypto.getKdfparams();
+        KeystoreFile.KdfParams kdfParams = crypto.getKdfparams();
+        if (kdfParams instanceof KeystoreFile.ScryptKdfParams) {
+            KeystoreFile.ScryptKdfParams scryptKdfParams =
+                    (KeystoreFile.ScryptKdfParams) crypto.getKdfparams();
             int dklen = scryptKdfParams.getDklen();
             int n = scryptKdfParams.getN();
             int p = scryptKdfParams.getP();
             int r = scryptKdfParams.getR();
             byte[] salt = Numeric.hexStringToByteArray(scryptKdfParams.getSalt());
             derivedKey = generateDerivedScryptKey(password.getBytes(UTF_8), salt, n, r, p, dklen);
-        } else if (kdfParams instanceof WalletFile.Aes128CtrKdfParams) {
-            WalletFile.Aes128CtrKdfParams aes128CtrKdfParams =
-                    (WalletFile.Aes128CtrKdfParams) crypto.getKdfparams();
+        } else if (kdfParams instanceof KeystoreFile.Aes128CtrKdfParams) {
+            KeystoreFile.Aes128CtrKdfParams aes128CtrKdfParams =
+                    (KeystoreFile.Aes128CtrKdfParams) crypto.getKdfparams();
             int c = aes128CtrKdfParams.getC();
             String prf = aes128CtrKdfParams.getPrf();
             byte[] salt = Numeric.hexStringToByteArray(aes128CtrKdfParams.getSalt());
@@ -193,15 +194,15 @@ public class Wallet {
         return Numeric.toBigInt(privateKey);
     }
 
-    private static void validate(WalletFile walletFile) throws CipherException {
-        WalletFile.Crypto crypto = walletFile.getCrypto();
+    private static void validate(KeystoreFile walletFile) throws CipherException {
+        KeystoreFile.Crypto crypto = walletFile.getCrypto();
 
         if (walletFile.getVersion() != CURRENT_VERSION) {
-            throw new CipherException("Wallet version is not supported");
+            throw new CipherException("Keystore version is not supported");
         }
 
         if (!crypto.getCipher().equals(CIPHER)) {
-            throw new CipherException("Wallet cipher is not supported");
+            throw new CipherException("Keystore cipher is not supported");
         }
 
         if (!crypto.getKdf().equals(AES_128_CTR) && !crypto.getKdf().equals(SCRYPT)) {

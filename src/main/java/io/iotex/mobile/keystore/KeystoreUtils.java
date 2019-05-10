@@ -1,4 +1,4 @@
-package io.iotex.mobile.wallet;
+package io.iotex.mobile.keystore;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -8,11 +8,11 @@ import java.io.IOException;
 import java.math.BigInteger;
 
 /**
- * wallet file utils.
+ * keystore utils.
  *
  * @author Yang XuePing
  */
-public class WalletUtils {
+public class KeystoreUtils {
     static final ObjectMapper objectMapper = new ObjectMapper();
 
     static {
@@ -21,14 +21,14 @@ public class WalletUtils {
     }
 
     /**
-     * create wallet file by private key.
+     * create keystore file by private key.
      *
      * @param password   keystore password
      * @param privateKey private key
      * @return
      */
-    public static WalletFile createWalletFileByKey(String password, BigInteger privateKey) {
-        return Wallet.createStandard(password, privateKey);
+    public static KeystoreFile createWalletFileByKey(String password, BigInteger privateKey) {
+        return Keystore.createStandard(password, privateKey);
     }
 
     /**
@@ -40,8 +40,8 @@ public class WalletUtils {
      */
     public static BigInteger loadKeyFromWalletFile(String password, String keystore) {
         try {
-            WalletFile walletFile = objectMapper.readValue(keystore, WalletFile.class);
-            return Wallet.decrypt(password, walletFile);
+            KeystoreFile walletFile = objectMapper.readValue(keystore, KeystoreFile.class);
+            return Keystore.decrypt(password, walletFile);
         } catch (IOException e) {
             throw new RuntimeException("read keystore json error", e);
         }

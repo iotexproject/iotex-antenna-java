@@ -1,4 +1,4 @@
-package io.iotex.mobile.wallet;
+package io.iotex.mobile.keystore;
 
 /**
  * cipher exception.

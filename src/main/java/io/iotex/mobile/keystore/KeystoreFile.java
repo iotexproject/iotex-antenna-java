@@ -1,4 +1,4 @@
-package io.iotex.mobile.wallet;
+package io.iotex.mobile.keystore;
 
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
@@ -14,11 +14,11 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.io.IOException;
 
 /**
- * wallet keystore file.
+ * keystore file.
  *
  * @author Yang XuePing
  */
-public class WalletFile {
+public class KeystoreFile {
     private Crypto crypto;
     private String id;
     private int version;
@@ -53,11 +53,11 @@ public class WalletFile {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof WalletFile)) {
+        if (!(o instanceof KeystoreFile)) {
             return false;
         }
 
-        WalletFile that = (WalletFile) o;
+        KeystoreFile that = (KeystoreFile) o;
 
         if (getCrypto() != null
                 ? !getCrypto().equals(that.getCrypto())
@@ -82,9 +82,9 @@ public class WalletFile {
 
     public String toJsonString() {
         try {
-            return WalletUtils.objectMapper.writeValueAsString(this);
+            return KeystoreUtils.objectMapper.writeValueAsString(this);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException("write wallet file to json error", e);
+            throw new RuntimeException("write keystore file to json error", e);
         }
     }
 
@@ -145,8 +145,8 @@ public class WalletFile {
                 include = JsonTypeInfo.As.EXTERNAL_PROPERTY,
                 property = "kdf")
         @JsonSubTypes({
-                @JsonSubTypes.Type(value = Aes128CtrKdfParams.class, name = Wallet.AES_128_CTR),
-                @JsonSubTypes.Type(value = ScryptKdfParams.class, name = Wallet.SCRYPT)
+                @JsonSubTypes.Type(value = Aes128CtrKdfParams.class, name = Keystore.AES_128_CTR),
+                @JsonSubTypes.Type(value = ScryptKdfParams.class, name = Keystore.SCRYPT)
         })
         public void setKdfparams(KdfParams kdfparams) {
             this.kdfparams = kdfparams;
