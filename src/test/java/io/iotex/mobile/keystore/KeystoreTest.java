@@ -1,11 +1,12 @@
 package io.iotex.mobile.keystore;
 
-import io.iotex.mobile.crypto.ECKeyPair;
+import io.iotex.mobile.account.Account;
+import io.iotex.mobile.account.IotexAccount;
 import io.iotex.mobile.utils.Numeric;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static io.iotex.mobile.crypto.ECKeyPairTest.*;
+import static io.iotex.mobile.account.IotexAccountTest.*;
 
 
 /**
@@ -20,19 +21,18 @@ public class KeystoreTest {
 
     @Test
     public void testCreateWalletFileByExistKeyPair() {
-        ECKeyPair keyPair = ECKeyPair.create(Numeric.hexStringToByteArray(TEST_PRIVATE));
-        KeystoreFile walletFile = Keystore.createStandard("123456", keyPair.getPrivateKey());
+        Account account = IotexAccount.create(Numeric.hexStringToByteArray(TEST_PRIVATE));
+        KeystoreFile walletFile = Keystore.createStandard("123456", Numeric.toBigInt(account.privateKey()));
         Assert.assertNotNull(walletFile.toJsonString());
     }
 
     @Test
     public void testLoadKeystore() {
-        ECKeyPair keyPair = ECKeyPair.create(KeystoreUtils.loadKeyFromWalletFile("123456", TEST_KEYSTORE));
-        Assert.assertNotNull(keyPair);
-        Assert.assertEquals(TEST_ADDRESS, keyPair.getAddress());
-        Assert.assertEquals(TEST_HEX_ADDRESS, keyPair.getHexAddress());
-        Assert.assertEquals(TEST_PRIVATE, Numeric.toHexString(keyPair.getPrivateKey().toByteArray()));
-        Assert.assertEquals(TEST_PUBLIC, Numeric.toHexString(keyPair.getPublicKey().toByteArray()));
+        Account account = IotexAccount.create(KeystoreUtils.loadKeyFromWalletFile("123456", TEST_KEYSTORE));
+        Assert.assertNotNull(account);
+        Assert.assertEquals(TEST_ADDRESS, account.address());
+        Assert.assertEquals(TEST_PRIVATE, account.privateKey());
+        Assert.assertEquals(TEST_PUBLIC, account.publicKey());
     }
 
     @Test
@@ -46,11 +46,10 @@ public class KeystoreTest {
 
     @Test
     public void testLoadJSKeystore() {
-        ECKeyPair keyPair = ECKeyPair.create(KeystoreUtils.loadKeyFromWalletFile("iotexPassw0rd", TEST_KEYSTORE_JS));
-        Assert.assertNotNull(keyPair);
-        Assert.assertEquals(TEST_ADDRESS, keyPair.getAddress());
-        Assert.assertEquals(TEST_HEX_ADDRESS, keyPair.getHexAddress());
-        Assert.assertEquals(TEST_PRIVATE, Numeric.toHexString(keyPair.getPrivateKey().toByteArray()));
-        Assert.assertEquals(TEST_PUBLIC, Numeric.toHexString(keyPair.getPublicKey().toByteArray()));
+        Account account = IotexAccount.create(KeystoreUtils.loadKeyFromWalletFile("iotexPassw0rd", TEST_KEYSTORE_JS));
+        Assert.assertNotNull(account);
+        Assert.assertEquals(TEST_ADDRESS, account.address());
+        Assert.assertEquals(TEST_PRIVATE, account.privateKey());
+        Assert.assertEquals(TEST_PUBLIC, account.publicKey());
     }
 }

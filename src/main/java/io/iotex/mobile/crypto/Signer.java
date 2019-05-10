@@ -22,7 +22,7 @@ import static io.iotex.mobile.crypto.SECP256K1.HALF_CURVE_ORDER;
  *
  * @author Yang XuePing
  */
-public class Sign {
+public class Signer {
     public static BigInteger recoverFromSignature(int recId, BigInteger r, BigInteger s, byte[] message) {
         // 1.0 For j from 0 to h   (h == recId here and the loop is outside this function)
         //   1.1 Let x = r + jn

@@ -3,6 +3,7 @@ package io.iotex.mobile.account;
 import io.iotex.mobile.crypto.Bech32;
 import io.iotex.mobile.crypto.Hash;
 import io.iotex.mobile.crypto.SECP256K1;
+import io.iotex.mobile.crypto.Signer;
 import io.iotex.mobile.utils.Numeric;
 import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPrivateKey;
 import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPublicKey;
@@ -101,6 +102,13 @@ public class IotexAccount implements Account {
         return Bech32.encode(AddressPrefix, grouped);
     }
 
+    public String getHexAddress() {
+        byte[] pubBytes = publicKey.toByteArray();
+        byte[] hash256 = Hash.sha3(Arrays.copyOfRange(pubBytes, 1, pubBytes.length));
+        byte[] values = Arrays.copyOfRange(hash256, 12, hash256.length);
+        return Numeric.toHexString(values);
+    }
+
     @Override
     public String privateKey() {
         return Numeric.toHexString(Numeric.toBytesPadded(privateKey, 32));
@@ -118,7 +126,6 @@ public class IotexAccount implements Account {
 
     @Override
     public byte[] sign(byte[] data) {
-        // TODO
-        return new byte[0];
+        return Signer.sign(this.privateKey, this.publicKey, Hash.sha3(data));
     }
 }

@@ -39,4 +39,14 @@ public class IotexAccountTest {
             assertEquals("io", account.address().substring(0, 2));
         }
     }
+
+    @Test
+    public void testSign() {
+        Account account = IotexAccount.create(Numeric.hexStringToByteArray(TEST_PRIVATE));
+        byte[] sign = account.sign("IoTeX is the auto-scalable and privacy-centric blockchain.".getBytes());
+        assertEquals(
+                "482da72c8faa48ee1ac2cf9a5f9ecd42ee3258be5ddd8d6b496c7171dc7bfe8e75e5d16e7129c88d99a21a912e5c082fa1baab6ba87d2688ebd7d27bb1ab090701",
+                Numeric.toHexString(sign)
+        );
+    }
 }
