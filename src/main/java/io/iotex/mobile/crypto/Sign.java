@@ -13,8 +13,9 @@ import org.bouncycastle.math.ec.custom.sec.SecP256K1Curve;
 import java.math.BigInteger;
 import java.util.Arrays;
 
-import static io.iotex.mobile.crypto.ECKeyPair.CURVE;
-import static io.iotex.mobile.crypto.ECKeyPair.HALF_CURVE_ORDER;
+import static io.iotex.mobile.crypto.SECP256K1.CURVE;
+import static io.iotex.mobile.crypto.SECP256K1.HALF_CURVE_ORDER;
+
 
 /**
  * sign.
