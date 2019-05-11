@@ -1,9 +1,6 @@
 package io.iotex.mobile.account;
 
-import io.iotex.mobile.crypto.Bech32;
-import io.iotex.mobile.crypto.Hash;
-import io.iotex.mobile.crypto.SECP256K1;
-import io.iotex.mobile.crypto.Signer;
+import io.iotex.mobile.crypto.*;
 import io.iotex.mobile.utils.Numeric;
 import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPrivateKey;
 import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPublicKey;
@@ -113,6 +110,11 @@ public class IotexAccount extends AbstractAccount implements Account {
 
     @Override
     public byte[] sign(byte[] data) {
-        return Signer.sign(this.privateKey, this.publicKey, Hash.sha3(data));
+        SignatureData signatureData = Signer.sign(this.privateKey, this.publicKey, 0, 0, Hash.sha3(data));
+        byte[] result = new byte[65];
+        System.arraycopy(signatureData.getR(), 0, result, 0, 32);
+        System.arraycopy(signatureData.getS(), 0, result, 32, 32);
+        result[64] = signatureData.getV();
+        return result;
     }
 }

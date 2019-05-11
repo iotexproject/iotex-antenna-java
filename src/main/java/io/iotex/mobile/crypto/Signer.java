@@ -23,7 +23,7 @@ import static io.iotex.mobile.crypto.SECP256K1.HALF_CURVE_ORDER;
  * @author Yang XuePing
  */
 public class Signer {
-    public static BigInteger recoverFromSignature(int recId, BigInteger r, BigInteger s, byte[] message) {
+    public static BigInteger recoverFromSignature(int from, int recId, BigInteger r, BigInteger s, byte[] message) {
         // 1.0 For j from 0 to h   (h == recId here and the loop is outside this function)
         //   1.1 Let x = r + jn
         BigInteger n = CURVE.getN();  // Curve order.
@@ -72,8 +72,8 @@ public class Signer {
         ECPoint q = ECAlgorithms.sumOfTwoMultiplies(CURVE.getG(), eInvrInv, R, srInv);
 
         byte[] qBytes = q.getEncoded(false);
-        // We remove the prefix
-        return new BigInteger(1, Arrays.copyOfRange(qBytes, 0, qBytes.length));
+
+        return new BigInteger(1, Arrays.copyOfRange(qBytes, from, qBytes.length));
     }
 
 
@@ -85,7 +85,7 @@ public class Signer {
     }
 
 
-    public static byte[] sign(BigInteger privateKey, BigInteger publicKey, byte[] data) {
+    public static SignatureData sign(BigInteger privateKey, BigInteger publicKey, int addToV, int from, byte[] data) {
         ECDSASigner signer = new ECDSASigner(new HMacDSAKCalculator(new SHA256Digest()));
 
         ECPrivateKeyParameters privKey = new ECPrivateKeyParameters(privateKey, CURVE);
@@ -99,7 +99,7 @@ public class Signer {
 
         int recId = -1;
         for (int i = 0; i < 4; i++) {
-            BigInteger k = recoverFromSignature(i, r, s, data);
+            BigInteger k = recoverFromSignature(from, i, r, s, data);
             if (k != null && k.equals(publicKey)) {
                 recId = i;
                 break;
@@ -110,13 +110,14 @@ public class Signer {
                     "Could not construct a recoverable key. Are your credentials valid?");
         }
 
+        int headerByte = recId + addToV;
+
         // 1 header + 32 bytes for R + 32 bytes for S
+        byte v = (byte) headerByte;
+
         byte[] cr = Numeric.toBytesPadded(r, 32);
         byte[] cs = Numeric.toBytesPadded(s, 32);
-        byte[] result = new byte[65];
-        System.arraycopy(cr, 0, result, 0, 32);
-        System.arraycopy(cs, 0, result, 32, 32);
-        result[64] = (byte) recId;
-        return result;
+
+        return new SignatureData(v, cr, cs);
     }
 }
