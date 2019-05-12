@@ -3,6 +3,8 @@ package io.iotex.mobile.keystore;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.iotex.mobile.account.Account;
+import io.iotex.mobile.utils.Numeric;
 
 import java.io.IOException;
 import java.math.BigInteger;
@@ -18,6 +20,17 @@ public class KeystoreUtils {
     static {
         objectMapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    }
+
+    /**
+     * create keystore file by Account.
+     *
+     * @param password keystore password
+     * @param account  account.
+     * @return
+     */
+    public static KeystoreFile createWalletFileByAcount(String password, Account account) {
+        return Keystore.createStandard(password, Numeric.toBigInt(account.privateKey()));
     }
 
     /**
