@@ -112,7 +112,7 @@ public class Envelop {
         return builder.build();
     }
 
-    public byte[] bytestream() {
+    public byte[] byteStream() {
         return core().toByteArray();
     }
 }
