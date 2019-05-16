@@ -17,7 +17,7 @@ public class TransferMethod extends AbstractMethod {
     private Envelop envelop;
 
     public TransferMethod(RPCMethod client, TransferRequest request) {
-        super(client);
+        super(client, request.getAccount());
         this.request = request;
         envelop = baseEnvelop(request);
     }

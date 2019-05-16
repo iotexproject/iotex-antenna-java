@@ -1,5 +1,6 @@
 package io.iotex.mobile.protocol;
 
+import io.iotex.mobile.action.method.TransferMethod;
 import io.iotex.mobile.rpc.RPCMethod;
 
 /**
@@ -23,5 +24,9 @@ public class IOTX {
             this.provider.close();
         }
         this.provider = new RPCMethod(provider);
+    }
+
+    public String sendTransfer(TransferRequest request) {
+        return new TransferMethod(provider, request).execute();
     }
 }
