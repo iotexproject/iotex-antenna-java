@@ -1,8 +1,10 @@
 package io.iotex.mobile.action;
 
 import io.iotex.grpc.types.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * action envelop.
@@ -11,6 +13,8 @@ import lombok.Data;
  */
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Envelop {
     private Integer version;
     private Long nonce;

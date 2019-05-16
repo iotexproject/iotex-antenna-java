@@ -17,6 +17,9 @@ public class Numeric {
     }
 
     public static byte[] hexStringToByteArray(String input) {
+        if (input == null) {
+            input = "";
+        }
         int len = input.length();
 
         if (len == 0) {
