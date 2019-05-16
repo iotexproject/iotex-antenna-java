@@ -3,6 +3,7 @@ package io.iotex.mobile.action;
 import io.iotex.mobile.crypto.Hash;
 import io.iotex.mobile.crypto.SignatureData;
 import io.iotex.mobile.crypto.Signer;
+import lombok.Getter;
 
 import java.math.BigInteger;
 
@@ -11,10 +12,11 @@ import java.math.BigInteger;
  *
  * @author Yang XuePing
  */
+@Getter
 public class SealedEnvelop {
-    public Envelop act;
-    public byte[] senderPubKey;
-    public byte[] signature;
+    private Envelop act;
+    private byte[] senderPubKey;
+    private byte[] signature;
 
     private SealedEnvelop() {
     }
