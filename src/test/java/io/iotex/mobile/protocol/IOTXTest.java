@@ -3,6 +3,7 @@ package io.iotex.mobile.protocol;
 import io.iotex.mobile.account.Account;
 import io.iotex.mobile.account.IotexAccount;
 import io.iotex.mobile.account.IotexAccountTest;
+import io.iotex.mobile.rpc.RPCMethodTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,7 +16,7 @@ public class IOTXTest {
     @Test
     public void testTransfer() {
         Account account = IotexAccount.create(IotexAccountTest.TEST_PRIVATE);
-        IOTX iotx = new IOTX("api.testnet.iotex.one:80");
+        IOTX iotx = new IOTX(RPCMethodTest.IOTEX_CORE);
 
         TransferRequest request = new TransferRequest();
         request.setNonce(1l); // optional, can be null

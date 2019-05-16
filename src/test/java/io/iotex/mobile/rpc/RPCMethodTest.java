@@ -16,7 +16,7 @@ import org.junit.Test;
  * @author Yang XuePing
  */
 public class RPCMethodTest {
-    private static final String IOTEX_CORE = "api.testnet.iotex.one:80";
+    public static final String IOTEX_CORE = "api.testnet.iotex.one:80";
 
     private RPCMethod rpcMethod;
 
