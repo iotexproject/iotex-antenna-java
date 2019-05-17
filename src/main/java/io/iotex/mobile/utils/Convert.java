@@ -11,20 +11,20 @@ public final class Convert {
     private Convert() {
     }
 
-    public static BigDecimal fromRau(String number, Unit unit) {
+    public static String fromRau(String number, Unit unit) {
         return fromRau(new BigDecimal(number), unit);
     }
 
-    public static BigDecimal fromRau(BigDecimal number, Unit unit) {
-        return number.divide(unit.getWeiFactor());
+    public static String fromRau(BigDecimal number, Unit unit) {
+        return number.divide(unit.getWeiFactor()).toPlainString();
     }
 
-    public static BigDecimal toRau(String number, Unit unit) {
+    public static String toRau(String number, Unit unit) {
         return toRau(new BigDecimal(number), unit);
     }
 
-    public static BigDecimal toRau(BigDecimal number, Unit unit) {
-        return number.multiply(unit.getWeiFactor());
+    public static String toRau(BigDecimal number, Unit unit) {
+        return number.multiply(unit.getWeiFactor()).toBigInteger().toString();
     }
 
     public enum Unit {
@@ -64,5 +64,4 @@ public final class Convert {
             return name;
         }
     }
-}
 }
