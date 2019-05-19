@@ -1,6 +1,7 @@
 package io.iotex.mobile.utils;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 
 /**
  * numeric.
@@ -78,5 +79,44 @@ public class Numeric {
         int destOffset = length - bytesLength;
         System.arraycopy(bytes, srcOffset, result, destOffset, bytesLength);
         return result;
+    }
+
+    public static byte[] bigIntegerToBytes(BigInteger b, int numBytes) {
+        if (b == null)
+            return null;
+        byte[] bytes = new byte[numBytes];
+        byte[] biBytes = b.toByteArray();
+        int start = (biBytes.length == numBytes + 1) ? 1 : 0;
+        int length = Math.min(biBytes.length, numBytes);
+        System.arraycopy(biBytes, start, bytes, numBytes - length, length);
+        return bytes;
+    }
+
+    public static byte[] bigIntegerToBytesSigned(BigInteger b, int numBytes) {
+        if (b == null)
+            return null;
+        byte[] bytes = new byte[numBytes];
+        Arrays.fill(bytes, b.signum() < 0 ? (byte) 0xFF : 0x00);
+        byte[] biBytes = b.toByteArray();
+        int start = (biBytes.length == numBytes + 1) ? 1 : 0;
+        int length = Math.min(biBytes.length, numBytes);
+        System.arraycopy(biBytes, start, bytes, numBytes - length, length);
+        return bytes;
+    }
+
+    public static byte[] merge(byte[]... arrays) {
+        int count = 0;
+        for (byte[] array : arrays) {
+            count += array.length;
+        }
+
+        // Create new array and copy all array contents
+        byte[] mergedArray = new byte[count];
+        int start = 0;
+        for (byte[] array : arrays) {
+            System.arraycopy(array, 0, mergedArray, start, array.length);
+            start += array.length;
+        }
+        return mergedArray;
     }
 }
