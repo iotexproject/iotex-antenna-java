@@ -31,6 +31,14 @@ public class Contract {
         this(provider, address, abi, null);
     }
 
+    public Contract(RPCMethod provider, String abi, byte[] bin) {
+        this.provider = provider;
+        this.address = "";
+        this.abiJson = abi;
+        this.bin = bin;
+        this.abi = Abi.fromJson(abi);
+    }
+
     public Contract(RPCMethod provider, String address, String abi, byte[] bin) {
         this.provider = provider;
         this.address = address;
@@ -57,13 +65,13 @@ public class Contract {
      * @param args     constructor params
      * @return
      */
-    public String deploy(Long nonce, Long gasLimit, String gasPrice, Account account, Object... args) {
+    public String deploy(Long nonce, Long gasLimit, String gasPrice, Account account, String amount, Object... args) {
         if (this.bin == null) {
             throw new RuntimeException("deploy contract must set bin");
         }
         byte[] data = this.bin;
         Abi.Constructor constructor = this.abi.findConstructor();
-        if (constructor != null) {
+        if (constructor != null && args != null && args.length > 0) {
             data = Numeric.merge(data, constructor.encode(args));
         }
         ExecutionRequest request = new ExecutionRequest();
@@ -72,7 +80,7 @@ public class Contract {
         request.setGasPrice(gasPrice);
         request.setAccount(account);
         request.setContract("");
-        request.setAmount("");
+        request.setAmount(amount);
         request.setData(data);
         return new ExecutionMethod(provider, request).execute();
     }
