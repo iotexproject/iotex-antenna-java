@@ -39,6 +39,14 @@ public class Contract {
         this.abi = Abi.fromJson(abi);
     }
 
+    public void setProvider(RPCMethod provider) {
+        this.provider = provider;
+    }
+
+    public RPCMethod currentProvider() {
+        return this.provider;
+    }
+
     /**
      * deploy contract.
      *
