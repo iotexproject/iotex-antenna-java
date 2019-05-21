@@ -38,10 +38,9 @@ public class ContractTest {
         assertNotNull(hash);
     }
 
-    @Test
     public void testRead() {
         RPCMethod provider = new RPCMethod(IOTEX_CORE);
-        Account account = IotexAccount.create("41a0dd7befae299109a2e64fd4f275d8c6d0148c2637fea605b8716d64d8236d");
+        Account account = IotexAccount.create(IotexAccountTest.TEST_PRIVATE);
 
         Contract contract = new Contract(provider, "io1tzevj29d4fsxet3a8gthhz9v4rmqc730myt0q4", CONTRACT_WITH_CONSTRUCTOR_ABI);
         Object result = contract.read(null, 100000l, "1000000000000", account, "get");
