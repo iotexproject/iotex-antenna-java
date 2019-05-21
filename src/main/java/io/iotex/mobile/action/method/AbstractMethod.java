@@ -46,7 +46,7 @@ public abstract class AbstractMethod {
         return response.getActionHash();
     }
 
-    private SealedEnvelop signAction(Envelop envelop) {
+    protected SealedEnvelop signAction(Envelop envelop) {
         BigInteger privateKey = Numeric.toBigInt(this.account.privateKey());
         BigInteger publicKey = Numeric.toBigInt(this.account.publicKey());
         if (envelop.getGasLimit() == 0) {

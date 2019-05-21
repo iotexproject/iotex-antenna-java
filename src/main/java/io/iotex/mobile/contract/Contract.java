@@ -1,5 +1,6 @@
 package io.iotex.mobile.contract;
 
+import io.iotex.grpc.api.ReadContractRequest;
 import io.iotex.mobile.account.Account;
 import io.iotex.mobile.action.method.ExecutionMethod;
 import io.iotex.mobile.protocol.ExecutionRequest;
@@ -116,12 +117,27 @@ public class Contract {
     /**
      * read contract.
      *
-     * @param method contract method
-     * @param args   contract method params
+     * @param account query account
+     * @param method  contract method
+     * @param args    contract method params
      * @return
      */
-    public Object read(String method, Object... args) {
-        // TODO
-        return null;
+    public Object read(Long nonce, Long gasLimit, String gasPrice, Account account, String method, Object... args) {
+        Abi.Function function = this.abi.findFunction(method);
+        if (function == null) {
+            throw new RuntimeException("contract method " + method + " not exists.");
+        }
+        ExecutionRequest request = new ExecutionRequest();
+        request.setNonce(nonce);
+        request.setGasLimit(gasLimit);
+        request.setGasPrice(gasPrice);
+        request.setAccount(account);
+        request.setContract(address);
+        request.setAmount("0");
+        request.setData(function.encode(args));
+
+        return provider.readContract(
+                ReadContractRequest.newBuilder().setAction(new ExecutionMethod(provider, request).signedAction()).build()
+        ).getData();
     }
 }

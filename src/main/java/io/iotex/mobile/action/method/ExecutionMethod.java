@@ -1,6 +1,7 @@
 package io.iotex.mobile.action.method;
 
 import com.google.protobuf.ByteString;
+import io.iotex.grpc.types.Action;
 import io.iotex.grpc.types.Execution;
 import io.iotex.mobile.action.Envelop;
 import io.iotex.mobile.protocol.ExecutionRequest;
@@ -29,5 +30,14 @@ public class ExecutionMethod extends AbstractMethod {
                 .setAmount(request.getAmount())
                 .build());
         return sendAction(envelop);
+    }
+
+    public Action signedAction() {
+        envelop.setExecution(Execution.newBuilder()
+                .setContract(request.getContract())
+                .setData(ByteString.copyFrom(request.getData()))
+                .setAmount(request.getAmount())
+                .build());
+        return signAction(envelop).action();
     }
 }

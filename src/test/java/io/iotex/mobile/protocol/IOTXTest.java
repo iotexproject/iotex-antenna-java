@@ -2,7 +2,6 @@ package io.iotex.mobile.protocol;
 
 import io.iotex.mobile.account.Account;
 import io.iotex.mobile.account.IotexAccount;
-import io.iotex.mobile.account.IotexAccountTest;
 import io.iotex.mobile.rpc.RPCMethodTest;
 import org.junit.Assert;
 import org.junit.Test;
