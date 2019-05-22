@@ -40,8 +40,8 @@ String hash = iotx.sendTransfer(request);
 // contract deploy
 Contract contract = new Contract(iotx.currentProvider(), CONTRACT_ABI, Numeric.hexStringToByteArray(CONTRACT_BIN));
 String hash = contract.deploy(null, 100000l, "1000000000000", account, "0", 5);
-assertNotNull(hash);
 
 // contract execute
+Contract contract = new Contract(provider, CONTRACT_ADDRESS, CONTRACT_ABI);
 String hash = contract.execute(null, 100000l, "1000000000000", account, "set", "0", 10);
 ```
