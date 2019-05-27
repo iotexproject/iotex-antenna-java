@@ -1,6 +1,8 @@
 package io.iotex.mobile.contract;
 
+import com.google.protobuf.ByteString;
 import io.iotex.grpc.api.ReadContractRequest;
+import io.iotex.grpc.types.Execution;
 import io.iotex.mobile.account.Account;
 import io.iotex.mobile.action.method.ExecutionMethod;
 import io.iotex.mobile.protocol.ExecutionRequest;
@@ -117,27 +119,27 @@ public class Contract {
     /**
      * read contract.
      *
-     * @param account query account
-     * @param method  contract method
-     * @param args    contract method params
+     * @param callerAddress caller address
+     * @param method        contract method
+     * @param args          contract method params
      * @return
      */
-    public Object read(Long nonce, Long gasLimit, String gasPrice, Account account, String method, Object... args) {
+    public Object read(String callerAddress, String method, Object... args) {
         Abi.Function function = this.abi.findFunction(method);
         if (function == null) {
             throw new RuntimeException("contract method " + method + " not exists.");
         }
-        ExecutionRequest request = new ExecutionRequest();
-        request.setNonce(nonce);
-        request.setGasLimit(gasLimit);
-        request.setGasPrice(gasPrice);
-        request.setAccount(account);
-        request.setContract(address);
-        request.setAmount("0");
-        request.setData(function.encode(args));
 
         return provider.readContract(
-                ReadContractRequest.newBuilder().setAction(new ExecutionMethod(provider, request).signedAction()).build()
+                ReadContractRequest.newBuilder()
+                        .setExecution(
+                                Execution.newBuilder()
+                                        .setContract(address)
+                                        .setAmount("0")
+                                        .setData(ByteString.copyFrom(function.encode(args)))
+                                        .build())
+                        .setCallerAddress(callerAddress)
+                        .build()
         ).getData();
     }
 }

@@ -23,7 +23,6 @@ public class Envelop {
 
     // optional fields
     private Transfer transfer;
-    private Vote vote;
     private Execution execution;
     private StartSubChain startSubChain;
     private StopSubChain stopSubChain;
@@ -49,9 +48,6 @@ public class Envelop {
         ActionCore.Builder builder = ActionCore.newBuilder().setVersion(version).setNonce(nonce).setGasLimit(gasLimit).setGasPrice(gasPrice);
         if (transfer != null) {
             builder.setTransfer(transfer);
-        }
-        if (vote != null) {
-            builder.setVote(vote);
         }
         if (execution != null) {
             builder.setExecution(execution);

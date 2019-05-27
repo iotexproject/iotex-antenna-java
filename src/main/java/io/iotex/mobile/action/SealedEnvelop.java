@@ -54,9 +54,6 @@ public class SealedEnvelop {
         if (act.getTransfer() != null) {
             builder.setTransfer(act.getTransfer());
         }
-        if (act.getVote() != null) {
-            builder.setVote(act.getVote());
-        }
         if (act.getExecution() != null) {
             builder.setExecution(act.getExecution());
         }
