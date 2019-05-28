@@ -95,13 +95,17 @@ public class IotexAccount extends AbstractAccount implements Account {
         return Bech32.encode(AddressPrefix, grouped);
     }
 
+    public static String convertToETHAddress(String address) {
+        byte[] dec = Bech32.decode(address).data;
+        return "0x" + Numeric.toHexString(Bech32.convertBits(dec, 0, dec.length, 5, 8, false));
+    }
+
     public String getHexAddress() {
         byte[] pubBytes = publicKey.toByteArray();
         byte[] hash256 = Hash.sha3(Arrays.copyOfRange(pubBytes, 1, pubBytes.length));
         byte[] values = Arrays.copyOfRange(hash256, 12, hash256.length);
         return Numeric.toHexString(values);
     }
-
 
     @Override
     public byte[] publicKey() {

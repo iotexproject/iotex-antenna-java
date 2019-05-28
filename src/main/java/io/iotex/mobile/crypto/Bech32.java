@@ -1,6 +1,8 @@
 package io.iotex.mobile.crypto;
 
 import java.io.ByteArrayOutputStream;
+import java.util.Arrays;
+import java.util.Locale;
 
 /**
  * bech32.
@@ -9,6 +11,20 @@ import java.io.ByteArrayOutputStream;
  */
 public class Bech32 {
     private static final String CHARSET = "qpzry9x8gf2tvdw0s3jn54khce6mua7l";
+
+    /**
+     * The Bech32 character set for decoding.
+     */
+    private static final byte[] CHARSET_REV = {
+            -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+            -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+            -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+            15, -1, 10, 17, 21, 20, 26, 30, 7, 5, -1, -1, -1, -1, -1, -1,
+            -1, 29, -1, 24, 13, 25, 9, 8, 23, -1, 18, 22, 31, 27, 19, -1,
+            1, 0, 3, 16, 11, 28, 12, 14, 6, 4, 2, -1, -1, -1, -1, -1,
+            -1, 29, -1, 24, 13, 25, 9, 8, 23, -1, 18, 22, 31, 27, 19, -1,
+            1, 0, 3, 16, 11, 28, 12, 14, 6, 4, 2, -1, -1, -1, -1, -1
+    };
 
     public static String encode(String hrp, byte[] values) {
         byte[] checksum = createChecksum(hrp, values);
@@ -64,9 +80,8 @@ public class Bech32 {
         return c;
     }
 
-
     public static byte[] convertBits(final byte[] in, final int inStart, final int inLen, final int fromBits,
-                                      final int toBits, final boolean pad) {
+                                     final int toBits, final boolean pad) {
         int acc = 0;
         int bits = 0;
         ByteArrayOutputStream out = new ByteArrayOutputStream(64);
@@ -92,5 +107,59 @@ public class Bech32 {
             throw new RuntimeException("Could not convert bits, invalid padding");
         }
         return out.toByteArray();
+    }
+
+    private static boolean verifyChecksum(final String hrp, final byte[] values) {
+        byte[] hrpExpanded = expandHrp(hrp);
+        byte[] combined = new byte[hrpExpanded.length + values.length];
+        System.arraycopy(hrpExpanded, 0, combined, 0, hrpExpanded.length);
+        System.arraycopy(values, 0, combined, hrpExpanded.length, values.length);
+        return polymod(combined) == 1;
+    }
+
+    public static Bech32Data decode(final String str) {
+        boolean lower = false, upper = false;
+        if (str.length() < 8)
+            throw new RuntimeException("Input too short: " + str.length());
+        if (str.length() > 90)
+            throw new RuntimeException("Input too long: " + str.length());
+        for (int i = 0; i < str.length(); ++i) {
+            char c = str.charAt(i);
+            if (c < 33 || c > 126) throw new RuntimeException("invalid character");
+            if (c >= 'a' && c <= 'z') {
+                if (upper)
+                    throw new RuntimeException("invalid character");
+                lower = true;
+            }
+            if (c >= 'A' && c <= 'Z') {
+                if (lower)
+                    throw new RuntimeException("invalid character");
+                upper = true;
+            }
+        }
+        final int pos = str.lastIndexOf('1');
+        if (pos < 1) throw new RuntimeException("Missing human-readable part");
+        final int dataPartLength = str.length() - 1 - pos;
+        if (dataPartLength < 6)
+            throw new RuntimeException("Data part too short: " + dataPartLength);
+        byte[] values = new byte[dataPartLength];
+        for (int i = 0; i < dataPartLength; ++i) {
+            char c = str.charAt(i + pos + 1);
+            if (CHARSET_REV[c] == -1) throw new RuntimeException("invalid character");
+            values[i] = CHARSET_REV[c];
+        }
+        String hrp = str.substring(0, pos).toLowerCase(Locale.ROOT);
+        if (!verifyChecksum(hrp, values)) throw new RuntimeException("checksum error");
+        return new Bech32Data(hrp, Arrays.copyOfRange(values, 0, values.length - 6));
+    }
+
+    public static class Bech32Data {
+        public final String hrp;
+        public final byte[] data;
+
+        private Bech32Data(final String hrp, final byte[] data) {
+            this.hrp = hrp;
+            this.data = data;
+        }
     }
 }

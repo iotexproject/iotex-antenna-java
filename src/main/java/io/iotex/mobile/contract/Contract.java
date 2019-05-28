@@ -11,6 +11,8 @@ import io.iotex.mobile.solidity.Abi;
 import io.iotex.mobile.utils.Numeric;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * smart contract.
  *
@@ -124,13 +126,13 @@ public class Contract {
      * @param args          contract method params
      * @return
      */
-    public Object read(String callerAddress, String method, Object... args) {
+    public List<?> read(String callerAddress, String method, Object... args) {
         Abi.Function function = this.abi.findFunction(method);
         if (function == null) {
             throw new RuntimeException("contract method " + method + " not exists.");
         }
 
-        return provider.readContract(
+        String result = provider.readContract(
                 ReadContractRequest.newBuilder()
                         .setExecution(
                                 Execution.newBuilder()
@@ -141,5 +143,6 @@ public class Contract {
                         .setCallerAddress(callerAddress)
                         .build()
         ).getData();
+        return function.decodeResult(Numeric.hexStringToByteArray(result));
     }
 }

@@ -2,6 +2,8 @@ package io.iotex.mobile.solidity;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.iotex.mobile.account.IotexAccount;
+import io.iotex.mobile.crypto.Bech32;
 import io.iotex.mobile.utils.Numeric;
 
 import java.lang.reflect.Array;
@@ -335,6 +337,7 @@ public abstract class SolidityType {
                 // address is supposed to be always in hex
                 value = "io" + value;
             }
+            value = IotexAccount.convertToETHAddress(value.toString());
             byte[] addr = super.encode(value);
             for (int i = 0; i < 12; i++) {
                 if (addr[i] != 0) {
@@ -347,7 +350,9 @@ public abstract class SolidityType {
         @Override
         public Object decode(byte[] encoded, int offset) {
             BigInteger bi = (BigInteger) super.decode(encoded, offset);
-            return Numeric.bigIntegerToBytes(bi, 20);
+            byte[] values = Numeric.bigIntegerToBytes(bi, 20);
+            byte[] grouped = Bech32.convertBits(values, 0, values.length, 8, 5, true);
+            return Bech32.encode(IotexAccount.AddressPrefix, grouped);
         }
     }
 
