@@ -145,4 +145,13 @@ public class Contract {
         ).getData();
         return function.decodeResult(Numeric.hexStringToByteArray(result));
     }
+
+    public Abi.Function getFunctionBySignature(String signature) {
+        for (Abi.Entry entry : this.abi) {
+            if (signature.equals(Numeric.toHexString(entry.encodeSignature()))) {
+                return (Abi.Function) entry;
+            }
+        }
+        return null;
+    }
 }

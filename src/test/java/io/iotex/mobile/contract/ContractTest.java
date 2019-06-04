@@ -4,14 +4,17 @@ import io.iotex.mobile.account.Account;
 import io.iotex.mobile.account.IotexAccount;
 import io.iotex.mobile.account.IotexAccountTest;
 import io.iotex.mobile.rpc.RPCMethod;
+import io.iotex.mobile.solidity.Abi;
 import io.iotex.mobile.utils.Numeric;
 import org.junit.Test;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import static io.iotex.mobile.rpc.RPCMethodTest.IOTEX_CORE;
 import static io.iotex.mobile.solidity.AbiParseTest.CONTRACT_WITH_CONSTRUCTOR_ABI;
 import static io.iotex.mobile.solidity.AbiParseTest.CONTRACT_WITH_CONSTRUCTOR_BIN;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
@@ -44,9 +47,21 @@ public class ContractTest {
 
     public void testRead() {
         RPCMethod provider = new RPCMethod(IOTEX_CORE);
-
         Contract contract = new Contract(provider, "io1l4xyuc9t858qgv3xy946avyedf4pryg7hpfzmy", ERC20_ABI);
         List result = contract.read("io13zt8sznez2pf0q0hqdz2hyl938wak2fsjgdeml", "balanceOf", "io13zt8sznez2pf0q0hqdz2hyl938wak2fsjgdeml");
         assertNotNull(result);
+    }
+
+    @Test
+    public void testDecode() {
+        RPCMethod provider = new RPCMethod(IOTEX_CORE);
+        Contract contract = new Contract(provider, "io1l4xyuc9t858qgv3xy946avyedf4pryg7hpfzmy", ERC20_ABI);
+
+        Abi.Function function = contract.getFunctionBySignature("a9059cbb");
+        assertNotNull(function);
+
+        List result = function.decode(Numeric.hexStringToByteArray("a9059cbb000000000000000000000000b1495e965cb5682e81cc96eeb16892c68eb701b00000000000000000000000000000000000000000000000000000000000002710"));
+        assertEquals(result.get(0), "io1k9y4a9juk45zaqwvjmhtz6yjc68twqds4qcvzv");
+        assertEquals(result.get(1), BigInteger.valueOf(10000));
     }
 }

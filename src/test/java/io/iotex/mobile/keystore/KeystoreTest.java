@@ -33,6 +33,11 @@ public class KeystoreTest {
         Assert.assertEquals(TEST_ADDRESS, account.address());
         Assert.assertEquals(TEST_PRIVATE, Numeric.toHexString(account.privateKey()));
         Assert.assertEquals(TEST_PUBLIC, Numeric.toHexString(account.publicKey()));
+
+
+
+        KeystoreFile walletFile =  KeystoreUtils.createWalletFileByAcount("abc123CBA%$", account);
+        System.out.println(walletFile.toJsonString());
     }
 
     @Test
