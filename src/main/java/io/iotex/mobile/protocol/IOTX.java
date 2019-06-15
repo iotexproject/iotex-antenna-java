@@ -22,9 +22,8 @@ public class IOTX {
 
     public void setProvider(String provider) {
         if (this.provider != null) {
-            this.provider.close();
+            this.provider.setProvider(provider);
         }
-        this.provider = new RPCMethod(provider);
     }
 
     public String sendTransfer(TransferRequest request) {

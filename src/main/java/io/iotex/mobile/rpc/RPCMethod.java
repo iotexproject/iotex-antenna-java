@@ -18,6 +18,14 @@ public class RPCMethod {
         stub = APIServiceGrpc.newBlockingStub(channel);
     }
 
+    public void setProvider(String hostname) {
+        if (channel != null) {
+            channel.shutdown();
+        }
+        channel = ManagedChannelBuilder.forTarget(hostname).usePlaintext().build();
+        stub = APIServiceGrpc.newBlockingStub(channel);
+    }
+
     public void close() {
         if (channel != null) {
             channel.shutdown();
