@@ -10,7 +10,7 @@ syntax = "proto3";
 package iotexrpc;
 option go_package = "github.com/iotexproject/iotex-proto/golang/iotexrpc";
 option java_multiple_files = true;
-option java_package = "io.iotex.grpc.rpc";
+option java_package = "com.github.iotexproject.grpc.rpc";
 
 import "google/protobuf/timestamp.proto";
 
