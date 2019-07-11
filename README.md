@@ -15,6 +15,23 @@ network for IoT powered by scalability- and privacy-centric blockchains. Please 
 git submodule add --force git@github.com:iotexproject/iotex-android-framework.git iotex-android-framework
 ```
 
+### Install By Maven
+
+```
+<dependency>
+  <groupId>com.github.iotexproject</groupId>
+  <artifactId>iotex-android-sdk</artifactId>
+  <version>0.2.0</version>
+</dependency>
+```
+
+### Install by Gradle
+
+```
+implementation 'com.github.iotexproject:iotex-android-sdk:0.2.0'
+```
+
+
 ### Sample
 
 ```java
