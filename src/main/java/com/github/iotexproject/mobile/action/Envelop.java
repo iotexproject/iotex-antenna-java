@@ -54,9 +54,15 @@ public class Envelop {
             envelop.setGasLimit(core.getGasLimit());
             envelop.setGasPrice(core.getGasPrice());
 
-            envelop.setTransfer(core.getTransfer());
-            envelop.setExecution(core.getExecution());
-            envelop.setClaimFromRewardingFund(core.getClaimFromRewardingFund());
+            if (core.getTransfer().toByteArray().length > 0) {
+                envelop.setTransfer(core.getTransfer());
+            }
+            if (core.getExecution().toByteArray().length > 0) {
+                envelop.setExecution(core.getExecution());
+            }
+            if (core.getClaimFromRewardingFund().toByteArray().length > 0) {
+                envelop.setClaimFromRewardingFund(core.getClaimFromRewardingFund());
+            }
 
             return envelop;
         } catch (InvalidProtocolBufferException e) {

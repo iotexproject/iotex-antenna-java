@@ -2,6 +2,7 @@ package com.github.iotexproject.mobile.action;
 
 import com.github.iotexproject.grpc.types.Execution;
 import com.github.iotexproject.grpc.types.Transfer;
+import com.github.iotexproject.mobile.utils.Numeric;
 import com.google.protobuf.ByteString;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,9 +23,11 @@ public class EnvelopTest {
                         .build())
                 .build();
 
-
         try {
             Envelop deEnvelop = Envelop.deserialize(envelop.byteStream());
+
+            Assert.assertEquals(Numeric.toHexString(envelop.byteStream()), Numeric.toHexString(deEnvelop.byteStream()));
+
             Assert.assertEquals(envelop.getVersion(), deEnvelop.getVersion());
             Assert.assertEquals(envelop.getNonce(), deEnvelop.getNonce());
             Assert.assertEquals(envelop.getGasLimit(), deEnvelop.getGasLimit());
@@ -54,6 +57,9 @@ public class EnvelopTest {
 
         try {
             Envelop deEnvelop = Envelop.deserialize(envelop.byteStream());
+
+            Assert.assertEquals(Numeric.toHexString(envelop.byteStream()), Numeric.toHexString(deEnvelop.byteStream()));
+
             Assert.assertEquals(envelop.getVersion(), deEnvelop.getVersion());
             Assert.assertEquals(envelop.getNonce(), deEnvelop.getNonce());
             Assert.assertEquals(envelop.getGasLimit(), deEnvelop.getGasLimit());
