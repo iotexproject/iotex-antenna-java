@@ -1,6 +1,7 @@
 package com.github.iotexproject.mobile.action;
 
 import com.github.iotexproject.grpc.types.*;
+import com.google.protobuf.InvalidProtocolBufferException;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -43,6 +44,31 @@ public class Envelop {
     private ClaimFromRewardingFund claimFromRewardingFund;
     private GrantReward grantReward;
     private PutPollResult putPollResult;
+
+    public static Envelop deserialize(byte[] bytes) throws IllegalArgumentException {
+        try {
+            ActionCore core = ActionCore.parseFrom(bytes);
+            Envelop envelop = new Envelop();
+            envelop.setVersion(core.getVersion());
+            envelop.setNonce(core.getNonce());
+            envelop.setGasLimit(core.getGasLimit());
+            envelop.setGasPrice(core.getGasPrice());
+
+            if (core.getTransfer().toByteArray().length > 0) {
+                envelop.setTransfer(core.getTransfer());
+            }
+            if (core.getExecution().toByteArray().length > 0) {
+                envelop.setExecution(core.getExecution());
+            }
+            if (core.getClaimFromRewardingFund().toByteArray().length > 0) {
+                envelop.setClaimFromRewardingFund(core.getClaimFromRewardingFund());
+            }
+
+            return envelop;
+        } catch (InvalidProtocolBufferException e) {
+            throw new IllegalArgumentException("deserialize envelop error", e);
+        }
+    }
 
     public ActionCore core() {
         ActionCore.Builder builder = ActionCore.newBuilder().setVersion(version).setNonce(nonce).setGasLimit(gasLimit).setGasPrice(gasPrice);
