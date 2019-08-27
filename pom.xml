@@ -102,11 +102,6 @@
             <artifactId>bcprov-jdk15on</artifactId>
             <version>1.61</version>
         </dependency>
-        <dependency>
-            <groupId>com.lambdaworks</groupId>
-            <artifactId>scrypt</artifactId>
-            <version>1.4.0</version>
-        </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
