@@ -21,14 +21,14 @@ git submodule add --force git@github.com:iotexproject/iotex-android-framework.gi
 <dependency>
   <groupId>com.github.iotexproject</groupId>
   <artifactId>iotex-android-sdk</artifactId>
-  <version>0.3.1</version>
+  <version>0.3.2</version>
 </dependency>
 ```
 
 ### Install by Gradle
 
 ```
-implementation 'com.github.iotexproject:iotex-android-sdk:0.3.1'
+implementation 'com.github.iotexproject:iotex-android-sdk:0.3.2'
 ```
 
 
