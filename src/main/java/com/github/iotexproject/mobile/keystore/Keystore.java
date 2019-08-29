@@ -2,9 +2,9 @@ package com.github.iotexproject.mobile.keystore;
 
 import com.github.iotexproject.mobile.crypto.Hash;
 import com.github.iotexproject.mobile.utils.Numeric;
+import com.lambdaworks.crypto.SCrypt;
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.generators.PKCS5S2ParametersGenerator;
-import org.bouncycastle.crypto.generators.SCrypt;
 import org.bouncycastle.crypto.params.KeyParameter;
 
 import javax.crypto.BadPaddingException;
@@ -14,6 +14,7 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.math.BigInteger;
+import java.security.GeneralSecurityException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -109,7 +110,11 @@ public class Keystore {
 
     private static byte[] generateDerivedScryptKey(
             byte[] password, byte[] salt, int n, int r, int p, int dkLen) throws CipherException {
-        return SCrypt.generate(password, salt, n, r, p, dkLen);
+        try {
+            return SCrypt.scryptJ(password, salt, n, r, p, dkLen);
+        } catch (GeneralSecurityException e) {
+            throw new CipherException(e);
+        }
     }
 
     private static byte[] generateAes128CtrDerivedKey(

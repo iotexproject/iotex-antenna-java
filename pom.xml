@@ -6,7 +6,7 @@
 
     <groupId>com.github.iotexproject</groupId>
     <artifactId>iotex-android-sdk</artifactId>
-    <version>0.3.2</version>
+    <version>0.3.4</version>
     <packaging>jar</packaging>
     <name>IoTeX Android SDK</name>
     <description>IoTex java sdk for develop android and java apps.</description>
@@ -101,6 +101,11 @@
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk15on</artifactId>
             <version>1.61</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lambdaworks</groupId>
+            <artifactId>scrypt</artifactId>
+            <version>1.4.0</version>
         </dependency>
 
         <dependency>
