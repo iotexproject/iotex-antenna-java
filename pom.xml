@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.iotexproject</groupId>
-    <artifactId>iotex-android-sdk</artifactId>
-    <version>0.3.4</version>
+    <artifactId>iotex-antenna-java</artifactId>
+    <version>0.5.0</version>
     <packaging>jar</packaging>
-    <name>IoTeX Android SDK</name>
+    <name>IoTeX Antenna Java</name>
     <description>IoTex java sdk for develop android and java apps.</description>
-    <url>https://github.com/iotexproject/iotex-android-sdk</url>
+    <url>https://github.com/iotexproject/iotex-antenna-java</url>
 
     <licenses>
         <license>
