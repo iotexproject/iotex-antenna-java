@@ -1,34 +1,27 @@
-# IoTeX Android SDK
+# IoTeX Antenna Java
 
 [![LICENSE](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
-Welcome to the official Java implementation of IoTeX Android SDK! IoTeX is building the next generation of the decentralized 
+Welcome to the official Java implementation of IoTeX Antenna Java! IoTeX is building the next generation of the decentralized 
 network for IoT powered by scalability- and privacy-centric blockchains. Please refer to IoTeX
 [whitepaper](https://iotex.io/academics) for details.
 
 ## Get started
-
-### Add to your project
-
-```bash
-// through git submodule
-git submodule add --force git@github.com:iotexproject/iotex-android-framework.git iotex-android-framework
-```
 
 ### Install By Maven
 
 ```
 <dependency>
   <groupId>com.github.iotexproject</groupId>
-  <artifactId>iotex-android-sdk</artifactId>
-  <version>0.3.4</version>
+  <artifactId>iotex-antenna-java</artifactId>
+  <version>0.5.0</version>
 </dependency>
 ```
 
 ### Install by Gradle
 
 ```
-implementation 'com.github.iotexproject:iotex-android-sdk:0.3.4'
+implementation 'com.github.iotexproject:iotex-antenna-java:0.5.0'
 ```
 
 
