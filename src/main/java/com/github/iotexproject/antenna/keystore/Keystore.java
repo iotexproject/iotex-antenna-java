@@ -110,11 +110,7 @@ public class Keystore {
 
     private static byte[] generateDerivedScryptKey(
             byte[] password, byte[] salt, int n, int r, int p, int dkLen) throws CipherException {
-        try {
-            return SCrypt.scryptJ(password, salt, n, r, p, dkLen);
-        } catch (GeneralSecurityException e) {
-            throw new CipherException(e);
-        }
+        return SCrypt.scryptN(password, salt, n, r, p, dkLen);
     }
 
     private static byte[] generateAes128CtrDerivedKey(

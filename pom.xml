@@ -6,7 +6,7 @@
 
     <groupId>com.github.iotexproject</groupId>
     <artifactId>iotex-antenna-java</artifactId>
-    <version>0.5.0</version>
+    <version>0.5.1</version>
     <packaging>jar</packaging>
     <name>IoTeX Antenna Java</name>
     <description>IoTex java sdk for develop android and java apps.</description>
