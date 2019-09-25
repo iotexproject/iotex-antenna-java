@@ -128,8 +128,10 @@ public class Abi extends ArrayList<Abi.Entry> {
 
         public String formatSignature() {
             StringBuilder paramsTypes = new StringBuilder();
-            for (Entry.Param param : inputs) {
-                paramsTypes.append(param.type.getCanonicalName()).append(",");
+            if (inputs != null) {
+                for (Entry.Param param : inputs) {
+                    paramsTypes.append(param.type.getCanonicalName()).append(",");
+                }
             }
 
             return format("%s(%s)", name, stripEnd(paramsTypes.toString(), ","));
