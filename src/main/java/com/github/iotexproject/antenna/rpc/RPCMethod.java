@@ -1,8 +1,8 @@
 package com.github.iotexproject.antenna.rpc;
 
+import com.github.iotexproject.grpc.api.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import com.github.iotexproject.grpc.api.*;
 
 /**
  * rpc method.
@@ -78,5 +78,9 @@ public class RPCMethod {
 
     public GetEpochMetaResponse getEpochMeta(GetEpochMetaRequest request) {
         return stub.getEpochMeta(request);
+    }
+
+    public EstimateActionGasConsumptionResponse estimateActionGasConsumption(EstimateActionGasConsumptionRequest request) {
+        return stub.estimateActionGasConsumption(request);
     }
 }

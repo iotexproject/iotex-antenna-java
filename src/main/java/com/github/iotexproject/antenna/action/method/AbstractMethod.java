@@ -1,12 +1,12 @@
 package com.github.iotexproject.antenna.action.method;
 
 import com.github.iotexproject.antenna.account.Account;
+import com.github.iotexproject.antenna.action.Envelop;
 import com.github.iotexproject.antenna.action.SealedEnvelop;
 import com.github.iotexproject.antenna.protocol.ActionRequest;
-import com.github.iotexproject.grpc.api.*;
-import com.github.iotexproject.antenna.action.Envelop;
 import com.github.iotexproject.antenna.rpc.RPCMethod;
 import com.github.iotexproject.antenna.utils.Numeric;
+import com.github.iotexproject.grpc.api.*;
 
 import java.math.BigInteger;
 
@@ -50,8 +50,16 @@ public abstract class AbstractMethod {
         BigInteger privateKey = Numeric.toBigInt(this.account.privateKey());
         BigInteger publicKey = Numeric.toBigInt(this.account.publicKey());
         if (envelop.getGasLimit() == 0) {
-            SealedEnvelop selp = SealedEnvelop.sign(privateKey, publicKey, envelop);
-            EstimateGasForActionResponse response = this.client.estimateGasForAction(EstimateGasForActionRequest.newBuilder().setAction(selp.action()).build());
+            EstimateActionGasConsumptionRequest.Builder builder = EstimateActionGasConsumptionRequest.newBuilder();
+            if (envelop.getTransfer() != null) {
+                builder.setTransfer(envelop.getTransfer());
+            }
+            if (envelop.getExecution() != null) {
+                builder.setExecution(envelop.getExecution());
+            }
+            builder.setCallerAddress(this.account.address());
+
+            EstimateActionGasConsumptionResponse response = this.client.estimateActionGasConsumption(builder.build());
             envelop.setGasLimit(response.getGas());
         }
         return SealedEnvelop.sign(privateKey, publicKey, envelop);
