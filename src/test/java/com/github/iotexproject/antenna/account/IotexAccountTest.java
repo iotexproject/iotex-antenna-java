@@ -45,7 +45,7 @@ public class IotexAccountTest {
         Account account = IotexAccount.create(Numeric.hexStringToByteArray(TEST_PRIVATE));
         byte[] sign = account.sign("IoTeX is the auto-scalable and privacy-centric blockchain.".getBytes());
         assertEquals(
-                "482da72c8faa48ee1ac2cf9a5f9ecd42ee3258be5ddd8d6b496c7171dc7bfe8e75e5d16e7129c88d99a21a912e5c082fa1baab6ba87d2688ebd7d27bb1ab090701",
+                "99f4ef1005ae6c43548520e08dd11477e9ea59317087f9c6f33bc79eb701b14b043ff0d177bc419e585c0ecae42420fabb837e602c8a3578ea17dd1a8ed862e301",
                 Numeric.toHexString(sign)
         );
     }
