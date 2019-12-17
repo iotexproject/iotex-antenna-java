@@ -1,7 +1,9 @@
 package com.github.iotexproject.antenna.account;
 
 import com.github.iotexproject.antenna.crypto.*;
+import com.github.iotexproject.antenna.utils.ArrayUtils;
 import com.github.iotexproject.antenna.utils.Numeric;
+import com.google.common.base.Charsets;
 import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPrivateKey;
 import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPublicKey;
 
@@ -87,7 +89,7 @@ public class IotexAccount extends AbstractAccount implements Account {
         return create(Numeric.hexStringToByteArray(privateKey));
     }
 
-    private static String computeAddress(BigInteger publicKey) {
+    public static String computeAddress(BigInteger publicKey) {
         byte[] pubBytes = publicKey.toByteArray();
         byte[] hash256 = Hash.sha3(Arrays.copyOfRange(pubBytes, 1, pubBytes.length));
         byte[] values = Arrays.copyOfRange(hash256, 12, hash256.length);
@@ -114,11 +116,27 @@ public class IotexAccount extends AbstractAccount implements Account {
 
     @Override
     public byte[] sign(byte[] data) {
-        SignatureData signatureData = Signer.sign(this.privateKey, this.publicKey, 0, 0, Hash.sha3(data));
+        String preamble = "\u0016IoTeX Signed Message:\n" + data.length;
+        SignatureData signatureData = Signer.sign(this.privateKey, this.publicKey, 0, 0,
+                Hash.sha3(ArrayUtils.concatenate(preamble.getBytes(Charsets.UTF_8), data)));
         byte[] result = new byte[65];
         System.arraycopy(signatureData.getR(), 0, result, 0, 32);
         System.arraycopy(signatureData.getS(), 0, result, 32, 32);
         result[64] = signatureData.getV();
         return result;
+    }
+
+    public String recover(byte[] signature, byte[] message) {
+        String preamble = "\u0016IoTeX Signed Message:\n" + message.length;
+        byte[] data = Hash.sha3(ArrayUtils.concatenate(preamble.getBytes(Charsets.UTF_8), message));
+
+        int recId = signature[64];
+        byte[] r = new byte[32];
+        byte[] s = new byte[32];
+        System.arraycopy(signature, 0, r, 0, 32);
+        System.arraycopy(signature, 32, s, 0, 32);
+
+        BigInteger pub = Signer.recoverFromSignature(0, recId, Numeric.toBigInt(r), Numeric.toBigInt(s), data);
+        return computeAddress(pub);
     }
 }

@@ -50,4 +50,11 @@ public class ArrayUtils {
         System.arraycopy(array, startIndexInclusive, subarray, 0, newSize);
         return subarray;
     }
+
+    public static byte[] concatenate(byte[] a, byte[] b) {
+        byte[] rv = new byte[a.length + b.length];
+        System.arraycopy(a, 0, rv, 0, a.length);
+        System.arraycopy(b, 0, rv, a.length, b.length);
+        return rv;
+    }
 }
