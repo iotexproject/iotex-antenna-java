@@ -25,6 +25,15 @@ public class Envelop {
     // optional fields
     private Transfer transfer;
     private Execution execution;
+    private StakeCreate stakeCreate;
+    private StakeReclaim stakeUnstake;
+    private StakeReclaim stakeWithdraw;
+    private StakeAddDeposit stakeAddDeposit;
+    private StakeRestake stakeRestake;
+    private StakeChangeCandidate stakeChangeCandidate;
+    private StakeTransferOwnership stakeTransferOwnership;
+    private CandidateRegister candidateRegister;
+    private CandidateBasicInfo candidateUpdate;
     private StartSubChain startSubChain;
     private StopSubChain stopSubChain;
     private PutBlock putBlock;
@@ -63,6 +72,33 @@ public class Envelop {
             if (core.getClaimFromRewardingFund().toByteArray().length > 0) {
                 envelop.setClaimFromRewardingFund(core.getClaimFromRewardingFund());
             }
+            if (core.getStakeCreate().toByteArray().length > 0) {
+                envelop.setStakeCreate(stakeCreate);
+            }
+            if (core.getStakeUnstake().toByteArray().length > 0) {
+                envelop.setStakeUnstake(stakeUnstake);
+            }
+            if (core.getStakeWithdraw().toByteArray().length > 0) {
+                envelop.setStakeWithdraw(stakeWithdraw);
+            }
+            if (core.getStakeAddDeposit().toByteArray().length > 0) {
+                envelop.setStakeAddDeposit(stakeAddDeposit);
+            }
+            if (core.getStakeRestake().toByteArray().length > 0) {
+                envelop.setStakeRestake(stakeRestake);
+            }
+            if (core.getStakeChangeCandidate().toByteArray().length > 0) {
+                envelop.setStakeChangeCandidate(stakeChangeCandidate);
+            }
+            if (core.getStakeTransferOwnership().toByteArray().length > 0) {
+                envelop.setStakeTransferOwnership(stakeTransferOwnership);
+            }
+            if (core.getCandidateRegister().toByteArray().length > 0) {
+                envelop.setCandidateRegister(candidateRegister);
+            }
+            if (core.getCandidateUpdate().toByteArray().length > 0) {
+                envelop.setCandidateUpdate(candidateUpdate);
+            }
 
             return envelop;
         } catch (InvalidProtocolBufferException e) {
@@ -77,6 +113,33 @@ public class Envelop {
         }
         if (execution != null) {
             builder.setExecution(execution);
+        }
+        if (stakeCreate != null) {
+            builder.setStakeCreate(stakeCreate);
+        }
+        if (stakeUnstake != null) {
+            builder.setStakeUnstake(stakeUnstake);
+        }
+        if (stakeWithdraw != null) {
+            builder.setStakeWithdraw(stakeWithdraw);
+        }
+        if (stakeAddDeposit != null) {
+            builder.setStakeAddDeposit(stakeAddDeposit);
+        }
+        if (stakeRestake != null) {
+            builder.setStakeRestake(stakeRestake);
+        }
+        if (stakeChangeCandidate != null) {
+            builder.setStakeChangeCandidate(stakeChangeCandidate);
+        }
+        if (stakeTransferOwnership != null) {
+            builder.setStakeTransferOwnership(stakeTransferOwnership);
+        }
+        if (candidateRegister != null) {
+            builder.setCandidateRegister(candidateRegister);
+        }
+        if (candidateUpdate != null) {
+            builder.setCandidateUpdate(candidateUpdate);
         }
         if (startSubChain != null) {
             builder.setStartSubChain(startSubChain);
