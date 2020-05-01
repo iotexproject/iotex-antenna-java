@@ -57,6 +57,33 @@ public abstract class AbstractMethod {
             if (envelop.getExecution() != null) {
                 builder.setExecution(envelop.getExecution());
             }
+            if (envelop.getStakeCreate() != null) {
+                builder.setStakeCreate(envelop.getStakeCreate());
+            }
+            if (envelop.getStakeUnstake() != null) {
+                builder.setStakeUnstake(envelop.getStakeUnstake());
+            }
+            if (envelop.getStakeWithdraw() != null) {
+                builder.setStakeWithdraw(envelop.getStakeWithdraw());
+            }
+            if (envelop.getStakeAddDeposit() != null) {
+                builder.setStakeAddDeposit(envelop.getStakeAddDeposit());
+            }
+            if (envelop.getStakeRestake() != null) {
+                builder.setStakeRestake(envelop.getStakeRestake());
+            }
+            if (envelop.getStakeChangeCandidate() != null) {
+                builder.setStakeChangeCandidate(envelop.getStakeChangeCandidate());
+            }
+            if (envelop.getStakeTransferOwnership() != null) {
+                builder.setStakeTransferOwnership(envelop.getStakeTransferOwnership());
+            }
+            if (envelop.getCandidateRegister() != null) {
+                builder.setCandidateRegister(envelop.getCandidateRegister());
+            }
+            if (envelop.getCandidateUpdate() != null) {
+                builder.setCandidateUpdate(envelop.getCandidateUpdate());
+            }
             builder.setCallerAddress(this.account.address());
 
             EstimateActionGasConsumptionResponse response = this.client.estimateActionGasConsumption(builder.build());

@@ -2,6 +2,7 @@ package com.github.iotexproject.antenna.protocol;
 
 import com.github.iotexproject.antenna.action.method.ExecutionMethod;
 import com.github.iotexproject.antenna.action.method.TransferMethod;
+import com.github.iotexproject.antenna.action.method.StakeCreateMethod;
 import com.github.iotexproject.antenna.rpc.RPCMethod;
 
 /**
@@ -32,5 +33,9 @@ public class IOTX {
 
     public String executeContract(ExecutionRequest request) {
         return new ExecutionMethod(provider, request).execute();
+    }
+
+    public String stakeCreate(StakeCreateRequest request) {
+        return new StakeCreateMethod(provider, request).execute();
     }
 }

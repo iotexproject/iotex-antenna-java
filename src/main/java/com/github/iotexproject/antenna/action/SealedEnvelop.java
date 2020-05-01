@@ -57,6 +57,33 @@ public class SealedEnvelop {
         if (act.getExecution() != null) {
             builder.setExecution(act.getExecution());
         }
+        if (act.getStakeCreate() != null) {
+            builder.setStakeCreate(act.getStakeCreate());
+        }
+        if (act.getStakeUnstake() != null) {
+            builder.setStakeUnstake(act.getStakeUnstake());
+        }
+        if (act.getStakeWithdraw() != null) {
+            builder.setStakeWithdraw(act.getStakeWithdraw());
+        }
+        if (act.getStakeAddDeposit() != null) {
+            builder.setStakeAddDeposit(act.getStakeAddDeposit());
+        }
+        if (act.getStakeRestake() != null) {
+            builder.setStakeRestake(act.getStakeRestake());
+        }
+        if (act.getStakeChangeCandidate() != null) {
+            builder.setStakeChangeCandidate(act.getStakeChangeCandidate());
+        }
+        if (act.getStakeTransferOwnership() != null) {
+            builder.setStakeTransferOwnership(act.getStakeTransferOwnership());
+        }
+        if (act.getCandidateRegister() != null) {
+            builder.setCandidateRegister(act.getCandidateRegister());
+        }
+        if (act.getCandidateUpdate() != null) {
+            builder.setCandidateUpdate(act.getCandidateUpdate());
+        }
         if (act.getStartSubChain() != null) {
             builder.setStartSubChain(act.getStartSubChain());
         }
