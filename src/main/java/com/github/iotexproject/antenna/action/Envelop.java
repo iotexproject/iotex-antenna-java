@@ -73,31 +73,31 @@ public class Envelop {
                 envelop.setClaimFromRewardingFund(core.getClaimFromRewardingFund());
             }
             if (core.getStakeCreate().toByteArray().length > 0) {
-                envelop.setStakeCreate(stakeCreate);
+                envelop.setStakeCreate(core.getStakeCreate());
             }
             if (core.getStakeUnstake().toByteArray().length > 0) {
-                envelop.setStakeUnstake(stakeUnstake);
+                envelop.setStakeUnstake(core.getStakeUnstake());
             }
             if (core.getStakeWithdraw().toByteArray().length > 0) {
-                envelop.setStakeWithdraw(stakeWithdraw);
+                envelop.setStakeWithdraw(core.getStakeWithdraw());
             }
             if (core.getStakeAddDeposit().toByteArray().length > 0) {
-                envelop.setStakeAddDeposit(stakeAddDeposit);
+                envelop.setStakeAddDeposit(core.getStakeAddDeposit());
             }
             if (core.getStakeRestake().toByteArray().length > 0) {
-                envelop.setStakeRestake(stakeRestake);
+                envelop.setStakeRestake(core.getStakeRestake());
             }
             if (core.getStakeChangeCandidate().toByteArray().length > 0) {
-                envelop.setStakeChangeCandidate(stakeChangeCandidate);
+                envelop.setStakeChangeCandidate(core.getStakeChangeCandidate());
             }
             if (core.getStakeTransferOwnership().toByteArray().length > 0) {
-                envelop.setStakeTransferOwnership(stakeTransferOwnership);
+                envelop.setStakeTransferOwnership(core.getStakeTransferOwnership());
             }
             if (core.getCandidateRegister().toByteArray().length > 0) {
-                envelop.setCandidateRegister(candidateRegister);
+                envelop.setCandidateRegister(core.getCandidateRegister());
             }
             if (core.getCandidateUpdate().toByteArray().length > 0) {
-                envelop.setCandidateUpdate(candidateUpdate);
+                envelop.setCandidateUpdate(core.getCandidateUpdate());
             }
 
             return envelop;

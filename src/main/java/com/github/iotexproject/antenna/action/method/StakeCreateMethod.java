@@ -25,10 +25,10 @@ public class StakeCreateMethod extends AbstractMethod {
     @Override
     public String execute() {
         envelop.setStakeCreate(StakeCreate.newBuilder()
-                .setCandName(request.getCandName())
-                .setAmount(request.getAmount())
-                .setDuration(request.getDuration())
-                .setAutoStake(request.getAutostake)
+                .setCandidateName(request.getCandName())
+                .setStakedAmount(request.getAmount())
+                .setStakedDuration(request.getDuration())
+                .setAutoStake(request.isAutoStake())
                 .setPayload(ByteString.copyFrom(Numeric.hexStringToByteArray(request.getPayload())))
                 .build());
         return sendAction(envelop);
