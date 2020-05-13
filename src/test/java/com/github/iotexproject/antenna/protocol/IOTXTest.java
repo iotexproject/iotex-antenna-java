@@ -40,9 +40,9 @@ public class IOTXTest {
         request.setGasLimit(1000000l); // optional, can be null
         request.setGasPrice("1000000000000"); // optional, can be null
         request.setAccount(account);
-        request.setCandName("io19d0p3ah4g8ww9d7kcxfq87yxe7fnr8rpth5shj");
-        request.setAmount("100");
-        request.setDuration(10000);
+        request.setCandidateName("io19d0p3ah4g8ww9d7kcxfq87yxe7fnr8rpth5shj");
+        request.setStakedAmount("100");
+        request.setStakedDuration(10000);
         request.setAutoStake(true);
         request.setPayload("7061796c6f6164"); // optional, can be null
 
