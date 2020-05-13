@@ -3,14 +3,13 @@ package com.github.iotexproject.antenna.protocol;
 import lombok.Data;
 
 /**
- * stakeCreate request.
+ * stakeWithdraw request.
  *
- * @author Dustin Xie
+ * @author XuePing Yang
  */
 @Data
-public class StakeCreateRequest extends ActionRequest {
-    private String candidateName;
-    private String stakedAmount;
+public class StakeRestakeRequest extends ActionRequest {
+    private long bucketIndex;
     private int stakedDuration;
     private boolean autoStake;
     private String payload;
