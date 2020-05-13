@@ -9,9 +9,9 @@ import lombok.Data;
  */
 @Data
 public class StakeCreateRequest extends ActionRequest {
-    private String candName;
-    private String amount;
-    private int duration;
+    private String candidateName;
+    private String stakedAmount;
+    private int stakedDuration;
     private boolean autoStake;
     private String payload;
 }
