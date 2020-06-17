@@ -14,14 +14,14 @@ network for IoT powered by scalability- and privacy-centric blockchains. Please 
 <dependency>
   <groupId>com.github.iotexproject</groupId>
   <artifactId>iotex-antenna-java</artifactId>
-  <version>0.5.7</version>
+  <version>0.5.8</version>
 </dependency>
 ```
 
 ### Install by Gradle
 
 ```
-implementation 'com.github.iotexproject:iotex-antenna-java:0.5.7'
+implementation 'com.github.iotexproject:iotex-antenna-java:0.5.8'
 ```
 
 
