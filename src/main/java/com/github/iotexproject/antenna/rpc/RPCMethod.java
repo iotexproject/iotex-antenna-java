@@ -83,4 +83,12 @@ public class RPCMethod {
     public EstimateActionGasConsumptionResponse estimateActionGasConsumption(EstimateActionGasConsumptionRequest request) {
         return stub.estimateActionGasConsumption(request);
     }
+
+    public GetEvmTransfersByBlockHeightResponse getEvmTransfersByBlockHeight(GetEvmTransfersByBlockHeightRequest request) {
+        return stub.getEvmTransfersByBlockHeight(request);
+    }
+
+    public GetEvmTransfersByActionHashResponse getEvmTransfersByActionHash(GetEvmTransfersByActionHashRequest request) {
+        return stub.getEvmTransfersByActionHash(request);
+    }
 }

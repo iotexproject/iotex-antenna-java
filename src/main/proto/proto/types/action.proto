@@ -14,9 +14,9 @@ option java_package = "com.github.iotexproject.grpc.types";
 
 message Transfer {
   // used by state-based model
-  string amount  = 1;
+  string amount = 1;
   string recipient = 2;
-  bytes payload  = 3;
+  bytes payload = 3;
 }
 
 // Candidates and list of candidates
@@ -33,11 +33,11 @@ message CandidateList {
 
 message PutPollResult {
   uint64 height = 1;
-  CandidateList	candidates = 2;
+  CandidateList candidates = 2;
 }
 
 message Execution {
-  string amount  = 1;
+  string amount = 1;
   string contract = 2;
   bytes data = 3;
 }
@@ -57,14 +57,14 @@ message StakeReclaim {
   bytes payload = 2;
 }
 
-// add the amount of bucket
+// add the amount of bucket 
 message StakeAddDeposit {
   uint64 bucketIndex = 1;
   string amount = 2;
   bytes payload = 3;
 }
 
-// restake the duration and autoStake flag of bucket
+// restake the duration and autoStake flag of bucket 
 message StakeRestake {
   uint64 bucketIndex = 1;
   uint32 stakedDuration = 2;
@@ -271,6 +271,28 @@ message Log{
   uint64 blkHeight = 4;
   bytes actHash = 5;
   uint32 index = 6;
+}
+
+message EvmTransfer {
+  bytes amount = 1;
+  string from = 2;
+  string to = 3;
+}
+
+message EvmTransferList {
+  repeated EvmTransfer evmTransfers = 1;
+}
+
+message ActionEvmTransfer {
+  bytes actionHash = 1;
+  uint64 numEvmTransfers = 2;
+  repeated EvmTransfer evmTransfers = 3;
+}
+
+message BlockEvmTransfer {
+  uint64 blockHeight = 1;
+  uint64 numEvmTransfers = 2;
+  repeated ActionEvmTransfer actionEvmTransfers = 3;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
