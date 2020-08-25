@@ -1,10 +1,7 @@
 package com.github.iotexproject.antenna.rpc;
 
 import com.github.iotexproject.antenna.account.IotexAccountTest;
-import com.github.iotexproject.grpc.api.GetAccountRequest;
-import com.github.iotexproject.grpc.api.GetAccountResponse;
-import com.github.iotexproject.grpc.api.GetServerMetaRequest;
-import com.github.iotexproject.grpc.api.GetServerMetaResponse;
+import com.github.iotexproject.grpc.api.*;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -39,6 +36,16 @@ public class RPCMethodTest {
     @Test
     public void testGetServerMeta() {
         GetServerMetaResponse response = rpcMethod.getServerMeta(GetServerMetaRequest.newBuilder().build());
+        Assert.assertNotNull(response);
+    }
+
+    @Test
+    public void testGetTransactionLogByBlockHeight() {
+        GetTransactionLogByBlockHeightResponse response = rpcMethod.getTransactionLogByBlockHeight(
+                GetTransactionLogByBlockHeightRequest.newBuilder()
+                        .setBlockHeight(10000)
+                        .build()
+        );
         Assert.assertNotNull(response);
     }
 }
