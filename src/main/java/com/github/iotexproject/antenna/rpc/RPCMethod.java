@@ -91,4 +91,12 @@ public class RPCMethod {
     public GetEvmTransfersByActionHashResponse getEvmTransfersByActionHash(GetEvmTransfersByActionHashRequest request) {
         return stub.getEvmTransfersByActionHash(request);
     }
+
+    public GetTransactionLogByActionHashResponse getTransactionLogByActionHash(GetTransactionLogByActionHashRequest request) {
+        return stub.getTransactionLogByActionHash(request);
+    }
+
+    public GetTransactionLogByBlockHeightResponse getTransactionLogByBlockHeight(GetTransactionLogByBlockHeightRequest request) {
+        return stub.getTransactionLogByBlockHeight(request);
+    }
 }

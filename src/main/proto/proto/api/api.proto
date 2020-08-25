@@ -16,6 +16,7 @@ import "proto/types/action.proto";
 import "proto/types/blockchain.proto";
 import "proto/types/node.proto";
 import "proto/types/election.proto";
+import "proto/types/transaction_log.proto";
 import "google/protobuf/timestamp.proto";
 
 service APIService {
@@ -75,11 +76,15 @@ service APIService {
    * evm transfers APIs
    */
 
-  // get evm transfers by action hash
+  // Deprecated
   rpc GetEvmTransfersByActionHash(GetEvmTransfersByActionHashRequest) returns (GetEvmTransfersByActionHashResponse) {}
 
-  // get evm transfers by block height
+  // Deprecated
   rpc GetEvmTransfersByBlockHeight(GetEvmTransfersByBlockHeightRequest) returns (GetEvmTransfersByBlockHeightResponse) {}
+
+  rpc GetTransactionLogByActionHash(GetTransactionLogByActionHashRequest) returns (GetTransactionLogByActionHashResponse) {}
+
+  rpc GetTransactionLogByBlockHeight(GetTransactionLogByBlockHeightRequest) returns (GetTransactionLogByBlockHeightResponse) {}
 
   /*
    * below are streaming APIs
@@ -97,6 +102,13 @@ service APIService {
   rpc GetElectionBuckets(GetElectionBucketsRequest) returns (GetElectionBucketsResponse) {}
 }
 
+// experiment
+service TransactionLogService {
+  rpc GetTransactionLogByActionHash(GetTransactionLogByActionHashRequest) returns (GetTransactionLogByActionHashResponse) {}
+
+  rpc GetTransactionLogByBlockHeight(GetTransactionLogByBlockHeightRequest) returns (GetTransactionLogByBlockHeightResponse) {}
+}
+
 message Bucket {
   // hex string
   string voter = 1;
@@ -112,6 +124,7 @@ message GetAccountRequest {
 
 message GetAccountResponse {
   iotextypes.AccountMeta accountMeta = 1;
+  iotextypes.BlockIdentifier blockIdentifier = 2;
 }
 
 message GetActionsRequest {
@@ -293,6 +306,7 @@ message ReadStateRequest {
 
 message ReadStateResponse {
   bytes data = 1;
+  iotextypes.BlockIdentifier blockIdentifier = 2;
 }
 
 message GetEpochMetaRequest {
@@ -345,20 +359,41 @@ message GetLogsResponse {
   repeated iotextypes.Log logs = 1;
 }
 
+// Deprecated
 message GetEvmTransfersByActionHashRequest {
   string actionHash = 1;
 }
 
+// Deprecated
 message GetEvmTransfersByActionHashResponse {
   iotextypes.ActionEvmTransfer actionEvmTransfers = 1;
 }
 
+// Deprecated
 message GetEvmTransfersByBlockHeightRequest {
   uint64 blockHeight = 1;
 }
 
+// Deprecated
 message GetEvmTransfersByBlockHeightResponse {
   iotextypes.BlockEvmTransfer blockEvmTransfers = 1;
+}
+
+message GetTransactionLogByActionHashRequest {
+  string actionHash = 1;
+}
+
+message GetTransactionLogByActionHashResponse {
+  iotextypes.TransactionLog transactionLog = 1;
+}
+
+message GetTransactionLogByBlockHeightRequest {
+  uint64 blockHeight = 1;
+}
+
+message GetTransactionLogByBlockHeightResponse {
+  iotextypes.TransactionLogs transactionLogs = 1;
+  iotextypes.BlockIdentifier blockIdentifier = 2;
 }
 
 /*

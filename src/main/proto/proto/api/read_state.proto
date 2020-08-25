@@ -10,7 +10,7 @@ syntax = "proto3";
 package iotexapi;
 option go_package = "github.com/iotexproject/iotex-proto/golang/iotexapi";
 option java_multiple_files = true;
-option java_package = "com.github.iotexproject.grpc.types";
+option java_package = "com.github.iotexproject.grpc.api";
 
 message PaginationParam {
 	uint32 offset = 1;
@@ -27,6 +27,8 @@ message ReadStakingDataMethod {
 		CANDIDATE_BY_NAME = 5;
 		BUCKETS_BY_INDEXES = 6;
 		CANDIDATE_BY_ADDRESS = 7;
+		TOTAL_STAKING_AMOUNT = 8;
+		BUCKETS_COUNT = 9;
 	}
 	Name method = 1;
 }
@@ -62,6 +64,10 @@ message ReadStakingDataRequest {
 		string ownerAddr = 1;
 	}
 
+	message TotalStakingAmount {}
+
+	message BucketsCount {}
+
 	oneof request {
 		VoteBuckets buckets = 1;
 		VoteBucketsByVoter bucketsByVoter = 2;
@@ -70,5 +76,7 @@ message ReadStakingDataRequest {
 		CandidateByName candidateByName = 5;
 		VoteBucketsByIndexes bucketsByIndexes = 6;
 		CandidateByAddress candidateByAddress = 7;
+		TotalStakingAmount totalStakingAmount = 8;
+		BucketsCount bucketsCount = 9;
 	}
 }
