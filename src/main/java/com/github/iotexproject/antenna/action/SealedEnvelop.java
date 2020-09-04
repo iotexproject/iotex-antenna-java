@@ -3,11 +3,11 @@ package com.github.iotexproject.antenna.action;
 import com.github.iotexproject.antenna.crypto.Hash;
 import com.github.iotexproject.antenna.crypto.SignatureData;
 import com.github.iotexproject.antenna.crypto.Signer;
-import com.google.protobuf.ByteString;
+import com.github.iotexproject.antenna.utils.Numeric;
 import com.github.iotexproject.grpc.types.Action;
 import com.github.iotexproject.grpc.types.ActionCore;
-import com.github.iotexproject.antenna.utils.Numeric;
-import lombok.Getter;
+import com.google.protobuf.ByteString;
+import lombok.Data;
 
 import java.math.BigInteger;
 
@@ -16,7 +16,7 @@ import java.math.BigInteger;
  *
  * @author Yang XuePing
  */
-@Getter
+@Data
 public class SealedEnvelop {
     private Envelop act;
     private byte[] senderPubKey;
@@ -44,6 +44,21 @@ public class SealedEnvelop {
         System.arraycopy(signatureData.getS(), 0, signature, 32, 32);
         signature[64] = signatureData.getV();
         sealedEnvelop.signature = signature;
+
+        return sealedEnvelop;
+    }
+
+    /**
+     * construct empty SealedEnvelop.
+     *
+     * @param envelop
+     * @return
+     */
+    public static SealedEnvelop empty(Envelop envelop) {
+        SealedEnvelop sealedEnvelop = new SealedEnvelop();
+        sealedEnvelop.act = envelop;
+        sealedEnvelop.senderPubKey = new byte[0];
+        sealedEnvelop.signature = new byte[0];
 
         return sealedEnvelop;
     }
