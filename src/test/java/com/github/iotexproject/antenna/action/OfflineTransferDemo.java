@@ -19,12 +19,12 @@ public class OfflineTransferDemo {
 
         // 构造转账交易
         TransferRequest request = new TransferRequest();
-        request.setNonce(100l);
+        request.setNonce(101l);
         request.setGasLimit(10000l);
         request.setGasPrice("1000000000000");
         request.setAmount("1000000000000000000");
         request.setRecipient("io13zt8sznez2pf0q0hqdz2hyl938wak2fsjgdeml");
-        OfflineTransferMethod method = new OfflineTransferMethod(rpcMethod, request);
+        OfflineTransferMethod method = new OfflineTransferMethod(null, request);
         SealedEnvelop envelop = method.sealedEnvelop();
 
         // sign
@@ -40,6 +40,7 @@ public class OfflineTransferDemo {
         // send action
         envelop.setSenderPubKey(account.publicKey());
         envelop.setSignature(signature);
+        String hash = envelop.hash();
         Action action = envelop.action();
 
         SendActionResponse response = rpcMethod.sendAction(SendActionRequest.newBuilder().setAction(action).build());
