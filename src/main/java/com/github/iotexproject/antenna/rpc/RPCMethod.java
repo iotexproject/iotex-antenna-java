@@ -14,7 +14,15 @@ public class RPCMethod {
     private APIServiceGrpc.APIServiceBlockingStub stub;
 
     public RPCMethod(String hostname) {
-        channel = ManagedChannelBuilder.forTarget(hostname).usePlaintext().build();
+        this(hostname, false);
+    }
+
+    public RPCMethod(String hostname, boolean secure) {
+        if (secure) {
+            channel = ManagedChannelBuilder.forTarget(hostname).useTransportSecurity().build();
+        } else {
+            channel = ManagedChannelBuilder.forTarget(hostname).usePlaintext().build();
+        }
         stub = APIServiceGrpc.newBlockingStub(channel);
     }
 
