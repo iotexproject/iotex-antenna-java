@@ -1,8 +1,8 @@
 package com.github.iotexproject.antenna.protocol;
 
 import com.github.iotexproject.antenna.action.method.ExecutionMethod;
-import com.github.iotexproject.antenna.action.method.TransferMethod;
 import com.github.iotexproject.antenna.action.method.StakeCreateMethod;
+import com.github.iotexproject.antenna.action.method.TransferMethod;
 import com.github.iotexproject.antenna.rpc.RPCMethod;
 
 /**
@@ -14,7 +14,11 @@ public class IOTX {
     private RPCMethod provider;
 
     public IOTX(String provider) {
-        this.provider = new RPCMethod(provider);
+        this(provider, false);
+    }
+
+    public IOTX(String provider, boolean secure) {
+        this.provider = new RPCMethod(provider, secure);
     }
 
     public RPCMethod currentProvider() {
@@ -22,8 +26,12 @@ public class IOTX {
     }
 
     public void setProvider(String provider) {
+        setProvider(provider, false);
+    }
+
+    public void setProvider(String provider, boolean secure) {
         if (this.provider != null) {
-            this.provider.setProvider(provider);
+            this.provider.setProvider(provider, secure);
         }
     }
 

@@ -27,10 +27,18 @@ public class RPCMethod {
     }
 
     public void setProvider(String hostname) {
+        setProvider(hostname, false);
+    }
+
+    public void setProvider(String hostname, boolean secure) {
         if (channel != null) {
             channel.shutdown();
         }
-        channel = ManagedChannelBuilder.forTarget(hostname).usePlaintext().build();
+        if (secure) {
+            channel = ManagedChannelBuilder.forTarget(hostname).useTransportSecurity().build();
+        } else {
+            channel = ManagedChannelBuilder.forTarget(hostname).usePlaintext().build();
+        }
         stub = APIServiceGrpc.newBlockingStub(channel);
     }
 
