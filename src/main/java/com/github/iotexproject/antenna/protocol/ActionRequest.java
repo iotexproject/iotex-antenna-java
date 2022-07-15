@@ -13,5 +13,6 @@ public class ActionRequest {
     private Long nonce;
     private Long gasLimit;
     private String gasPrice;
+    private Integer chainID;
     private Account account;
 }

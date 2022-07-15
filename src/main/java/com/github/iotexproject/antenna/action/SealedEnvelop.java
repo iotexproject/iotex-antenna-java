@@ -65,7 +65,7 @@ public class SealedEnvelop {
 
     public Action action() {
         ActionCore.Builder builder = ActionCore.newBuilder()
-                .setVersion(act.getVersion()).setNonce(act.getNonce()).setGasLimit(act.getGasLimit()).setGasPrice(act.getGasPrice());
+                .setVersion(act.getVersion()).setNonce(act.getNonce()).setGasLimit(act.getGasLimit()).setGasPrice(act.getGasPrice()).setChainID(act.getChainID());
         if (act.getTransfer() != null) {
             builder.setTransfer(act.getTransfer());
         }

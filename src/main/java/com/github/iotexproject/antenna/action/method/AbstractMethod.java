@@ -38,7 +38,7 @@ public abstract class AbstractMethod {
         if (request.getGasLimit() == null) {
             request.setGasLimit(0l);
         }
-        return Envelop.builder().version(1).nonce(request.getNonce()).gasLimit(request.getGasLimit()).gasPrice(request.getGasPrice()).build();
+        return Envelop.builder().version(1).nonce(request.getNonce()).gasLimit(request.getGasLimit()).gasPrice(request.getGasPrice()).chainID(request.getChainID()).build();
     }
 
     protected String sendAction(Envelop envelop) {

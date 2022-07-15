@@ -72,16 +72,6 @@ service APIService {
   // get logs filtered by contract address and topics
   rpc GetLogs(GetLogsRequest) returns (GetLogsResponse) {}
 
-  /*
-   * evm transfers APIs
-   */
-
-  // Deprecated
-  rpc GetEvmTransfersByActionHash(GetEvmTransfersByActionHashRequest) returns (GetEvmTransfersByActionHashResponse) {}
-
-  // Deprecated
-  rpc GetEvmTransfersByBlockHeight(GetEvmTransfersByBlockHeightRequest) returns (GetEvmTransfersByBlockHeightResponse) {}
-
   rpc GetTransactionLogByActionHash(GetTransactionLogByActionHashRequest) returns (GetTransactionLogByActionHashResponse) {}
 
   rpc GetTransactionLogByBlockHeight(GetTransactionLogByBlockHeightRequest) returns (GetTransactionLogByBlockHeightResponse) {}
@@ -96,10 +86,21 @@ service APIService {
   // get logs filtered by contract address and topics in stream
   rpc StreamLogs(StreamLogsRequest) returns (stream StreamLogsResponse) {}
 
-  /*
-   * election APIs
-   */
+  // get actions from act pool
+  rpc GetActPoolActions(GetActPoolActionsRequest) returns (GetActPoolActionsResponse) {}
+
+  // Deprecated
+  rpc GetEvmTransfersByActionHash(GetEvmTransfersByActionHashRequest) returns (GetEvmTransfersByActionHashResponse) {}
+
+  // Deprecated
+  rpc GetEvmTransfersByBlockHeight(GetEvmTransfersByBlockHeightRequest) returns (GetEvmTransfersByBlockHeightResponse) {}
+
+  // Deprecated
   rpc GetElectionBuckets(GetElectionBucketsRequest) returns (GetElectionBucketsResponse) {}
+
+  rpc ReadContractStorage(ReadContractStorageRequest) returns (ReadContractStorageResponse) {}
+
+  rpc TraceTransactionStructLogs(TraceTransactionStructLogsRequest) returns (TraceTransactionStructLogsResponse) {}
 }
 
 // experiment
@@ -169,10 +170,11 @@ message ActionInfo {
   iotextypes.Action action = 1;
   string actHash = 2;
   string blkHash = 3;
+  google.protobuf.Timestamp timestamp = 4;
   uint64 blkHeight = 5;
   string sender = 6;
   string gasFee = 7;
-  google.protobuf.Timestamp timestamp = 4;
+  uint32 index = 8;
 }
 
 message ReceiptInfo {
@@ -190,6 +192,7 @@ message BlockProducerInfo {
 message BlockInfo {
   iotextypes.Block block = 1;
   repeated iotextypes.Receipt receipts = 2;
+  iotextypes.TransactionLogs transactionLogs = 3;
 }
 
 message GetActionsResponse {
@@ -222,6 +225,7 @@ message GetChainMetaRequest {}
 
 message GetChainMetaResponse {
   iotextypes.ChainMeta chainMeta = 1;
+  string syncStage = 2; // sync stage
 }
 
 message GetServerMetaRequest  {}
@@ -253,6 +257,8 @@ message GetReceiptByActionResponse {
 message ReadContractRequest {
   iotextypes.Execution execution = 1;
   string callerAddress = 2;
+  uint64 gasLimit = 3;
+  string gasPrice = 4;
 }
 
 message ReadContractResponse {
@@ -323,6 +329,7 @@ message GetRawBlocksRequest {
   uint64 startHeight = 1;
   uint64 count = 2;
   bool withReceipts = 3;
+  bool withTransactionLogs = 4;
 }
 
 message GetRawBlocksResponse {
@@ -335,7 +342,8 @@ message GetLogsByBlock {
 
 message GetLogsByRange {
   uint64 fromBlock = 1;
-  uint64 count = 2;
+  uint64 toBlock = 2;
+  uint64 paginationSize = 3;
 }
 
 message Topics {
@@ -357,26 +365,6 @@ message GetLogsRequest {
 
 message GetLogsResponse {
   repeated iotextypes.Log logs = 1;
-}
-
-// Deprecated
-message GetEvmTransfersByActionHashRequest {
-  string actionHash = 1;
-}
-
-// Deprecated
-message GetEvmTransfersByActionHashResponse {
-  iotextypes.ActionEvmTransfer actionEvmTransfers = 1;
-}
-
-// Deprecated
-message GetEvmTransfersByBlockHeightRequest {
-  uint64 blockHeight = 1;
-}
-
-// Deprecated
-message GetEvmTransfersByBlockHeightResponse {
-  iotextypes.BlockEvmTransfer blockEvmTransfers = 1;
 }
 
 message GetTransactionLogByActionHashRequest {
@@ -403,6 +391,7 @@ message StreamBlocksRequest {}
 
 message StreamBlocksResponse {
     BlockInfo block = 1;
+    iotextypes.BlockIdentifier blockIdentifier = 2;
 }
 
 message StreamLogsRequest {
@@ -411,6 +400,14 @@ message StreamLogsRequest {
 
 message StreamLogsResponse {
     iotextypes.Log log = 1;
+}
+
+message GetActPoolActionsRequest {
+  repeated string actionHashes = 1;  // if this field is absent, get all actions from actpool
+}
+
+message GetActPoolActionsResponse {
+  repeated iotextypes.Action actions = 1;
 }
 
  /*
@@ -422,4 +419,41 @@ message GetElectionBucketsRequest{
 
 message GetElectionBucketsResponse{
   repeated iotextypes.ElectionBucket buckets = 1;
+}
+
+// Deprecated
+message GetEvmTransfersByActionHashRequest {
+  string actionHash = 1;
+}
+
+// Deprecated
+message GetEvmTransfersByActionHashResponse {
+  iotextypes.ActionEvmTransfer actionEvmTransfers = 1;
+}
+
+// Deprecated
+message GetEvmTransfersByBlockHeightRequest {
+  uint64 blockHeight = 1;
+}
+
+// Deprecated
+message GetEvmTransfersByBlockHeightResponse {
+  iotextypes.BlockEvmTransfer blockEvmTransfers = 1;
+}
+
+message ReadContractStorageRequest {
+  string contract = 1;
+  bytes key = 2;
+}
+
+message ReadContractStorageResponse {
+  bytes data = 1;
+}
+
+message TraceTransactionStructLogsRequest {
+  string actionHash = 1;
+}
+
+message TraceTransactionStructLogsResponse {
+  repeated iotextypes.TransactionStructLog  structLogs = 1;
 }

@@ -8,6 +8,8 @@ import com.github.iotexproject.antenna.crypto.Signer;
 import com.github.iotexproject.antenna.protocol.TransferRequest;
 import com.github.iotexproject.antenna.rpc.RPCMethod;
 import com.github.iotexproject.antenna.utils.Numeric;
+import com.github.iotexproject.grpc.api.GetReceiptByActionRequest;
+import com.github.iotexproject.grpc.api.GetReceiptByActionResponse;
 import com.github.iotexproject.grpc.api.SendActionRequest;
 import com.github.iotexproject.grpc.api.SendActionResponse;
 import com.github.iotexproject.grpc.types.Action;
@@ -22,6 +24,7 @@ public class OfflineTransferDemo {
         request.setNonce(101l);
         request.setGasLimit(10000l);
         request.setGasPrice("1000000000000");
+        request.setChainID(2);
         request.setAmount("1000000000000000000");
         request.setRecipient("io13zt8sznez2pf0q0hqdz2hyl938wak2fsjgdeml");
         OfflineTransferMethod method = new OfflineTransferMethod(null, request);

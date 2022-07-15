@@ -66,11 +66,12 @@ public class Contract {
      * @param nonce    nonce, optional
      * @param gasLimit gasLimit, optional
      * @param gasPrice gasPrice, optional
+     * @param chainId chainID
      * @param account  account
      * @param args     constructor params
      * @return
      */
-    public String deploy(Long nonce, Long gasLimit, String gasPrice, Account account, String amount, Object... args) {
+    public String deploy(Long nonce, Long gasLimit, String gasPrice, Integer chainID, Account account, String amount, Object... args) {
         if (this.bin == null) {
             throw new RuntimeException("deploy contract must set bin");
         }
@@ -83,6 +84,7 @@ public class Contract {
         request.setNonce(nonce);
         request.setGasLimit(gasLimit);
         request.setGasPrice(gasPrice);
+        request.setChainID(chainID);
         request.setAccount(account);
         request.setContract("");
         request.setAmount(amount);
@@ -96,13 +98,14 @@ public class Contract {
      * @param nonce    nonce, optional
      * @param gasLimit gasLimit, optional
      * @param gasPrice gasPrice, optional
+     * @param chaindID chainID
      * @param account  account
      * @param method   contract method name
      * @param method   execute amount
      * @param args     contract method params
      * @return
      */
-    public String execute(Long nonce, Long gasLimit, String gasPrice, Account account, String method, String amount, Object... args) {
+    public String execute(Long nonce, Long gasLimit, String gasPrice, Integer chaindID, Account account, String method, String amount, Object... args) {
         Abi.Function function = this.abi.findFunction(method);
         if (function == null) {
             throw new RuntimeException("contract method " + method + " not exists.");
@@ -111,6 +114,7 @@ public class Contract {
         request.setNonce(nonce);
         request.setGasLimit(gasLimit);
         request.setGasPrice(gasPrice);
+        request.setChainID(chaindID);
         request.setAccount(account);
         request.setContract(address);
         request.setAmount(amount);
