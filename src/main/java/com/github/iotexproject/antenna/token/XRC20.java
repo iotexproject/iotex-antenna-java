@@ -77,9 +77,10 @@ public class XRC20 extends Token {
             BigInteger value,
             Account account,
             String gasPrice,
-            Long gasLimit
+            Long gasLimit,
+            Integer chainID
     ) {
-        return this.contract.execute(null, gasLimit, gasPrice, account, "transfer", "0", to, value);
+        return this.contract.execute(null, gasLimit, gasPrice, chainID, account, "transfer", "0", to, value);
     }
 
     public String allowance(
@@ -87,9 +88,10 @@ public class XRC20 extends Token {
             String spender,
             Account account,
             String gasPrice,
-            Long gasLimit
+            Long gasLimit,
+            Integer chainID
     ) {
-        return this.contract.execute(null, gasLimit, gasPrice, account, "allowance", "0", owner, spender);
+        return this.contract.execute(null, gasLimit, gasPrice, chainID, account, "allowance", "0", owner, spender);
     }
 
     public String approve(
@@ -97,9 +99,10 @@ public class XRC20 extends Token {
             BigInteger value,
             Account account,
             String gasPrice,
-            Long gasLimit
+            Long gasLimit,
+            Integer chainID
     ) {
-        return this.contract.execute(null, gasLimit, gasPrice, account, "approve", "0", spender, value);
+        return this.contract.execute(null, gasLimit, gasPrice, chainID, account, "approve", "0", spender, value);
     }
 
     public String transferFrom(
@@ -108,8 +111,9 @@ public class XRC20 extends Token {
             BigInteger value,
             Account account,
             String gasPrice,
-            Long gasLimit
+            Long gasLimit,
+            Integer chainID
     ) {
-        return this.contract.execute(null, gasLimit, gasPrice, account, "transferFrom", "0", from, to, value);
+        return this.contract.execute(null, gasLimit, gasPrice, chainID, account, "transferFrom", "0", from, to, value);
     }
 }

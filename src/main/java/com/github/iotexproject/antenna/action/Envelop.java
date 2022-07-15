@@ -22,6 +22,8 @@ public class Envelop {
     private Long gasLimit;
     private String gasPrice;
 
+    private Integer chainID;
+
     // optional fields
     private Transfer transfer;
     private Execution execution;
@@ -62,6 +64,7 @@ public class Envelop {
             envelop.setNonce(core.getNonce());
             envelop.setGasLimit(core.getGasLimit());
             envelop.setGasPrice(core.getGasPrice());
+            envelop.setChainID(core.getChainID());
 
             if (core.getTransfer().toByteArray().length > 0) {
                 envelop.setTransfer(core.getTransfer());
@@ -107,7 +110,7 @@ public class Envelop {
     }
 
     public ActionCore core() {
-        ActionCore.Builder builder = ActionCore.newBuilder().setVersion(version).setNonce(nonce).setGasLimit(gasLimit).setGasPrice(gasPrice);
+        ActionCore.Builder builder = ActionCore.newBuilder().setVersion(version).setNonce(nonce).setGasLimit(gasLimit).setGasPrice(gasPrice).setChainID(chainID);
         if (transfer != null) {
             builder.setTransfer(transfer);
         }

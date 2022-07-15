@@ -32,6 +32,6 @@ public class XRC20Test {
         Account account = IotexAccount.create(IotexAccountTest.TEST_PRIVATE);
 
         XRC20 vita = new XRC20(provider, "io14j96vg9pkx28htpgt2jx0tf3v9etpg4j9h384m");
-        Assert.assertNotNull(vita.transfer("io13zt8sznez2pf0q0hqdz2hyl938wak2fsjgdeml", BigInteger.valueOf(1l), account, "1000000000000", 50000l));
+        Assert.assertNotNull(vita.transfer("io13zt8sznez2pf0q0hqdz2hyl938wak2fsjgdeml", BigInteger.valueOf(1l), account, "1000000000000", 50000l, 2));
     }
 }
