@@ -3,6 +3,7 @@ package com.github.iotexproject.antenna.rpc;
 import com.github.iotexproject.grpc.api.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import lombok.Getter;
 
 /**
  * rpc method.
@@ -13,17 +14,21 @@ public class RPCMethod {
     private ManagedChannel channel;
     private APIServiceGrpc.APIServiceBlockingStub stub;
 
-    public RPCMethod(String hostname) {
-        this(hostname, false);
+    @Getter
+    private Integer chainID;
+
+    public RPCMethod(String hostname, Integer chainID) {
+        this(hostname, false, chainID);
     }
 
-    public RPCMethod(String hostname, boolean secure) {
+    public RPCMethod(String hostname, Boolean secure, Integer chainID) {
         if (secure) {
             channel = ManagedChannelBuilder.forTarget(hostname).useTransportSecurity().build();
         } else {
             channel = ManagedChannelBuilder.forTarget(hostname).usePlaintext().build();
         }
         stub = APIServiceGrpc.newBlockingStub(channel);
+        this.chainID = chainID;
     }
 
     public void setProvider(String hostname) {

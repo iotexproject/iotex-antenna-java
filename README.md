@@ -14,7 +14,7 @@ network for IoT powered by scalability- and privacy-centric blockchains. Please 
 <dependency>
   <groupId>com.github.iotexproject</groupId>
   <artifactId>iotex-antenna-java</artifactId>
-  <version>0.6.0</version>
+  <version>0.6.1</version>
 </dependency>
 ```
 

@@ -16,7 +16,7 @@ public class IOTXTest {
     public void testTransfer() {
         //Account account = IotexAccount.create(IotexAccountTest.TEST_PRIVATE);
         Account account = IotexAccount.create("41a0dd7befae299109a2e64fd4f275d8c6d0148c2637fea605b8716d64d8236d");
-        IOTX iotx = new IOTX(RPCMethodTest.IOTEX_CORE);
+        IOTX iotx = new IOTX(RPCMethodTest.IOTEX_CORE, 2);
 
         TransferRequest request = new TransferRequest();
         //request.setNonce(1l); // optional, can be null
@@ -34,7 +34,7 @@ public class IOTXTest {
     @Test
     public void testStakeCreate() {
         Account account = IotexAccount.create("cfa6ef757dee2e50351620dca002d32b9c090cfda55fb81f37f1d26b273743f1");
-        IOTX iotx = new IOTX(RPCMethodTest.IOTEX_CORE);
+        IOTX iotx = new IOTX(RPCMethodTest.IOTEX_CORE, 2);
 
         StakeCreateRequest request = new StakeCreateRequest();
         request.setGasLimit(1000000l); // optional, can be null

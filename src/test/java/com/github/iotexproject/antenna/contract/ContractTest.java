@@ -26,26 +26,26 @@ public class ContractTest {
 
     @Test
     public void testDeploy() {
-        RPCMethod provider = new RPCMethod(IOTEX_CORE);
+        RPCMethod provider = new RPCMethod(IOTEX_CORE, 2);
         Account account = IotexAccount.create(IotexAccountTest.TEST_PRIVATE);
 
         Contract contract = new Contract(provider, AbiParseTest.CONTRACT_WITH_CONSTRUCTOR_ABI, Numeric.hexStringToByteArray(AbiParseTest.CONTRACT_WITH_CONSTRUCTOR_BIN));
-        String hash = contract.deploy(null, 100000l, "1000000000000", 2, account, "0", 5);
+        String hash = contract.deploy(null, 100000l, "1000000000000", account, "0", 5);
         assertNotNull(hash);
     }
 
     @Test
     public void testExecute() {
-        RPCMethod provider = new RPCMethod(IOTEX_CORE);
+        RPCMethod provider = new RPCMethod(IOTEX_CORE, 2);
         Account account = IotexAccount.create(IotexAccountTest.TEST_PRIVATE);
 
         Contract contract = new Contract(provider, "io1tzevj29d4fsxet3a8gthhz9v4rmqc730myt0q4", AbiParseTest.CONTRACT_WITH_CONSTRUCTOR_ABI);
-        String hash = contract.execute(null, 100000l, "1000000000000", 2, account, "set", "0", 10);
+        String hash = contract.execute(null, 100000l, "1000000000000", account, "set", "0", 10);
         assertNotNull(hash);
     }
 
     public void testRead() {
-        RPCMethod provider = new RPCMethod(IOTEX_CORE);
+        RPCMethod provider = new RPCMethod(IOTEX_CORE, 2);
         Contract contract = new Contract(provider, "io1l4xyuc9t858qgv3xy946avyedf4pryg7hpfzmy", ERC20_ABI);
         List result = contract.read("io13zt8sznez2pf0q0hqdz2hyl938wak2fsjgdeml", "balanceOf", "io13zt8sznez2pf0q0hqdz2hyl938wak2fsjgdeml");
         assertNotNull(result);
@@ -53,7 +53,7 @@ public class ContractTest {
 
     @Test
     public void testDecode() {
-        RPCMethod provider = new RPCMethod(IOTEX_CORE);
+        RPCMethod provider = new RPCMethod(IOTEX_CORE, 2);
         Contract contract = new Contract(provider, "io1l4xyuc9t858qgv3xy946avyedf4pryg7hpfzmy", ERC20_ABI);
 
         Abi.Function function = contract.getFunctionBySignature("a9059cbb");

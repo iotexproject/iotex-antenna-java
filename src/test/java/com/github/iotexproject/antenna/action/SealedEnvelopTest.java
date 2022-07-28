@@ -16,7 +16,7 @@ public class SealedEnvelopTest {
     @Test
     public void testSign() {
         Envelop envelop = Envelop.builder()
-                .version(1).nonce(1l).gasLimit(100000l).gasPrice("10000000000000")
+                .version(1).nonce(1l).gasLimit(100000l).gasPrice("10000000000000").chainID(2)
                 .transfer(Transfer.newBuilder()
                         .setAmount("8500000000000000")
                         .setRecipient("io13zt8sznez2pf0q0hqdz2hyl938wak2fsjgdeml")
@@ -29,7 +29,7 @@ public class SealedEnvelopTest {
                 envelop
         );
         Assert.assertEquals(
-                "8d7174a896671f5c4565487cb267b7d4ef2a0e70f22082df0bd7e71282bcea7a7c38e2dcd29bc80410571d84b8f788c448f8fb0391160bf2d5eaeee7389c003b00",
+                "c6c296ea7e6d7c8422c5e70be716e47d91d1ea530c6b6c450d61e648a490f62c10448ebe87e473fda3de80ec52ddafbdcd2c4cf4126227f0f2d436db66879ef401",
                 Numeric.toHexString(sealedEnvelop.getSignature())
         );
     }
