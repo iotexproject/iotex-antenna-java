@@ -21,7 +21,7 @@ network for IoT powered by scalability- and privacy-centric blockchains. Please 
 ### Install by Gradle
 
 ```
-implementation 'com.github.iotexproject:iotex-antenna-java:0.6.0'
+implementation 'com.github.iotexproject:iotex-antenna-java:0.6.1'
 ```
 
 
