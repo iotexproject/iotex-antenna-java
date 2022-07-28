@@ -19,7 +19,7 @@ public class RPCMethodTest {
 
     @Before
     public void init() {
-        this.rpcMethod = new RPCMethod(IOTEX_CORE);
+        this.rpcMethod = new RPCMethod(IOTEX_CORE, 2);
     }
 
     @After

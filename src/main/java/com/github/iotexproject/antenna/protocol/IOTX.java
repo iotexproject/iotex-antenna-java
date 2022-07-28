@@ -4,6 +4,7 @@ import com.github.iotexproject.antenna.action.method.ExecutionMethod;
 import com.github.iotexproject.antenna.action.method.StakeCreateMethod;
 import com.github.iotexproject.antenna.action.method.TransferMethod;
 import com.github.iotexproject.antenna.rpc.RPCMethod;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 /**
  * iotex encapsulate.
@@ -13,12 +14,12 @@ import com.github.iotexproject.antenna.rpc.RPCMethod;
 public class IOTX {
     private RPCMethod provider;
 
-    public IOTX(String provider) {
-        this(provider, false);
+    public IOTX(String provider, Integer chainID) {
+        this(provider, false, chainID);
     }
 
-    public IOTX(String provider, boolean secure) {
-        this.provider = new RPCMethod(provider, secure);
+    public IOTX(String provider, Boolean secure, Integer chainID) {
+        this.provider = new RPCMethod(provider, secure, chainID);
     }
 
     public RPCMethod currentProvider() {

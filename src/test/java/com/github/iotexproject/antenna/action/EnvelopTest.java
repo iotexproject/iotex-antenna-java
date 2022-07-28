@@ -15,7 +15,7 @@ import org.junit.Test;
 public class EnvelopTest {
     @Test
     public void testTransferDeserialize() {
-        Envelop envelop = Envelop.builder().version(1).nonce(2l).gasLimit(100l).gasPrice("300")
+        Envelop envelop = Envelop.builder().version(1).nonce(2l).gasLimit(100l).gasPrice("300").chainID(2)
                 .transfer(Transfer.newBuilder()
                         .setRecipient("io14jyvf4stclr80nmgx9hrkdr0c4hptfwl7ljxdz")
                         .setAmount("10000")
@@ -46,7 +46,7 @@ public class EnvelopTest {
 
     @Test
     public void testExecutionDeserialize() {
-        Envelop envelop = Envelop.builder().version(1).nonce(2l).gasLimit(100l).gasPrice("300")
+        Envelop envelop = Envelop.builder().version(1).nonce(2l).gasLimit(100l).gasPrice("300").chainID(2)
                 .execution(Execution.newBuilder()
                         .setContract("io24jyvf4stclr80nmgx9hrkdr0c4hptfwl7ljxdz")
                         .setAmount("20000")

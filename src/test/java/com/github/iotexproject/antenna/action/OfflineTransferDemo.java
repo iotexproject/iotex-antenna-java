@@ -17,14 +17,13 @@ import com.github.iotexproject.grpc.types.Action;
 public class OfflineTransferDemo {
     public static void main(String... args) {
         final String IOTEX_CORE = "api.testnet.iotex.one:80";
-        RPCMethod rpcMethod = new RPCMethod(IOTEX_CORE);
+        RPCMethod rpcMethod = new RPCMethod(IOTEX_CORE, 2);
 
         // 构造转账交易
         TransferRequest request = new TransferRequest();
         request.setNonce(101l);
         request.setGasLimit(10000l);
         request.setGasPrice("1000000000000");
-        request.setChainID(2);
         request.setAmount("1000000000000000000");
         request.setRecipient("io13zt8sznez2pf0q0hqdz2hyl938wak2fsjgdeml");
         OfflineTransferMethod method = new OfflineTransferMethod(null, request);
