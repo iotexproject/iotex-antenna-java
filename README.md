@@ -34,7 +34,7 @@ ChainID specification:
 ```java
 // create account from private key
 Account account = IotexAccount.create(IotexAccountTest.TEST_PRIVATE);
-IOTX iotx = new IOTX("api.testnet.iotex.one:80");
+IOTX iotx = new IOTX("api.testnet.iotex.one:80", 2);
 
 // create KeyStore file
 KeystoreFile walletFile = Keystore.createStandard("123456", Numeric.toBigInt(account.privateKey()));
@@ -44,7 +44,6 @@ TransferRequest request = new TransferRequest();
 request.setNonce(1l); // optional, can be null
 request.setGasLimit(100000l); // optional, can be null
 request.setGasPrice("1000000000000"); // optional, can be null
-request.setChainId(2);        
 request.setAccount(account);
 request.setAmount("100");
 request.setRecipient("io13zt8sznez2pf0q0hqdz2hyl938wak2fsjgdeml");
@@ -54,9 +53,9 @@ String hash = iotx.sendTransfer(request);
 
 // contract deploy
 Contract contract = new Contract(iotx.currentProvider(), CONTRACT_ABI, Numeric.hexStringToByteArray(CONTRACT_BIN));
-String hash = contract.deploy(null, 100000l, "1000000000000", 2, account, "0", 5);
+String hash = contract.deploy(null, 100000l, "1000000000000", account, "0", 5);
 
 // contract execute
 Contract contract = new Contract(provider, CONTRACT_ADDRESS, CONTRACT_ABI);
-String hash = contract.execute(null, 100000l, "1000000000000", 2, account, "set", "0", 10);
+String hash = contract.execute(null, 100000l, "1000000000000", account, "set", "0", 10);
 ```
