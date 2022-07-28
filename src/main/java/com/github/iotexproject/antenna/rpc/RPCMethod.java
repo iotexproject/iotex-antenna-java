@@ -31,11 +31,11 @@ public class RPCMethod {
         this.chainID = chainID;
     }
 
-    public void setProvider(String hostname) {
-        setProvider(hostname, false);
+    public void setProvider(String hostname, Integer chainID) {
+        setProvider(hostname, false, chainID);
     }
 
-    public void setProvider(String hostname, boolean secure) {
+    public void setProvider(String hostname, boolean secure, Integer chainID) {
         if (channel != null) {
             channel.shutdown();
         }
@@ -45,6 +45,7 @@ public class RPCMethod {
             channel = ManagedChannelBuilder.forTarget(hostname).usePlaintext().build();
         }
         stub = APIServiceGrpc.newBlockingStub(channel);
+        this.chainID = chainID;
     }
 
     public void close() {

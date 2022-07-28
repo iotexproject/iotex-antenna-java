@@ -26,13 +26,13 @@ public class IOTX {
         return this.provider;
     }
 
-    public void setProvider(String provider) {
-        setProvider(provider, false);
+    public void setProvider(String provider, Integer chainID) {
+        setProvider(provider, false, chainID);
     }
 
-    public void setProvider(String provider, boolean secure) {
+    public void setProvider(String provider, boolean secure, Integer chainID) {
         if (this.provider != null) {
-            this.provider.setProvider(provider, secure);
+            this.provider.setProvider(provider, secure, chainID);
         }
     }
 
