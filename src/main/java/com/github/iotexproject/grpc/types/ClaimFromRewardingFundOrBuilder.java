@@ -26,4 +26,26 @@ public interface ClaimFromRewardingFundOrBuilder extends
    * @return The data.
    */
   com.google.protobuf.ByteString getData();
+
+  /**
+   * <pre>
+   * address the claim of rewards for, if empty denoting the sender's address
+   * more information see iip27: https://iotex.larksuite.com/wiki/EtDewVEz6i5BeCkyj6vudtdHsCh
+   * </pre>
+   *
+   * <code>string address = 3;</code>
+   * @return The address.
+   */
+  java.lang.String getAddress();
+  /**
+   * <pre>
+   * address the claim of rewards for, if empty denoting the sender's address
+   * more information see iip27: https://iotex.larksuite.com/wiki/EtDewVEz6i5BeCkyj6vudtdHsCh
+   * </pre>
+   *
+   * <code>string address = 3;</code>
+   * @return The bytes for address.
+   */
+  com.google.protobuf.ByteString
+      getAddressBytes();
 }

@@ -60,6 +60,16 @@ public final class StateData {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_iotextypes_BucketsCount_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_iotextypes_ContractStakingBucketType_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_iotextypes_ContractStakingBucketType_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_iotextypes_ContractStakingBucketTypeList_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_iotextypes_ContractStakingBucketTypeList_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -74,26 +84,35 @@ public final class StateData {
       "ProbationCandidateList\022>\n\rprobationList\030" +
       "\001 \003(\0132\'.iotextypes.ProbationCandidateLis" +
       "t.Info\022\025\n\rintensityRate\030\002 \001(\r\032&\n\004Info\022\017\n" +
-      "\007address\030\001 \001(\t\022\r\n\005count\030\002 \001(\r\"\237\002\n\nVoteBu" +
+      "\007address\030\001 \001(\t\022\r\n\005count\030\002 \001(\r\"\334\003\n\nVoteBu" +
       "cket\022\r\n\005index\030\001 \001(\004\022\030\n\020candidateAddress\030" +
       "\002 \001(\t\022\024\n\014stakedAmount\030\003 \001(\t\022\026\n\016stakedDur" +
       "ation\030\004 \001(\r\022.\n\ncreateTime\030\005 \001(\0132\032.google" +
       ".protobuf.Timestamp\0222\n\016stakeStartTime\030\006 " +
       "\001(\0132\032.google.protobuf.Timestamp\0224\n\020unsta" +
       "keStartTime\030\007 \001(\0132\032.google.protobuf.Time" +
-      "stamp\022\021\n\tautoStake\030\010 \001(\010\022\r\n\005owner\030\t \001(\t\"" +
-      "9\n\016VoteBucketList\022\'\n\007buckets\030\001 \003(\0132\026.iot" +
-      "extypes.VoteBucket\"\264\001\n\013CandidateV2\022\024\n\014ow" +
-      "nerAddress\030\001 \001(\t\022\027\n\017operatorAddress\030\002 \001(" +
-      "\t\022\025\n\rrewardAddress\030\003 \001(\t\022\014\n\004name\030\004 \001(\t\022\032" +
-      "\n\022totalWeightedVotes\030\005 \001(\t\022\032\n\022selfStakeB" +
-      "ucketIdx\030\006 \001(\004\022\031\n\021selfStakingTokens\030\007 \001(" +
-      "\t\">\n\017CandidateListV2\022+\n\ncandidates\030\001 \003(\013" +
-      "2\027.iotextypes.CandidateV2\"-\n\014BucketsCoun" +
-      "t\022\r\n\005total\030\001 \001(\004\022\016\n\006active\030\002 \001(\004B]\n\"com." +
-      "github.iotexproject.grpc.typesP\001Z5github" +
-      ".com/iotexproject/iotex-proto/golang/iot" +
-      "extypesb\006proto3"
+      "stamp\022\021\n\tautoStake\030\010 \001(\010\022\r\n\005owner\030\t \001(\t\022" +
+      "\027\n\017contractAddress\030\n \001(\t\022!\n\031stakedDurati" +
+      "onBlockNumber\030\013 \001(\004\022\031\n\021createBlockHeight" +
+      "\030\014 \001(\004\022\035\n\025stakeStartBlockHeight\030\r \001(\004\022\037\n" +
+      "\027unstakeStartBlockHeight\030\016 \001(\004\022$\n\034endors" +
+      "ementExpireBlockHeight\030\017 \001(\004\"9\n\016VoteBuck" +
+      "etList\022\'\n\007buckets\030\001 \003(\0132\026.iotextypes.Vot" +
+      "eBucket\"\300\001\n\013CandidateV2\022\024\n\014ownerAddress\030" +
+      "\001 \001(\t\022\027\n\017operatorAddress\030\002 \001(\t\022\025\n\rreward" +
+      "Address\030\003 \001(\t\022\014\n\004name\030\004 \001(\t\022\032\n\022totalWeig" +
+      "htedVotes\030\005 \001(\t\022\032\n\022selfStakeBucketIdx\030\006 " +
+      "\001(\004\022\031\n\021selfStakingTokens\030\007 \001(\t\022\n\n\002id\030\010 \001" +
+      "(\t\">\n\017CandidateListV2\022+\n\ncandidates\030\001 \003(" +
+      "\0132\027.iotextypes.CandidateV2\"-\n\014BucketsCou" +
+      "nt\022\r\n\005total\030\001 \001(\004\022\016\n\006active\030\002 \001(\004\"I\n\031Con" +
+      "tractStakingBucketType\022\024\n\014stakedAmount\030\001" +
+      " \001(\t\022\026\n\016stakedDuration\030\002 \001(\r\"[\n\035Contract" +
+      "StakingBucketTypeList\022:\n\013bucketTypes\030\001 \003" +
+      "(\0132%.iotextypes.ContractStakingBucketTyp" +
+      "eB]\n\"com.github.iotexproject.grpc.typesP" +
+      "\001Z5github.com/iotexproject/iotex-proto/g" +
+      "olang/iotextypesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -117,7 +136,7 @@ public final class StateData {
     internal_static_iotextypes_VoteBucket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_VoteBucket_descriptor,
-        new java.lang.String[] { "Index", "CandidateAddress", "StakedAmount", "StakedDuration", "CreateTime", "StakeStartTime", "UnstakeStartTime", "AutoStake", "Owner", });
+        new java.lang.String[] { "Index", "CandidateAddress", "StakedAmount", "StakedDuration", "CreateTime", "StakeStartTime", "UnstakeStartTime", "AutoStake", "Owner", "ContractAddress", "StakedDurationBlockNumber", "CreateBlockHeight", "StakeStartBlockHeight", "UnstakeStartBlockHeight", "EndorsementExpireBlockHeight", });
     internal_static_iotextypes_VoteBucketList_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_iotextypes_VoteBucketList_fieldAccessorTable = new
@@ -129,7 +148,7 @@ public final class StateData {
     internal_static_iotextypes_CandidateV2_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_CandidateV2_descriptor,
-        new java.lang.String[] { "OwnerAddress", "OperatorAddress", "RewardAddress", "Name", "TotalWeightedVotes", "SelfStakeBucketIdx", "SelfStakingTokens", });
+        new java.lang.String[] { "OwnerAddress", "OperatorAddress", "RewardAddress", "Name", "TotalWeightedVotes", "SelfStakeBucketIdx", "SelfStakingTokens", "Id", });
     internal_static_iotextypes_CandidateListV2_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_iotextypes_CandidateListV2_fieldAccessorTable = new
@@ -142,6 +161,18 @@ public final class StateData {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_BucketsCount_descriptor,
         new java.lang.String[] { "Total", "Active", });
+    internal_static_iotextypes_ContractStakingBucketType_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_iotextypes_ContractStakingBucketType_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_iotextypes_ContractStakingBucketType_descriptor,
+        new java.lang.String[] { "StakedAmount", "StakedDuration", });
+    internal_static_iotextypes_ContractStakingBucketTypeList_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_iotextypes_ContractStakingBucketTypeList_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_iotextypes_ContractStakingBucketTypeList_descriptor,
+        new java.lang.String[] { "BucketTypes", });
     descriptor.resolveAllFeaturesImmutable();
     com.google.protobuf.TimestampProto.getDescriptor();
   }

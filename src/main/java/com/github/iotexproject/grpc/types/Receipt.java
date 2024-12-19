@@ -31,6 +31,8 @@ private static final long serialVersionUID = 0L;
     contractAddress_ = "";
     logs_ = java.util.Collections.emptyList();
     executionRevertMsg_ = "";
+    blobGasPrice_ = "";
+    effectiveGasPrice_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -220,6 +222,95 @@ private static final long serialVersionUID = 0L;
     return txIndex_;
   }
 
+  public static final int BLOBGASUSED_FIELD_NUMBER = 9;
+  private long blobGasUsed_ = 0L;
+  /**
+   * <code>uint64 blobGasUsed = 9;</code>
+   * @return The blobGasUsed.
+   */
+  @java.lang.Override
+  public long getBlobGasUsed() {
+    return blobGasUsed_;
+  }
+
+  public static final int BLOBGASPRICE_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object blobGasPrice_ = "";
+  /**
+   * <code>string blobGasPrice = 10;</code>
+   * @return The blobGasPrice.
+   */
+  @java.lang.Override
+  public java.lang.String getBlobGasPrice() {
+    java.lang.Object ref = blobGasPrice_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      blobGasPrice_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string blobGasPrice = 10;</code>
+   * @return The bytes for blobGasPrice.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getBlobGasPriceBytes() {
+    java.lang.Object ref = blobGasPrice_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      blobGasPrice_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int EFFECTIVEGASPRICE_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object effectiveGasPrice_ = "";
+  /**
+   * <code>string effectiveGasPrice = 11;</code>
+   * @return The effectiveGasPrice.
+   */
+  @java.lang.Override
+  public java.lang.String getEffectiveGasPrice() {
+    java.lang.Object ref = effectiveGasPrice_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      effectiveGasPrice_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string effectiveGasPrice = 11;</code>
+   * @return The bytes for effectiveGasPrice.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getEffectiveGasPriceBytes() {
+    java.lang.Object ref = effectiveGasPrice_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      effectiveGasPrice_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -257,6 +348,15 @@ private static final long serialVersionUID = 0L;
     }
     if (txIndex_ != 0) {
       output.writeUInt32(8, txIndex_);
+    }
+    if (blobGasUsed_ != 0L) {
+      output.writeUInt64(9, blobGasUsed_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(blobGasPrice_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 10, blobGasPrice_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(effectiveGasPrice_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 11, effectiveGasPrice_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -297,6 +397,16 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(8, txIndex_);
     }
+    if (blobGasUsed_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(9, blobGasUsed_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(blobGasPrice_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(10, blobGasPrice_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(effectiveGasPrice_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(11, effectiveGasPrice_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -328,6 +438,12 @@ private static final long serialVersionUID = 0L;
         .equals(other.getExecutionRevertMsg())) return false;
     if (getTxIndex()
         != other.getTxIndex()) return false;
+    if (getBlobGasUsed()
+        != other.getBlobGasUsed()) return false;
+    if (!getBlobGasPrice()
+        .equals(other.getBlobGasPrice())) return false;
+    if (!getEffectiveGasPrice()
+        .equals(other.getEffectiveGasPrice())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -360,6 +476,13 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getExecutionRevertMsg().hashCode();
     hash = (37 * hash) + TXINDEX_FIELD_NUMBER;
     hash = (53 * hash) + getTxIndex();
+    hash = (37 * hash) + BLOBGASUSED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getBlobGasUsed());
+    hash = (37 * hash) + BLOBGASPRICE_FIELD_NUMBER;
+    hash = (53 * hash) + getBlobGasPrice().hashCode();
+    hash = (37 * hash) + EFFECTIVEGASPRICE_FIELD_NUMBER;
+    hash = (53 * hash) + getEffectiveGasPrice().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -505,6 +628,9 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000020);
       executionRevertMsg_ = "";
       txIndex_ = 0;
+      blobGasUsed_ = 0L;
+      blobGasPrice_ = "";
+      effectiveGasPrice_ = "";
       return this;
     }
 
@@ -572,6 +698,15 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000080) != 0)) {
         result.txIndex_ = txIndex_;
       }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.blobGasUsed_ = blobGasUsed_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.blobGasPrice_ = blobGasPrice_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.effectiveGasPrice_ = effectiveGasPrice_;
+      }
     }
 
     @java.lang.Override
@@ -636,6 +771,19 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getTxIndex() != 0) {
         setTxIndex(other.getTxIndex());
+      }
+      if (other.getBlobGasUsed() != 0L) {
+        setBlobGasUsed(other.getBlobGasUsed());
+      }
+      if (!other.getBlobGasPrice().isEmpty()) {
+        blobGasPrice_ = other.blobGasPrice_;
+        bitField0_ |= 0x00000200;
+        onChanged();
+      }
+      if (!other.getEffectiveGasPrice().isEmpty()) {
+        effectiveGasPrice_ = other.effectiveGasPrice_;
+        bitField0_ |= 0x00000400;
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -711,6 +859,21 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000080;
               break;
             } // case 64
+            case 72: {
+              blobGasUsed_ = input.readUInt64();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 82: {
+              blobGasPrice_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              effectiveGasPrice_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1268,6 +1431,182 @@ private static final long serialVersionUID = 0L;
     public Builder clearTxIndex() {
       bitField0_ = (bitField0_ & ~0x00000080);
       txIndex_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private long blobGasUsed_ ;
+    /**
+     * <code>uint64 blobGasUsed = 9;</code>
+     * @return The blobGasUsed.
+     */
+    @java.lang.Override
+    public long getBlobGasUsed() {
+      return blobGasUsed_;
+    }
+    /**
+     * <code>uint64 blobGasUsed = 9;</code>
+     * @param value The blobGasUsed to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBlobGasUsed(long value) {
+
+      blobGasUsed_ = value;
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint64 blobGasUsed = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBlobGasUsed() {
+      bitField0_ = (bitField0_ & ~0x00000100);
+      blobGasUsed_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object blobGasPrice_ = "";
+    /**
+     * <code>string blobGasPrice = 10;</code>
+     * @return The blobGasPrice.
+     */
+    public java.lang.String getBlobGasPrice() {
+      java.lang.Object ref = blobGasPrice_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        blobGasPrice_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string blobGasPrice = 10;</code>
+     * @return The bytes for blobGasPrice.
+     */
+    public com.google.protobuf.ByteString
+        getBlobGasPriceBytes() {
+      java.lang.Object ref = blobGasPrice_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        blobGasPrice_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string blobGasPrice = 10;</code>
+     * @param value The blobGasPrice to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBlobGasPrice(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      blobGasPrice_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string blobGasPrice = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBlobGasPrice() {
+      blobGasPrice_ = getDefaultInstance().getBlobGasPrice();
+      bitField0_ = (bitField0_ & ~0x00000200);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string blobGasPrice = 10;</code>
+     * @param value The bytes for blobGasPrice to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBlobGasPriceBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      blobGasPrice_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object effectiveGasPrice_ = "";
+    /**
+     * <code>string effectiveGasPrice = 11;</code>
+     * @return The effectiveGasPrice.
+     */
+    public java.lang.String getEffectiveGasPrice() {
+      java.lang.Object ref = effectiveGasPrice_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        effectiveGasPrice_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string effectiveGasPrice = 11;</code>
+     * @return The bytes for effectiveGasPrice.
+     */
+    public com.google.protobuf.ByteString
+        getEffectiveGasPriceBytes() {
+      java.lang.Object ref = effectiveGasPrice_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        effectiveGasPrice_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string effectiveGasPrice = 11;</code>
+     * @param value The effectiveGasPrice to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEffectiveGasPrice(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      effectiveGasPrice_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string effectiveGasPrice = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEffectiveGasPrice() {
+      effectiveGasPrice_ = getDefaultInstance().getEffectiveGasPrice();
+      bitField0_ = (bitField0_ & ~0x00000400);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string effectiveGasPrice = 11;</code>
+     * @param value The bytes for effectiveGasPrice to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEffectiveGasPriceBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      effectiveGasPrice_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }

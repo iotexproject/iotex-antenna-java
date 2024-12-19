@@ -104,45 +104,47 @@ public final class Blockchain {
       "s/endorsement.proto\032\037google/protobuf/tim" +
       "estamp.proto\"c\n\013BlockHeader\022)\n\004core\030\001 \001(" +
       "\0132\033.iotextypes.BlockHeaderCore\022\026\n\016produc" +
-      "erPubkey\030\002 \001(\014\022\021\n\tsignature\030\003 \001(\014\"\312\001\n\017Bl" +
+      "erPubkey\030\002 \001(\014\022\021\n\tsignature\030\003 \001(\014\"\230\002\n\017Bl" +
       "ockHeaderCore\022\017\n\007version\030\001 \001(\r\022\016\n\006height" +
       "\030\002 \001(\004\022-\n\ttimestamp\030\003 \001(\0132\032.google.proto" +
       "buf.Timestamp\022\025\n\rprevBlockHash\030\004 \001(\014\022\016\n\006" +
       "txRoot\030\005 \001(\014\022\030\n\020deltaStateDigest\030\006 \001(\014\022\023" +
-      "\n\013receiptRoot\030\007 \001(\014\022\021\n\tlogsBloom\030\010 \001(\014\"k" +
-      "\n\013BlockFooter\022-\n\014endorsements\030\001 \003(\0132\027.io" +
-      "textypes.Endorsement\022-\n\ttimestamp\030\002 \001(\0132" +
-      "\032.google.protobuf.Timestamp\"0\n\tBlockBody" +
-      "\022#\n\007actions\030\001 \003(\0132\022.iotextypes.Action\"~\n" +
-      "\005Block\022\'\n\006header\030\001 \001(\0132\027.iotextypes.Bloc" +
-      "kHeader\022#\n\004body\030\002 \001(\0132\025.iotextypes.Block" +
-      "Body\022\'\n\006footer\030\003 \001(\0132\027.iotextypes.BlockF" +
-      "ooter\"1\n\010Receipts\022%\n\010receipts\030\001 \003(\0132\023.io" +
-      "textypes.Receipt\"I\n\tEpochData\022\013\n\003num\030\001 \001" +
-      "(\004\022\016\n\006height\030\002 \001(\004\022\037\n\027gravityChainStartH" +
-      "eight\030\003 \001(\004\"\205\001\n\tChainMeta\022\016\n\006height\030\001 \001(" +
-      "\004\022\022\n\nnumActions\030\002 \001(\003\022\013\n\003tps\030\003 \001(\003\022$\n\005ep" +
-      "och\030\004 \001(\0132\025.iotextypes.EpochData\022\020\n\010tpsF" +
-      "loat\030\005 \001(\002\022\017\n\007chainID\030\006 \001(\r\"\255\002\n\tBlockMet" +
-      "a\022\014\n\004hash\030\001 \001(\t\022\016\n\006height\030\002 \001(\004\022-\n\ttimes" +
-      "tamp\030\003 \001(\0132\032.google.protobuf.Timestamp\022\022" +
-      "\n\nnumActions\030\004 \001(\003\022\027\n\017producerAddress\030\005 " +
-      "\001(\t\022\026\n\016transferAmount\030\006 \001(\t\022\016\n\006txRoot\030\007 " +
-      "\001(\t\022\023\n\013receiptRoot\030\010 \001(\t\022\030\n\020deltaStateDi" +
-      "gest\030\t \001(\t\022\021\n\tlogsBloom\030\n \001(\t\022\031\n\021previou" +
-      "sBlockHash\030\013 \001(\t\022\020\n\010gasLimit\030\014 \001(\004\022\017\n\007ga" +
-      "sUsed\030\r \001(\004\"/\n\017BlockIdentifier\022\014\n\004hash\030\001" +
-      " \001(\t\022\016\n\006height\030\002 \001(\004\"\226\001\n\013AccountMeta\022\017\n\007" +
-      "address\030\001 \001(\t\022\017\n\007balance\030\002 \001(\t\022\r\n\005nonce\030" +
-      "\003 \001(\004\022\024\n\014pendingNonce\030\004 \001(\004\022\022\n\nnumAction" +
-      "s\030\005 \001(\004\022\022\n\nisContract\030\006 \001(\010\022\030\n\020contractB" +
-      "yteCode\030\007 \001(\014\"U\n\nBlockStore\022 \n\005block\030\001 \001" +
-      "(\0132\021.iotextypes.Block\022%\n\010receipts\030\002 \003(\0132" +
-      "\023.iotextypes.Receipt\":\n\013BlockStores\022+\n\013b" +
-      "lockStores\030\001 \003(\0132\026.iotextypes.BlockStore" +
-      "B]\n\"com.github.iotexproject.grpc.typesP\001" +
-      "Z5github.com/iotexproject/iotex-proto/go" +
-      "lang/iotextypesb\006proto3"
+      "\n\013receiptRoot\030\007 \001(\014\022\021\n\tlogsBloom\030\010 \001(\014\022\017" +
+      "\n\007gasUsed\030\t \001(\004\022\017\n\007baseFee\030\n \001(\014\022\023\n\013blob" +
+      "GasUsed\030\013 \001(\004\022\025\n\rexcessBlobGas\030\014 \001(\004\"k\n\013" +
+      "BlockFooter\022-\n\014endorsements\030\001 \003(\0132\027.iote" +
+      "xtypes.Endorsement\022-\n\ttimestamp\030\002 \001(\0132\032." +
+      "google.protobuf.Timestamp\"0\n\tBlockBody\022#" +
+      "\n\007actions\030\001 \003(\0132\022.iotextypes.Action\"~\n\005B" +
+      "lock\022\'\n\006header\030\001 \001(\0132\027.iotextypes.BlockH" +
+      "eader\022#\n\004body\030\002 \001(\0132\025.iotextypes.BlockBo" +
+      "dy\022\'\n\006footer\030\003 \001(\0132\027.iotextypes.BlockFoo" +
+      "ter\"1\n\010Receipts\022%\n\010receipts\030\001 \003(\0132\023.iote" +
+      "xtypes.Receipt\"I\n\tEpochData\022\013\n\003num\030\001 \001(\004" +
+      "\022\016\n\006height\030\002 \001(\004\022\037\n\027gravityChainStartHei" +
+      "ght\030\003 \001(\004\"\205\001\n\tChainMeta\022\016\n\006height\030\001 \001(\004\022" +
+      "\022\n\nnumActions\030\002 \001(\003\022\013\n\003tps\030\003 \001(\003\022$\n\005epoc" +
+      "h\030\004 \001(\0132\025.iotextypes.EpochData\022\020\n\010tpsFlo" +
+      "at\030\005 \001(\002\022\017\n\007chainID\030\006 \001(\r\"\255\002\n\tBlockMeta\022" +
+      "\014\n\004hash\030\001 \001(\t\022\016\n\006height\030\002 \001(\004\022-\n\ttimesta" +
+      "mp\030\003 \001(\0132\032.google.protobuf.Timestamp\022\022\n\n" +
+      "numActions\030\004 \001(\003\022\027\n\017producerAddress\030\005 \001(" +
+      "\t\022\026\n\016transferAmount\030\006 \001(\t\022\016\n\006txRoot\030\007 \001(" +
+      "\t\022\023\n\013receiptRoot\030\010 \001(\t\022\030\n\020deltaStateDige" +
+      "st\030\t \001(\t\022\021\n\tlogsBloom\030\n \001(\t\022\031\n\021previousB" +
+      "lockHash\030\013 \001(\t\022\020\n\010gasLimit\030\014 \001(\004\022\017\n\007gasU" +
+      "sed\030\r \001(\004\"/\n\017BlockIdentifier\022\014\n\004hash\030\001 \001" +
+      "(\t\022\016\n\006height\030\002 \001(\004\"\226\001\n\013AccountMeta\022\017\n\007ad" +
+      "dress\030\001 \001(\t\022\017\n\007balance\030\002 \001(\t\022\r\n\005nonce\030\003 " +
+      "\001(\004\022\024\n\014pendingNonce\030\004 \001(\004\022\022\n\nnumActions\030" +
+      "\005 \001(\004\022\022\n\nisContract\030\006 \001(\010\022\030\n\020contractByt" +
+      "eCode\030\007 \001(\014\"U\n\nBlockStore\022 \n\005block\030\001 \001(\013" +
+      "2\021.iotextypes.Block\022%\n\010receipts\030\002 \003(\0132\023." +
+      "iotextypes.Receipt\":\n\013BlockStores\022+\n\013blo" +
+      "ckStores\030\001 \003(\0132\026.iotextypes.BlockStoreB]" +
+      "\n\"com.github.iotexproject.grpc.typesP\001Z5" +
+      "github.com/iotexproject/iotex-proto/gola" +
+      "ng/iotextypesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -162,7 +164,7 @@ public final class Blockchain {
     internal_static_iotextypes_BlockHeaderCore_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_BlockHeaderCore_descriptor,
-        new java.lang.String[] { "Version", "Height", "Timestamp", "PrevBlockHash", "TxRoot", "DeltaStateDigest", "ReceiptRoot", "LogsBloom", });
+        new java.lang.String[] { "Version", "Height", "Timestamp", "PrevBlockHash", "TxRoot", "DeltaStateDigest", "ReceiptRoot", "LogsBloom", "GasUsed", "BaseFee", "BlobGasUsed", "ExcessBlobGas", });
     internal_static_iotextypes_BlockFooter_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_iotextypes_BlockFooter_fieldAccessorTable = new

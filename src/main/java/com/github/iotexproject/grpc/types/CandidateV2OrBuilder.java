@@ -86,4 +86,16 @@ public interface CandidateV2OrBuilder extends
    */
   com.google.protobuf.ByteString
       getSelfStakingTokensBytes();
+
+  /**
+   * <code>string id = 8;</code>
+   * @return The id.
+   */
+  java.lang.String getId();
+  /**
+   * <code>string id = 8;</code>
+   * @return The bytes for id.
+   */
+  com.google.protobuf.ByteString
+      getIdBytes();
 }

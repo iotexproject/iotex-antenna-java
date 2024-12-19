@@ -31,6 +31,26 @@ public enum MessageType
    */
   BLOCK_REQUEST(4),
   /**
+   * <code>NODE_INFO_REQUEST = 5;</code>
+   */
+  NODE_INFO_REQUEST(5),
+  /**
+   * <code>NODE_INFO = 6;</code>
+   */
+  NODE_INFO(6),
+  /**
+   * <code>ACTIONS = 7;</code>
+   */
+  ACTIONS(7),
+  /**
+   * <code>ACTION_HASH = 8;</code>
+   */
+  ACTION_HASH(8),
+  /**
+   * <code>ACTION_REQUEST = 9;</code>
+   */
+  ACTION_REQUEST(9),
+  /**
    * <code>TEST = 10001;</code>
    */
   TEST(10001),
@@ -67,6 +87,26 @@ public enum MessageType
    */
   public static final int BLOCK_REQUEST_VALUE = 4;
   /**
+   * <code>NODE_INFO_REQUEST = 5;</code>
+   */
+  public static final int NODE_INFO_REQUEST_VALUE = 5;
+  /**
+   * <code>NODE_INFO = 6;</code>
+   */
+  public static final int NODE_INFO_VALUE = 6;
+  /**
+   * <code>ACTIONS = 7;</code>
+   */
+  public static final int ACTIONS_VALUE = 7;
+  /**
+   * <code>ACTION_HASH = 8;</code>
+   */
+  public static final int ACTION_HASH_VALUE = 8;
+  /**
+   * <code>ACTION_REQUEST = 9;</code>
+   */
+  public static final int ACTION_REQUEST_VALUE = 9;
+  /**
    * <code>TEST = 10001;</code>
    */
   public static final int TEST_VALUE = 10001;
@@ -101,6 +141,11 @@ public enum MessageType
       case 2: return BLOCK;
       case 3: return CONSENSUS;
       case 4: return BLOCK_REQUEST;
+      case 5: return NODE_INFO_REQUEST;
+      case 6: return NODE_INFO;
+      case 7: return ACTIONS;
+      case 8: return ACTION_HASH;
+      case 9: return ACTION_REQUEST;
       case 10001: return TEST;
       default: return null;
     }

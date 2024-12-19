@@ -46,6 +46,75 @@ public interface ActionCoreOrBuilder extends
   int getChainID();
 
   /**
+   * <code>string gasTipCap = 6;</code>
+   * @return The gasTipCap.
+   */
+  java.lang.String getGasTipCap();
+  /**
+   * <code>string gasTipCap = 6;</code>
+   * @return The bytes for gasTipCap.
+   */
+  com.google.protobuf.ByteString
+      getGasTipCapBytes();
+
+  /**
+   * <code>string gasFeeCap = 7;</code>
+   * @return The gasFeeCap.
+   */
+  java.lang.String getGasFeeCap();
+  /**
+   * <code>string gasFeeCap = 7;</code>
+   * @return The bytes for gasFeeCap.
+   */
+  com.google.protobuf.ByteString
+      getGasFeeCapBytes();
+
+  /**
+   * <code>.iotextypes.BlobTxData blobTxData = 8;</code>
+   * @return Whether the blobTxData field is set.
+   */
+  boolean hasBlobTxData();
+  /**
+   * <code>.iotextypes.BlobTxData blobTxData = 8;</code>
+   * @return The blobTxData.
+   */
+  com.github.iotexproject.grpc.types.BlobTxData getBlobTxData();
+  /**
+   * <code>.iotextypes.BlobTxData blobTxData = 8;</code>
+   */
+  com.github.iotexproject.grpc.types.BlobTxDataOrBuilder getBlobTxDataOrBuilder();
+
+  /**
+   * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+   */
+  java.util.List<com.github.iotexproject.grpc.types.AccessTuple> 
+      getAccessListList();
+  /**
+   * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+   */
+  com.github.iotexproject.grpc.types.AccessTuple getAccessList(int index);
+  /**
+   * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+   */
+  int getAccessListCount();
+  /**
+   * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+   */
+  java.util.List<? extends com.github.iotexproject.grpc.types.AccessTupleOrBuilder> 
+      getAccessListOrBuilderList();
+  /**
+   * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+   */
+  com.github.iotexproject.grpc.types.AccessTupleOrBuilder getAccessListOrBuilder(
+      int index);
+
+  /**
+   * <code>uint32 txType = 28;</code>
+   * @return The txType.
+   */
+  int getTxType();
+
+  /**
    * <code>.iotextypes.Transfer transfer = 10;</code>
    * @return Whether the transfer field is set.
    */
@@ -59,6 +128,21 @@ public interface ActionCoreOrBuilder extends
    * <code>.iotextypes.Transfer transfer = 10;</code>
    */
   com.github.iotexproject.grpc.types.TransferOrBuilder getTransferOrBuilder();
+
+  /**
+   * <code>.iotextypes.TxContainer txContainer = 11;</code>
+   * @return Whether the txContainer field is set.
+   */
+  boolean hasTxContainer();
+  /**
+   * <code>.iotextypes.TxContainer txContainer = 11;</code>
+   * @return The txContainer.
+   */
+  com.github.iotexproject.grpc.types.TxContainer getTxContainer();
+  /**
+   * <code>.iotextypes.TxContainer txContainer = 11;</code>
+   */
+  com.github.iotexproject.grpc.types.TxContainerOrBuilder getTxContainerOrBuilder();
 
   /**
    * <code>.iotextypes.Execution execution = 12;</code>
@@ -527,6 +611,66 @@ public interface ActionCoreOrBuilder extends
    * <code>.iotextypes.CandidateBasicInfo candidateUpdate = 48;</code>
    */
   com.github.iotexproject.grpc.types.CandidateBasicInfoOrBuilder getCandidateUpdateOrBuilder();
+
+  /**
+   * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+   * @return Whether the candidateActivate field is set.
+   */
+  boolean hasCandidateActivate();
+  /**
+   * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+   * @return The candidateActivate.
+   */
+  com.github.iotexproject.grpc.types.CandidateActivate getCandidateActivate();
+  /**
+   * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+   */
+  com.github.iotexproject.grpc.types.CandidateActivateOrBuilder getCandidateActivateOrBuilder();
+
+  /**
+   * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+   * @return Whether the candidateEndorsement field is set.
+   */
+  boolean hasCandidateEndorsement();
+  /**
+   * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+   * @return The candidateEndorsement.
+   */
+  com.github.iotexproject.grpc.types.CandidateEndorsement getCandidateEndorsement();
+  /**
+   * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+   */
+  com.github.iotexproject.grpc.types.CandidateEndorsementOrBuilder getCandidateEndorsementOrBuilder();
+
+  /**
+   * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+   * @return Whether the candidateTransferOwnership field is set.
+   */
+  boolean hasCandidateTransferOwnership();
+  /**
+   * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+   * @return The candidateTransferOwnership.
+   */
+  com.github.iotexproject.grpc.types.CandidateTransferOwnership getCandidateTransferOwnership();
+  /**
+   * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+   */
+  com.github.iotexproject.grpc.types.CandidateTransferOwnershipOrBuilder getCandidateTransferOwnershipOrBuilder();
+
+  /**
+   * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+   * @return Whether the stakeMigrate field is set.
+   */
+  boolean hasStakeMigrate();
+  /**
+   * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+   * @return The stakeMigrate.
+   */
+  com.github.iotexproject.grpc.types.StakeMigrate getStakeMigrate();
+  /**
+   * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+   */
+  com.github.iotexproject.grpc.types.StakeMigrateOrBuilder getStakeMigrateOrBuilder();
 
   /**
    * <code>.iotextypes.PutPollResult putPollResult = 50;</code>

@@ -30,6 +30,7 @@ private static final long serialVersionUID = 0L;
     candidateAddress_ = "";
     stakedAmount_ = "";
     owner_ = "";
+    contractAddress_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -274,6 +275,100 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int CONTRACTADDRESS_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object contractAddress_ = "";
+  /**
+   * <code>string contractAddress = 10;</code>
+   * @return The contractAddress.
+   */
+  @java.lang.Override
+  public java.lang.String getContractAddress() {
+    java.lang.Object ref = contractAddress_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      contractAddress_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string contractAddress = 10;</code>
+   * @return The bytes for contractAddress.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getContractAddressBytes() {
+    java.lang.Object ref = contractAddress_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      contractAddress_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int STAKEDDURATIONBLOCKNUMBER_FIELD_NUMBER = 11;
+  private long stakedDurationBlockNumber_ = 0L;
+  /**
+   * <code>uint64 stakedDurationBlockNumber = 11;</code>
+   * @return The stakedDurationBlockNumber.
+   */
+  @java.lang.Override
+  public long getStakedDurationBlockNumber() {
+    return stakedDurationBlockNumber_;
+  }
+
+  public static final int CREATEBLOCKHEIGHT_FIELD_NUMBER = 12;
+  private long createBlockHeight_ = 0L;
+  /**
+   * <code>uint64 createBlockHeight = 12;</code>
+   * @return The createBlockHeight.
+   */
+  @java.lang.Override
+  public long getCreateBlockHeight() {
+    return createBlockHeight_;
+  }
+
+  public static final int STAKESTARTBLOCKHEIGHT_FIELD_NUMBER = 13;
+  private long stakeStartBlockHeight_ = 0L;
+  /**
+   * <code>uint64 stakeStartBlockHeight = 13;</code>
+   * @return The stakeStartBlockHeight.
+   */
+  @java.lang.Override
+  public long getStakeStartBlockHeight() {
+    return stakeStartBlockHeight_;
+  }
+
+  public static final int UNSTAKESTARTBLOCKHEIGHT_FIELD_NUMBER = 14;
+  private long unstakeStartBlockHeight_ = 0L;
+  /**
+   * <code>uint64 unstakeStartBlockHeight = 14;</code>
+   * @return The unstakeStartBlockHeight.
+   */
+  @java.lang.Override
+  public long getUnstakeStartBlockHeight() {
+    return unstakeStartBlockHeight_;
+  }
+
+  public static final int ENDORSEMENTEXPIREBLOCKHEIGHT_FIELD_NUMBER = 15;
+  private long endorsementExpireBlockHeight_ = 0L;
+  /**
+   * <code>uint64 endorsementExpireBlockHeight = 15;</code>
+   * @return The endorsementExpireBlockHeight.
+   */
+  @java.lang.Override
+  public long getEndorsementExpireBlockHeight() {
+    return endorsementExpireBlockHeight_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -314,6 +409,24 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(owner_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 9, owner_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(contractAddress_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 10, contractAddress_);
+    }
+    if (stakedDurationBlockNumber_ != 0L) {
+      output.writeUInt64(11, stakedDurationBlockNumber_);
+    }
+    if (createBlockHeight_ != 0L) {
+      output.writeUInt64(12, createBlockHeight_);
+    }
+    if (stakeStartBlockHeight_ != 0L) {
+      output.writeUInt64(13, stakeStartBlockHeight_);
+    }
+    if (unstakeStartBlockHeight_ != 0L) {
+      output.writeUInt64(14, unstakeStartBlockHeight_);
+    }
+    if (endorsementExpireBlockHeight_ != 0L) {
+      output.writeUInt64(15, endorsementExpireBlockHeight_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -357,6 +470,29 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(owner_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(9, owner_);
     }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(contractAddress_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(10, contractAddress_);
+    }
+    if (stakedDurationBlockNumber_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(11, stakedDurationBlockNumber_);
+    }
+    if (createBlockHeight_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(12, createBlockHeight_);
+    }
+    if (stakeStartBlockHeight_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(13, stakeStartBlockHeight_);
+    }
+    if (unstakeStartBlockHeight_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(14, unstakeStartBlockHeight_);
+    }
+    if (endorsementExpireBlockHeight_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(15, endorsementExpireBlockHeight_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -399,6 +535,18 @@ private static final long serialVersionUID = 0L;
         != other.getAutoStake()) return false;
     if (!getOwner()
         .equals(other.getOwner())) return false;
+    if (!getContractAddress()
+        .equals(other.getContractAddress())) return false;
+    if (getStakedDurationBlockNumber()
+        != other.getStakedDurationBlockNumber()) return false;
+    if (getCreateBlockHeight()
+        != other.getCreateBlockHeight()) return false;
+    if (getStakeStartBlockHeight()
+        != other.getStakeStartBlockHeight()) return false;
+    if (getUnstakeStartBlockHeight()
+        != other.getUnstakeStartBlockHeight()) return false;
+    if (getEndorsementExpireBlockHeight()
+        != other.getEndorsementExpireBlockHeight()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -436,6 +584,23 @@ private static final long serialVersionUID = 0L;
         getAutoStake());
     hash = (37 * hash) + OWNER_FIELD_NUMBER;
     hash = (53 * hash) + getOwner().hashCode();
+    hash = (37 * hash) + CONTRACTADDRESS_FIELD_NUMBER;
+    hash = (53 * hash) + getContractAddress().hashCode();
+    hash = (37 * hash) + STAKEDDURATIONBLOCKNUMBER_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getStakedDurationBlockNumber());
+    hash = (37 * hash) + CREATEBLOCKHEIGHT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getCreateBlockHeight());
+    hash = (37 * hash) + STAKESTARTBLOCKHEIGHT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getStakeStartBlockHeight());
+    hash = (37 * hash) + UNSTAKESTARTBLOCKHEIGHT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getUnstakeStartBlockHeight());
+    hash = (37 * hash) + ENDORSEMENTEXPIREBLOCKHEIGHT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getEndorsementExpireBlockHeight());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -596,6 +761,12 @@ private static final long serialVersionUID = 0L;
       }
       autoStake_ = false;
       owner_ = "";
+      contractAddress_ = "";
+      stakedDurationBlockNumber_ = 0L;
+      createBlockHeight_ = 0L;
+      stakeStartBlockHeight_ = 0L;
+      unstakeStartBlockHeight_ = 0L;
+      endorsementExpireBlockHeight_ = 0L;
       return this;
     }
 
@@ -666,6 +837,24 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000100) != 0)) {
         result.owner_ = owner_;
       }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.contractAddress_ = contractAddress_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.stakedDurationBlockNumber_ = stakedDurationBlockNumber_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.createBlockHeight_ = createBlockHeight_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.stakeStartBlockHeight_ = stakeStartBlockHeight_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.unstakeStartBlockHeight_ = unstakeStartBlockHeight_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.endorsementExpireBlockHeight_ = endorsementExpireBlockHeight_;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -713,6 +902,26 @@ private static final long serialVersionUID = 0L;
         owner_ = other.owner_;
         bitField0_ |= 0x00000100;
         onChanged();
+      }
+      if (!other.getContractAddress().isEmpty()) {
+        contractAddress_ = other.contractAddress_;
+        bitField0_ |= 0x00000200;
+        onChanged();
+      }
+      if (other.getStakedDurationBlockNumber() != 0L) {
+        setStakedDurationBlockNumber(other.getStakedDurationBlockNumber());
+      }
+      if (other.getCreateBlockHeight() != 0L) {
+        setCreateBlockHeight(other.getCreateBlockHeight());
+      }
+      if (other.getStakeStartBlockHeight() != 0L) {
+        setStakeStartBlockHeight(other.getStakeStartBlockHeight());
+      }
+      if (other.getUnstakeStartBlockHeight() != 0L) {
+        setUnstakeStartBlockHeight(other.getUnstakeStartBlockHeight());
+      }
+      if (other.getEndorsementExpireBlockHeight() != 0L) {
+        setEndorsementExpireBlockHeight(other.getEndorsementExpireBlockHeight());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -791,6 +1000,36 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000100;
               break;
             } // case 74
+            case 82: {
+              contractAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 88: {
+              stakedDurationBlockNumber_ = input.readUInt64();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 96: {
+              createBlockHeight_ = input.readUInt64();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 96
+            case 104: {
+              stakeStartBlockHeight_ = input.readUInt64();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 104
+            case 112: {
+              unstakeStartBlockHeight_ = input.readUInt64();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 112
+            case 120: {
+              endorsementExpireBlockHeight_ = input.readUInt64();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 120
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1479,6 +1718,238 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       owner_ = value;
       bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object contractAddress_ = "";
+    /**
+     * <code>string contractAddress = 10;</code>
+     * @return The contractAddress.
+     */
+    public java.lang.String getContractAddress() {
+      java.lang.Object ref = contractAddress_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        contractAddress_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string contractAddress = 10;</code>
+     * @return The bytes for contractAddress.
+     */
+    public com.google.protobuf.ByteString
+        getContractAddressBytes() {
+      java.lang.Object ref = contractAddress_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        contractAddress_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string contractAddress = 10;</code>
+     * @param value The contractAddress to set.
+     * @return This builder for chaining.
+     */
+    public Builder setContractAddress(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      contractAddress_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string contractAddress = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearContractAddress() {
+      contractAddress_ = getDefaultInstance().getContractAddress();
+      bitField0_ = (bitField0_ & ~0x00000200);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string contractAddress = 10;</code>
+     * @param value The bytes for contractAddress to set.
+     * @return This builder for chaining.
+     */
+    public Builder setContractAddressBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      contractAddress_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+
+    private long stakedDurationBlockNumber_ ;
+    /**
+     * <code>uint64 stakedDurationBlockNumber = 11;</code>
+     * @return The stakedDurationBlockNumber.
+     */
+    @java.lang.Override
+    public long getStakedDurationBlockNumber() {
+      return stakedDurationBlockNumber_;
+    }
+    /**
+     * <code>uint64 stakedDurationBlockNumber = 11;</code>
+     * @param value The stakedDurationBlockNumber to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStakedDurationBlockNumber(long value) {
+
+      stakedDurationBlockNumber_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint64 stakedDurationBlockNumber = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStakedDurationBlockNumber() {
+      bitField0_ = (bitField0_ & ~0x00000400);
+      stakedDurationBlockNumber_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long createBlockHeight_ ;
+    /**
+     * <code>uint64 createBlockHeight = 12;</code>
+     * @return The createBlockHeight.
+     */
+    @java.lang.Override
+    public long getCreateBlockHeight() {
+      return createBlockHeight_;
+    }
+    /**
+     * <code>uint64 createBlockHeight = 12;</code>
+     * @param value The createBlockHeight to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCreateBlockHeight(long value) {
+
+      createBlockHeight_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint64 createBlockHeight = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCreateBlockHeight() {
+      bitField0_ = (bitField0_ & ~0x00000800);
+      createBlockHeight_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long stakeStartBlockHeight_ ;
+    /**
+     * <code>uint64 stakeStartBlockHeight = 13;</code>
+     * @return The stakeStartBlockHeight.
+     */
+    @java.lang.Override
+    public long getStakeStartBlockHeight() {
+      return stakeStartBlockHeight_;
+    }
+    /**
+     * <code>uint64 stakeStartBlockHeight = 13;</code>
+     * @param value The stakeStartBlockHeight to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStakeStartBlockHeight(long value) {
+
+      stakeStartBlockHeight_ = value;
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint64 stakeStartBlockHeight = 13;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStakeStartBlockHeight() {
+      bitField0_ = (bitField0_ & ~0x00001000);
+      stakeStartBlockHeight_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long unstakeStartBlockHeight_ ;
+    /**
+     * <code>uint64 unstakeStartBlockHeight = 14;</code>
+     * @return The unstakeStartBlockHeight.
+     */
+    @java.lang.Override
+    public long getUnstakeStartBlockHeight() {
+      return unstakeStartBlockHeight_;
+    }
+    /**
+     * <code>uint64 unstakeStartBlockHeight = 14;</code>
+     * @param value The unstakeStartBlockHeight to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUnstakeStartBlockHeight(long value) {
+
+      unstakeStartBlockHeight_ = value;
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint64 unstakeStartBlockHeight = 14;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUnstakeStartBlockHeight() {
+      bitField0_ = (bitField0_ & ~0x00002000);
+      unstakeStartBlockHeight_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long endorsementExpireBlockHeight_ ;
+    /**
+     * <code>uint64 endorsementExpireBlockHeight = 15;</code>
+     * @return The endorsementExpireBlockHeight.
+     */
+    @java.lang.Override
+    public long getEndorsementExpireBlockHeight() {
+      return endorsementExpireBlockHeight_;
+    }
+    /**
+     * <code>uint64 endorsementExpireBlockHeight = 15;</code>
+     * @param value The endorsementExpireBlockHeight to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEndorsementExpireBlockHeight(long value) {
+
+      endorsementExpireBlockHeight_ = value;
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint64 endorsementExpireBlockHeight = 15;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEndorsementExpireBlockHeight() {
+      bitField0_ = (bitField0_ & ~0x00004000);
+      endorsementExpireBlockHeight_ = 0L;
       onChanged();
       return this;
     }

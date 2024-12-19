@@ -65,4 +65,28 @@ public interface BlockHeaderCoreOrBuilder extends
    * @return The logsBloom.
    */
   com.google.protobuf.ByteString getLogsBloom();
+
+  /**
+   * <code>uint64 gasUsed = 9;</code>
+   * @return The gasUsed.
+   */
+  long getGasUsed();
+
+  /**
+   * <code>bytes baseFee = 10;</code>
+   * @return The baseFee.
+   */
+  com.google.protobuf.ByteString getBaseFee();
+
+  /**
+   * <code>uint64 blobGasUsed = 11;</code>
+   * @return The blobGasUsed.
+   */
+  long getBlobGasUsed();
+
+  /**
+   * <code>uint64 excessBlobGas = 12;</code>
+   * @return The excessBlobGas.
+   */
+  long getExcessBlobGas();
 }

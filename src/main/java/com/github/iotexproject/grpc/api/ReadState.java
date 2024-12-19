@@ -85,6 +85,11 @@ public final class ReadState {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_iotexapi_ReadStakingDataRequest_BucketsCount_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_iotexapi_ReadStakingDataRequest_ContractStakingBucketTypes_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_iotexapi_ReadStakingDataRequest_ContractStakingBucketTypes_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -96,46 +101,56 @@ public final class ReadState {
     java.lang.String[] descriptorData = {
       "\n\032proto/api/read_state.proto\022\010iotexapi\"0" +
       "\n\017PaginationParam\022\016\n\006offset\030\001 \001(\r\022\r\n\005lim" +
-      "it\030\002 \001(\r\"\246\002\n\025ReadStakingDataMethod\0224\n\006me" +
+      "it\030\002 \001(\r\"\207\004\n\025ReadStakingDataMethod\0224\n\006me" +
       "thod\030\001 \001(\0162$.iotexapi.ReadStakingDataMet" +
-      "hod.Name\"\326\001\n\004Name\022\013\n\007INVALID\020\000\022\013\n\007BUCKET" +
+      "hod.Name\"\267\003\n\004Name\022\013\n\007INVALID\020\000\022\013\n\007BUCKET" +
       "S\020\001\022\024\n\020BUCKETS_BY_VOTER\020\002\022\030\n\024BUCKETS_BY_" +
       "CANDIDATE\020\003\022\016\n\nCANDIDATES\020\004\022\025\n\021CANDIDATE" +
       "_BY_NAME\020\005\022\026\n\022BUCKETS_BY_INDEXES\020\006\022\030\n\024CA" +
       "NDIDATE_BY_ADDRESS\020\007\022\030\n\024TOTAL_STAKING_AM" +
-      "OUNT\020\010\022\021\n\rBUCKETS_COUNT\020\t\"\246\t\n\026ReadStakin" +
-      "gDataRequest\022?\n\007buckets\030\001 \001(\0132,.iotexapi" +
-      ".ReadStakingDataRequest.VoteBucketsH\000\022M\n" +
-      "\016bucketsByVoter\030\002 \001(\01323.iotexapi.ReadSta" +
-      "kingDataRequest.VoteBucketsByVoterH\000\022U\n\022" +
-      "bucketsByCandidate\030\003 \001(\01327.iotexapi.Read" +
-      "StakingDataRequest.VoteBucketsByCandidat" +
-      "eH\000\022A\n\ncandidates\030\004 \001(\0132+.iotexapi.ReadS" +
-      "takingDataRequest.CandidatesH\000\022K\n\017candid" +
-      "ateByName\030\005 \001(\01320.iotexapi.ReadStakingDa" +
-      "taRequest.CandidateByNameH\000\022Q\n\020bucketsBy" +
-      "Indexes\030\006 \001(\01325.iotexapi.ReadStakingData" +
-      "Request.VoteBucketsByIndexesH\000\022Q\n\022candid" +
-      "ateByAddress\030\007 \001(\01323.iotexapi.ReadStakin" +
-      "gDataRequest.CandidateByAddressH\000\022Q\n\022tot" +
-      "alStakingAmount\030\010 \001(\01323.iotexapi.ReadSta" +
-      "kingDataRequest.TotalStakingAmountH\000\022E\n\014" +
-      "bucketsCount\030\t \001(\0132-.iotexapi.ReadStakin" +
-      "gDataRequest.BucketsCountH\000\032<\n\013VoteBucke" +
-      "ts\022-\n\npagination\030\001 \001(\0132\031.iotexapi.Pagina" +
-      "tionParam\032Y\n\022VoteBucketsByVoter\022\024\n\014voter" +
-      "Address\030\001 \001(\t\022-\n\npagination\030\002 \001(\0132\031.iote" +
-      "xapi.PaginationParam\032Y\n\026VoteBucketsByCan" +
-      "didate\022\020\n\010candName\030\001 \001(\t\022-\n\npagination\030\002" +
-      " \001(\0132\031.iotexapi.PaginationParam\032;\n\nCandi" +
-      "dates\022-\n\npagination\030\001 \001(\0132\031.iotexapi.Pag" +
-      "inationParam\032#\n\017CandidateByName\022\020\n\010candN" +
-      "ame\030\001 \001(\t\032%\n\024VoteBucketsByIndexes\022\r\n\005ind" +
-      "ex\030\001 \003(\004\032\'\n\022CandidateByAddress\022\021\n\townerA" +
-      "ddr\030\001 \001(\t\032\024\n\022TotalStakingAmount\032\016\n\014Bucke" +
-      "tsCountB\t\n\007requestBY\n com.github.iotexpr" +
-      "oject.grpc.apiP\001Z3github.com/iotexprojec" +
-      "t/iotex-proto/golang/iotexapib\006proto3"
+      "OUNT\020\010\022\021\n\rBUCKETS_COUNT\020\t\022\025\n\021COMPOSITE_B" +
+      "UCKETS\020\024\022\036\n\032COMPOSITE_BUCKETS_BY_VOTER\020\025" +
+      "\022\"\n\036COMPOSITE_BUCKETS_BY_CANDIDATE\020\026\022 \n\034" +
+      "COMPOSITE_BUCKETS_BY_INDEXES\020\027\022\033\n\027COMPOS" +
+      "ITE_BUCKETS_COUNT\020\030\022\"\n\036COMPOSITE_TOTAL_S" +
+      "TAKING_AMOUNT\020\031\022!\n\035CONTRACT_STAKING_BUCK" +
+      "ET_TYPES\020\032\"\314\n\n\026ReadStakingDataRequest\022?\n" +
+      "\007buckets\030\001 \001(\0132,.iotexapi.ReadStakingDat" +
+      "aRequest.VoteBucketsH\000\022M\n\016bucketsByVoter" +
+      "\030\002 \001(\01323.iotexapi.ReadStakingDataRequest" +
+      ".VoteBucketsByVoterH\000\022U\n\022bucketsByCandid" +
+      "ate\030\003 \001(\01327.iotexapi.ReadStakingDataRequ" +
+      "est.VoteBucketsByCandidateH\000\022A\n\ncandidat" +
+      "es\030\004 \001(\0132+.iotexapi.ReadStakingDataReque" +
+      "st.CandidatesH\000\022K\n\017candidateByName\030\005 \001(\013" +
+      "20.iotexapi.ReadStakingDataRequest.Candi" +
+      "dateByNameH\000\022Q\n\020bucketsByIndexes\030\006 \001(\01325" +
+      ".iotexapi.ReadStakingDataRequest.VoteBuc" +
+      "ketsByIndexesH\000\022Q\n\022candidateByAddress\030\007 " +
+      "\001(\01323.iotexapi.ReadStakingDataRequest.Ca" +
+      "ndidateByAddressH\000\022Q\n\022totalStakingAmount" +
+      "\030\010 \001(\01323.iotexapi.ReadStakingDataRequest" +
+      ".TotalStakingAmountH\000\022E\n\014bucketsCount\030\t " +
+      "\001(\0132-.iotexapi.ReadStakingDataRequest.Bu" +
+      "cketsCountH\000\022a\n\032contractStakingBucketTyp" +
+      "es\030\n \001(\0132;.iotexapi.ReadStakingDataReque" +
+      "st.ContractStakingBucketTypesH\000\032<\n\013VoteB" +
+      "uckets\022-\n\npagination\030\001 \001(\0132\031.iotexapi.Pa" +
+      "ginationParam\032Y\n\022VoteBucketsByVoter\022\024\n\014v" +
+      "oterAddress\030\001 \001(\t\022-\n\npagination\030\002 \001(\0132\031." +
+      "iotexapi.PaginationParam\032Y\n\026VoteBucketsB" +
+      "yCandidate\022\020\n\010candName\030\001 \001(\t\022-\n\npaginati" +
+      "on\030\002 \001(\0132\031.iotexapi.PaginationParam\032;\n\nC" +
+      "andidates\022-\n\npagination\030\001 \001(\0132\031.iotexapi" +
+      ".PaginationParam\032#\n\017CandidateByName\022\020\n\010c" +
+      "andName\030\001 \001(\t\032%\n\024VoteBucketsByIndexes\022\r\n" +
+      "\005index\030\001 \003(\004\0323\n\022CandidateByAddress\022\021\n\tow" +
+      "nerAddr\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\032\024\n\022TotalStakin" +
+      "gAmount\032\016\n\014BucketsCount\0325\n\032ContractStaki" +
+      "ngBucketTypes\022\027\n\017contractAddress\030\001 \001(\tB\t" +
+      "\n\007requestBY\n com.github.iotexproject.grp" +
+      "c.apiP\001Z3github.com/iotexproject/iotex-p" +
+      "roto/golang/iotexapib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -158,7 +173,7 @@ public final class ReadState {
     internal_static_iotexapi_ReadStakingDataRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotexapi_ReadStakingDataRequest_descriptor,
-        new java.lang.String[] { "Buckets", "BucketsByVoter", "BucketsByCandidate", "Candidates", "CandidateByName", "BucketsByIndexes", "CandidateByAddress", "TotalStakingAmount", "BucketsCount", "Request", });
+        new java.lang.String[] { "Buckets", "BucketsByVoter", "BucketsByCandidate", "Candidates", "CandidateByName", "BucketsByIndexes", "CandidateByAddress", "TotalStakingAmount", "BucketsCount", "ContractStakingBucketTypes", "Request", });
     internal_static_iotexapi_ReadStakingDataRequest_VoteBuckets_descriptor =
       internal_static_iotexapi_ReadStakingDataRequest_descriptor.getNestedTypes().get(0);
     internal_static_iotexapi_ReadStakingDataRequest_VoteBuckets_fieldAccessorTable = new
@@ -200,7 +215,7 @@ public final class ReadState {
     internal_static_iotexapi_ReadStakingDataRequest_CandidateByAddress_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotexapi_ReadStakingDataRequest_CandidateByAddress_descriptor,
-        new java.lang.String[] { "OwnerAddr", });
+        new java.lang.String[] { "OwnerAddr", "Id", });
     internal_static_iotexapi_ReadStakingDataRequest_TotalStakingAmount_descriptor =
       internal_static_iotexapi_ReadStakingDataRequest_descriptor.getNestedTypes().get(7);
     internal_static_iotexapi_ReadStakingDataRequest_TotalStakingAmount_fieldAccessorTable = new
@@ -213,6 +228,12 @@ public final class ReadState {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotexapi_ReadStakingDataRequest_BucketsCount_descriptor,
         new java.lang.String[] { });
+    internal_static_iotexapi_ReadStakingDataRequest_ContractStakingBucketTypes_descriptor =
+      internal_static_iotexapi_ReadStakingDataRequest_descriptor.getNestedTypes().get(9);
+    internal_static_iotexapi_ReadStakingDataRequest_ContractStakingBucketTypes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_iotexapi_ReadStakingDataRequest_ContractStakingBucketTypes_descriptor,
+        new java.lang.String[] { "ContractAddress", });
     descriptor.resolveAllFeaturesImmutable();
   }
 

@@ -107,4 +107,46 @@ public interface VoteBucketOrBuilder extends
    */
   com.google.protobuf.ByteString
       getOwnerBytes();
+
+  /**
+   * <code>string contractAddress = 10;</code>
+   * @return The contractAddress.
+   */
+  java.lang.String getContractAddress();
+  /**
+   * <code>string contractAddress = 10;</code>
+   * @return The bytes for contractAddress.
+   */
+  com.google.protobuf.ByteString
+      getContractAddressBytes();
+
+  /**
+   * <code>uint64 stakedDurationBlockNumber = 11;</code>
+   * @return The stakedDurationBlockNumber.
+   */
+  long getStakedDurationBlockNumber();
+
+  /**
+   * <code>uint64 createBlockHeight = 12;</code>
+   * @return The createBlockHeight.
+   */
+  long getCreateBlockHeight();
+
+  /**
+   * <code>uint64 stakeStartBlockHeight = 13;</code>
+   * @return The stakeStartBlockHeight.
+   */
+  long getStakeStartBlockHeight();
+
+  /**
+   * <code>uint64 unstakeStartBlockHeight = 14;</code>
+   * @return The unstakeStartBlockHeight.
+   */
+  long getUnstakeStartBlockHeight();
+
+  /**
+   * <code>uint64 endorsementExpireBlockHeight = 15;</code>
+   * @return The endorsementExpireBlockHeight.
+   */
+  long getEndorsementExpireBlockHeight();
 }

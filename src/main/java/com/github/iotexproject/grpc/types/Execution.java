@@ -30,7 +30,6 @@ private static final long serialVersionUID = 0L;
     amount_ = "";
     contract_ = "";
     data_ = com.google.protobuf.ByteString.EMPTY;
-    accessList_ = java.util.Collections.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -135,47 +134,6 @@ private static final long serialVersionUID = 0L;
     return data_;
   }
 
-  public static final int ACCESSLIST_FIELD_NUMBER = 4;
-  @SuppressWarnings("serial")
-  private java.util.List<com.github.iotexproject.grpc.types.AccessTuple> accessList_;
-  /**
-   * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-   */
-  @java.lang.Override
-  public java.util.List<com.github.iotexproject.grpc.types.AccessTuple> getAccessListList() {
-    return accessList_;
-  }
-  /**
-   * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-   */
-  @java.lang.Override
-  public java.util.List<? extends com.github.iotexproject.grpc.types.AccessTupleOrBuilder> 
-      getAccessListOrBuilderList() {
-    return accessList_;
-  }
-  /**
-   * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-   */
-  @java.lang.Override
-  public int getAccessListCount() {
-    return accessList_.size();
-  }
-  /**
-   * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-   */
-  @java.lang.Override
-  public com.github.iotexproject.grpc.types.AccessTuple getAccessList(int index) {
-    return accessList_.get(index);
-  }
-  /**
-   * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-   */
-  @java.lang.Override
-  public com.github.iotexproject.grpc.types.AccessTupleOrBuilder getAccessListOrBuilder(
-      int index) {
-    return accessList_.get(index);
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -199,9 +157,6 @@ private static final long serialVersionUID = 0L;
     if (!data_.isEmpty()) {
       output.writeBytes(3, data_);
     }
-    for (int i = 0; i < accessList_.size(); i++) {
-      output.writeMessage(4, accessList_.get(i));
-    }
     getUnknownFields().writeTo(output);
   }
 
@@ -220,10 +175,6 @@ private static final long serialVersionUID = 0L;
     if (!data_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(3, data_);
-    }
-    for (int i = 0; i < accessList_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, accessList_.get(i));
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -246,8 +197,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getContract())) return false;
     if (!getData()
         .equals(other.getData())) return false;
-    if (!getAccessListList()
-        .equals(other.getAccessListList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -265,10 +214,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getContract().hashCode();
     hash = (37 * hash) + DATA_FIELD_NUMBER;
     hash = (53 * hash) + getData().hashCode();
-    if (getAccessListCount() > 0) {
-      hash = (37 * hash) + ACCESSLIST_FIELD_NUMBER;
-      hash = (53 * hash) + getAccessListList().hashCode();
-    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -403,13 +348,6 @@ private static final long serialVersionUID = 0L;
       amount_ = "";
       contract_ = "";
       data_ = com.google.protobuf.ByteString.EMPTY;
-      if (accessListBuilder_ == null) {
-        accessList_ = java.util.Collections.emptyList();
-      } else {
-        accessList_ = null;
-        accessListBuilder_.clear();
-      }
-      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -436,22 +374,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.github.iotexproject.grpc.types.Execution buildPartial() {
       com.github.iotexproject.grpc.types.Execution result = new com.github.iotexproject.grpc.types.Execution(this);
-      buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
-    }
-
-    private void buildPartialRepeatedFields(com.github.iotexproject.grpc.types.Execution result) {
-      if (accessListBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
-          accessList_ = java.util.Collections.unmodifiableList(accessList_);
-          bitField0_ = (bitField0_ & ~0x00000008);
-        }
-        result.accessList_ = accessList_;
-      } else {
-        result.accessList_ = accessListBuilder_.build();
-      }
     }
 
     private void buildPartial0(com.github.iotexproject.grpc.types.Execution result) {
@@ -491,32 +416,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
         setData(other.getData());
-      }
-      if (accessListBuilder_ == null) {
-        if (!other.accessList_.isEmpty()) {
-          if (accessList_.isEmpty()) {
-            accessList_ = other.accessList_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureAccessListIsMutable();
-            accessList_.addAll(other.accessList_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.accessList_.isEmpty()) {
-          if (accessListBuilder_.isEmpty()) {
-            accessListBuilder_.dispose();
-            accessListBuilder_ = null;
-            accessList_ = other.accessList_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-            accessListBuilder_ = 
-              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                 getAccessListFieldBuilder() : null;
-          } else {
-            accessListBuilder_.addAllMessages(other.accessList_);
-          }
-        }
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -559,19 +458,6 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000004;
               break;
             } // case 26
-            case 34: {
-              com.github.iotexproject.grpc.types.AccessTuple m =
-                  input.readMessage(
-                      com.github.iotexproject.grpc.types.AccessTuple.parser(),
-                      extensionRegistry);
-              if (accessListBuilder_ == null) {
-                ensureAccessListIsMutable();
-                accessList_.add(m);
-              } else {
-                accessListBuilder_.addMessage(m);
-              }
-              break;
-            } // case 34
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -763,246 +649,6 @@ private static final long serialVersionUID = 0L;
       data_ = getDefaultInstance().getData();
       onChanged();
       return this;
-    }
-
-    private java.util.List<com.github.iotexproject.grpc.types.AccessTuple> accessList_ =
-      java.util.Collections.emptyList();
-    private void ensureAccessListIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
-        accessList_ = new java.util.ArrayList<com.github.iotexproject.grpc.types.AccessTuple>(accessList_);
-        bitField0_ |= 0x00000008;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilder<
-        com.github.iotexproject.grpc.types.AccessTuple, com.github.iotexproject.grpc.types.AccessTuple.Builder, com.github.iotexproject.grpc.types.AccessTupleOrBuilder> accessListBuilder_;
-
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public java.util.List<com.github.iotexproject.grpc.types.AccessTuple> getAccessListList() {
-      if (accessListBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(accessList_);
-      } else {
-        return accessListBuilder_.getMessageList();
-      }
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public int getAccessListCount() {
-      if (accessListBuilder_ == null) {
-        return accessList_.size();
-      } else {
-        return accessListBuilder_.getCount();
-      }
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public com.github.iotexproject.grpc.types.AccessTuple getAccessList(int index) {
-      if (accessListBuilder_ == null) {
-        return accessList_.get(index);
-      } else {
-        return accessListBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public Builder setAccessList(
-        int index, com.github.iotexproject.grpc.types.AccessTuple value) {
-      if (accessListBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureAccessListIsMutable();
-        accessList_.set(index, value);
-        onChanged();
-      } else {
-        accessListBuilder_.setMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public Builder setAccessList(
-        int index, com.github.iotexproject.grpc.types.AccessTuple.Builder builderForValue) {
-      if (accessListBuilder_ == null) {
-        ensureAccessListIsMutable();
-        accessList_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        accessListBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public Builder addAccessList(com.github.iotexproject.grpc.types.AccessTuple value) {
-      if (accessListBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureAccessListIsMutable();
-        accessList_.add(value);
-        onChanged();
-      } else {
-        accessListBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public Builder addAccessList(
-        int index, com.github.iotexproject.grpc.types.AccessTuple value) {
-      if (accessListBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureAccessListIsMutable();
-        accessList_.add(index, value);
-        onChanged();
-      } else {
-        accessListBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public Builder addAccessList(
-        com.github.iotexproject.grpc.types.AccessTuple.Builder builderForValue) {
-      if (accessListBuilder_ == null) {
-        ensureAccessListIsMutable();
-        accessList_.add(builderForValue.build());
-        onChanged();
-      } else {
-        accessListBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public Builder addAccessList(
-        int index, com.github.iotexproject.grpc.types.AccessTuple.Builder builderForValue) {
-      if (accessListBuilder_ == null) {
-        ensureAccessListIsMutable();
-        accessList_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        accessListBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public Builder addAllAccessList(
-        java.lang.Iterable<? extends com.github.iotexproject.grpc.types.AccessTuple> values) {
-      if (accessListBuilder_ == null) {
-        ensureAccessListIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, accessList_);
-        onChanged();
-      } else {
-        accessListBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public Builder clearAccessList() {
-      if (accessListBuilder_ == null) {
-        accessList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
-      } else {
-        accessListBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public Builder removeAccessList(int index) {
-      if (accessListBuilder_ == null) {
-        ensureAccessListIsMutable();
-        accessList_.remove(index);
-        onChanged();
-      } else {
-        accessListBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public com.github.iotexproject.grpc.types.AccessTuple.Builder getAccessListBuilder(
-        int index) {
-      return getAccessListFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public com.github.iotexproject.grpc.types.AccessTupleOrBuilder getAccessListOrBuilder(
-        int index) {
-      if (accessListBuilder_ == null) {
-        return accessList_.get(index);  } else {
-        return accessListBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public java.util.List<? extends com.github.iotexproject.grpc.types.AccessTupleOrBuilder> 
-         getAccessListOrBuilderList() {
-      if (accessListBuilder_ != null) {
-        return accessListBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(accessList_);
-      }
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public com.github.iotexproject.grpc.types.AccessTuple.Builder addAccessListBuilder() {
-      return getAccessListFieldBuilder().addBuilder(
-          com.github.iotexproject.grpc.types.AccessTuple.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public com.github.iotexproject.grpc.types.AccessTuple.Builder addAccessListBuilder(
-        int index) {
-      return getAccessListFieldBuilder().addBuilder(
-          index, com.github.iotexproject.grpc.types.AccessTuple.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-     */
-    public java.util.List<com.github.iotexproject.grpc.types.AccessTuple.Builder> 
-         getAccessListBuilderList() {
-      return getAccessListFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilder<
-        com.github.iotexproject.grpc.types.AccessTuple, com.github.iotexproject.grpc.types.AccessTuple.Builder, com.github.iotexproject.grpc.types.AccessTupleOrBuilder> 
-        getAccessListFieldBuilder() {
-      if (accessListBuilder_ == null) {
-        accessListBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-            com.github.iotexproject.grpc.types.AccessTuple, com.github.iotexproject.grpc.types.AccessTuple.Builder, com.github.iotexproject.grpc.types.AccessTupleOrBuilder>(
-                accessList_,
-                ((bitField0_ & 0x00000008) != 0),
-                getParentForChildren(),
-                isClean());
-        accessList_ = null;
-      }
-      return accessListBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:iotextypes.Execution)

@@ -86,4 +86,34 @@ public interface ReceiptOrBuilder extends
    * @return The txIndex.
    */
   int getTxIndex();
+
+  /**
+   * <code>uint64 blobGasUsed = 9;</code>
+   * @return The blobGasUsed.
+   */
+  long getBlobGasUsed();
+
+  /**
+   * <code>string blobGasPrice = 10;</code>
+   * @return The blobGasPrice.
+   */
+  java.lang.String getBlobGasPrice();
+  /**
+   * <code>string blobGasPrice = 10;</code>
+   * @return The bytes for blobGasPrice.
+   */
+  com.google.protobuf.ByteString
+      getBlobGasPriceBytes();
+
+  /**
+   * <code>string effectiveGasPrice = 11;</code>
+   * @return The effectiveGasPrice.
+   */
+  java.lang.String getEffectiveGasPrice();
+  /**
+   * <code>string effectiveGasPrice = 11;</code>
+   * @return The bytes for effectiveGasPrice.
+   */
+  com.google.protobuf.ByteString
+      getEffectiveGasPriceBytes();
 }

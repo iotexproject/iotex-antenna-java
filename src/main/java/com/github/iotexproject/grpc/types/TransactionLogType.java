@@ -50,6 +50,14 @@ public enum TransactionLogType
    * <code>CLAIM_FROM_REWARDING_FUND = 9;</code>
    */
   CLAIM_FROM_REWARDING_FUND(9),
+  /**
+   * <code>BLOB_FEE = 10;</code>
+   */
+  BLOB_FEE(10),
+  /**
+   * <code>PRIORITY_FEE = 11;</code>
+   */
+  PRIORITY_FEE(11),
   UNRECOGNIZED(-1),
   ;
 
@@ -102,6 +110,14 @@ public enum TransactionLogType
    * <code>CLAIM_FROM_REWARDING_FUND = 9;</code>
    */
   public static final int CLAIM_FROM_REWARDING_FUND_VALUE = 9;
+  /**
+   * <code>BLOB_FEE = 10;</code>
+   */
+  public static final int BLOB_FEE_VALUE = 10;
+  /**
+   * <code>PRIORITY_FEE = 11;</code>
+   */
+  public static final int PRIORITY_FEE_VALUE = 11;
 
 
   public final int getNumber() {
@@ -138,6 +154,8 @@ public enum TransactionLogType
       case 7: return NATIVE_TRANSFER;
       case 8: return DEPOSIT_TO_REWARDING_FUND;
       case 9: return CLAIM_FROM_REWARDING_FUND;
+      case 10: return BLOB_FEE;
+      case 11: return PRIORITY_FEE;
       default: return null;
     }
   }

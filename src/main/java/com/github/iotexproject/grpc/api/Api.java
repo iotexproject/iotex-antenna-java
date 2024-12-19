@@ -441,7 +441,7 @@ public final class Api {
       "iceRequest\"+\n\027SuggestGasPriceResponse\022\020\n" +
       "\010gasPrice\030\001 \001(\004\"A\n\033EstimateGasForActionR" +
       "equest\022\"\n\006action\030\001 \001(\0132\022.iotextypes.Acti" +
-      "on\"\232\005\n#EstimateActionGasConsumptionReque" +
+      "on\"\252\007\n#EstimateActionGasConsumptionReque" +
       "st\022(\n\010transfer\030\001 \001(\0132\024.iotextypes.Transf" +
       "erH\000\022*\n\texecution\030\002 \001(\0132\025.iotextypes.Exe" +
       "cutionH\000\022.\n\013stakeCreate\030( \001(\0132\027.iotextyp" +
@@ -456,140 +456,147 @@ public final class Api {
       "\0132\".iotextypes.StakeTransferOwnershipH\000\022" +
       ":\n\021candidateRegister\030/ \001(\0132\035.iotextypes." +
       "CandidateRegisterH\000\0229\n\017candidateUpdate\0300" +
-      " \001(\0132\036.iotextypes.CandidateBasicInfoH\000\022\025" +
-      "\n\rcallerAddress\030d \001(\tB\010\n\006action\"3\n$Estim" +
-      "ateActionGasConsumptionResponse\022\013\n\003gas\030\001" +
-      " \001(\004\"+\n\034EstimateGasForActionResponse\022\013\n\003" +
-      "gas\030\001 \001(\004\"]\n\020ReadStateRequest\022\022\n\nprotoco" +
-      "lID\030\001 \001(\014\022\022\n\nmethodName\030\002 \001(\014\022\021\n\targumen" +
-      "ts\030\003 \003(\014\022\016\n\006height\030\004 \001(\t\"W\n\021ReadStateRes" +
-      "ponse\022\014\n\004data\030\001 \001(\014\0224\n\017blockIdentifier\030\002" +
-      " \001(\0132\033.iotextypes.BlockIdentifier\"*\n\023Get" +
-      "EpochMetaRequest\022\023\n\013epochNumber\030\001 \001(\004\"\216\001" +
-      "\n\024GetEpochMetaResponse\022(\n\tepochData\030\001 \001(" +
-      "\0132\025.iotextypes.EpochData\022\023\n\013totalBlocks\030" +
-      "\002 \001(\004\0227\n\022blockProducersInfo\030\003 \003(\0132\033.iote" +
-      "xapi.BlockProducerInfo\"l\n\023GetRawBlocksRe" +
-      "quest\022\023\n\013startHeight\030\001 \001(\004\022\r\n\005count\030\002 \001(" +
-      "\004\022\024\n\014withReceipts\030\003 \001(\010\022\033\n\023withTransacti" +
-      "onLogs\030\004 \001(\010\";\n\024GetRawBlocksResponse\022#\n\006" +
-      "blocks\030\001 \003(\0132\023.iotexapi.BlockInfo\"#\n\016Get" +
-      "LogsByBlock\022\021\n\tblockHash\030\001 \001(\014\"L\n\016GetLog" +
-      "sByRange\022\021\n\tfromBlock\030\001 \001(\004\022\017\n\007toBlock\030\002" +
-      " \001(\004\022\026\n\016paginationSize\030\003 \001(\004\"\027\n\006Topics\022\r" +
-      "\n\005topic\030\001 \003(\014\"?\n\nLogsFilter\022\017\n\007address\030\001" +
-      " \003(\t\022 \n\006topics\030\002 \003(\0132\020.iotexapi.Topics\"\232" +
-      "\001\n\016GetLogsRequest\022$\n\006filter\030\001 \001(\0132\024.iote" +
-      "xapi.LogsFilter\022+\n\007byBlock\030\002 \001(\0132\030.iotex" +
-      "api.GetLogsByBlockH\000\022+\n\007byRange\030\003 \001(\0132\030." +
-      "iotexapi.GetLogsByRangeH\000B\010\n\006lookup\"0\n\017G" +
-      "etLogsResponse\022\035\n\004logs\030\001 \003(\0132\017.iotextype" +
-      "s.Log\":\n$GetTransactionLogByActionHashRe" +
-      "quest\022\022\n\nactionHash\030\001 \001(\t\"[\n%GetTransact" +
-      "ionLogByActionHashResponse\0222\n\016transactio" +
-      "nLog\030\001 \001(\0132\032.iotextypes.TransactionLog\"<" +
-      "\n%GetTransactionLogByBlockHeightRequest\022" +
-      "\023\n\013blockHeight\030\001 \001(\004\"\224\001\n&GetTransactionL" +
-      "ogByBlockHeightResponse\0224\n\017transactionLo" +
-      "gs\030\001 \001(\0132\033.iotextypes.TransactionLogs\0224\n" +
-      "\017blockIdentifier\030\002 \001(\0132\033.iotextypes.Bloc" +
-      "kIdentifier\"\025\n\023StreamBlocksRequest\"p\n\024St" +
-      "reamBlocksResponse\022\"\n\005block\030\001 \001(\0132\023.iote" +
-      "xapi.BlockInfo\0224\n\017blockIdentifier\030\002 \001(\0132" +
-      "\033.iotextypes.BlockIdentifier\"9\n\021StreamLo" +
+      " \001(\0132\036.iotextypes.CandidateBasicInfoH\000\022:" +
+      "\n\021candidateActivate\0301 \001(\0132\035.iotextypes.C" +
+      "andidateActivateH\000\022@\n\024candidateEndorseme" +
+      "nt\0303 \001(\0132 .iotextypes.CandidateEndorseme" +
+      "ntH\000\022L\n\032candidateTransferOwnership\0304 \001(\013" +
+      "2&.iotextypes.CandidateTransferOwnership" +
+      "H\000\0220\n\014stakeMigrate\0305 \001(\0132\030.iotextypes.St" +
+      "akeMigrateH\000\022\025\n\rcallerAddress\030d \001(\t\022\020\n\010g" +
+      "asPrice\030e \001(\tB\010\n\006action\"3\n$EstimateActio" +
+      "nGasConsumptionResponse\022\013\n\003gas\030\001 \001(\004\"+\n\034" +
+      "EstimateGasForActionResponse\022\013\n\003gas\030\001 \001(" +
+      "\004\"]\n\020ReadStateRequest\022\022\n\nprotocolID\030\001 \001(" +
+      "\014\022\022\n\nmethodName\030\002 \001(\014\022\021\n\targuments\030\003 \003(\014" +
+      "\022\016\n\006height\030\004 \001(\t\"W\n\021ReadStateResponse\022\014\n" +
+      "\004data\030\001 \001(\014\0224\n\017blockIdentifier\030\002 \001(\0132\033.i" +
+      "otextypes.BlockIdentifier\"*\n\023GetEpochMet" +
+      "aRequest\022\023\n\013epochNumber\030\001 \001(\004\"\216\001\n\024GetEpo" +
+      "chMetaResponse\022(\n\tepochData\030\001 \001(\0132\025.iote" +
+      "xtypes.EpochData\022\023\n\013totalBlocks\030\002 \001(\004\0227\n" +
+      "\022blockProducersInfo\030\003 \003(\0132\033.iotexapi.Blo" +
+      "ckProducerInfo\"l\n\023GetRawBlocksRequest\022\023\n" +
+      "\013startHeight\030\001 \001(\004\022\r\n\005count\030\002 \001(\004\022\024\n\014wit" +
+      "hReceipts\030\003 \001(\010\022\033\n\023withTransactionLogs\030\004" +
+      " \001(\010\";\n\024GetRawBlocksResponse\022#\n\006blocks\030\001" +
+      " \003(\0132\023.iotexapi.BlockInfo\"#\n\016GetLogsByBl" +
+      "ock\022\021\n\tblockHash\030\001 \001(\014\"L\n\016GetLogsByRange" +
+      "\022\021\n\tfromBlock\030\001 \001(\004\022\017\n\007toBlock\030\002 \001(\004\022\026\n\016" +
+      "paginationSize\030\003 \001(\004\"\027\n\006Topics\022\r\n\005topic\030" +
+      "\001 \003(\014\"?\n\nLogsFilter\022\017\n\007address\030\001 \003(\t\022 \n\006" +
+      "topics\030\002 \003(\0132\020.iotexapi.Topics\"\232\001\n\016GetLo" +
       "gsRequest\022$\n\006filter\030\001 \001(\0132\024.iotexapi.Log" +
-      "sFilter\"2\n\022StreamLogsResponse\022\034\n\003log\030\001 \001" +
-      "(\0132\017.iotextypes.Log\"0\n\030GetActPoolActions" +
-      "Request\022\024\n\014actionHashes\030\001 \003(\t\"@\n\031GetActP" +
-      "oolActionsResponse\022#\n\007actions\030\001 \003(\0132\022.io" +
-      "textypes.Action\"-\n\031GetElectionBucketsReq" +
-      "uest\022\020\n\010epochNum\030\001 \001(\004\"I\n\032GetElectionBuc" +
-      "ketsResponse\022+\n\007buckets\030\001 \003(\0132\032.iotextyp" +
-      "es.ElectionBucket\"8\n\"GetEvmTransfersByAc" +
-      "tionHashRequest\022\022\n\nactionHash\030\001 \001(\t\"`\n#G" +
-      "etEvmTransfersByActionHashResponse\0229\n\022ac" +
-      "tionEvmTransfers\030\001 \001(\0132\035.iotextypes.Acti" +
-      "onEvmTransfer\":\n#GetEvmTransfersByBlockH" +
-      "eightRequest\022\023\n\013blockHeight\030\001 \001(\004\"_\n$Get" +
-      "EvmTransfersByBlockHeightResponse\0227\n\021blo" +
-      "ckEvmTransfers\030\001 \001(\0132\034.iotextypes.BlockE" +
-      "vmTransfer\";\n\032ReadContractStorageRequest" +
-      "\022\020\n\010contract\030\001 \001(\t\022\013\n\003key\030\002 \001(\014\"+\n\033ReadC" +
-      "ontractStorageResponse\022\014\n\004data\030\001 \001(\014\"7\n!" +
-      "TraceTransactionStructLogsRequest\022\022\n\nact" +
-      "ionHash\030\001 \001(\t\"Z\n\"TraceTransactionStructL" +
-      "ogsResponse\0224\n\nstructLogs\030\001 \003(\0132 .iotext" +
-      "ypes.TransactionStructLog2\332\022\n\nAPIService" +
-      "\022I\n\nGetAccount\022\033.iotexapi.GetAccountRequ" +
-      "est\032\034.iotexapi.GetAccountResponse\"\000\022I\n\nG" +
-      "etActions\022\033.iotexapi.GetActionsRequest\032\034" +
-      ".iotexapi.GetActionsResponse\"\000\022R\n\rGetBlo" +
-      "ckMetas\022\036.iotexapi.GetBlockMetasRequest\032" +
-      "\037.iotexapi.GetBlockMetasResponse\"\000\022O\n\014Ge" +
-      "tChainMeta\022\035.iotexapi.GetChainMetaReques" +
-      "t\032\036.iotexapi.GetChainMetaResponse\"\000\022R\n\rG" +
-      "etServerMeta\022\036.iotexapi.GetServerMetaReq" +
-      "uest\032\037.iotexapi.GetServerMetaResponse\"\000\022" +
-      "I\n\nSendAction\022\033.iotexapi.SendActionReque" +
-      "st\032\034.iotexapi.SendActionResponse\"\000\022a\n\022Ge" +
-      "tReceiptByAction\022#.iotexapi.GetReceiptBy" +
-      "ActionRequest\032$.iotexapi.GetReceiptByAct" +
-      "ionResponse\"\000\022O\n\014ReadContract\022\035.iotexapi" +
-      ".ReadContractRequest\032\036.iotexapi.ReadCont" +
-      "ractResponse\"\000\022X\n\017SuggestGasPrice\022 .iote" +
-      "xapi.SuggestGasPriceRequest\032!.iotexapi.S" +
-      "uggestGasPriceResponse\"\000\022g\n\024EstimateGasF" +
-      "orAction\022%.iotexapi.EstimateGasForAction" +
-      "Request\032&.iotexapi.EstimateGasForActionR" +
-      "esponse\"\000\022\177\n\034EstimateActionGasConsumptio" +
-      "n\022-.iotexapi.EstimateActionGasConsumptio" +
-      "nRequest\032..iotexapi.EstimateActionGasCon" +
-      "sumptionResponse\"\000\022F\n\tReadState\022\032.iotexa" +
-      "pi.ReadStateRequest\032\033.iotexapi.ReadState" +
-      "Response\"\000\022O\n\014GetEpochMeta\022\035.iotexapi.Ge" +
-      "tEpochMetaRequest\032\036.iotexapi.GetEpochMet" +
-      "aResponse\"\000\022O\n\014GetRawBlocks\022\035.iotexapi.G" +
-      "etRawBlocksRequest\032\036.iotexapi.GetRawBloc" +
-      "ksResponse\"\000\022@\n\007GetLogs\022\030.iotexapi.GetLo" +
-      "gsRequest\032\031.iotexapi.GetLogsResponse\"\000\022\202" +
-      "\001\n\035GetTransactionLogByActionHash\022..iotex" +
-      "api.GetTransactionLogByActionHashRequest" +
-      "\032/.iotexapi.GetTransactionLogByActionHas" +
-      "hResponse\"\000\022\205\001\n\036GetTransactionLogByBlock" +
-      "Height\022/.iotexapi.GetTransactionLogByBlo" +
-      "ckHeightRequest\0320.iotexapi.GetTransactio" +
-      "nLogByBlockHeightResponse\"\000\022Q\n\014StreamBlo" +
-      "cks\022\035.iotexapi.StreamBlocksRequest\032\036.iot" +
-      "exapi.StreamBlocksResponse\"\0000\001\022K\n\nStream" +
-      "Logs\022\033.iotexapi.StreamLogsRequest\032\034.iote" +
-      "xapi.StreamLogsResponse\"\0000\001\022^\n\021GetActPoo" +
-      "lActions\022\".iotexapi.GetActPoolActionsReq" +
-      "uest\032#.iotexapi.GetActPoolActionsRespons" +
-      "e\"\000\022|\n\033GetEvmTransfersByActionHash\022,.iot" +
-      "exapi.GetEvmTransfersByActionHashRequest" +
-      "\032-.iotexapi.GetEvmTransfersByActionHashR" +
-      "esponse\"\000\022\177\n\034GetEvmTransfersByBlockHeigh" +
-      "t\022-.iotexapi.GetEvmTransfersByBlockHeigh" +
-      "tRequest\032..iotexapi.GetEvmTransfersByBlo" +
-      "ckHeightResponse\"\000\022a\n\022GetElectionBuckets" +
-      "\022#.iotexapi.GetElectionBucketsRequest\032$." +
-      "iotexapi.GetElectionBucketsResponse\"\000\022d\n" +
-      "\023ReadContractStorage\022$.iotexapi.ReadCont" +
-      "ractStorageRequest\032%.iotexapi.ReadContra" +
-      "ctStorageResponse\"\000\022y\n\032TraceTransactionS" +
-      "tructLogs\022+.iotexapi.TraceTransactionStr" +
-      "uctLogsRequest\032,.iotexapi.TraceTransacti" +
-      "onStructLogsResponse\"\0002\244\002\n\025TransactionLo" +
-      "gService\022\202\001\n\035GetTransactionLogByActionHa" +
-      "sh\022..iotexapi.GetTransactionLogByActionH" +
-      "ashRequest\032/.iotexapi.GetTransactionLogB" +
-      "yActionHashResponse\"\000\022\205\001\n\036GetTransaction" +
-      "LogByBlockHeight\022/.iotexapi.GetTransacti" +
-      "onLogByBlockHeightRequest\0320.iotexapi.Get" +
-      "TransactionLogByBlockHeightResponse\"\000BY\n" +
-      " com.github.iotexproject.grpc.apiP\001Z3git" +
-      "hub.com/iotexproject/iotex-proto/golang/" +
-      "iotexapib\006proto3"
+      "sFilter\022+\n\007byBlock\030\002 \001(\0132\030.iotexapi.GetL" +
+      "ogsByBlockH\000\022+\n\007byRange\030\003 \001(\0132\030.iotexapi" +
+      ".GetLogsByRangeH\000B\010\n\006lookup\"0\n\017GetLogsRe" +
+      "sponse\022\035\n\004logs\030\001 \003(\0132\017.iotextypes.Log\":\n" +
+      "$GetTransactionLogByActionHashRequest\022\022\n" +
+      "\nactionHash\030\001 \001(\t\"[\n%GetTransactionLogBy" +
+      "ActionHashResponse\0222\n\016transactionLog\030\001 \001" +
+      "(\0132\032.iotextypes.TransactionLog\"<\n%GetTra" +
+      "nsactionLogByBlockHeightRequest\022\023\n\013block" +
+      "Height\030\001 \001(\004\"\224\001\n&GetTransactionLogByBloc" +
+      "kHeightResponse\0224\n\017transactionLogs\030\001 \001(\013" +
+      "2\033.iotextypes.TransactionLogs\0224\n\017blockId" +
+      "entifier\030\002 \001(\0132\033.iotextypes.BlockIdentif" +
+      "ier\"\025\n\023StreamBlocksRequest\"p\n\024StreamBloc" +
+      "ksResponse\022\"\n\005block\030\001 \001(\0132\023.iotexapi.Blo" +
+      "ckInfo\0224\n\017blockIdentifier\030\002 \001(\0132\033.iotext" +
+      "ypes.BlockIdentifier\"9\n\021StreamLogsReques" +
+      "t\022$\n\006filter\030\001 \001(\0132\024.iotexapi.LogsFilter\"" +
+      "2\n\022StreamLogsResponse\022\034\n\003log\030\001 \001(\0132\017.iot" +
+      "extypes.Log\"0\n\030GetActPoolActionsRequest\022" +
+      "\024\n\014actionHashes\030\001 \003(\t\"@\n\031GetActPoolActio" +
+      "nsResponse\022#\n\007actions\030\001 \003(\0132\022.iotextypes" +
+      ".Action\"-\n\031GetElectionBucketsRequest\022\020\n\010" +
+      "epochNum\030\001 \001(\004\"I\n\032GetElectionBucketsResp" +
+      "onse\022+\n\007buckets\030\001 \003(\0132\032.iotextypes.Elect" +
+      "ionBucket\"8\n\"GetEvmTransfersByActionHash" +
+      "Request\022\022\n\nactionHash\030\001 \001(\t\"`\n#GetEvmTra" +
+      "nsfersByActionHashResponse\0229\n\022actionEvmT" +
+      "ransfers\030\001 \001(\0132\035.iotextypes.ActionEvmTra" +
+      "nsfer\":\n#GetEvmTransfersByBlockHeightReq" +
+      "uest\022\023\n\013blockHeight\030\001 \001(\004\"_\n$GetEvmTrans" +
+      "fersByBlockHeightResponse\0227\n\021blockEvmTra" +
+      "nsfers\030\001 \001(\0132\034.iotextypes.BlockEvmTransf" +
+      "er\";\n\032ReadContractStorageRequest\022\020\n\010cont" +
+      "ract\030\001 \001(\t\022\013\n\003key\030\002 \001(\014\"+\n\033ReadContractS" +
+      "torageResponse\022\014\n\004data\030\001 \001(\014\"7\n!TraceTra" +
+      "nsactionStructLogsRequest\022\022\n\nactionHash\030" +
+      "\001 \001(\t\"Z\n\"TraceTransactionStructLogsRespo" +
+      "nse\0224\n\nstructLogs\030\001 \003(\0132 .iotextypes.Tra" +
+      "nsactionStructLog2\332\022\n\nAPIService\022I\n\nGetA" +
+      "ccount\022\033.iotexapi.GetAccountRequest\032\034.io" +
+      "texapi.GetAccountResponse\"\000\022I\n\nGetAction" +
+      "s\022\033.iotexapi.GetActionsRequest\032\034.iotexap" +
+      "i.GetActionsResponse\"\000\022R\n\rGetBlockMetas\022" +
+      "\036.iotexapi.GetBlockMetasRequest\032\037.iotexa" +
+      "pi.GetBlockMetasResponse\"\000\022O\n\014GetChainMe" +
+      "ta\022\035.iotexapi.GetChainMetaRequest\032\036.iote" +
+      "xapi.GetChainMetaResponse\"\000\022R\n\rGetServer" +
+      "Meta\022\036.iotexapi.GetServerMetaRequest\032\037.i" +
+      "otexapi.GetServerMetaResponse\"\000\022I\n\nSendA" +
+      "ction\022\033.iotexapi.SendActionRequest\032\034.iot" +
+      "exapi.SendActionResponse\"\000\022a\n\022GetReceipt" +
+      "ByAction\022#.iotexapi.GetReceiptByActionRe" +
+      "quest\032$.iotexapi.GetReceiptByActionRespo" +
+      "nse\"\000\022O\n\014ReadContract\022\035.iotexapi.ReadCon" +
+      "tractRequest\032\036.iotexapi.ReadContractResp" +
+      "onse\"\000\022X\n\017SuggestGasPrice\022 .iotexapi.Sug" +
+      "gestGasPriceRequest\032!.iotexapi.SuggestGa" +
+      "sPriceResponse\"\000\022g\n\024EstimateGasForAction" +
+      "\022%.iotexapi.EstimateGasForActionRequest\032" +
+      "&.iotexapi.EstimateGasForActionResponse\"" +
+      "\000\022\177\n\034EstimateActionGasConsumption\022-.iote" +
+      "xapi.EstimateActionGasConsumptionRequest" +
+      "\032..iotexapi.EstimateActionGasConsumption" +
+      "Response\"\000\022F\n\tReadState\022\032.iotexapi.ReadS" +
+      "tateRequest\032\033.iotexapi.ReadStateResponse" +
+      "\"\000\022O\n\014GetEpochMeta\022\035.iotexapi.GetEpochMe" +
+      "taRequest\032\036.iotexapi.GetEpochMetaRespons" +
+      "e\"\000\022O\n\014GetRawBlocks\022\035.iotexapi.GetRawBlo" +
+      "cksRequest\032\036.iotexapi.GetRawBlocksRespon" +
+      "se\"\000\022@\n\007GetLogs\022\030.iotexapi.GetLogsReques" +
+      "t\032\031.iotexapi.GetLogsResponse\"\000\022\202\001\n\035GetTr" +
+      "ansactionLogByActionHash\022..iotexapi.GetT" +
+      "ransactionLogByActionHashRequest\032/.iotex" +
+      "api.GetTransactionLogByActionHashRespons" +
+      "e\"\000\022\205\001\n\036GetTransactionLogByBlockHeight\022/" +
+      ".iotexapi.GetTransactionLogByBlockHeight" +
+      "Request\0320.iotexapi.GetTransactionLogByBl" +
+      "ockHeightResponse\"\000\022Q\n\014StreamBlocks\022\035.io" +
+      "texapi.StreamBlocksRequest\032\036.iotexapi.St" +
+      "reamBlocksResponse\"\0000\001\022K\n\nStreamLogs\022\033.i" +
+      "otexapi.StreamLogsRequest\032\034.iotexapi.Str" +
+      "eamLogsResponse\"\0000\001\022^\n\021GetActPoolActions" +
+      "\022\".iotexapi.GetActPoolActionsRequest\032#.i" +
+      "otexapi.GetActPoolActionsResponse\"\000\022|\n\033G" +
+      "etEvmTransfersByActionHash\022,.iotexapi.Ge" +
+      "tEvmTransfersByActionHashRequest\032-.iotex" +
+      "api.GetEvmTransfersByActionHashResponse\"" +
+      "\000\022\177\n\034GetEvmTransfersByBlockHeight\022-.iote" +
+      "xapi.GetEvmTransfersByBlockHeightRequest" +
+      "\032..iotexapi.GetEvmTransfersByBlockHeight" +
+      "Response\"\000\022a\n\022GetElectionBuckets\022#.iotex" +
+      "api.GetElectionBucketsRequest\032$.iotexapi" +
+      ".GetElectionBucketsResponse\"\000\022d\n\023ReadCon" +
+      "tractStorage\022$.iotexapi.ReadContractStor" +
+      "ageRequest\032%.iotexapi.ReadContractStorag" +
+      "eResponse\"\000\022y\n\032TraceTransactionStructLog" +
+      "s\022+.iotexapi.TraceTransactionStructLogsR" +
+      "equest\032,.iotexapi.TraceTransactionStruct" +
+      "LogsResponse\"\0002\244\002\n\025TransactionLogService" +
+      "\022\202\001\n\035GetTransactionLogByActionHash\022..iot" +
+      "exapi.GetTransactionLogByActionHashReque" +
+      "st\032/.iotexapi.GetTransactionLogByActionH" +
+      "ashResponse\"\000\022\205\001\n\036GetTransactionLogByBlo" +
+      "ckHeight\022/.iotexapi.GetTransactionLogByB" +
+      "lockHeightRequest\0320.iotexapi.GetTransact" +
+      "ionLogByBlockHeightResponse\"\000BY\n com.git" +
+      "hub.iotexproject.grpc.apiP\001Z3github.com/" +
+      "iotexproject/iotex-proto/golang/iotexapi" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -798,7 +805,7 @@ public final class Api {
     internal_static_iotexapi_EstimateActionGasConsumptionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotexapi_EstimateActionGasConsumptionRequest_descriptor,
-        new java.lang.String[] { "Transfer", "Execution", "StakeCreate", "StakeUnstake", "StakeWithdraw", "StakeAddDeposit", "StakeRestake", "StakeChangeCandidate", "StakeTransferOwnership", "CandidateRegister", "CandidateUpdate", "CallerAddress", "Action", });
+        new java.lang.String[] { "Transfer", "Execution", "StakeCreate", "StakeUnstake", "StakeWithdraw", "StakeAddDeposit", "StakeRestake", "StakeChangeCandidate", "StakeTransferOwnership", "CandidateRegister", "CandidateUpdate", "CandidateActivate", "CandidateEndorsement", "CandidateTransferOwnership", "StakeMigrate", "CallerAddress", "GasPrice", "Action", });
     internal_static_iotexapi_EstimateActionGasConsumptionResponse_descriptor =
       getDescriptor().getMessageTypes().get(33);
     internal_static_iotexapi_EstimateActionGasConsumptionResponse_fieldAccessorTable = new

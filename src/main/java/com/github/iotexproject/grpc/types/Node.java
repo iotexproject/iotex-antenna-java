@@ -30,6 +30,21 @@ public final class Node {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_iotextypes_ServerMeta_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_iotextypes_NodeInfoCore_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_iotextypes_NodeInfoCore_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_iotextypes_NodeInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_iotextypes_NodeInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_iotextypes_NodeInfoRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_iotextypes_NodeInfoRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -39,17 +54,24 @@ public final class Node {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\026proto/types/node.proto\022\niotextypes\"v\n\n" +
-      "ServerMeta\022\026\n\016packageVersion\030\001 \001(\t\022\027\n\017pa" +
-      "ckageCommitID\030\002 \001(\t\022\021\n\tgitStatus\030\003 \001(\t\022\021" +
-      "\n\tgoVersion\030\004 \001(\t\022\021\n\tbuildTime\030\005 \001(\tB]\n\"" +
-      "com.github.iotexproject.grpc.typesP\001Z5gi" +
-      "thub.com/iotexproject/iotex-proto/golang" +
-      "/iotextypesb\006proto3"
+      "\n\026proto/types/node.proto\022\niotextypes\032\037go" +
+      "ogle/protobuf/timestamp.proto\"v\n\nServerM" +
+      "eta\022\026\n\016packageVersion\030\001 \001(\t\022\027\n\017packageCo" +
+      "mmitID\030\002 \001(\t\022\021\n\tgitStatus\030\003 \001(\t\022\021\n\tgoVer" +
+      "sion\030\004 \001(\t\022\021\n\tbuildTime\030\005 \001(\t\"o\n\014NodeInf" +
+      "oCore\022\017\n\007version\030\001 \001(\t\022\016\n\006height\030\002 \001(\004\022-" +
+      "\n\ttimestamp\030\003 \001(\0132\032.google.protobuf.Time" +
+      "stamp\022\017\n\007address\030\004 \001(\t\"E\n\010NodeInfo\022&\n\004in" +
+      "fo\030\001 \001(\0132\030.iotextypes.NodeInfoCore\022\021\n\tsi" +
+      "gnature\030\002 \001(\014\"\021\n\017NodeInfoRequestB]\n\"com." +
+      "github.iotexproject.grpc.typesP\001Z5github" +
+      ".com/iotexproject/iotex-proto/golang/iot" +
+      "extypesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_iotextypes_ServerMeta_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -57,7 +79,26 @@ public final class Node {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_ServerMeta_descriptor,
         new java.lang.String[] { "PackageVersion", "PackageCommitID", "GitStatus", "GoVersion", "BuildTime", });
+    internal_static_iotextypes_NodeInfoCore_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_iotextypes_NodeInfoCore_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_iotextypes_NodeInfoCore_descriptor,
+        new java.lang.String[] { "Version", "Height", "Timestamp", "Address", });
+    internal_static_iotextypes_NodeInfo_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_iotextypes_NodeInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_iotextypes_NodeInfo_descriptor,
+        new java.lang.String[] { "Info", "Signature", });
+    internal_static_iotextypes_NodeInfoRequest_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_iotextypes_NodeInfoRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_iotextypes_NodeInfoRequest_descriptor,
+        new java.lang.String[] { });
     descriptor.resolveAllFeaturesImmutable();
+    com.google.protobuf.TimestampProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

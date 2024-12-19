@@ -291,8 +291,13 @@ message EstimateActionGasConsumptionRequest {
     iotextypes.StakeTransferOwnership stakeTransferOwnership = 46;
     iotextypes.CandidateRegister candidateRegister = 47;
     iotextypes.CandidateBasicInfo candidateUpdate = 48;
+    iotextypes.CandidateActivate candidateActivate = 49;
+    iotextypes.CandidateEndorsement candidateEndorsement = 51;
+    iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;
+    iotextypes.StakeMigrate stakeMigrate = 53;
   }
   string callerAddress = 100;
+  string gasPrice = 101;
 }
 
 message EstimateActionGasConsumptionResponse {

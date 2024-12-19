@@ -38,28 +38,4 @@ public interface ExecutionOrBuilder extends
    * @return The data.
    */
   com.google.protobuf.ByteString getData();
-
-  /**
-   * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-   */
-  java.util.List<com.github.iotexproject.grpc.types.AccessTuple> 
-      getAccessListList();
-  /**
-   * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-   */
-  com.github.iotexproject.grpc.types.AccessTuple getAccessList(int index);
-  /**
-   * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-   */
-  int getAccessListCount();
-  /**
-   * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-   */
-  java.util.List<? extends com.github.iotexproject.grpc.types.AccessTupleOrBuilder> 
-      getAccessListOrBuilderList();
-  /**
-   * <code>repeated .iotextypes.AccessTuple accessList = 4;</code>
-   */
-  com.github.iotexproject.grpc.types.AccessTupleOrBuilder getAccessListOrBuilder(
-      int index);
 }

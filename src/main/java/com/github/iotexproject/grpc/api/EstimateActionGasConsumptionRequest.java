@@ -28,6 +28,7 @@ private static final long serialVersionUID = 0L;
   }
   private EstimateActionGasConsumptionRequest() {
     callerAddress_ = "";
+    gasPrice_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -60,6 +61,10 @@ private static final long serialVersionUID = 0L;
     STAKETRANSFEROWNERSHIP(46),
     CANDIDATEREGISTER(47),
     CANDIDATEUPDATE(48),
+    CANDIDATEACTIVATE(49),
+    CANDIDATEENDORSEMENT(51),
+    CANDIDATETRANSFEROWNERSHIP(52),
+    STAKEMIGRATE(53),
     ACTION_NOT_SET(0);
     private final int value;
     private ActionCase(int value) {
@@ -88,6 +93,10 @@ private static final long serialVersionUID = 0L;
         case 46: return STAKETRANSFEROWNERSHIP;
         case 47: return CANDIDATEREGISTER;
         case 48: return CANDIDATEUPDATE;
+        case 49: return CANDIDATEACTIVATE;
+        case 51: return CANDIDATEENDORSEMENT;
+        case 52: return CANDIDATETRANSFEROWNERSHIP;
+        case 53: return STAKEMIGRATE;
         case 0: return ACTION_NOT_SET;
         default: return null;
       }
@@ -456,6 +465,130 @@ private static final long serialVersionUID = 0L;
     return com.github.iotexproject.grpc.types.CandidateBasicInfo.getDefaultInstance();
   }
 
+  public static final int CANDIDATEACTIVATE_FIELD_NUMBER = 49;
+  /**
+   * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+   * @return Whether the candidateActivate field is set.
+   */
+  @java.lang.Override
+  public boolean hasCandidateActivate() {
+    return actionCase_ == 49;
+  }
+  /**
+   * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+   * @return The candidateActivate.
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.CandidateActivate getCandidateActivate() {
+    if (actionCase_ == 49) {
+       return (com.github.iotexproject.grpc.types.CandidateActivate) action_;
+    }
+    return com.github.iotexproject.grpc.types.CandidateActivate.getDefaultInstance();
+  }
+  /**
+   * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.CandidateActivateOrBuilder getCandidateActivateOrBuilder() {
+    if (actionCase_ == 49) {
+       return (com.github.iotexproject.grpc.types.CandidateActivate) action_;
+    }
+    return com.github.iotexproject.grpc.types.CandidateActivate.getDefaultInstance();
+  }
+
+  public static final int CANDIDATEENDORSEMENT_FIELD_NUMBER = 51;
+  /**
+   * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+   * @return Whether the candidateEndorsement field is set.
+   */
+  @java.lang.Override
+  public boolean hasCandidateEndorsement() {
+    return actionCase_ == 51;
+  }
+  /**
+   * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+   * @return The candidateEndorsement.
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.CandidateEndorsement getCandidateEndorsement() {
+    if (actionCase_ == 51) {
+       return (com.github.iotexproject.grpc.types.CandidateEndorsement) action_;
+    }
+    return com.github.iotexproject.grpc.types.CandidateEndorsement.getDefaultInstance();
+  }
+  /**
+   * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.CandidateEndorsementOrBuilder getCandidateEndorsementOrBuilder() {
+    if (actionCase_ == 51) {
+       return (com.github.iotexproject.grpc.types.CandidateEndorsement) action_;
+    }
+    return com.github.iotexproject.grpc.types.CandidateEndorsement.getDefaultInstance();
+  }
+
+  public static final int CANDIDATETRANSFEROWNERSHIP_FIELD_NUMBER = 52;
+  /**
+   * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+   * @return Whether the candidateTransferOwnership field is set.
+   */
+  @java.lang.Override
+  public boolean hasCandidateTransferOwnership() {
+    return actionCase_ == 52;
+  }
+  /**
+   * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+   * @return The candidateTransferOwnership.
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.CandidateTransferOwnership getCandidateTransferOwnership() {
+    if (actionCase_ == 52) {
+       return (com.github.iotexproject.grpc.types.CandidateTransferOwnership) action_;
+    }
+    return com.github.iotexproject.grpc.types.CandidateTransferOwnership.getDefaultInstance();
+  }
+  /**
+   * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.CandidateTransferOwnershipOrBuilder getCandidateTransferOwnershipOrBuilder() {
+    if (actionCase_ == 52) {
+       return (com.github.iotexproject.grpc.types.CandidateTransferOwnership) action_;
+    }
+    return com.github.iotexproject.grpc.types.CandidateTransferOwnership.getDefaultInstance();
+  }
+
+  public static final int STAKEMIGRATE_FIELD_NUMBER = 53;
+  /**
+   * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+   * @return Whether the stakeMigrate field is set.
+   */
+  @java.lang.Override
+  public boolean hasStakeMigrate() {
+    return actionCase_ == 53;
+  }
+  /**
+   * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+   * @return The stakeMigrate.
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.StakeMigrate getStakeMigrate() {
+    if (actionCase_ == 53) {
+       return (com.github.iotexproject.grpc.types.StakeMigrate) action_;
+    }
+    return com.github.iotexproject.grpc.types.StakeMigrate.getDefaultInstance();
+  }
+  /**
+   * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.StakeMigrateOrBuilder getStakeMigrateOrBuilder() {
+    if (actionCase_ == 53) {
+       return (com.github.iotexproject.grpc.types.StakeMigrate) action_;
+    }
+    return com.github.iotexproject.grpc.types.StakeMigrate.getDefaultInstance();
+  }
+
   public static final int CALLERADDRESS_FIELD_NUMBER = 100;
   @SuppressWarnings("serial")
   private volatile java.lang.Object callerAddress_ = "";
@@ -489,6 +622,45 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       callerAddress_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int GASPRICE_FIELD_NUMBER = 101;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object gasPrice_ = "";
+  /**
+   * <code>string gasPrice = 101;</code>
+   * @return The gasPrice.
+   */
+  @java.lang.Override
+  public java.lang.String getGasPrice() {
+    java.lang.Object ref = gasPrice_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      gasPrice_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string gasPrice = 101;</code>
+   * @return The bytes for gasPrice.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getGasPriceBytes() {
+    java.lang.Object ref = gasPrice_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      gasPrice_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -542,8 +714,23 @@ private static final long serialVersionUID = 0L;
     if (actionCase_ == 48) {
       output.writeMessage(48, (com.github.iotexproject.grpc.types.CandidateBasicInfo) action_);
     }
+    if (actionCase_ == 49) {
+      output.writeMessage(49, (com.github.iotexproject.grpc.types.CandidateActivate) action_);
+    }
+    if (actionCase_ == 51) {
+      output.writeMessage(51, (com.github.iotexproject.grpc.types.CandidateEndorsement) action_);
+    }
+    if (actionCase_ == 52) {
+      output.writeMessage(52, (com.github.iotexproject.grpc.types.CandidateTransferOwnership) action_);
+    }
+    if (actionCase_ == 53) {
+      output.writeMessage(53, (com.github.iotexproject.grpc.types.StakeMigrate) action_);
+    }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(callerAddress_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 100, callerAddress_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(gasPrice_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 101, gasPrice_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -598,8 +785,27 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(48, (com.github.iotexproject.grpc.types.CandidateBasicInfo) action_);
     }
+    if (actionCase_ == 49) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(49, (com.github.iotexproject.grpc.types.CandidateActivate) action_);
+    }
+    if (actionCase_ == 51) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(51, (com.github.iotexproject.grpc.types.CandidateEndorsement) action_);
+    }
+    if (actionCase_ == 52) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(52, (com.github.iotexproject.grpc.types.CandidateTransferOwnership) action_);
+    }
+    if (actionCase_ == 53) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(53, (com.github.iotexproject.grpc.types.StakeMigrate) action_);
+    }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(callerAddress_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(100, callerAddress_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(gasPrice_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(101, gasPrice_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -618,6 +824,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getCallerAddress()
         .equals(other.getCallerAddress())) return false;
+    if (!getGasPrice()
+        .equals(other.getGasPrice())) return false;
     if (!getActionCase().equals(other.getActionCase())) return false;
     switch (actionCase_) {
       case 1:
@@ -664,6 +872,22 @@ private static final long serialVersionUID = 0L;
         if (!getCandidateUpdate()
             .equals(other.getCandidateUpdate())) return false;
         break;
+      case 49:
+        if (!getCandidateActivate()
+            .equals(other.getCandidateActivate())) return false;
+        break;
+      case 51:
+        if (!getCandidateEndorsement()
+            .equals(other.getCandidateEndorsement())) return false;
+        break;
+      case 52:
+        if (!getCandidateTransferOwnership()
+            .equals(other.getCandidateTransferOwnership())) return false;
+        break;
+      case 53:
+        if (!getStakeMigrate()
+            .equals(other.getStakeMigrate())) return false;
+        break;
       case 0:
       default:
     }
@@ -680,6 +904,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + CALLERADDRESS_FIELD_NUMBER;
     hash = (53 * hash) + getCallerAddress().hashCode();
+    hash = (37 * hash) + GASPRICE_FIELD_NUMBER;
+    hash = (53 * hash) + getGasPrice().hashCode();
     switch (actionCase_) {
       case 1:
         hash = (37 * hash) + TRANSFER_FIELD_NUMBER;
@@ -724,6 +950,22 @@ private static final long serialVersionUID = 0L;
       case 48:
         hash = (37 * hash) + CANDIDATEUPDATE_FIELD_NUMBER;
         hash = (53 * hash) + getCandidateUpdate().hashCode();
+        break;
+      case 49:
+        hash = (37 * hash) + CANDIDATEACTIVATE_FIELD_NUMBER;
+        hash = (53 * hash) + getCandidateActivate().hashCode();
+        break;
+      case 51:
+        hash = (37 * hash) + CANDIDATEENDORSEMENT_FIELD_NUMBER;
+        hash = (53 * hash) + getCandidateEndorsement().hashCode();
+        break;
+      case 52:
+        hash = (37 * hash) + CANDIDATETRANSFEROWNERSHIP_FIELD_NUMBER;
+        hash = (53 * hash) + getCandidateTransferOwnership().hashCode();
+        break;
+      case 53:
+        hash = (37 * hash) + STAKEMIGRATE_FIELD_NUMBER;
+        hash = (53 * hash) + getStakeMigrate().hashCode();
         break;
       case 0:
       default:
@@ -892,7 +1134,20 @@ private static final long serialVersionUID = 0L;
       if (candidateUpdateBuilder_ != null) {
         candidateUpdateBuilder_.clear();
       }
+      if (candidateActivateBuilder_ != null) {
+        candidateActivateBuilder_.clear();
+      }
+      if (candidateEndorsementBuilder_ != null) {
+        candidateEndorsementBuilder_.clear();
+      }
+      if (candidateTransferOwnershipBuilder_ != null) {
+        candidateTransferOwnershipBuilder_.clear();
+      }
+      if (stakeMigrateBuilder_ != null) {
+        stakeMigrateBuilder_.clear();
+      }
       callerAddress_ = "";
+      gasPrice_ = "";
       actionCase_ = 0;
       action_ = null;
       return this;
@@ -929,8 +1184,11 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial0(com.github.iotexproject.grpc.api.EstimateActionGasConsumptionRequest result) {
       int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000800) != 0)) {
+      if (((from_bitField0_ & 0x00008000) != 0)) {
         result.callerAddress_ = callerAddress_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.gasPrice_ = gasPrice_;
       }
     }
 
@@ -981,6 +1239,22 @@ private static final long serialVersionUID = 0L;
           candidateUpdateBuilder_ != null) {
         result.action_ = candidateUpdateBuilder_.build();
       }
+      if (actionCase_ == 49 &&
+          candidateActivateBuilder_ != null) {
+        result.action_ = candidateActivateBuilder_.build();
+      }
+      if (actionCase_ == 51 &&
+          candidateEndorsementBuilder_ != null) {
+        result.action_ = candidateEndorsementBuilder_.build();
+      }
+      if (actionCase_ == 52 &&
+          candidateTransferOwnershipBuilder_ != null) {
+        result.action_ = candidateTransferOwnershipBuilder_.build();
+      }
+      if (actionCase_ == 53 &&
+          stakeMigrateBuilder_ != null) {
+        result.action_ = stakeMigrateBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -997,7 +1271,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.github.iotexproject.grpc.api.EstimateActionGasConsumptionRequest.getDefaultInstance()) return this;
       if (!other.getCallerAddress().isEmpty()) {
         callerAddress_ = other.callerAddress_;
-        bitField0_ |= 0x00000800;
+        bitField0_ |= 0x00008000;
+        onChanged();
+      }
+      if (!other.getGasPrice().isEmpty()) {
+        gasPrice_ = other.gasPrice_;
+        bitField0_ |= 0x00010000;
         onChanged();
       }
       switch (other.getActionCase()) {
@@ -1043,6 +1322,22 @@ private static final long serialVersionUID = 0L;
         }
         case CANDIDATEUPDATE: {
           mergeCandidateUpdate(other.getCandidateUpdate());
+          break;
+        }
+        case CANDIDATEACTIVATE: {
+          mergeCandidateActivate(other.getCandidateActivate());
+          break;
+        }
+        case CANDIDATEENDORSEMENT: {
+          mergeCandidateEndorsement(other.getCandidateEndorsement());
+          break;
+        }
+        case CANDIDATETRANSFEROWNERSHIP: {
+          mergeCandidateTransferOwnership(other.getCandidateTransferOwnership());
+          break;
+        }
+        case STAKEMIGRATE: {
+          mergeStakeMigrate(other.getStakeMigrate());
           break;
         }
         case ACTION_NOT_SET: {
@@ -1152,11 +1447,44 @@ private static final long serialVersionUID = 0L;
               actionCase_ = 48;
               break;
             } // case 386
+            case 394: {
+              input.readMessage(
+                  getCandidateActivateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionCase_ = 49;
+              break;
+            } // case 394
+            case 410: {
+              input.readMessage(
+                  getCandidateEndorsementFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionCase_ = 51;
+              break;
+            } // case 410
+            case 418: {
+              input.readMessage(
+                  getCandidateTransferOwnershipFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionCase_ = 52;
+              break;
+            } // case 418
+            case 426: {
+              input.readMessage(
+                  getStakeMigrateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionCase_ = 53;
+              break;
+            } // case 426
             case 802: {
               callerAddress_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000800;
+              bitField0_ |= 0x00008000;
               break;
             } // case 802
+            case 810: {
+              gasPrice_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 810
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2787,6 +3115,574 @@ private static final long serialVersionUID = 0L;
       return candidateUpdateBuilder_;
     }
 
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.CandidateActivate, com.github.iotexproject.grpc.types.CandidateActivate.Builder, com.github.iotexproject.grpc.types.CandidateActivateOrBuilder> candidateActivateBuilder_;
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     * @return Whether the candidateActivate field is set.
+     */
+    @java.lang.Override
+    public boolean hasCandidateActivate() {
+      return actionCase_ == 49;
+    }
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     * @return The candidateActivate.
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.CandidateActivate getCandidateActivate() {
+      if (candidateActivateBuilder_ == null) {
+        if (actionCase_ == 49) {
+          return (com.github.iotexproject.grpc.types.CandidateActivate) action_;
+        }
+        return com.github.iotexproject.grpc.types.CandidateActivate.getDefaultInstance();
+      } else {
+        if (actionCase_ == 49) {
+          return candidateActivateBuilder_.getMessage();
+        }
+        return com.github.iotexproject.grpc.types.CandidateActivate.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     */
+    public Builder setCandidateActivate(com.github.iotexproject.grpc.types.CandidateActivate value) {
+      if (candidateActivateBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        action_ = value;
+        onChanged();
+      } else {
+        candidateActivateBuilder_.setMessage(value);
+      }
+      actionCase_ = 49;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     */
+    public Builder setCandidateActivate(
+        com.github.iotexproject.grpc.types.CandidateActivate.Builder builderForValue) {
+      if (candidateActivateBuilder_ == null) {
+        action_ = builderForValue.build();
+        onChanged();
+      } else {
+        candidateActivateBuilder_.setMessage(builderForValue.build());
+      }
+      actionCase_ = 49;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     */
+    public Builder mergeCandidateActivate(com.github.iotexproject.grpc.types.CandidateActivate value) {
+      if (candidateActivateBuilder_ == null) {
+        if (actionCase_ == 49 &&
+            action_ != com.github.iotexproject.grpc.types.CandidateActivate.getDefaultInstance()) {
+          action_ = com.github.iotexproject.grpc.types.CandidateActivate.newBuilder((com.github.iotexproject.grpc.types.CandidateActivate) action_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          action_ = value;
+        }
+        onChanged();
+      } else {
+        if (actionCase_ == 49) {
+          candidateActivateBuilder_.mergeFrom(value);
+        } else {
+          candidateActivateBuilder_.setMessage(value);
+        }
+      }
+      actionCase_ = 49;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     */
+    public Builder clearCandidateActivate() {
+      if (candidateActivateBuilder_ == null) {
+        if (actionCase_ == 49) {
+          actionCase_ = 0;
+          action_ = null;
+          onChanged();
+        }
+      } else {
+        if (actionCase_ == 49) {
+          actionCase_ = 0;
+          action_ = null;
+        }
+        candidateActivateBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     */
+    public com.github.iotexproject.grpc.types.CandidateActivate.Builder getCandidateActivateBuilder() {
+      return getCandidateActivateFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.CandidateActivateOrBuilder getCandidateActivateOrBuilder() {
+      if ((actionCase_ == 49) && (candidateActivateBuilder_ != null)) {
+        return candidateActivateBuilder_.getMessageOrBuilder();
+      } else {
+        if (actionCase_ == 49) {
+          return (com.github.iotexproject.grpc.types.CandidateActivate) action_;
+        }
+        return com.github.iotexproject.grpc.types.CandidateActivate.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.CandidateActivate, com.github.iotexproject.grpc.types.CandidateActivate.Builder, com.github.iotexproject.grpc.types.CandidateActivateOrBuilder> 
+        getCandidateActivateFieldBuilder() {
+      if (candidateActivateBuilder_ == null) {
+        if (!(actionCase_ == 49)) {
+          action_ = com.github.iotexproject.grpc.types.CandidateActivate.getDefaultInstance();
+        }
+        candidateActivateBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.iotexproject.grpc.types.CandidateActivate, com.github.iotexproject.grpc.types.CandidateActivate.Builder, com.github.iotexproject.grpc.types.CandidateActivateOrBuilder>(
+                (com.github.iotexproject.grpc.types.CandidateActivate) action_,
+                getParentForChildren(),
+                isClean());
+        action_ = null;
+      }
+      actionCase_ = 49;
+      onChanged();
+      return candidateActivateBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.CandidateEndorsement, com.github.iotexproject.grpc.types.CandidateEndorsement.Builder, com.github.iotexproject.grpc.types.CandidateEndorsementOrBuilder> candidateEndorsementBuilder_;
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     * @return Whether the candidateEndorsement field is set.
+     */
+    @java.lang.Override
+    public boolean hasCandidateEndorsement() {
+      return actionCase_ == 51;
+    }
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     * @return The candidateEndorsement.
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.CandidateEndorsement getCandidateEndorsement() {
+      if (candidateEndorsementBuilder_ == null) {
+        if (actionCase_ == 51) {
+          return (com.github.iotexproject.grpc.types.CandidateEndorsement) action_;
+        }
+        return com.github.iotexproject.grpc.types.CandidateEndorsement.getDefaultInstance();
+      } else {
+        if (actionCase_ == 51) {
+          return candidateEndorsementBuilder_.getMessage();
+        }
+        return com.github.iotexproject.grpc.types.CandidateEndorsement.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     */
+    public Builder setCandidateEndorsement(com.github.iotexproject.grpc.types.CandidateEndorsement value) {
+      if (candidateEndorsementBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        action_ = value;
+        onChanged();
+      } else {
+        candidateEndorsementBuilder_.setMessage(value);
+      }
+      actionCase_ = 51;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     */
+    public Builder setCandidateEndorsement(
+        com.github.iotexproject.grpc.types.CandidateEndorsement.Builder builderForValue) {
+      if (candidateEndorsementBuilder_ == null) {
+        action_ = builderForValue.build();
+        onChanged();
+      } else {
+        candidateEndorsementBuilder_.setMessage(builderForValue.build());
+      }
+      actionCase_ = 51;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     */
+    public Builder mergeCandidateEndorsement(com.github.iotexproject.grpc.types.CandidateEndorsement value) {
+      if (candidateEndorsementBuilder_ == null) {
+        if (actionCase_ == 51 &&
+            action_ != com.github.iotexproject.grpc.types.CandidateEndorsement.getDefaultInstance()) {
+          action_ = com.github.iotexproject.grpc.types.CandidateEndorsement.newBuilder((com.github.iotexproject.grpc.types.CandidateEndorsement) action_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          action_ = value;
+        }
+        onChanged();
+      } else {
+        if (actionCase_ == 51) {
+          candidateEndorsementBuilder_.mergeFrom(value);
+        } else {
+          candidateEndorsementBuilder_.setMessage(value);
+        }
+      }
+      actionCase_ = 51;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     */
+    public Builder clearCandidateEndorsement() {
+      if (candidateEndorsementBuilder_ == null) {
+        if (actionCase_ == 51) {
+          actionCase_ = 0;
+          action_ = null;
+          onChanged();
+        }
+      } else {
+        if (actionCase_ == 51) {
+          actionCase_ = 0;
+          action_ = null;
+        }
+        candidateEndorsementBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     */
+    public com.github.iotexproject.grpc.types.CandidateEndorsement.Builder getCandidateEndorsementBuilder() {
+      return getCandidateEndorsementFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.CandidateEndorsementOrBuilder getCandidateEndorsementOrBuilder() {
+      if ((actionCase_ == 51) && (candidateEndorsementBuilder_ != null)) {
+        return candidateEndorsementBuilder_.getMessageOrBuilder();
+      } else {
+        if (actionCase_ == 51) {
+          return (com.github.iotexproject.grpc.types.CandidateEndorsement) action_;
+        }
+        return com.github.iotexproject.grpc.types.CandidateEndorsement.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.CandidateEndorsement, com.github.iotexproject.grpc.types.CandidateEndorsement.Builder, com.github.iotexproject.grpc.types.CandidateEndorsementOrBuilder> 
+        getCandidateEndorsementFieldBuilder() {
+      if (candidateEndorsementBuilder_ == null) {
+        if (!(actionCase_ == 51)) {
+          action_ = com.github.iotexproject.grpc.types.CandidateEndorsement.getDefaultInstance();
+        }
+        candidateEndorsementBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.iotexproject.grpc.types.CandidateEndorsement, com.github.iotexproject.grpc.types.CandidateEndorsement.Builder, com.github.iotexproject.grpc.types.CandidateEndorsementOrBuilder>(
+                (com.github.iotexproject.grpc.types.CandidateEndorsement) action_,
+                getParentForChildren(),
+                isClean());
+        action_ = null;
+      }
+      actionCase_ = 51;
+      onChanged();
+      return candidateEndorsementBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.CandidateTransferOwnership, com.github.iotexproject.grpc.types.CandidateTransferOwnership.Builder, com.github.iotexproject.grpc.types.CandidateTransferOwnershipOrBuilder> candidateTransferOwnershipBuilder_;
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     * @return Whether the candidateTransferOwnership field is set.
+     */
+    @java.lang.Override
+    public boolean hasCandidateTransferOwnership() {
+      return actionCase_ == 52;
+    }
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     * @return The candidateTransferOwnership.
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.CandidateTransferOwnership getCandidateTransferOwnership() {
+      if (candidateTransferOwnershipBuilder_ == null) {
+        if (actionCase_ == 52) {
+          return (com.github.iotexproject.grpc.types.CandidateTransferOwnership) action_;
+        }
+        return com.github.iotexproject.grpc.types.CandidateTransferOwnership.getDefaultInstance();
+      } else {
+        if (actionCase_ == 52) {
+          return candidateTransferOwnershipBuilder_.getMessage();
+        }
+        return com.github.iotexproject.grpc.types.CandidateTransferOwnership.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     */
+    public Builder setCandidateTransferOwnership(com.github.iotexproject.grpc.types.CandidateTransferOwnership value) {
+      if (candidateTransferOwnershipBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        action_ = value;
+        onChanged();
+      } else {
+        candidateTransferOwnershipBuilder_.setMessage(value);
+      }
+      actionCase_ = 52;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     */
+    public Builder setCandidateTransferOwnership(
+        com.github.iotexproject.grpc.types.CandidateTransferOwnership.Builder builderForValue) {
+      if (candidateTransferOwnershipBuilder_ == null) {
+        action_ = builderForValue.build();
+        onChanged();
+      } else {
+        candidateTransferOwnershipBuilder_.setMessage(builderForValue.build());
+      }
+      actionCase_ = 52;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     */
+    public Builder mergeCandidateTransferOwnership(com.github.iotexproject.grpc.types.CandidateTransferOwnership value) {
+      if (candidateTransferOwnershipBuilder_ == null) {
+        if (actionCase_ == 52 &&
+            action_ != com.github.iotexproject.grpc.types.CandidateTransferOwnership.getDefaultInstance()) {
+          action_ = com.github.iotexproject.grpc.types.CandidateTransferOwnership.newBuilder((com.github.iotexproject.grpc.types.CandidateTransferOwnership) action_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          action_ = value;
+        }
+        onChanged();
+      } else {
+        if (actionCase_ == 52) {
+          candidateTransferOwnershipBuilder_.mergeFrom(value);
+        } else {
+          candidateTransferOwnershipBuilder_.setMessage(value);
+        }
+      }
+      actionCase_ = 52;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     */
+    public Builder clearCandidateTransferOwnership() {
+      if (candidateTransferOwnershipBuilder_ == null) {
+        if (actionCase_ == 52) {
+          actionCase_ = 0;
+          action_ = null;
+          onChanged();
+        }
+      } else {
+        if (actionCase_ == 52) {
+          actionCase_ = 0;
+          action_ = null;
+        }
+        candidateTransferOwnershipBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     */
+    public com.github.iotexproject.grpc.types.CandidateTransferOwnership.Builder getCandidateTransferOwnershipBuilder() {
+      return getCandidateTransferOwnershipFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.CandidateTransferOwnershipOrBuilder getCandidateTransferOwnershipOrBuilder() {
+      if ((actionCase_ == 52) && (candidateTransferOwnershipBuilder_ != null)) {
+        return candidateTransferOwnershipBuilder_.getMessageOrBuilder();
+      } else {
+        if (actionCase_ == 52) {
+          return (com.github.iotexproject.grpc.types.CandidateTransferOwnership) action_;
+        }
+        return com.github.iotexproject.grpc.types.CandidateTransferOwnership.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.CandidateTransferOwnership, com.github.iotexproject.grpc.types.CandidateTransferOwnership.Builder, com.github.iotexproject.grpc.types.CandidateTransferOwnershipOrBuilder> 
+        getCandidateTransferOwnershipFieldBuilder() {
+      if (candidateTransferOwnershipBuilder_ == null) {
+        if (!(actionCase_ == 52)) {
+          action_ = com.github.iotexproject.grpc.types.CandidateTransferOwnership.getDefaultInstance();
+        }
+        candidateTransferOwnershipBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.iotexproject.grpc.types.CandidateTransferOwnership, com.github.iotexproject.grpc.types.CandidateTransferOwnership.Builder, com.github.iotexproject.grpc.types.CandidateTransferOwnershipOrBuilder>(
+                (com.github.iotexproject.grpc.types.CandidateTransferOwnership) action_,
+                getParentForChildren(),
+                isClean());
+        action_ = null;
+      }
+      actionCase_ = 52;
+      onChanged();
+      return candidateTransferOwnershipBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.StakeMigrate, com.github.iotexproject.grpc.types.StakeMigrate.Builder, com.github.iotexproject.grpc.types.StakeMigrateOrBuilder> stakeMigrateBuilder_;
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     * @return Whether the stakeMigrate field is set.
+     */
+    @java.lang.Override
+    public boolean hasStakeMigrate() {
+      return actionCase_ == 53;
+    }
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     * @return The stakeMigrate.
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.StakeMigrate getStakeMigrate() {
+      if (stakeMigrateBuilder_ == null) {
+        if (actionCase_ == 53) {
+          return (com.github.iotexproject.grpc.types.StakeMigrate) action_;
+        }
+        return com.github.iotexproject.grpc.types.StakeMigrate.getDefaultInstance();
+      } else {
+        if (actionCase_ == 53) {
+          return stakeMigrateBuilder_.getMessage();
+        }
+        return com.github.iotexproject.grpc.types.StakeMigrate.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     */
+    public Builder setStakeMigrate(com.github.iotexproject.grpc.types.StakeMigrate value) {
+      if (stakeMigrateBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        action_ = value;
+        onChanged();
+      } else {
+        stakeMigrateBuilder_.setMessage(value);
+      }
+      actionCase_ = 53;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     */
+    public Builder setStakeMigrate(
+        com.github.iotexproject.grpc.types.StakeMigrate.Builder builderForValue) {
+      if (stakeMigrateBuilder_ == null) {
+        action_ = builderForValue.build();
+        onChanged();
+      } else {
+        stakeMigrateBuilder_.setMessage(builderForValue.build());
+      }
+      actionCase_ = 53;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     */
+    public Builder mergeStakeMigrate(com.github.iotexproject.grpc.types.StakeMigrate value) {
+      if (stakeMigrateBuilder_ == null) {
+        if (actionCase_ == 53 &&
+            action_ != com.github.iotexproject.grpc.types.StakeMigrate.getDefaultInstance()) {
+          action_ = com.github.iotexproject.grpc.types.StakeMigrate.newBuilder((com.github.iotexproject.grpc.types.StakeMigrate) action_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          action_ = value;
+        }
+        onChanged();
+      } else {
+        if (actionCase_ == 53) {
+          stakeMigrateBuilder_.mergeFrom(value);
+        } else {
+          stakeMigrateBuilder_.setMessage(value);
+        }
+      }
+      actionCase_ = 53;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     */
+    public Builder clearStakeMigrate() {
+      if (stakeMigrateBuilder_ == null) {
+        if (actionCase_ == 53) {
+          actionCase_ = 0;
+          action_ = null;
+          onChanged();
+        }
+      } else {
+        if (actionCase_ == 53) {
+          actionCase_ = 0;
+          action_ = null;
+        }
+        stakeMigrateBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     */
+    public com.github.iotexproject.grpc.types.StakeMigrate.Builder getStakeMigrateBuilder() {
+      return getStakeMigrateFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.StakeMigrateOrBuilder getStakeMigrateOrBuilder() {
+      if ((actionCase_ == 53) && (stakeMigrateBuilder_ != null)) {
+        return stakeMigrateBuilder_.getMessageOrBuilder();
+      } else {
+        if (actionCase_ == 53) {
+          return (com.github.iotexproject.grpc.types.StakeMigrate) action_;
+        }
+        return com.github.iotexproject.grpc.types.StakeMigrate.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.StakeMigrate, com.github.iotexproject.grpc.types.StakeMigrate.Builder, com.github.iotexproject.grpc.types.StakeMigrateOrBuilder> 
+        getStakeMigrateFieldBuilder() {
+      if (stakeMigrateBuilder_ == null) {
+        if (!(actionCase_ == 53)) {
+          action_ = com.github.iotexproject.grpc.types.StakeMigrate.getDefaultInstance();
+        }
+        stakeMigrateBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.iotexproject.grpc.types.StakeMigrate, com.github.iotexproject.grpc.types.StakeMigrate.Builder, com.github.iotexproject.grpc.types.StakeMigrateOrBuilder>(
+                (com.github.iotexproject.grpc.types.StakeMigrate) action_,
+                getParentForChildren(),
+                isClean());
+        action_ = null;
+      }
+      actionCase_ = 53;
+      onChanged();
+      return stakeMigrateBuilder_;
+    }
+
     private java.lang.Object callerAddress_ = "";
     /**
      * <code>string callerAddress = 100;</code>
@@ -2830,7 +3726,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       callerAddress_ = value;
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -2840,7 +3736,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearCallerAddress() {
       callerAddress_ = getDefaultInstance().getCallerAddress();
-      bitField0_ = (bitField0_ & ~0x00000800);
+      bitField0_ = (bitField0_ & ~0x00008000);
       onChanged();
       return this;
     }
@@ -2854,7 +3750,79 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       callerAddress_ = value;
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object gasPrice_ = "";
+    /**
+     * <code>string gasPrice = 101;</code>
+     * @return The gasPrice.
+     */
+    public java.lang.String getGasPrice() {
+      java.lang.Object ref = gasPrice_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        gasPrice_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string gasPrice = 101;</code>
+     * @return The bytes for gasPrice.
+     */
+    public com.google.protobuf.ByteString
+        getGasPriceBytes() {
+      java.lang.Object ref = gasPrice_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        gasPrice_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string gasPrice = 101;</code>
+     * @param value The gasPrice to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGasPrice(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      gasPrice_ = value;
+      bitField0_ |= 0x00010000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string gasPrice = 101;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearGasPrice() {
+      gasPrice_ = getDefaultInstance().getGasPrice();
+      bitField0_ = (bitField0_ & ~0x00010000);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string gasPrice = 101;</code>
+     * @param value The bytes for gasPrice to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGasPriceBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      gasPrice_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }

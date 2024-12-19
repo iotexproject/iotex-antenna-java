@@ -88,6 +88,38 @@ private static final long serialVersionUID = 0L;
      * <code>BUCKETS_COUNT = 9;</code>
      */
     BUCKETS_COUNT(9),
+    /**
+     * <pre>
+     * 10-19 reserved for native staking
+     * </pre>
+     *
+     * <code>COMPOSITE_BUCKETS = 20;</code>
+     */
+    COMPOSITE_BUCKETS(20),
+    /**
+     * <code>COMPOSITE_BUCKETS_BY_VOTER = 21;</code>
+     */
+    COMPOSITE_BUCKETS_BY_VOTER(21),
+    /**
+     * <code>COMPOSITE_BUCKETS_BY_CANDIDATE = 22;</code>
+     */
+    COMPOSITE_BUCKETS_BY_CANDIDATE(22),
+    /**
+     * <code>COMPOSITE_BUCKETS_BY_INDEXES = 23;</code>
+     */
+    COMPOSITE_BUCKETS_BY_INDEXES(23),
+    /**
+     * <code>COMPOSITE_BUCKETS_COUNT = 24;</code>
+     */
+    COMPOSITE_BUCKETS_COUNT(24),
+    /**
+     * <code>COMPOSITE_TOTAL_STAKING_AMOUNT = 25;</code>
+     */
+    COMPOSITE_TOTAL_STAKING_AMOUNT(25),
+    /**
+     * <code>CONTRACT_STAKING_BUCKET_TYPES = 26;</code>
+     */
+    CONTRACT_STAKING_BUCKET_TYPES(26),
     UNRECOGNIZED(-1),
     ;
 
@@ -140,6 +172,38 @@ private static final long serialVersionUID = 0L;
      * <code>BUCKETS_COUNT = 9;</code>
      */
     public static final int BUCKETS_COUNT_VALUE = 9;
+    /**
+     * <pre>
+     * 10-19 reserved for native staking
+     * </pre>
+     *
+     * <code>COMPOSITE_BUCKETS = 20;</code>
+     */
+    public static final int COMPOSITE_BUCKETS_VALUE = 20;
+    /**
+     * <code>COMPOSITE_BUCKETS_BY_VOTER = 21;</code>
+     */
+    public static final int COMPOSITE_BUCKETS_BY_VOTER_VALUE = 21;
+    /**
+     * <code>COMPOSITE_BUCKETS_BY_CANDIDATE = 22;</code>
+     */
+    public static final int COMPOSITE_BUCKETS_BY_CANDIDATE_VALUE = 22;
+    /**
+     * <code>COMPOSITE_BUCKETS_BY_INDEXES = 23;</code>
+     */
+    public static final int COMPOSITE_BUCKETS_BY_INDEXES_VALUE = 23;
+    /**
+     * <code>COMPOSITE_BUCKETS_COUNT = 24;</code>
+     */
+    public static final int COMPOSITE_BUCKETS_COUNT_VALUE = 24;
+    /**
+     * <code>COMPOSITE_TOTAL_STAKING_AMOUNT = 25;</code>
+     */
+    public static final int COMPOSITE_TOTAL_STAKING_AMOUNT_VALUE = 25;
+    /**
+     * <code>CONTRACT_STAKING_BUCKET_TYPES = 26;</code>
+     */
+    public static final int CONTRACT_STAKING_BUCKET_TYPES_VALUE = 26;
 
 
     public final int getNumber() {
@@ -176,6 +240,13 @@ private static final long serialVersionUID = 0L;
         case 7: return CANDIDATE_BY_ADDRESS;
         case 8: return TOTAL_STAKING_AMOUNT;
         case 9: return BUCKETS_COUNT;
+        case 20: return COMPOSITE_BUCKETS;
+        case 21: return COMPOSITE_BUCKETS_BY_VOTER;
+        case 22: return COMPOSITE_BUCKETS_BY_CANDIDATE;
+        case 23: return COMPOSITE_BUCKETS_BY_INDEXES;
+        case 24: return COMPOSITE_BUCKETS_COUNT;
+        case 25: return COMPOSITE_TOTAL_STAKING_AMOUNT;
+        case 26: return CONTRACT_STAKING_BUCKET_TYPES;
         default: return null;
       }
     }

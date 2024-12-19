@@ -144,5 +144,20 @@ public interface ReadStakingDataRequestOrBuilder extends
    */
   com.github.iotexproject.grpc.api.ReadStakingDataRequest.BucketsCountOrBuilder getBucketsCountOrBuilder();
 
+  /**
+   * <code>.iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes contractStakingBucketTypes = 10;</code>
+   * @return Whether the contractStakingBucketTypes field is set.
+   */
+  boolean hasContractStakingBucketTypes();
+  /**
+   * <code>.iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes contractStakingBucketTypes = 10;</code>
+   * @return The contractStakingBucketTypes.
+   */
+  com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes getContractStakingBucketTypes();
+  /**
+   * <code>.iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes contractStakingBucketTypes = 10;</code>
+   */
+  com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypesOrBuilder getContractStakingBucketTypesOrBuilder();
+
   com.github.iotexproject.grpc.api.ReadStakingDataRequest.RequestCase getRequestCase();
 }

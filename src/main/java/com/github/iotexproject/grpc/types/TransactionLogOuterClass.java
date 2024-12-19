@@ -68,16 +68,17 @@ public final class TransactionLogOuterClass {
       "\022\016\n\006memory\030\005 \001(\t\022\017\n\007memSize\030\006 \001(\005\022\r\n\005sta" +
       "ck\030\007 \003(\t\022\022\n\nreturnData\030\010 \001(\t\022\r\n\005depth\030\t " +
       "\001(\005\022\016\n\006refund\030\n \001(\004\022\016\n\006opName\030\013 \001(\t\022\r\n\005e" +
-      "rror\030\014 \001(\t*\207\002\n\022TransactionLogType\022\030\n\024IN_" +
+      "rror\030\014 \001(\t*\247\002\n\022TransactionLogType\022\030\n\024IN_" +
       "CONTRACT_TRANSFER\020\000\022\023\n\017WITHDRAW_BUCKET\020\001" +
       "\022\021\n\rCREATE_BUCKET\020\002\022\025\n\021DEPOSIT_TO_BUCKET" +
       "\020\003\022\030\n\024CANDIDATE_SELF_STAKE\020\004\022\036\n\032CANDIDAT" +
       "E_REGISTRATION_FEE\020\005\022\013\n\007GAS_FEE\020\006\022\023\n\017NAT" +
       "IVE_TRANSFER\020\007\022\035\n\031DEPOSIT_TO_REWARDING_F" +
-      "UND\020\010\022\035\n\031CLAIM_FROM_REWARDING_FUND\020\tB]\n\"" +
-      "com.github.iotexproject.grpc.typesP\001Z5gi" +
-      "thub.com/iotexproject/iotex-proto/golang" +
-      "/iotextypesb\006proto3"
+      "UND\020\010\022\035\n\031CLAIM_FROM_REWARDING_FUND\020\t\022\014\n\010" +
+      "BLOB_FEE\020\n\022\020\n\014PRIORITY_FEE\020\013B]\n\"com.gith" +
+      "ub.iotexproject.grpc.typesP\001Z5github.com" +
+      "/iotexproject/iotex-proto/golang/iotexty" +
+      "pesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

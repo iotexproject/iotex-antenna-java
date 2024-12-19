@@ -32,6 +32,7 @@ private static final long serialVersionUID = 0L;
     deltaStateDigest_ = com.google.protobuf.ByteString.EMPTY;
     receiptRoot_ = com.google.protobuf.ByteString.EMPTY;
     logsBloom_ = com.google.protobuf.ByteString.EMPTY;
+    baseFee_ = com.google.protobuf.ByteString.EMPTY;
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -151,6 +152,50 @@ private static final long serialVersionUID = 0L;
     return logsBloom_;
   }
 
+  public static final int GASUSED_FIELD_NUMBER = 9;
+  private long gasUsed_ = 0L;
+  /**
+   * <code>uint64 gasUsed = 9;</code>
+   * @return The gasUsed.
+   */
+  @java.lang.Override
+  public long getGasUsed() {
+    return gasUsed_;
+  }
+
+  public static final int BASEFEE_FIELD_NUMBER = 10;
+  private com.google.protobuf.ByteString baseFee_ = com.google.protobuf.ByteString.EMPTY;
+  /**
+   * <code>bytes baseFee = 10;</code>
+   * @return The baseFee.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString getBaseFee() {
+    return baseFee_;
+  }
+
+  public static final int BLOBGASUSED_FIELD_NUMBER = 11;
+  private long blobGasUsed_ = 0L;
+  /**
+   * <code>uint64 blobGasUsed = 11;</code>
+   * @return The blobGasUsed.
+   */
+  @java.lang.Override
+  public long getBlobGasUsed() {
+    return blobGasUsed_;
+  }
+
+  public static final int EXCESSBLOBGAS_FIELD_NUMBER = 12;
+  private long excessBlobGas_ = 0L;
+  /**
+   * <code>uint64 excessBlobGas = 12;</code>
+   * @return The excessBlobGas.
+   */
+  @java.lang.Override
+  public long getExcessBlobGas() {
+    return excessBlobGas_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -188,6 +233,18 @@ private static final long serialVersionUID = 0L;
     }
     if (!logsBloom_.isEmpty()) {
       output.writeBytes(8, logsBloom_);
+    }
+    if (gasUsed_ != 0L) {
+      output.writeUInt64(9, gasUsed_);
+    }
+    if (!baseFee_.isEmpty()) {
+      output.writeBytes(10, baseFee_);
+    }
+    if (blobGasUsed_ != 0L) {
+      output.writeUInt64(11, blobGasUsed_);
+    }
+    if (excessBlobGas_ != 0L) {
+      output.writeUInt64(12, excessBlobGas_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -230,6 +287,22 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(8, logsBloom_);
     }
+    if (gasUsed_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(9, gasUsed_);
+    }
+    if (!baseFee_.isEmpty()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBytesSize(10, baseFee_);
+    }
+    if (blobGasUsed_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(11, blobGasUsed_);
+    }
+    if (excessBlobGas_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(12, excessBlobGas_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -264,6 +337,14 @@ private static final long serialVersionUID = 0L;
         .equals(other.getReceiptRoot())) return false;
     if (!getLogsBloom()
         .equals(other.getLogsBloom())) return false;
+    if (getGasUsed()
+        != other.getGasUsed()) return false;
+    if (!getBaseFee()
+        .equals(other.getBaseFee())) return false;
+    if (getBlobGasUsed()
+        != other.getBlobGasUsed()) return false;
+    if (getExcessBlobGas()
+        != other.getExcessBlobGas()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -294,6 +375,17 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getReceiptRoot().hashCode();
     hash = (37 * hash) + LOGSBLOOM_FIELD_NUMBER;
     hash = (53 * hash) + getLogsBloom().hashCode();
+    hash = (37 * hash) + GASUSED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getGasUsed());
+    hash = (37 * hash) + BASEFEE_FIELD_NUMBER;
+    hash = (53 * hash) + getBaseFee().hashCode();
+    hash = (37 * hash) + BLOBGASUSED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getBlobGasUsed());
+    hash = (37 * hash) + EXCESSBLOBGAS_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getExcessBlobGas());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -443,6 +535,10 @@ private static final long serialVersionUID = 0L;
       deltaStateDigest_ = com.google.protobuf.ByteString.EMPTY;
       receiptRoot_ = com.google.protobuf.ByteString.EMPTY;
       logsBloom_ = com.google.protobuf.ByteString.EMPTY;
+      gasUsed_ = 0L;
+      baseFee_ = com.google.protobuf.ByteString.EMPTY;
+      blobGasUsed_ = 0L;
+      excessBlobGas_ = 0L;
       return this;
     }
 
@@ -504,6 +600,18 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000080) != 0)) {
         result.logsBloom_ = logsBloom_;
       }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.gasUsed_ = gasUsed_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.baseFee_ = baseFee_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.blobGasUsed_ = blobGasUsed_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.excessBlobGas_ = excessBlobGas_;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -542,6 +650,18 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getLogsBloom() != com.google.protobuf.ByteString.EMPTY) {
         setLogsBloom(other.getLogsBloom());
+      }
+      if (other.getGasUsed() != 0L) {
+        setGasUsed(other.getGasUsed());
+      }
+      if (other.getBaseFee() != com.google.protobuf.ByteString.EMPTY) {
+        setBaseFee(other.getBaseFee());
+      }
+      if (other.getBlobGasUsed() != 0L) {
+        setBlobGasUsed(other.getBlobGasUsed());
+      }
+      if (other.getExcessBlobGas() != 0L) {
+        setExcessBlobGas(other.getExcessBlobGas());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -611,6 +731,26 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000080;
               break;
             } // case 66
+            case 72: {
+              gasUsed_ = input.readUInt64();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 82: {
+              baseFee_ = input.readBytes();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 88: {
+              blobGasUsed_ = input.readUInt64();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 96: {
+              excessBlobGas_ = input.readUInt64();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 96
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -969,6 +1109,134 @@ private static final long serialVersionUID = 0L;
     public Builder clearLogsBloom() {
       bitField0_ = (bitField0_ & ~0x00000080);
       logsBloom_ = getDefaultInstance().getLogsBloom();
+      onChanged();
+      return this;
+    }
+
+    private long gasUsed_ ;
+    /**
+     * <code>uint64 gasUsed = 9;</code>
+     * @return The gasUsed.
+     */
+    @java.lang.Override
+    public long getGasUsed() {
+      return gasUsed_;
+    }
+    /**
+     * <code>uint64 gasUsed = 9;</code>
+     * @param value The gasUsed to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGasUsed(long value) {
+
+      gasUsed_ = value;
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint64 gasUsed = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearGasUsed() {
+      bitField0_ = (bitField0_ & ~0x00000100);
+      gasUsed_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.ByteString baseFee_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <code>bytes baseFee = 10;</code>
+     * @return The baseFee.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getBaseFee() {
+      return baseFee_;
+    }
+    /**
+     * <code>bytes baseFee = 10;</code>
+     * @param value The baseFee to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBaseFee(com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      baseFee_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bytes baseFee = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBaseFee() {
+      bitField0_ = (bitField0_ & ~0x00000200);
+      baseFee_ = getDefaultInstance().getBaseFee();
+      onChanged();
+      return this;
+    }
+
+    private long blobGasUsed_ ;
+    /**
+     * <code>uint64 blobGasUsed = 11;</code>
+     * @return The blobGasUsed.
+     */
+    @java.lang.Override
+    public long getBlobGasUsed() {
+      return blobGasUsed_;
+    }
+    /**
+     * <code>uint64 blobGasUsed = 11;</code>
+     * @param value The blobGasUsed to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBlobGasUsed(long value) {
+
+      blobGasUsed_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint64 blobGasUsed = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBlobGasUsed() {
+      bitField0_ = (bitField0_ & ~0x00000400);
+      blobGasUsed_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long excessBlobGas_ ;
+    /**
+     * <code>uint64 excessBlobGas = 12;</code>
+     * @return The excessBlobGas.
+     */
+    @java.lang.Override
+    public long getExcessBlobGas() {
+      return excessBlobGas_;
+    }
+    /**
+     * <code>uint64 excessBlobGas = 12;</code>
+     * @param value The excessBlobGas to set.
+     * @return This builder for chaining.
+     */
+    public Builder setExcessBlobGas(long value) {
+
+      excessBlobGas_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint64 excessBlobGas = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearExcessBlobGas() {
+      bitField0_ = (bitField0_ & ~0x00000800);
+      excessBlobGas_ = 0L;
       onChanged();
       return this;
     }

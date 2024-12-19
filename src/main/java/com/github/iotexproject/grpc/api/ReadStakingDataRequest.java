@@ -3697,6 +3697,18 @@ private static final long serialVersionUID = 0L;
      */
     com.google.protobuf.ByteString
         getOwnerAddrBytes();
+
+    /**
+     * <code>string id = 2;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 2;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
   }
   /**
    * Protobuf type {@code iotexapi.ReadStakingDataRequest.CandidateByAddress}
@@ -3721,6 +3733,7 @@ private static final long serialVersionUID = 0L;
     }
     private CandidateByAddress() {
       ownerAddr_ = "";
+      id_ = "";
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -3775,6 +3788,45 @@ private static final long serialVersionUID = 0L;
       }
     }
 
+    public static final int ID_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
+    /**
+     * <code>string id = 2;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 2;</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3792,6 +3844,9 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(ownerAddr_)) {
         com.google.protobuf.GeneratedMessage.writeString(output, 1, ownerAddr_);
       }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, id_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -3803,6 +3858,9 @@ private static final long serialVersionUID = 0L;
       size = 0;
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(ownerAddr_)) {
         size += com.google.protobuf.GeneratedMessage.computeStringSize(1, ownerAddr_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, id_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -3821,6 +3879,8 @@ private static final long serialVersionUID = 0L;
 
       if (!getOwnerAddr()
           .equals(other.getOwnerAddr())) return false;
+      if (!getId()
+          .equals(other.getId())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -3834,6 +3894,8 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + OWNERADDR_FIELD_NUMBER;
       hash = (53 * hash) + getOwnerAddr().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3966,6 +4028,7 @@ private static final long serialVersionUID = 0L;
         super.clear();
         bitField0_ = 0;
         ownerAddr_ = "";
+        id_ = "";
         return this;
       }
 
@@ -4002,6 +4065,9 @@ private static final long serialVersionUID = 0L;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.ownerAddr_ = ownerAddr_;
         }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.id_ = id_;
+        }
       }
 
       @java.lang.Override
@@ -4019,6 +4085,11 @@ private static final long serialVersionUID = 0L;
         if (!other.getOwnerAddr().isEmpty()) {
           ownerAddr_ = other.ownerAddr_;
           bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -4052,6 +4123,11 @@ private static final long serialVersionUID = 0L;
                 bitField0_ |= 0x00000001;
                 break;
               } // case 10
+              case 18: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -4137,6 +4213,78 @@ private static final long serialVersionUID = 0L;
         checkByteStringIsUtf8(value);
         ownerAddr_ = value;
         bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 2;</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 2;</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 2;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        id_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 2;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        id_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4902,6 +5050,516 @@ private static final long serialVersionUID = 0L;
 
   }
 
+  public interface ContractStakingBucketTypesOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string contractAddress = 1;</code>
+     * @return The contractAddress.
+     */
+    java.lang.String getContractAddress();
+    /**
+     * <code>string contractAddress = 1;</code>
+     * @return The bytes for contractAddress.
+     */
+    com.google.protobuf.ByteString
+        getContractAddressBytes();
+  }
+  /**
+   * Protobuf type {@code iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes}
+   */
+  public static final class ContractStakingBucketTypes extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes)
+      ContractStakingBucketTypesOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 29,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        ContractStakingBucketTypes.class.getName());
+    }
+    // Use ContractStakingBucketTypes.newBuilder() to construct.
+    private ContractStakingBucketTypes(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private ContractStakingBucketTypes() {
+      contractAddress_ = "";
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.github.iotexproject.grpc.api.ReadState.internal_static_iotexapi_ReadStakingDataRequest_ContractStakingBucketTypes_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.github.iotexproject.grpc.api.ReadState.internal_static_iotexapi_ReadStakingDataRequest_ContractStakingBucketTypes_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.class, com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.Builder.class);
+    }
+
+    public static final int CONTRACTADDRESS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object contractAddress_ = "";
+    /**
+     * <code>string contractAddress = 1;</code>
+     * @return The contractAddress.
+     */
+    @java.lang.Override
+    public java.lang.String getContractAddress() {
+      java.lang.Object ref = contractAddress_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        contractAddress_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string contractAddress = 1;</code>
+     * @return The bytes for contractAddress.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getContractAddressBytes() {
+      java.lang.Object ref = contractAddress_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        contractAddress_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(contractAddress_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, contractAddress_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(contractAddress_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, contractAddress_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes)) {
+        return super.equals(obj);
+      }
+      com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes other = (com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes) obj;
+
+      if (!getContractAddress()
+          .equals(other.getContractAddress())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CONTRACTADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getContractAddress().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes)
+        com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypesOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.github.iotexproject.grpc.api.ReadState.internal_static_iotexapi_ReadStakingDataRequest_ContractStakingBucketTypes_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.github.iotexproject.grpc.api.ReadState.internal_static_iotexapi_ReadStakingDataRequest_ContractStakingBucketTypes_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.class, com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.Builder.class);
+      }
+
+      // Construct using com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        contractAddress_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.github.iotexproject.grpc.api.ReadState.internal_static_iotexapi_ReadStakingDataRequest_ContractStakingBucketTypes_descriptor;
+      }
+
+      @java.lang.Override
+      public com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes getDefaultInstanceForType() {
+        return com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes build() {
+        com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes buildPartial() {
+        com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes result = new com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.contractAddress_ = contractAddress_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes) {
+          return mergeFrom((com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes other) {
+        if (other == com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.getDefaultInstance()) return this;
+        if (!other.getContractAddress().isEmpty()) {
+          contractAddress_ = other.contractAddress_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                contractAddress_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object contractAddress_ = "";
+      /**
+       * <code>string contractAddress = 1;</code>
+       * @return The contractAddress.
+       */
+      public java.lang.String getContractAddress() {
+        java.lang.Object ref = contractAddress_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          contractAddress_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string contractAddress = 1;</code>
+       * @return The bytes for contractAddress.
+       */
+      public com.google.protobuf.ByteString
+          getContractAddressBytes() {
+        java.lang.Object ref = contractAddress_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          contractAddress_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string contractAddress = 1;</code>
+       * @param value The contractAddress to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContractAddress(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        contractAddress_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string contractAddress = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearContractAddress() {
+        contractAddress_ = getDefaultInstance().getContractAddress();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string contractAddress = 1;</code>
+       * @param value The bytes for contractAddress to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContractAddressBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        contractAddress_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes)
+    }
+
+    // @@protoc_insertion_point(class_scope:iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes)
+    private static final com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes();
+    }
+
+    public static com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ContractStakingBucketTypes>
+        PARSER = new com.google.protobuf.AbstractParser<ContractStakingBucketTypes>() {
+      @java.lang.Override
+      public ContractStakingBucketTypes parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<ContractStakingBucketTypes> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ContractStakingBucketTypes> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private int requestCase_ = 0;
   @SuppressWarnings("serial")
   private java.lang.Object request_;
@@ -4917,6 +5575,7 @@ private static final long serialVersionUID = 0L;
     CANDIDATEBYADDRESS(7),
     TOTALSTAKINGAMOUNT(8),
     BUCKETSCOUNT(9),
+    CONTRACTSTAKINGBUCKETTYPES(10),
     REQUEST_NOT_SET(0);
     private final int value;
     private RequestCase(int value) {
@@ -4943,6 +5602,7 @@ private static final long serialVersionUID = 0L;
         case 7: return CANDIDATEBYADDRESS;
         case 8: return TOTALSTAKINGAMOUNT;
         case 9: return BUCKETSCOUNT;
+        case 10: return CONTRACTSTAKINGBUCKETTYPES;
         case 0: return REQUEST_NOT_SET;
         default: return null;
       }
@@ -5237,6 +5897,37 @@ private static final long serialVersionUID = 0L;
     return com.github.iotexproject.grpc.api.ReadStakingDataRequest.BucketsCount.getDefaultInstance();
   }
 
+  public static final int CONTRACTSTAKINGBUCKETTYPES_FIELD_NUMBER = 10;
+  /**
+   * <code>.iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes contractStakingBucketTypes = 10;</code>
+   * @return Whether the contractStakingBucketTypes field is set.
+   */
+  @java.lang.Override
+  public boolean hasContractStakingBucketTypes() {
+    return requestCase_ == 10;
+  }
+  /**
+   * <code>.iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes contractStakingBucketTypes = 10;</code>
+   * @return The contractStakingBucketTypes.
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes getContractStakingBucketTypes() {
+    if (requestCase_ == 10) {
+       return (com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes) request_;
+    }
+    return com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.getDefaultInstance();
+  }
+  /**
+   * <code>.iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes contractStakingBucketTypes = 10;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypesOrBuilder getContractStakingBucketTypesOrBuilder() {
+    if (requestCase_ == 10) {
+       return (com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes) request_;
+    }
+    return com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.getDefaultInstance();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -5277,6 +5968,9 @@ private static final long serialVersionUID = 0L;
     }
     if (requestCase_ == 9) {
       output.writeMessage(9, (com.github.iotexproject.grpc.api.ReadStakingDataRequest.BucketsCount) request_);
+    }
+    if (requestCase_ == 10) {
+      output.writeMessage(10, (com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes) request_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -5322,6 +6016,10 @@ private static final long serialVersionUID = 0L;
     if (requestCase_ == 9) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, (com.github.iotexproject.grpc.api.ReadStakingDataRequest.BucketsCount) request_);
+    }
+    if (requestCase_ == 10) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(10, (com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes) request_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -5376,6 +6074,10 @@ private static final long serialVersionUID = 0L;
         if (!getBucketsCount()
             .equals(other.getBucketsCount())) return false;
         break;
+      case 10:
+        if (!getContractStakingBucketTypes()
+            .equals(other.getContractStakingBucketTypes())) return false;
+        break;
       case 0:
       default:
     }
@@ -5426,6 +6128,10 @@ private static final long serialVersionUID = 0L;
       case 9:
         hash = (37 * hash) + BUCKETSCOUNT_FIELD_NUMBER;
         hash = (53 * hash) + getBucketsCount().hashCode();
+        break;
+      case 10:
+        hash = (37 * hash) + CONTRACTSTAKINGBUCKETTYPES_FIELD_NUMBER;
+        hash = (53 * hash) + getContractStakingBucketTypes().hashCode();
         break;
       case 0:
       default:
@@ -5588,6 +6294,9 @@ private static final long serialVersionUID = 0L;
       if (bucketsCountBuilder_ != null) {
         bucketsCountBuilder_.clear();
       }
+      if (contractStakingBucketTypesBuilder_ != null) {
+        contractStakingBucketTypesBuilder_.clear();
+      }
       requestCase_ = 0;
       request_ = null;
       return this;
@@ -5665,6 +6374,10 @@ private static final long serialVersionUID = 0L;
           bucketsCountBuilder_ != null) {
         result.request_ = bucketsCountBuilder_.build();
       }
+      if (requestCase_ == 10 &&
+          contractStakingBucketTypesBuilder_ != null) {
+        result.request_ = contractStakingBucketTypesBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -5714,6 +6427,10 @@ private static final long serialVersionUID = 0L;
         }
         case BUCKETSCOUNT: {
           mergeBucketsCount(other.getBucketsCount());
+          break;
+        }
+        case CONTRACTSTAKINGBUCKETTYPES: {
+          mergeContractStakingBucketTypes(other.getContractStakingBucketTypes());
           break;
         }
         case REQUEST_NOT_SET: {
@@ -5809,6 +6526,13 @@ private static final long serialVersionUID = 0L;
               requestCase_ = 9;
               break;
             } // case 74
+            case 82: {
+              input.readMessage(
+                  getContractStakingBucketTypesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              requestCase_ = 10;
+              break;
+            } // case 82
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -7117,6 +7841,148 @@ private static final long serialVersionUID = 0L;
       requestCase_ = 9;
       onChanged();
       return bucketsCountBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes, com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.Builder, com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypesOrBuilder> contractStakingBucketTypesBuilder_;
+    /**
+     * <code>.iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes contractStakingBucketTypes = 10;</code>
+     * @return Whether the contractStakingBucketTypes field is set.
+     */
+    @java.lang.Override
+    public boolean hasContractStakingBucketTypes() {
+      return requestCase_ == 10;
+    }
+    /**
+     * <code>.iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes contractStakingBucketTypes = 10;</code>
+     * @return The contractStakingBucketTypes.
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes getContractStakingBucketTypes() {
+      if (contractStakingBucketTypesBuilder_ == null) {
+        if (requestCase_ == 10) {
+          return (com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes) request_;
+        }
+        return com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.getDefaultInstance();
+      } else {
+        if (requestCase_ == 10) {
+          return contractStakingBucketTypesBuilder_.getMessage();
+        }
+        return com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes contractStakingBucketTypes = 10;</code>
+     */
+    public Builder setContractStakingBucketTypes(com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes value) {
+      if (contractStakingBucketTypesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        request_ = value;
+        onChanged();
+      } else {
+        contractStakingBucketTypesBuilder_.setMessage(value);
+      }
+      requestCase_ = 10;
+      return this;
+    }
+    /**
+     * <code>.iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes contractStakingBucketTypes = 10;</code>
+     */
+    public Builder setContractStakingBucketTypes(
+        com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.Builder builderForValue) {
+      if (contractStakingBucketTypesBuilder_ == null) {
+        request_ = builderForValue.build();
+        onChanged();
+      } else {
+        contractStakingBucketTypesBuilder_.setMessage(builderForValue.build());
+      }
+      requestCase_ = 10;
+      return this;
+    }
+    /**
+     * <code>.iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes contractStakingBucketTypes = 10;</code>
+     */
+    public Builder mergeContractStakingBucketTypes(com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes value) {
+      if (contractStakingBucketTypesBuilder_ == null) {
+        if (requestCase_ == 10 &&
+            request_ != com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.getDefaultInstance()) {
+          request_ = com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.newBuilder((com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes) request_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          request_ = value;
+        }
+        onChanged();
+      } else {
+        if (requestCase_ == 10) {
+          contractStakingBucketTypesBuilder_.mergeFrom(value);
+        } else {
+          contractStakingBucketTypesBuilder_.setMessage(value);
+        }
+      }
+      requestCase_ = 10;
+      return this;
+    }
+    /**
+     * <code>.iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes contractStakingBucketTypes = 10;</code>
+     */
+    public Builder clearContractStakingBucketTypes() {
+      if (contractStakingBucketTypesBuilder_ == null) {
+        if (requestCase_ == 10) {
+          requestCase_ = 0;
+          request_ = null;
+          onChanged();
+        }
+      } else {
+        if (requestCase_ == 10) {
+          requestCase_ = 0;
+          request_ = null;
+        }
+        contractStakingBucketTypesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes contractStakingBucketTypes = 10;</code>
+     */
+    public com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.Builder getContractStakingBucketTypesBuilder() {
+      return getContractStakingBucketTypesFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes contractStakingBucketTypes = 10;</code>
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypesOrBuilder getContractStakingBucketTypesOrBuilder() {
+      if ((requestCase_ == 10) && (contractStakingBucketTypesBuilder_ != null)) {
+        return contractStakingBucketTypesBuilder_.getMessageOrBuilder();
+      } else {
+        if (requestCase_ == 10) {
+          return (com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes) request_;
+        }
+        return com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotexapi.ReadStakingDataRequest.ContractStakingBucketTypes contractStakingBucketTypes = 10;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes, com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.Builder, com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypesOrBuilder> 
+        getContractStakingBucketTypesFieldBuilder() {
+      if (contractStakingBucketTypesBuilder_ == null) {
+        if (!(requestCase_ == 10)) {
+          request_ = com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.getDefaultInstance();
+        }
+        contractStakingBucketTypesBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes, com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes.Builder, com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypesOrBuilder>(
+                (com.github.iotexproject.grpc.api.ReadStakingDataRequest.ContractStakingBucketTypes) request_,
+                getParentForChildren(),
+                isClean());
+        request_ = null;
+      }
+      requestCase_ = 10;
+      onChanged();
+      return contractStakingBucketTypesBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:iotexapi.ReadStakingDataRequest)

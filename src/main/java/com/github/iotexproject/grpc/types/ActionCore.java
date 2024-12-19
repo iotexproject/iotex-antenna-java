@@ -28,6 +28,9 @@ private static final long serialVersionUID = 0L;
   }
   private ActionCore() {
     gasPrice_ = "";
+    gasTipCap_ = "";
+    gasFeeCap_ = "";
+    accessList_ = java.util.Collections.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -43,6 +46,7 @@ private static final long serialVersionUID = 0L;
             com.github.iotexproject.grpc.types.ActionCore.class, com.github.iotexproject.grpc.types.ActionCore.Builder.class);
   }
 
+  private int bitField0_;
   private int actionCase_ = 0;
   @SuppressWarnings("serial")
   private java.lang.Object action_;
@@ -50,6 +54,7 @@ private static final long serialVersionUID = 0L;
       implements com.google.protobuf.Internal.EnumLite,
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     TRANSFER(10),
+    TXCONTAINER(11),
     EXECUTION(12),
     STARTSUBCHAIN(13),
     STOPSUBCHAIN(14),
@@ -78,6 +83,10 @@ private static final long serialVersionUID = 0L;
     STAKETRANSFEROWNERSHIP(46),
     CANDIDATEREGISTER(47),
     CANDIDATEUPDATE(48),
+    CANDIDATEACTIVATE(49),
+    CANDIDATEENDORSEMENT(51),
+    CANDIDATETRANSFEROWNERSHIP(52),
+    STAKEMIGRATE(53),
     PUTPOLLRESULT(50),
     ACTION_NOT_SET(0);
     private final int value;
@@ -97,6 +106,7 @@ private static final long serialVersionUID = 0L;
     public static ActionCase forNumber(int value) {
       switch (value) {
         case 10: return TRANSFER;
+        case 11: return TXCONTAINER;
         case 12: return EXECUTION;
         case 13: return STARTSUBCHAIN;
         case 14: return STOPSUBCHAIN;
@@ -125,6 +135,10 @@ private static final long serialVersionUID = 0L;
         case 46: return STAKETRANSFEROWNERSHIP;
         case 47: return CANDIDATEREGISTER;
         case 48: return CANDIDATEUPDATE;
+        case 49: return CANDIDATEACTIVATE;
+        case 51: return CANDIDATEENDORSEMENT;
+        case 52: return CANDIDATETRANSFEROWNERSHIP;
+        case 53: return STAKEMIGRATE;
         case 50: return PUTPOLLRESULT;
         case 0: return ACTION_NOT_SET;
         default: return null;
@@ -224,6 +238,162 @@ private static final long serialVersionUID = 0L;
     return chainID_;
   }
 
+  public static final int GASTIPCAP_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object gasTipCap_ = "";
+  /**
+   * <code>string gasTipCap = 6;</code>
+   * @return The gasTipCap.
+   */
+  @java.lang.Override
+  public java.lang.String getGasTipCap() {
+    java.lang.Object ref = gasTipCap_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      gasTipCap_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string gasTipCap = 6;</code>
+   * @return The bytes for gasTipCap.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getGasTipCapBytes() {
+    java.lang.Object ref = gasTipCap_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      gasTipCap_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int GASFEECAP_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object gasFeeCap_ = "";
+  /**
+   * <code>string gasFeeCap = 7;</code>
+   * @return The gasFeeCap.
+   */
+  @java.lang.Override
+  public java.lang.String getGasFeeCap() {
+    java.lang.Object ref = gasFeeCap_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      gasFeeCap_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string gasFeeCap = 7;</code>
+   * @return The bytes for gasFeeCap.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getGasFeeCapBytes() {
+    java.lang.Object ref = gasFeeCap_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      gasFeeCap_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int BLOBTXDATA_FIELD_NUMBER = 8;
+  private com.github.iotexproject.grpc.types.BlobTxData blobTxData_;
+  /**
+   * <code>.iotextypes.BlobTxData blobTxData = 8;</code>
+   * @return Whether the blobTxData field is set.
+   */
+  @java.lang.Override
+  public boolean hasBlobTxData() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>.iotextypes.BlobTxData blobTxData = 8;</code>
+   * @return The blobTxData.
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.BlobTxData getBlobTxData() {
+    return blobTxData_ == null ? com.github.iotexproject.grpc.types.BlobTxData.getDefaultInstance() : blobTxData_;
+  }
+  /**
+   * <code>.iotextypes.BlobTxData blobTxData = 8;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.BlobTxDataOrBuilder getBlobTxDataOrBuilder() {
+    return blobTxData_ == null ? com.github.iotexproject.grpc.types.BlobTxData.getDefaultInstance() : blobTxData_;
+  }
+
+  public static final int ACCESSLIST_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
+  private java.util.List<com.github.iotexproject.grpc.types.AccessTuple> accessList_;
+  /**
+   * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.github.iotexproject.grpc.types.AccessTuple> getAccessListList() {
+    return accessList_;
+  }
+  /**
+   * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.github.iotexproject.grpc.types.AccessTupleOrBuilder> 
+      getAccessListOrBuilderList() {
+    return accessList_;
+  }
+  /**
+   * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+   */
+  @java.lang.Override
+  public int getAccessListCount() {
+    return accessList_.size();
+  }
+  /**
+   * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.AccessTuple getAccessList(int index) {
+    return accessList_.get(index);
+  }
+  /**
+   * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.AccessTupleOrBuilder getAccessListOrBuilder(
+      int index) {
+    return accessList_.get(index);
+  }
+
+  public static final int TXTYPE_FIELD_NUMBER = 28;
+  private int txType_ = 0;
+  /**
+   * <code>uint32 txType = 28;</code>
+   * @return The txType.
+   */
+  @java.lang.Override
+  public int getTxType() {
+    return txType_;
+  }
+
   public static final int TRANSFER_FIELD_NUMBER = 10;
   /**
    * <code>.iotextypes.Transfer transfer = 10;</code>
@@ -253,6 +423,37 @@ private static final long serialVersionUID = 0L;
        return (com.github.iotexproject.grpc.types.Transfer) action_;
     }
     return com.github.iotexproject.grpc.types.Transfer.getDefaultInstance();
+  }
+
+  public static final int TXCONTAINER_FIELD_NUMBER = 11;
+  /**
+   * <code>.iotextypes.TxContainer txContainer = 11;</code>
+   * @return Whether the txContainer field is set.
+   */
+  @java.lang.Override
+  public boolean hasTxContainer() {
+    return actionCase_ == 11;
+  }
+  /**
+   * <code>.iotextypes.TxContainer txContainer = 11;</code>
+   * @return The txContainer.
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.TxContainer getTxContainer() {
+    if (actionCase_ == 11) {
+       return (com.github.iotexproject.grpc.types.TxContainer) action_;
+    }
+    return com.github.iotexproject.grpc.types.TxContainer.getDefaultInstance();
+  }
+  /**
+   * <code>.iotextypes.TxContainer txContainer = 11;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.TxContainerOrBuilder getTxContainerOrBuilder() {
+    if (actionCase_ == 11) {
+       return (com.github.iotexproject.grpc.types.TxContainer) action_;
+    }
+    return com.github.iotexproject.grpc.types.TxContainer.getDefaultInstance();
   }
 
   public static final int EXECUTION_FIELD_NUMBER = 12;
@@ -1171,6 +1372,130 @@ private static final long serialVersionUID = 0L;
     return com.github.iotexproject.grpc.types.CandidateBasicInfo.getDefaultInstance();
   }
 
+  public static final int CANDIDATEACTIVATE_FIELD_NUMBER = 49;
+  /**
+   * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+   * @return Whether the candidateActivate field is set.
+   */
+  @java.lang.Override
+  public boolean hasCandidateActivate() {
+    return actionCase_ == 49;
+  }
+  /**
+   * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+   * @return The candidateActivate.
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.CandidateActivate getCandidateActivate() {
+    if (actionCase_ == 49) {
+       return (com.github.iotexproject.grpc.types.CandidateActivate) action_;
+    }
+    return com.github.iotexproject.grpc.types.CandidateActivate.getDefaultInstance();
+  }
+  /**
+   * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.CandidateActivateOrBuilder getCandidateActivateOrBuilder() {
+    if (actionCase_ == 49) {
+       return (com.github.iotexproject.grpc.types.CandidateActivate) action_;
+    }
+    return com.github.iotexproject.grpc.types.CandidateActivate.getDefaultInstance();
+  }
+
+  public static final int CANDIDATEENDORSEMENT_FIELD_NUMBER = 51;
+  /**
+   * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+   * @return Whether the candidateEndorsement field is set.
+   */
+  @java.lang.Override
+  public boolean hasCandidateEndorsement() {
+    return actionCase_ == 51;
+  }
+  /**
+   * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+   * @return The candidateEndorsement.
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.CandidateEndorsement getCandidateEndorsement() {
+    if (actionCase_ == 51) {
+       return (com.github.iotexproject.grpc.types.CandidateEndorsement) action_;
+    }
+    return com.github.iotexproject.grpc.types.CandidateEndorsement.getDefaultInstance();
+  }
+  /**
+   * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.CandidateEndorsementOrBuilder getCandidateEndorsementOrBuilder() {
+    if (actionCase_ == 51) {
+       return (com.github.iotexproject.grpc.types.CandidateEndorsement) action_;
+    }
+    return com.github.iotexproject.grpc.types.CandidateEndorsement.getDefaultInstance();
+  }
+
+  public static final int CANDIDATETRANSFEROWNERSHIP_FIELD_NUMBER = 52;
+  /**
+   * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+   * @return Whether the candidateTransferOwnership field is set.
+   */
+  @java.lang.Override
+  public boolean hasCandidateTransferOwnership() {
+    return actionCase_ == 52;
+  }
+  /**
+   * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+   * @return The candidateTransferOwnership.
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.CandidateTransferOwnership getCandidateTransferOwnership() {
+    if (actionCase_ == 52) {
+       return (com.github.iotexproject.grpc.types.CandidateTransferOwnership) action_;
+    }
+    return com.github.iotexproject.grpc.types.CandidateTransferOwnership.getDefaultInstance();
+  }
+  /**
+   * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.CandidateTransferOwnershipOrBuilder getCandidateTransferOwnershipOrBuilder() {
+    if (actionCase_ == 52) {
+       return (com.github.iotexproject.grpc.types.CandidateTransferOwnership) action_;
+    }
+    return com.github.iotexproject.grpc.types.CandidateTransferOwnership.getDefaultInstance();
+  }
+
+  public static final int STAKEMIGRATE_FIELD_NUMBER = 53;
+  /**
+   * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+   * @return Whether the stakeMigrate field is set.
+   */
+  @java.lang.Override
+  public boolean hasStakeMigrate() {
+    return actionCase_ == 53;
+  }
+  /**
+   * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+   * @return The stakeMigrate.
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.StakeMigrate getStakeMigrate() {
+    if (actionCase_ == 53) {
+       return (com.github.iotexproject.grpc.types.StakeMigrate) action_;
+    }
+    return com.github.iotexproject.grpc.types.StakeMigrate.getDefaultInstance();
+  }
+  /**
+   * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.StakeMigrateOrBuilder getStakeMigrateOrBuilder() {
+    if (actionCase_ == 53) {
+       return (com.github.iotexproject.grpc.types.StakeMigrate) action_;
+    }
+    return com.github.iotexproject.grpc.types.StakeMigrate.getDefaultInstance();
+  }
+
   public static final int PUTPOLLRESULT_FIELD_NUMBER = 50;
   /**
    * <code>.iotextypes.PutPollResult putPollResult = 50;</code>
@@ -1231,8 +1556,23 @@ private static final long serialVersionUID = 0L;
     if (chainID_ != 0) {
       output.writeUInt32(5, chainID_);
     }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(gasTipCap_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 6, gasTipCap_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(gasFeeCap_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 7, gasFeeCap_);
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(8, getBlobTxData());
+    }
+    for (int i = 0; i < accessList_.size(); i++) {
+      output.writeMessage(9, accessList_.get(i));
+    }
     if (actionCase_ == 10) {
       output.writeMessage(10, (com.github.iotexproject.grpc.types.Transfer) action_);
+    }
+    if (actionCase_ == 11) {
+      output.writeMessage(11, (com.github.iotexproject.grpc.types.TxContainer) action_);
     }
     if (actionCase_ == 12) {
       output.writeMessage(12, (com.github.iotexproject.grpc.types.Execution) action_);
@@ -1282,6 +1622,9 @@ private static final long serialVersionUID = 0L;
     if (actionCase_ == 27) {
       output.writeMessage(27, (com.github.iotexproject.grpc.types.PlumTransfer) action_);
     }
+    if (txType_ != 0) {
+      output.writeUInt32(28, txType_);
+    }
     if (actionCase_ == 30) {
       output.writeMessage(30, (com.github.iotexproject.grpc.types.DepositToRewardingFund) action_);
     }
@@ -1318,8 +1661,20 @@ private static final long serialVersionUID = 0L;
     if (actionCase_ == 48) {
       output.writeMessage(48, (com.github.iotexproject.grpc.types.CandidateBasicInfo) action_);
     }
+    if (actionCase_ == 49) {
+      output.writeMessage(49, (com.github.iotexproject.grpc.types.CandidateActivate) action_);
+    }
     if (actionCase_ == 50) {
       output.writeMessage(50, (com.github.iotexproject.grpc.types.PutPollResult) action_);
+    }
+    if (actionCase_ == 51) {
+      output.writeMessage(51, (com.github.iotexproject.grpc.types.CandidateEndorsement) action_);
+    }
+    if (actionCase_ == 52) {
+      output.writeMessage(52, (com.github.iotexproject.grpc.types.CandidateTransferOwnership) action_);
+    }
+    if (actionCase_ == 53) {
+      output.writeMessage(53, (com.github.iotexproject.grpc.types.StakeMigrate) action_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -1349,9 +1704,27 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(5, chainID_);
     }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(gasTipCap_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(6, gasTipCap_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(gasFeeCap_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(7, gasFeeCap_);
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, getBlobTxData());
+    }
+    for (int i = 0; i < accessList_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, accessList_.get(i));
+    }
     if (actionCase_ == 10) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, (com.github.iotexproject.grpc.types.Transfer) action_);
+    }
+    if (actionCase_ == 11) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(11, (com.github.iotexproject.grpc.types.TxContainer) action_);
     }
     if (actionCase_ == 12) {
       size += com.google.protobuf.CodedOutputStream
@@ -1417,6 +1790,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(27, (com.github.iotexproject.grpc.types.PlumTransfer) action_);
     }
+    if (txType_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt32Size(28, txType_);
+    }
     if (actionCase_ == 30) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(30, (com.github.iotexproject.grpc.types.DepositToRewardingFund) action_);
@@ -1465,9 +1842,25 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(48, (com.github.iotexproject.grpc.types.CandidateBasicInfo) action_);
     }
+    if (actionCase_ == 49) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(49, (com.github.iotexproject.grpc.types.CandidateActivate) action_);
+    }
     if (actionCase_ == 50) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(50, (com.github.iotexproject.grpc.types.PutPollResult) action_);
+    }
+    if (actionCase_ == 51) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(51, (com.github.iotexproject.grpc.types.CandidateEndorsement) action_);
+    }
+    if (actionCase_ == 52) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(52, (com.github.iotexproject.grpc.types.CandidateTransferOwnership) action_);
+    }
+    if (actionCase_ == 53) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(53, (com.github.iotexproject.grpc.types.StakeMigrate) action_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -1494,11 +1887,28 @@ private static final long serialVersionUID = 0L;
         .equals(other.getGasPrice())) return false;
     if (getChainID()
         != other.getChainID()) return false;
+    if (!getGasTipCap()
+        .equals(other.getGasTipCap())) return false;
+    if (!getGasFeeCap()
+        .equals(other.getGasFeeCap())) return false;
+    if (hasBlobTxData() != other.hasBlobTxData()) return false;
+    if (hasBlobTxData()) {
+      if (!getBlobTxData()
+          .equals(other.getBlobTxData())) return false;
+    }
+    if (!getAccessListList()
+        .equals(other.getAccessListList())) return false;
+    if (getTxType()
+        != other.getTxType()) return false;
     if (!getActionCase().equals(other.getActionCase())) return false;
     switch (actionCase_) {
       case 10:
         if (!getTransfer()
             .equals(other.getTransfer())) return false;
+        break;
+      case 11:
+        if (!getTxContainer()
+            .equals(other.getTxContainer())) return false;
         break;
       case 12:
         if (!getExecution()
@@ -1612,6 +2022,22 @@ private static final long serialVersionUID = 0L;
         if (!getCandidateUpdate()
             .equals(other.getCandidateUpdate())) return false;
         break;
+      case 49:
+        if (!getCandidateActivate()
+            .equals(other.getCandidateActivate())) return false;
+        break;
+      case 51:
+        if (!getCandidateEndorsement()
+            .equals(other.getCandidateEndorsement())) return false;
+        break;
+      case 52:
+        if (!getCandidateTransferOwnership()
+            .equals(other.getCandidateTransferOwnership())) return false;
+        break;
+      case 53:
+        if (!getStakeMigrate()
+            .equals(other.getStakeMigrate())) return false;
+        break;
       case 50:
         if (!getPutPollResult()
             .equals(other.getPutPollResult())) return false;
@@ -1642,10 +2068,28 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getGasPrice().hashCode();
     hash = (37 * hash) + CHAINID_FIELD_NUMBER;
     hash = (53 * hash) + getChainID();
+    hash = (37 * hash) + GASTIPCAP_FIELD_NUMBER;
+    hash = (53 * hash) + getGasTipCap().hashCode();
+    hash = (37 * hash) + GASFEECAP_FIELD_NUMBER;
+    hash = (53 * hash) + getGasFeeCap().hashCode();
+    if (hasBlobTxData()) {
+      hash = (37 * hash) + BLOBTXDATA_FIELD_NUMBER;
+      hash = (53 * hash) + getBlobTxData().hashCode();
+    }
+    if (getAccessListCount() > 0) {
+      hash = (37 * hash) + ACCESSLIST_FIELD_NUMBER;
+      hash = (53 * hash) + getAccessListList().hashCode();
+    }
+    hash = (37 * hash) + TXTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getTxType();
     switch (actionCase_) {
       case 10:
         hash = (37 * hash) + TRANSFER_FIELD_NUMBER;
         hash = (53 * hash) + getTransfer().hashCode();
+        break;
+      case 11:
+        hash = (37 * hash) + TXCONTAINER_FIELD_NUMBER;
+        hash = (53 * hash) + getTxContainer().hashCode();
         break;
       case 12:
         hash = (37 * hash) + EXECUTION_FIELD_NUMBER;
@@ -1758,6 +2202,22 @@ private static final long serialVersionUID = 0L;
       case 48:
         hash = (37 * hash) + CANDIDATEUPDATE_FIELD_NUMBER;
         hash = (53 * hash) + getCandidateUpdate().hashCode();
+        break;
+      case 49:
+        hash = (37 * hash) + CANDIDATEACTIVATE_FIELD_NUMBER;
+        hash = (53 * hash) + getCandidateActivate().hashCode();
+        break;
+      case 51:
+        hash = (37 * hash) + CANDIDATEENDORSEMENT_FIELD_NUMBER;
+        hash = (53 * hash) + getCandidateEndorsement().hashCode();
+        break;
+      case 52:
+        hash = (37 * hash) + CANDIDATETRANSFEROWNERSHIP_FIELD_NUMBER;
+        hash = (53 * hash) + getCandidateTransferOwnership().hashCode();
+        break;
+      case 53:
+        hash = (37 * hash) + STAKEMIGRATE_FIELD_NUMBER;
+        hash = (53 * hash) + getStakeMigrate().hashCode();
         break;
       case 50:
         hash = (37 * hash) + PUTPOLLRESULT_FIELD_NUMBER;
@@ -1885,13 +2345,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.github.iotexproject.grpc.types.ActionCore.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessage
+              .alwaysUseFieldBuilders) {
+        getBlobTxDataFieldBuilder();
+        getAccessListFieldBuilder();
+      }
     }
     @java.lang.Override
     public Builder clear() {
@@ -1903,8 +2370,26 @@ private static final long serialVersionUID = 0L;
       gasLimit_ = 0L;
       gasPrice_ = "";
       chainID_ = 0;
+      gasTipCap_ = "";
+      gasFeeCap_ = "";
+      blobTxData_ = null;
+      if (blobTxDataBuilder_ != null) {
+        blobTxDataBuilder_.dispose();
+        blobTxDataBuilder_ = null;
+      }
+      if (accessListBuilder_ == null) {
+        accessList_ = java.util.Collections.emptyList();
+      } else {
+        accessList_ = null;
+        accessListBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000100);
+      txType_ = 0;
       if (transferBuilder_ != null) {
         transferBuilder_.clear();
+      }
+      if (txContainerBuilder_ != null) {
+        txContainerBuilder_.clear();
       }
       if (executionBuilder_ != null) {
         executionBuilder_.clear();
@@ -1990,6 +2475,18 @@ private static final long serialVersionUID = 0L;
       if (candidateUpdateBuilder_ != null) {
         candidateUpdateBuilder_.clear();
       }
+      if (candidateActivateBuilder_ != null) {
+        candidateActivateBuilder_.clear();
+      }
+      if (candidateEndorsementBuilder_ != null) {
+        candidateEndorsementBuilder_.clear();
+      }
+      if (candidateTransferOwnershipBuilder_ != null) {
+        candidateTransferOwnershipBuilder_.clear();
+      }
+      if (stakeMigrateBuilder_ != null) {
+        stakeMigrateBuilder_.clear();
+      }
       if (putPollResultBuilder_ != null) {
         putPollResultBuilder_.clear();
       }
@@ -2021,11 +2518,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.github.iotexproject.grpc.types.ActionCore buildPartial() {
       com.github.iotexproject.grpc.types.ActionCore result = new com.github.iotexproject.grpc.types.ActionCore(this);
+      buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       if (bitField1_ != 0) { buildPartial1(result); }
       buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.github.iotexproject.grpc.types.ActionCore result) {
+      if (accessListBuilder_ == null) {
+        if (((bitField0_ & 0x00000100) != 0)) {
+          accessList_ = java.util.Collections.unmodifiableList(accessList_);
+          bitField0_ = (bitField0_ & ~0x00000100);
+        }
+        result.accessList_ = accessList_;
+      } else {
+        result.accessList_ = accessListBuilder_.build();
+      }
     }
 
     private void buildPartial0(com.github.iotexproject.grpc.types.ActionCore result) {
@@ -2045,6 +2555,23 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000010) != 0)) {
         result.chainID_ = chainID_;
       }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.gasTipCap_ = gasTipCap_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.gasFeeCap_ = gasFeeCap_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.blobTxData_ = blobTxDataBuilder_ == null
+            ? blobTxData_
+            : blobTxDataBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.txType_ = txType_;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     private void buildPartial1(com.github.iotexproject.grpc.types.ActionCore result) {
@@ -2057,6 +2584,10 @@ private static final long serialVersionUID = 0L;
       if (actionCase_ == 10 &&
           transferBuilder_ != null) {
         result.action_ = transferBuilder_.build();
+      }
+      if (actionCase_ == 11 &&
+          txContainerBuilder_ != null) {
+        result.action_ = txContainerBuilder_.build();
       }
       if (actionCase_ == 12 &&
           executionBuilder_ != null) {
@@ -2170,6 +2701,22 @@ private static final long serialVersionUID = 0L;
           candidateUpdateBuilder_ != null) {
         result.action_ = candidateUpdateBuilder_.build();
       }
+      if (actionCase_ == 49 &&
+          candidateActivateBuilder_ != null) {
+        result.action_ = candidateActivateBuilder_.build();
+      }
+      if (actionCase_ == 51 &&
+          candidateEndorsementBuilder_ != null) {
+        result.action_ = candidateEndorsementBuilder_.build();
+      }
+      if (actionCase_ == 52 &&
+          candidateTransferOwnershipBuilder_ != null) {
+        result.action_ = candidateTransferOwnershipBuilder_.build();
+      }
+      if (actionCase_ == 53 &&
+          stakeMigrateBuilder_ != null) {
+        result.action_ = stakeMigrateBuilder_.build();
+      }
       if (actionCase_ == 50 &&
           putPollResultBuilder_ != null) {
         result.action_ = putPollResultBuilder_.build();
@@ -2205,9 +2752,55 @@ private static final long serialVersionUID = 0L;
       if (other.getChainID() != 0) {
         setChainID(other.getChainID());
       }
+      if (!other.getGasTipCap().isEmpty()) {
+        gasTipCap_ = other.gasTipCap_;
+        bitField0_ |= 0x00000020;
+        onChanged();
+      }
+      if (!other.getGasFeeCap().isEmpty()) {
+        gasFeeCap_ = other.gasFeeCap_;
+        bitField0_ |= 0x00000040;
+        onChanged();
+      }
+      if (other.hasBlobTxData()) {
+        mergeBlobTxData(other.getBlobTxData());
+      }
+      if (accessListBuilder_ == null) {
+        if (!other.accessList_.isEmpty()) {
+          if (accessList_.isEmpty()) {
+            accessList_ = other.accessList_;
+            bitField0_ = (bitField0_ & ~0x00000100);
+          } else {
+            ensureAccessListIsMutable();
+            accessList_.addAll(other.accessList_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.accessList_.isEmpty()) {
+          if (accessListBuilder_.isEmpty()) {
+            accessListBuilder_.dispose();
+            accessListBuilder_ = null;
+            accessList_ = other.accessList_;
+            bitField0_ = (bitField0_ & ~0x00000100);
+            accessListBuilder_ = 
+              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                 getAccessListFieldBuilder() : null;
+          } else {
+            accessListBuilder_.addAllMessages(other.accessList_);
+          }
+        }
+      }
+      if (other.getTxType() != 0) {
+        setTxType(other.getTxType());
+      }
       switch (other.getActionCase()) {
         case TRANSFER: {
           mergeTransfer(other.getTransfer());
+          break;
+        }
+        case TXCONTAINER: {
+          mergeTxContainer(other.getTxContainer());
           break;
         }
         case EXECUTION: {
@@ -2322,6 +2915,22 @@ private static final long serialVersionUID = 0L;
           mergeCandidateUpdate(other.getCandidateUpdate());
           break;
         }
+        case CANDIDATEACTIVATE: {
+          mergeCandidateActivate(other.getCandidateActivate());
+          break;
+        }
+        case CANDIDATEENDORSEMENT: {
+          mergeCandidateEndorsement(other.getCandidateEndorsement());
+          break;
+        }
+        case CANDIDATETRANSFEROWNERSHIP: {
+          mergeCandidateTransferOwnership(other.getCandidateTransferOwnership());
+          break;
+        }
+        case STAKEMIGRATE: {
+          mergeStakeMigrate(other.getStakeMigrate());
+          break;
+        }
         case PUTPOLLRESULT: {
           mergePutPollResult(other.getPutPollResult());
           break;
@@ -2381,6 +2990,36 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000010;
               break;
             } // case 40
+            case 50: {
+              gasTipCap_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              gasFeeCap_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getBlobTxDataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              com.github.iotexproject.grpc.types.AccessTuple m =
+                  input.readMessage(
+                      com.github.iotexproject.grpc.types.AccessTuple.parser(),
+                      extensionRegistry);
+              if (accessListBuilder_ == null) {
+                ensureAccessListIsMutable();
+                accessList_.add(m);
+              } else {
+                accessListBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
             case 82: {
               input.readMessage(
                   getTransferFieldBuilder().getBuilder(),
@@ -2388,6 +3027,13 @@ private static final long serialVersionUID = 0L;
               actionCase_ = 10;
               break;
             } // case 82
+            case 90: {
+              input.readMessage(
+                  getTxContainerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionCase_ = 11;
+              break;
+            } // case 90
             case 98: {
               input.readMessage(
                   getExecutionFieldBuilder().getBuilder(),
@@ -2500,6 +3146,11 @@ private static final long serialVersionUID = 0L;
               actionCase_ = 27;
               break;
             } // case 218
+            case 224: {
+              txType_ = input.readUInt32();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 224
             case 242: {
               input.readMessage(
                   getDepositToRewardingFundFieldBuilder().getBuilder(),
@@ -2584,6 +3235,13 @@ private static final long serialVersionUID = 0L;
               actionCase_ = 48;
               break;
             } // case 386
+            case 394: {
+              input.readMessage(
+                  getCandidateActivateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionCase_ = 49;
+              break;
+            } // case 394
             case 402: {
               input.readMessage(
                   getPutPollResultFieldBuilder().getBuilder(),
@@ -2591,6 +3249,27 @@ private static final long serialVersionUID = 0L;
               actionCase_ = 50;
               break;
             } // case 402
+            case 410: {
+              input.readMessage(
+                  getCandidateEndorsementFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionCase_ = 51;
+              break;
+            } // case 410
+            case 418: {
+              input.readMessage(
+                  getCandidateTransferOwnershipFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionCase_ = 52;
+              break;
+            } // case 418
+            case 426: {
+              input.readMessage(
+                  getStakeMigrateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionCase_ = 53;
+              break;
+            } // case 426
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2824,6 +3503,543 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object gasTipCap_ = "";
+    /**
+     * <code>string gasTipCap = 6;</code>
+     * @return The gasTipCap.
+     */
+    public java.lang.String getGasTipCap() {
+      java.lang.Object ref = gasTipCap_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        gasTipCap_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string gasTipCap = 6;</code>
+     * @return The bytes for gasTipCap.
+     */
+    public com.google.protobuf.ByteString
+        getGasTipCapBytes() {
+      java.lang.Object ref = gasTipCap_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        gasTipCap_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string gasTipCap = 6;</code>
+     * @param value The gasTipCap to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGasTipCap(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      gasTipCap_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string gasTipCap = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearGasTipCap() {
+      gasTipCap_ = getDefaultInstance().getGasTipCap();
+      bitField0_ = (bitField0_ & ~0x00000020);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string gasTipCap = 6;</code>
+     * @param value The bytes for gasTipCap to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGasTipCapBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      gasTipCap_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object gasFeeCap_ = "";
+    /**
+     * <code>string gasFeeCap = 7;</code>
+     * @return The gasFeeCap.
+     */
+    public java.lang.String getGasFeeCap() {
+      java.lang.Object ref = gasFeeCap_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        gasFeeCap_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string gasFeeCap = 7;</code>
+     * @return The bytes for gasFeeCap.
+     */
+    public com.google.protobuf.ByteString
+        getGasFeeCapBytes() {
+      java.lang.Object ref = gasFeeCap_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        gasFeeCap_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string gasFeeCap = 7;</code>
+     * @param value The gasFeeCap to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGasFeeCap(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      gasFeeCap_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string gasFeeCap = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearGasFeeCap() {
+      gasFeeCap_ = getDefaultInstance().getGasFeeCap();
+      bitField0_ = (bitField0_ & ~0x00000040);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string gasFeeCap = 7;</code>
+     * @param value The bytes for gasFeeCap to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGasFeeCapBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      gasFeeCap_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+
+    private com.github.iotexproject.grpc.types.BlobTxData blobTxData_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.BlobTxData, com.github.iotexproject.grpc.types.BlobTxData.Builder, com.github.iotexproject.grpc.types.BlobTxDataOrBuilder> blobTxDataBuilder_;
+    /**
+     * <code>.iotextypes.BlobTxData blobTxData = 8;</code>
+     * @return Whether the blobTxData field is set.
+     */
+    public boolean hasBlobTxData() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <code>.iotextypes.BlobTxData blobTxData = 8;</code>
+     * @return The blobTxData.
+     */
+    public com.github.iotexproject.grpc.types.BlobTxData getBlobTxData() {
+      if (blobTxDataBuilder_ == null) {
+        return blobTxData_ == null ? com.github.iotexproject.grpc.types.BlobTxData.getDefaultInstance() : blobTxData_;
+      } else {
+        return blobTxDataBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.iotextypes.BlobTxData blobTxData = 8;</code>
+     */
+    public Builder setBlobTxData(com.github.iotexproject.grpc.types.BlobTxData value) {
+      if (blobTxDataBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        blobTxData_ = value;
+      } else {
+        blobTxDataBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.iotextypes.BlobTxData blobTxData = 8;</code>
+     */
+    public Builder setBlobTxData(
+        com.github.iotexproject.grpc.types.BlobTxData.Builder builderForValue) {
+      if (blobTxDataBuilder_ == null) {
+        blobTxData_ = builderForValue.build();
+      } else {
+        blobTxDataBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.iotextypes.BlobTxData blobTxData = 8;</code>
+     */
+    public Builder mergeBlobTxData(com.github.iotexproject.grpc.types.BlobTxData value) {
+      if (blobTxDataBuilder_ == null) {
+        if (((bitField0_ & 0x00000080) != 0) &&
+          blobTxData_ != null &&
+          blobTxData_ != com.github.iotexproject.grpc.types.BlobTxData.getDefaultInstance()) {
+          getBlobTxDataBuilder().mergeFrom(value);
+        } else {
+          blobTxData_ = value;
+        }
+      } else {
+        blobTxDataBuilder_.mergeFrom(value);
+      }
+      if (blobTxData_ != null) {
+        bitField0_ |= 0x00000080;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>.iotextypes.BlobTxData blobTxData = 8;</code>
+     */
+    public Builder clearBlobTxData() {
+      bitField0_ = (bitField0_ & ~0x00000080);
+      blobTxData_ = null;
+      if (blobTxDataBuilder_ != null) {
+        blobTxDataBuilder_.dispose();
+        blobTxDataBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.iotextypes.BlobTxData blobTxData = 8;</code>
+     */
+    public com.github.iotexproject.grpc.types.BlobTxData.Builder getBlobTxDataBuilder() {
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return getBlobTxDataFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.iotextypes.BlobTxData blobTxData = 8;</code>
+     */
+    public com.github.iotexproject.grpc.types.BlobTxDataOrBuilder getBlobTxDataOrBuilder() {
+      if (blobTxDataBuilder_ != null) {
+        return blobTxDataBuilder_.getMessageOrBuilder();
+      } else {
+        return blobTxData_ == null ?
+            com.github.iotexproject.grpc.types.BlobTxData.getDefaultInstance() : blobTxData_;
+      }
+    }
+    /**
+     * <code>.iotextypes.BlobTxData blobTxData = 8;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.BlobTxData, com.github.iotexproject.grpc.types.BlobTxData.Builder, com.github.iotexproject.grpc.types.BlobTxDataOrBuilder> 
+        getBlobTxDataFieldBuilder() {
+      if (blobTxDataBuilder_ == null) {
+        blobTxDataBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.iotexproject.grpc.types.BlobTxData, com.github.iotexproject.grpc.types.BlobTxData.Builder, com.github.iotexproject.grpc.types.BlobTxDataOrBuilder>(
+                getBlobTxData(),
+                getParentForChildren(),
+                isClean());
+        blobTxData_ = null;
+      }
+      return blobTxDataBuilder_;
+    }
+
+    private java.util.List<com.github.iotexproject.grpc.types.AccessTuple> accessList_ =
+      java.util.Collections.emptyList();
+    private void ensureAccessListIsMutable() {
+      if (!((bitField0_ & 0x00000100) != 0)) {
+        accessList_ = new java.util.ArrayList<com.github.iotexproject.grpc.types.AccessTuple>(accessList_);
+        bitField0_ |= 0x00000100;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilder<
+        com.github.iotexproject.grpc.types.AccessTuple, com.github.iotexproject.grpc.types.AccessTuple.Builder, com.github.iotexproject.grpc.types.AccessTupleOrBuilder> accessListBuilder_;
+
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public java.util.List<com.github.iotexproject.grpc.types.AccessTuple> getAccessListList() {
+      if (accessListBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(accessList_);
+      } else {
+        return accessListBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public int getAccessListCount() {
+      if (accessListBuilder_ == null) {
+        return accessList_.size();
+      } else {
+        return accessListBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public com.github.iotexproject.grpc.types.AccessTuple getAccessList(int index) {
+      if (accessListBuilder_ == null) {
+        return accessList_.get(index);
+      } else {
+        return accessListBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public Builder setAccessList(
+        int index, com.github.iotexproject.grpc.types.AccessTuple value) {
+      if (accessListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAccessListIsMutable();
+        accessList_.set(index, value);
+        onChanged();
+      } else {
+        accessListBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public Builder setAccessList(
+        int index, com.github.iotexproject.grpc.types.AccessTuple.Builder builderForValue) {
+      if (accessListBuilder_ == null) {
+        ensureAccessListIsMutable();
+        accessList_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        accessListBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public Builder addAccessList(com.github.iotexproject.grpc.types.AccessTuple value) {
+      if (accessListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAccessListIsMutable();
+        accessList_.add(value);
+        onChanged();
+      } else {
+        accessListBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public Builder addAccessList(
+        int index, com.github.iotexproject.grpc.types.AccessTuple value) {
+      if (accessListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAccessListIsMutable();
+        accessList_.add(index, value);
+        onChanged();
+      } else {
+        accessListBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public Builder addAccessList(
+        com.github.iotexproject.grpc.types.AccessTuple.Builder builderForValue) {
+      if (accessListBuilder_ == null) {
+        ensureAccessListIsMutable();
+        accessList_.add(builderForValue.build());
+        onChanged();
+      } else {
+        accessListBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public Builder addAccessList(
+        int index, com.github.iotexproject.grpc.types.AccessTuple.Builder builderForValue) {
+      if (accessListBuilder_ == null) {
+        ensureAccessListIsMutable();
+        accessList_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        accessListBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public Builder addAllAccessList(
+        java.lang.Iterable<? extends com.github.iotexproject.grpc.types.AccessTuple> values) {
+      if (accessListBuilder_ == null) {
+        ensureAccessListIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, accessList_);
+        onChanged();
+      } else {
+        accessListBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public Builder clearAccessList() {
+      if (accessListBuilder_ == null) {
+        accessList_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000100);
+        onChanged();
+      } else {
+        accessListBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public Builder removeAccessList(int index) {
+      if (accessListBuilder_ == null) {
+        ensureAccessListIsMutable();
+        accessList_.remove(index);
+        onChanged();
+      } else {
+        accessListBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public com.github.iotexproject.grpc.types.AccessTuple.Builder getAccessListBuilder(
+        int index) {
+      return getAccessListFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public com.github.iotexproject.grpc.types.AccessTupleOrBuilder getAccessListOrBuilder(
+        int index) {
+      if (accessListBuilder_ == null) {
+        return accessList_.get(index);  } else {
+        return accessListBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public java.util.List<? extends com.github.iotexproject.grpc.types.AccessTupleOrBuilder> 
+         getAccessListOrBuilderList() {
+      if (accessListBuilder_ != null) {
+        return accessListBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(accessList_);
+      }
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public com.github.iotexproject.grpc.types.AccessTuple.Builder addAccessListBuilder() {
+      return getAccessListFieldBuilder().addBuilder(
+          com.github.iotexproject.grpc.types.AccessTuple.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public com.github.iotexproject.grpc.types.AccessTuple.Builder addAccessListBuilder(
+        int index) {
+      return getAccessListFieldBuilder().addBuilder(
+          index, com.github.iotexproject.grpc.types.AccessTuple.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .iotextypes.AccessTuple accessList = 9;</code>
+     */
+    public java.util.List<com.github.iotexproject.grpc.types.AccessTuple.Builder> 
+         getAccessListBuilderList() {
+      return getAccessListFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilder<
+        com.github.iotexproject.grpc.types.AccessTuple, com.github.iotexproject.grpc.types.AccessTuple.Builder, com.github.iotexproject.grpc.types.AccessTupleOrBuilder> 
+        getAccessListFieldBuilder() {
+      if (accessListBuilder_ == null) {
+        accessListBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.github.iotexproject.grpc.types.AccessTuple, com.github.iotexproject.grpc.types.AccessTuple.Builder, com.github.iotexproject.grpc.types.AccessTupleOrBuilder>(
+                accessList_,
+                ((bitField0_ & 0x00000100) != 0),
+                getParentForChildren(),
+                isClean());
+        accessList_ = null;
+      }
+      return accessListBuilder_;
+    }
+
+    private int txType_ ;
+    /**
+     * <code>uint32 txType = 28;</code>
+     * @return The txType.
+     */
+    @java.lang.Override
+    public int getTxType() {
+      return txType_;
+    }
+    /**
+     * <code>uint32 txType = 28;</code>
+     * @param value The txType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTxType(int value) {
+
+      txType_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint32 txType = 28;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTxType() {
+      bitField0_ = (bitField0_ & ~0x00000200);
+      txType_ = 0;
+      onChanged();
+      return this;
+    }
+
     private com.google.protobuf.SingleFieldBuilder<
         com.github.iotexproject.grpc.types.Transfer, com.github.iotexproject.grpc.types.Transfer.Builder, com.github.iotexproject.grpc.types.TransferOrBuilder> transferBuilder_;
     /**
@@ -2964,6 +4180,148 @@ private static final long serialVersionUID = 0L;
       actionCase_ = 10;
       onChanged();
       return transferBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.TxContainer, com.github.iotexproject.grpc.types.TxContainer.Builder, com.github.iotexproject.grpc.types.TxContainerOrBuilder> txContainerBuilder_;
+    /**
+     * <code>.iotextypes.TxContainer txContainer = 11;</code>
+     * @return Whether the txContainer field is set.
+     */
+    @java.lang.Override
+    public boolean hasTxContainer() {
+      return actionCase_ == 11;
+    }
+    /**
+     * <code>.iotextypes.TxContainer txContainer = 11;</code>
+     * @return The txContainer.
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.TxContainer getTxContainer() {
+      if (txContainerBuilder_ == null) {
+        if (actionCase_ == 11) {
+          return (com.github.iotexproject.grpc.types.TxContainer) action_;
+        }
+        return com.github.iotexproject.grpc.types.TxContainer.getDefaultInstance();
+      } else {
+        if (actionCase_ == 11) {
+          return txContainerBuilder_.getMessage();
+        }
+        return com.github.iotexproject.grpc.types.TxContainer.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.TxContainer txContainer = 11;</code>
+     */
+    public Builder setTxContainer(com.github.iotexproject.grpc.types.TxContainer value) {
+      if (txContainerBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        action_ = value;
+        onChanged();
+      } else {
+        txContainerBuilder_.setMessage(value);
+      }
+      actionCase_ = 11;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.TxContainer txContainer = 11;</code>
+     */
+    public Builder setTxContainer(
+        com.github.iotexproject.grpc.types.TxContainer.Builder builderForValue) {
+      if (txContainerBuilder_ == null) {
+        action_ = builderForValue.build();
+        onChanged();
+      } else {
+        txContainerBuilder_.setMessage(builderForValue.build());
+      }
+      actionCase_ = 11;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.TxContainer txContainer = 11;</code>
+     */
+    public Builder mergeTxContainer(com.github.iotexproject.grpc.types.TxContainer value) {
+      if (txContainerBuilder_ == null) {
+        if (actionCase_ == 11 &&
+            action_ != com.github.iotexproject.grpc.types.TxContainer.getDefaultInstance()) {
+          action_ = com.github.iotexproject.grpc.types.TxContainer.newBuilder((com.github.iotexproject.grpc.types.TxContainer) action_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          action_ = value;
+        }
+        onChanged();
+      } else {
+        if (actionCase_ == 11) {
+          txContainerBuilder_.mergeFrom(value);
+        } else {
+          txContainerBuilder_.setMessage(value);
+        }
+      }
+      actionCase_ = 11;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.TxContainer txContainer = 11;</code>
+     */
+    public Builder clearTxContainer() {
+      if (txContainerBuilder_ == null) {
+        if (actionCase_ == 11) {
+          actionCase_ = 0;
+          action_ = null;
+          onChanged();
+        }
+      } else {
+        if (actionCase_ == 11) {
+          actionCase_ = 0;
+          action_ = null;
+        }
+        txContainerBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.iotextypes.TxContainer txContainer = 11;</code>
+     */
+    public com.github.iotexproject.grpc.types.TxContainer.Builder getTxContainerBuilder() {
+      return getTxContainerFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.iotextypes.TxContainer txContainer = 11;</code>
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.TxContainerOrBuilder getTxContainerOrBuilder() {
+      if ((actionCase_ == 11) && (txContainerBuilder_ != null)) {
+        return txContainerBuilder_.getMessageOrBuilder();
+      } else {
+        if (actionCase_ == 11) {
+          return (com.github.iotexproject.grpc.types.TxContainer) action_;
+        }
+        return com.github.iotexproject.grpc.types.TxContainer.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.TxContainer txContainer = 11;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.TxContainer, com.github.iotexproject.grpc.types.TxContainer.Builder, com.github.iotexproject.grpc.types.TxContainerOrBuilder> 
+        getTxContainerFieldBuilder() {
+      if (txContainerBuilder_ == null) {
+        if (!(actionCase_ == 11)) {
+          action_ = com.github.iotexproject.grpc.types.TxContainer.getDefaultInstance();
+        }
+        txContainerBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.iotexproject.grpc.types.TxContainer, com.github.iotexproject.grpc.types.TxContainer.Builder, com.github.iotexproject.grpc.types.TxContainerOrBuilder>(
+                (com.github.iotexproject.grpc.types.TxContainer) action_,
+                getParentForChildren(),
+                isClean());
+        action_ = null;
+      }
+      actionCase_ = 11;
+      onChanged();
+      return txContainerBuilder_;
     }
 
     private com.google.protobuf.SingleFieldBuilder<
@@ -7084,6 +8442,574 @@ private static final long serialVersionUID = 0L;
       actionCase_ = 48;
       onChanged();
       return candidateUpdateBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.CandidateActivate, com.github.iotexproject.grpc.types.CandidateActivate.Builder, com.github.iotexproject.grpc.types.CandidateActivateOrBuilder> candidateActivateBuilder_;
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     * @return Whether the candidateActivate field is set.
+     */
+    @java.lang.Override
+    public boolean hasCandidateActivate() {
+      return actionCase_ == 49;
+    }
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     * @return The candidateActivate.
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.CandidateActivate getCandidateActivate() {
+      if (candidateActivateBuilder_ == null) {
+        if (actionCase_ == 49) {
+          return (com.github.iotexproject.grpc.types.CandidateActivate) action_;
+        }
+        return com.github.iotexproject.grpc.types.CandidateActivate.getDefaultInstance();
+      } else {
+        if (actionCase_ == 49) {
+          return candidateActivateBuilder_.getMessage();
+        }
+        return com.github.iotexproject.grpc.types.CandidateActivate.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     */
+    public Builder setCandidateActivate(com.github.iotexproject.grpc.types.CandidateActivate value) {
+      if (candidateActivateBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        action_ = value;
+        onChanged();
+      } else {
+        candidateActivateBuilder_.setMessage(value);
+      }
+      actionCase_ = 49;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     */
+    public Builder setCandidateActivate(
+        com.github.iotexproject.grpc.types.CandidateActivate.Builder builderForValue) {
+      if (candidateActivateBuilder_ == null) {
+        action_ = builderForValue.build();
+        onChanged();
+      } else {
+        candidateActivateBuilder_.setMessage(builderForValue.build());
+      }
+      actionCase_ = 49;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     */
+    public Builder mergeCandidateActivate(com.github.iotexproject.grpc.types.CandidateActivate value) {
+      if (candidateActivateBuilder_ == null) {
+        if (actionCase_ == 49 &&
+            action_ != com.github.iotexproject.grpc.types.CandidateActivate.getDefaultInstance()) {
+          action_ = com.github.iotexproject.grpc.types.CandidateActivate.newBuilder((com.github.iotexproject.grpc.types.CandidateActivate) action_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          action_ = value;
+        }
+        onChanged();
+      } else {
+        if (actionCase_ == 49) {
+          candidateActivateBuilder_.mergeFrom(value);
+        } else {
+          candidateActivateBuilder_.setMessage(value);
+        }
+      }
+      actionCase_ = 49;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     */
+    public Builder clearCandidateActivate() {
+      if (candidateActivateBuilder_ == null) {
+        if (actionCase_ == 49) {
+          actionCase_ = 0;
+          action_ = null;
+          onChanged();
+        }
+      } else {
+        if (actionCase_ == 49) {
+          actionCase_ = 0;
+          action_ = null;
+        }
+        candidateActivateBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     */
+    public com.github.iotexproject.grpc.types.CandidateActivate.Builder getCandidateActivateBuilder() {
+      return getCandidateActivateFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.CandidateActivateOrBuilder getCandidateActivateOrBuilder() {
+      if ((actionCase_ == 49) && (candidateActivateBuilder_ != null)) {
+        return candidateActivateBuilder_.getMessageOrBuilder();
+      } else {
+        if (actionCase_ == 49) {
+          return (com.github.iotexproject.grpc.types.CandidateActivate) action_;
+        }
+        return com.github.iotexproject.grpc.types.CandidateActivate.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.CandidateActivate, com.github.iotexproject.grpc.types.CandidateActivate.Builder, com.github.iotexproject.grpc.types.CandidateActivateOrBuilder> 
+        getCandidateActivateFieldBuilder() {
+      if (candidateActivateBuilder_ == null) {
+        if (!(actionCase_ == 49)) {
+          action_ = com.github.iotexproject.grpc.types.CandidateActivate.getDefaultInstance();
+        }
+        candidateActivateBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.iotexproject.grpc.types.CandidateActivate, com.github.iotexproject.grpc.types.CandidateActivate.Builder, com.github.iotexproject.grpc.types.CandidateActivateOrBuilder>(
+                (com.github.iotexproject.grpc.types.CandidateActivate) action_,
+                getParentForChildren(),
+                isClean());
+        action_ = null;
+      }
+      actionCase_ = 49;
+      onChanged();
+      return candidateActivateBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.CandidateEndorsement, com.github.iotexproject.grpc.types.CandidateEndorsement.Builder, com.github.iotexproject.grpc.types.CandidateEndorsementOrBuilder> candidateEndorsementBuilder_;
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     * @return Whether the candidateEndorsement field is set.
+     */
+    @java.lang.Override
+    public boolean hasCandidateEndorsement() {
+      return actionCase_ == 51;
+    }
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     * @return The candidateEndorsement.
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.CandidateEndorsement getCandidateEndorsement() {
+      if (candidateEndorsementBuilder_ == null) {
+        if (actionCase_ == 51) {
+          return (com.github.iotexproject.grpc.types.CandidateEndorsement) action_;
+        }
+        return com.github.iotexproject.grpc.types.CandidateEndorsement.getDefaultInstance();
+      } else {
+        if (actionCase_ == 51) {
+          return candidateEndorsementBuilder_.getMessage();
+        }
+        return com.github.iotexproject.grpc.types.CandidateEndorsement.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     */
+    public Builder setCandidateEndorsement(com.github.iotexproject.grpc.types.CandidateEndorsement value) {
+      if (candidateEndorsementBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        action_ = value;
+        onChanged();
+      } else {
+        candidateEndorsementBuilder_.setMessage(value);
+      }
+      actionCase_ = 51;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     */
+    public Builder setCandidateEndorsement(
+        com.github.iotexproject.grpc.types.CandidateEndorsement.Builder builderForValue) {
+      if (candidateEndorsementBuilder_ == null) {
+        action_ = builderForValue.build();
+        onChanged();
+      } else {
+        candidateEndorsementBuilder_.setMessage(builderForValue.build());
+      }
+      actionCase_ = 51;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     */
+    public Builder mergeCandidateEndorsement(com.github.iotexproject.grpc.types.CandidateEndorsement value) {
+      if (candidateEndorsementBuilder_ == null) {
+        if (actionCase_ == 51 &&
+            action_ != com.github.iotexproject.grpc.types.CandidateEndorsement.getDefaultInstance()) {
+          action_ = com.github.iotexproject.grpc.types.CandidateEndorsement.newBuilder((com.github.iotexproject.grpc.types.CandidateEndorsement) action_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          action_ = value;
+        }
+        onChanged();
+      } else {
+        if (actionCase_ == 51) {
+          candidateEndorsementBuilder_.mergeFrom(value);
+        } else {
+          candidateEndorsementBuilder_.setMessage(value);
+        }
+      }
+      actionCase_ = 51;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     */
+    public Builder clearCandidateEndorsement() {
+      if (candidateEndorsementBuilder_ == null) {
+        if (actionCase_ == 51) {
+          actionCase_ = 0;
+          action_ = null;
+          onChanged();
+        }
+      } else {
+        if (actionCase_ == 51) {
+          actionCase_ = 0;
+          action_ = null;
+        }
+        candidateEndorsementBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     */
+    public com.github.iotexproject.grpc.types.CandidateEndorsement.Builder getCandidateEndorsementBuilder() {
+      return getCandidateEndorsementFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.CandidateEndorsementOrBuilder getCandidateEndorsementOrBuilder() {
+      if ((actionCase_ == 51) && (candidateEndorsementBuilder_ != null)) {
+        return candidateEndorsementBuilder_.getMessageOrBuilder();
+      } else {
+        if (actionCase_ == 51) {
+          return (com.github.iotexproject.grpc.types.CandidateEndorsement) action_;
+        }
+        return com.github.iotexproject.grpc.types.CandidateEndorsement.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.CandidateEndorsement, com.github.iotexproject.grpc.types.CandidateEndorsement.Builder, com.github.iotexproject.grpc.types.CandidateEndorsementOrBuilder> 
+        getCandidateEndorsementFieldBuilder() {
+      if (candidateEndorsementBuilder_ == null) {
+        if (!(actionCase_ == 51)) {
+          action_ = com.github.iotexproject.grpc.types.CandidateEndorsement.getDefaultInstance();
+        }
+        candidateEndorsementBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.iotexproject.grpc.types.CandidateEndorsement, com.github.iotexproject.grpc.types.CandidateEndorsement.Builder, com.github.iotexproject.grpc.types.CandidateEndorsementOrBuilder>(
+                (com.github.iotexproject.grpc.types.CandidateEndorsement) action_,
+                getParentForChildren(),
+                isClean());
+        action_ = null;
+      }
+      actionCase_ = 51;
+      onChanged();
+      return candidateEndorsementBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.CandidateTransferOwnership, com.github.iotexproject.grpc.types.CandidateTransferOwnership.Builder, com.github.iotexproject.grpc.types.CandidateTransferOwnershipOrBuilder> candidateTransferOwnershipBuilder_;
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     * @return Whether the candidateTransferOwnership field is set.
+     */
+    @java.lang.Override
+    public boolean hasCandidateTransferOwnership() {
+      return actionCase_ == 52;
+    }
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     * @return The candidateTransferOwnership.
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.CandidateTransferOwnership getCandidateTransferOwnership() {
+      if (candidateTransferOwnershipBuilder_ == null) {
+        if (actionCase_ == 52) {
+          return (com.github.iotexproject.grpc.types.CandidateTransferOwnership) action_;
+        }
+        return com.github.iotexproject.grpc.types.CandidateTransferOwnership.getDefaultInstance();
+      } else {
+        if (actionCase_ == 52) {
+          return candidateTransferOwnershipBuilder_.getMessage();
+        }
+        return com.github.iotexproject.grpc.types.CandidateTransferOwnership.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     */
+    public Builder setCandidateTransferOwnership(com.github.iotexproject.grpc.types.CandidateTransferOwnership value) {
+      if (candidateTransferOwnershipBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        action_ = value;
+        onChanged();
+      } else {
+        candidateTransferOwnershipBuilder_.setMessage(value);
+      }
+      actionCase_ = 52;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     */
+    public Builder setCandidateTransferOwnership(
+        com.github.iotexproject.grpc.types.CandidateTransferOwnership.Builder builderForValue) {
+      if (candidateTransferOwnershipBuilder_ == null) {
+        action_ = builderForValue.build();
+        onChanged();
+      } else {
+        candidateTransferOwnershipBuilder_.setMessage(builderForValue.build());
+      }
+      actionCase_ = 52;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     */
+    public Builder mergeCandidateTransferOwnership(com.github.iotexproject.grpc.types.CandidateTransferOwnership value) {
+      if (candidateTransferOwnershipBuilder_ == null) {
+        if (actionCase_ == 52 &&
+            action_ != com.github.iotexproject.grpc.types.CandidateTransferOwnership.getDefaultInstance()) {
+          action_ = com.github.iotexproject.grpc.types.CandidateTransferOwnership.newBuilder((com.github.iotexproject.grpc.types.CandidateTransferOwnership) action_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          action_ = value;
+        }
+        onChanged();
+      } else {
+        if (actionCase_ == 52) {
+          candidateTransferOwnershipBuilder_.mergeFrom(value);
+        } else {
+          candidateTransferOwnershipBuilder_.setMessage(value);
+        }
+      }
+      actionCase_ = 52;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     */
+    public Builder clearCandidateTransferOwnership() {
+      if (candidateTransferOwnershipBuilder_ == null) {
+        if (actionCase_ == 52) {
+          actionCase_ = 0;
+          action_ = null;
+          onChanged();
+        }
+      } else {
+        if (actionCase_ == 52) {
+          actionCase_ = 0;
+          action_ = null;
+        }
+        candidateTransferOwnershipBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     */
+    public com.github.iotexproject.grpc.types.CandidateTransferOwnership.Builder getCandidateTransferOwnershipBuilder() {
+      return getCandidateTransferOwnershipFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.CandidateTransferOwnershipOrBuilder getCandidateTransferOwnershipOrBuilder() {
+      if ((actionCase_ == 52) && (candidateTransferOwnershipBuilder_ != null)) {
+        return candidateTransferOwnershipBuilder_.getMessageOrBuilder();
+      } else {
+        if (actionCase_ == 52) {
+          return (com.github.iotexproject.grpc.types.CandidateTransferOwnership) action_;
+        }
+        return com.github.iotexproject.grpc.types.CandidateTransferOwnership.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.CandidateTransferOwnership, com.github.iotexproject.grpc.types.CandidateTransferOwnership.Builder, com.github.iotexproject.grpc.types.CandidateTransferOwnershipOrBuilder> 
+        getCandidateTransferOwnershipFieldBuilder() {
+      if (candidateTransferOwnershipBuilder_ == null) {
+        if (!(actionCase_ == 52)) {
+          action_ = com.github.iotexproject.grpc.types.CandidateTransferOwnership.getDefaultInstance();
+        }
+        candidateTransferOwnershipBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.iotexproject.grpc.types.CandidateTransferOwnership, com.github.iotexproject.grpc.types.CandidateTransferOwnership.Builder, com.github.iotexproject.grpc.types.CandidateTransferOwnershipOrBuilder>(
+                (com.github.iotexproject.grpc.types.CandidateTransferOwnership) action_,
+                getParentForChildren(),
+                isClean());
+        action_ = null;
+      }
+      actionCase_ = 52;
+      onChanged();
+      return candidateTransferOwnershipBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.StakeMigrate, com.github.iotexproject.grpc.types.StakeMigrate.Builder, com.github.iotexproject.grpc.types.StakeMigrateOrBuilder> stakeMigrateBuilder_;
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     * @return Whether the stakeMigrate field is set.
+     */
+    @java.lang.Override
+    public boolean hasStakeMigrate() {
+      return actionCase_ == 53;
+    }
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     * @return The stakeMigrate.
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.StakeMigrate getStakeMigrate() {
+      if (stakeMigrateBuilder_ == null) {
+        if (actionCase_ == 53) {
+          return (com.github.iotexproject.grpc.types.StakeMigrate) action_;
+        }
+        return com.github.iotexproject.grpc.types.StakeMigrate.getDefaultInstance();
+      } else {
+        if (actionCase_ == 53) {
+          return stakeMigrateBuilder_.getMessage();
+        }
+        return com.github.iotexproject.grpc.types.StakeMigrate.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     */
+    public Builder setStakeMigrate(com.github.iotexproject.grpc.types.StakeMigrate value) {
+      if (stakeMigrateBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        action_ = value;
+        onChanged();
+      } else {
+        stakeMigrateBuilder_.setMessage(value);
+      }
+      actionCase_ = 53;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     */
+    public Builder setStakeMigrate(
+        com.github.iotexproject.grpc.types.StakeMigrate.Builder builderForValue) {
+      if (stakeMigrateBuilder_ == null) {
+        action_ = builderForValue.build();
+        onChanged();
+      } else {
+        stakeMigrateBuilder_.setMessage(builderForValue.build());
+      }
+      actionCase_ = 53;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     */
+    public Builder mergeStakeMigrate(com.github.iotexproject.grpc.types.StakeMigrate value) {
+      if (stakeMigrateBuilder_ == null) {
+        if (actionCase_ == 53 &&
+            action_ != com.github.iotexproject.grpc.types.StakeMigrate.getDefaultInstance()) {
+          action_ = com.github.iotexproject.grpc.types.StakeMigrate.newBuilder((com.github.iotexproject.grpc.types.StakeMigrate) action_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          action_ = value;
+        }
+        onChanged();
+      } else {
+        if (actionCase_ == 53) {
+          stakeMigrateBuilder_.mergeFrom(value);
+        } else {
+          stakeMigrateBuilder_.setMessage(value);
+        }
+      }
+      actionCase_ = 53;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     */
+    public Builder clearStakeMigrate() {
+      if (stakeMigrateBuilder_ == null) {
+        if (actionCase_ == 53) {
+          actionCase_ = 0;
+          action_ = null;
+          onChanged();
+        }
+      } else {
+        if (actionCase_ == 53) {
+          actionCase_ = 0;
+          action_ = null;
+        }
+        stakeMigrateBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     */
+    public com.github.iotexproject.grpc.types.StakeMigrate.Builder getStakeMigrateBuilder() {
+      return getStakeMigrateFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.StakeMigrateOrBuilder getStakeMigrateOrBuilder() {
+      if ((actionCase_ == 53) && (stakeMigrateBuilder_ != null)) {
+        return stakeMigrateBuilder_.getMessageOrBuilder();
+      } else {
+        if (actionCase_ == 53) {
+          return (com.github.iotexproject.grpc.types.StakeMigrate) action_;
+        }
+        return com.github.iotexproject.grpc.types.StakeMigrate.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.StakeMigrate, com.github.iotexproject.grpc.types.StakeMigrate.Builder, com.github.iotexproject.grpc.types.StakeMigrateOrBuilder> 
+        getStakeMigrateFieldBuilder() {
+      if (stakeMigrateBuilder_ == null) {
+        if (!(actionCase_ == 53)) {
+          action_ = com.github.iotexproject.grpc.types.StakeMigrate.getDefaultInstance();
+        }
+        stakeMigrateBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.iotexproject.grpc.types.StakeMigrate, com.github.iotexproject.grpc.types.StakeMigrate.Builder, com.github.iotexproject.grpc.types.StakeMigrateOrBuilder>(
+                (com.github.iotexproject.grpc.types.StakeMigrate) action_,
+                getParentForChildren(),
+                isClean());
+        action_ = null;
+      }
+      actionCase_ = 53;
+      onChanged();
+      return stakeMigrateBuilder_;
     }
 
     private com.google.protobuf.SingleFieldBuilder<

@@ -187,6 +187,66 @@ public interface EstimateActionGasConsumptionRequestOrBuilder extends
   com.github.iotexproject.grpc.types.CandidateBasicInfoOrBuilder getCandidateUpdateOrBuilder();
 
   /**
+   * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+   * @return Whether the candidateActivate field is set.
+   */
+  boolean hasCandidateActivate();
+  /**
+   * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+   * @return The candidateActivate.
+   */
+  com.github.iotexproject.grpc.types.CandidateActivate getCandidateActivate();
+  /**
+   * <code>.iotextypes.CandidateActivate candidateActivate = 49;</code>
+   */
+  com.github.iotexproject.grpc.types.CandidateActivateOrBuilder getCandidateActivateOrBuilder();
+
+  /**
+   * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+   * @return Whether the candidateEndorsement field is set.
+   */
+  boolean hasCandidateEndorsement();
+  /**
+   * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+   * @return The candidateEndorsement.
+   */
+  com.github.iotexproject.grpc.types.CandidateEndorsement getCandidateEndorsement();
+  /**
+   * <code>.iotextypes.CandidateEndorsement candidateEndorsement = 51;</code>
+   */
+  com.github.iotexproject.grpc.types.CandidateEndorsementOrBuilder getCandidateEndorsementOrBuilder();
+
+  /**
+   * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+   * @return Whether the candidateTransferOwnership field is set.
+   */
+  boolean hasCandidateTransferOwnership();
+  /**
+   * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+   * @return The candidateTransferOwnership.
+   */
+  com.github.iotexproject.grpc.types.CandidateTransferOwnership getCandidateTransferOwnership();
+  /**
+   * <code>.iotextypes.CandidateTransferOwnership candidateTransferOwnership = 52;</code>
+   */
+  com.github.iotexproject.grpc.types.CandidateTransferOwnershipOrBuilder getCandidateTransferOwnershipOrBuilder();
+
+  /**
+   * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+   * @return Whether the stakeMigrate field is set.
+   */
+  boolean hasStakeMigrate();
+  /**
+   * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+   * @return The stakeMigrate.
+   */
+  com.github.iotexproject.grpc.types.StakeMigrate getStakeMigrate();
+  /**
+   * <code>.iotextypes.StakeMigrate stakeMigrate = 53;</code>
+   */
+  com.github.iotexproject.grpc.types.StakeMigrateOrBuilder getStakeMigrateOrBuilder();
+
+  /**
    * <code>string callerAddress = 100;</code>
    * @return The callerAddress.
    */
@@ -197,6 +257,18 @@ public interface EstimateActionGasConsumptionRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCallerAddressBytes();
+
+  /**
+   * <code>string gasPrice = 101;</code>
+   * @return The gasPrice.
+   */
+  java.lang.String getGasPrice();
+  /**
+   * <code>string gasPrice = 101;</code>
+   * @return The bytes for gasPrice.
+   */
+  com.google.protobuf.ByteString
+      getGasPriceBytes();
 
   com.github.iotexproject.grpc.api.EstimateActionGasConsumptionRequest.ActionCase getActionCase();
 }

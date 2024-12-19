@@ -13,12 +13,20 @@ public enum Encoding
   /**
    * <code>IOTEX_PROTOBUF = 0;</code>
    */
-  IOTEX_PROTOBUF(0),
+  IOTEX_PROTOBUF(0, 0),
   /**
-   * <code>ETHEREUM_RLP = 1;</code>
+   * <code>ETHEREUM_EIP155 = 1;</code>
    */
-  ETHEREUM_RLP(1),
-  UNRECOGNIZED(-1),
+  ETHEREUM_EIP155(1, 1),
+  /**
+   * <code>ETHEREUM_UNPROTECTED = 2;</code>
+   */
+  ETHEREUM_UNPROTECTED(3, 2),
+  /**
+   * <code>TX_CONTAINER = 128;</code>
+   */
+  TX_CONTAINER(4, 128),
+  UNRECOGNIZED(-1, -1),
   ;
 
   static {
@@ -31,17 +39,33 @@ public enum Encoding
       Encoding.class.getName());
   }
   /**
+   * <code>ETHEREUM_RLP = 1;</code>
+   */
+  public static final Encoding ETHEREUM_RLP = ETHEREUM_EIP155;
+  /**
    * <code>IOTEX_PROTOBUF = 0;</code>
    */
   public static final int IOTEX_PROTOBUF_VALUE = 0;
   /**
+   * <code>ETHEREUM_EIP155 = 1;</code>
+   */
+  public static final int ETHEREUM_EIP155_VALUE = 1;
+  /**
    * <code>ETHEREUM_RLP = 1;</code>
    */
   public static final int ETHEREUM_RLP_VALUE = 1;
+  /**
+   * <code>ETHEREUM_UNPROTECTED = 2;</code>
+   */
+  public static final int ETHEREUM_UNPROTECTED_VALUE = 2;
+  /**
+   * <code>TX_CONTAINER = 128;</code>
+   */
+  public static final int TX_CONTAINER_VALUE = 128;
 
 
   public final int getNumber() {
-    if (this == UNRECOGNIZED) {
+    if (index == -1) {
       throw new java.lang.IllegalArgumentException(
           "Can't get the number of an unknown enum value.");
     }
@@ -65,7 +89,9 @@ public enum Encoding
   public static Encoding forNumber(int value) {
     switch (value) {
       case 0: return IOTEX_PROTOBUF;
-      case 1: return ETHEREUM_RLP;
+      case 1: return ETHEREUM_EIP155;
+      case 2: return ETHEREUM_UNPROTECTED;
+      case 128: return TX_CONTAINER;
       default: return null;
     }
   }
@@ -84,11 +110,11 @@ public enum Encoding
 
   public final com.google.protobuf.Descriptors.EnumValueDescriptor
       getValueDescriptor() {
-    if (this == UNRECOGNIZED) {
+    if (index == -1) {
       throw new java.lang.IllegalStateException(
           "Can't get the descriptor of an unrecognized enum value.");
     }
-    return getDescriptor().getValues().get(ordinal());
+    return getDescriptor().getValues().get(index);
   }
   public final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptorForType() {
@@ -99,8 +125,12 @@ public enum Encoding
     return com.github.iotexproject.grpc.types.ActionOuterClass.getDescriptor().getEnumTypes().get(0);
   }
 
-  private static final Encoding[] VALUES = values();
-
+  private static final Encoding[] VALUES = getStaticValuesArray();
+  private static Encoding[] getStaticValuesArray() {
+    return new Encoding[] {
+    IOTEX_PROTOBUF, ETHEREUM_EIP155, ETHEREUM_RLP, ETHEREUM_UNPROTECTED, TX_CONTAINER, 
+    };
+  }
   public static Encoding valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
@@ -113,9 +143,11 @@ public enum Encoding
     return VALUES[desc.getIndex()];
   }
 
+  private final int index;
   private final int value;
 
-  private Encoding(int value) {
+  private Encoding(int index, int value) {
+    this.index = index;
     this.value = value;
   }
 
