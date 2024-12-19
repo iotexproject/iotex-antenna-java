@@ -8,6 +8,14 @@ network for IoT powered by scalability- and privacy-centric blockchains. Please 
 
 ## Get started
 
+### Build protoc
+
+```
+protoc --proto_path=src/main/proto --java_out=src/main/java src/main/proto/proto/*/*.proto
+protoc --plugin=/opt/homebrew/bin/protoc-gen-grpc-java \
+    --grpc-java_out="src/main/java" --proto_path=src/main/proto src/main/proto/proto/api/api.proto
+```
+
 ### Install By Maven
 
 ```
