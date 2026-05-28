@@ -10,6 +10,7 @@ import com.google.protobuf.ByteString;
 import lombok.Data;
 
 import java.math.BigInteger;
+import java.util.stream.Collectors;
 
 /**
  * Sealed Envelop.
@@ -80,6 +81,19 @@ public class SealedEnvelop {
         }
         if (act.getBlobTxData() != null) {
             builder.setBlobTxData(act.getBlobTxData());
+        }
+        if (act.getSetCodeAuthList() != null) {
+            builder.addAllSetCodeAuthList(act.getSetCodeAuthList().stream().map(a -> {
+                com.github.iotexproject.grpc.types.SetCodeAuthorization.Builder pb =
+                    com.github.iotexproject.grpc.types.SetCodeAuthorization.newBuilder()
+                        .setChainID(ChainIdUtils.toEvmChainId(a.getChainID()))
+                        .setAddress(ByteString.copyFrom(a.getAddress()))
+                        .setNonce(a.getNonce())
+                        .setV(a.getV());
+                if (a.getR() != null) pb.setR(ByteString.copyFrom(a.getR().toByteArray()));
+                if (a.getS() != null) pb.setS(ByteString.copyFrom(a.getS().toByteArray()));
+                return pb.build();
+            }).collect(Collectors.toList()));
         }
         if (act.getTransfer() != null) {
             builder.setTransfer(act.getTransfer());

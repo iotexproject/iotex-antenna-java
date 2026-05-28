@@ -32,6 +32,7 @@ private static final long serialVersionUID = 0L;
     gasTipCap_ = "";
     gasFeeCap_ = "";
     accessList_ = java.util.Collections.emptyList();
+    setCodeAuthList_ = java.util.Collections.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -398,6 +399,47 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public int getTxType() {
     return txType_;
+  }
+
+  public static final int SETCODEAUTHLIST_FIELD_NUMBER = 29;
+  @SuppressWarnings("serial")
+  private java.util.List<com.github.iotexproject.grpc.types.SetCodeAuthorization> setCodeAuthList_;
+  /**
+   * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.github.iotexproject.grpc.types.SetCodeAuthorization> getSetCodeAuthListList() {
+    return setCodeAuthList_;
+  }
+  /**
+   * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.github.iotexproject.grpc.types.SetCodeAuthorizationOrBuilder> 
+      getSetCodeAuthListOrBuilderList() {
+    return setCodeAuthList_;
+  }
+  /**
+   * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+   */
+  @java.lang.Override
+  public int getSetCodeAuthListCount() {
+    return setCodeAuthList_.size();
+  }
+  /**
+   * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.SetCodeAuthorization getSetCodeAuthList(int index) {
+    return setCodeAuthList_.get(index);
+  }
+  /**
+   * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.SetCodeAuthorizationOrBuilder getSetCodeAuthListOrBuilder(
+      int index) {
+    return setCodeAuthList_.get(index);
   }
 
   public static final int TRANSFER_FIELD_NUMBER = 10;
@@ -1631,6 +1673,9 @@ private static final long serialVersionUID = 0L;
     if (txType_ != 0) {
       output.writeUInt32(28, txType_);
     }
+    for (int i = 0; i < setCodeAuthList_.size(); i++) {
+      output.writeMessage(29, setCodeAuthList_.get(i));
+    }
     if (actionCase_ == 30) {
       output.writeMessage(30, (com.github.iotexproject.grpc.types.DepositToRewardingFund) action_);
     }
@@ -1805,6 +1850,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(28, txType_);
     }
+
+        {
+          final int count = setCodeAuthList_.size();
+          for (int i = 0; i < count; i++) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeMessageSizeNoTag(setCodeAuthList_.get(i));
+          }
+          size += 2 * count;
+        }
     if (actionCase_ == 30) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(30, (com.github.iotexproject.grpc.types.DepositToRewardingFund) action_);
@@ -1911,6 +1965,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAccessListList())) return false;
     if (getTxType()
         != other.getTxType()) return false;
+    if (!getSetCodeAuthListList()
+        .equals(other.getSetCodeAuthListList())) return false;
     if (!getActionCase().equals(other.getActionCase())) return false;
     switch (actionCase_) {
       case 10:
@@ -2093,6 +2149,10 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + TXTYPE_FIELD_NUMBER;
     hash = (53 * hash) + getTxType();
+    if (getSetCodeAuthListCount() > 0) {
+      hash = (37 * hash) + SETCODEAUTHLIST_FIELD_NUMBER;
+      hash = (53 * hash) + getSetCodeAuthListList().hashCode();
+    }
     switch (actionCase_) {
       case 10:
         hash = (37 * hash) + TRANSFER_FIELD_NUMBER;
@@ -2369,6 +2429,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
         internalGetBlobTxDataFieldBuilder();
         internalGetAccessListFieldBuilder();
+        internalGetSetCodeAuthListFieldBuilder();
       }
     }
     @java.lang.Override
@@ -2396,6 +2457,13 @@ private static final long serialVersionUID = 0L;
       }
       bitField0_ = (bitField0_ & ~0x00000100);
       txType_ = 0;
+      if (setCodeAuthListBuilder_ == null) {
+        setCodeAuthList_ = java.util.Collections.emptyList();
+      } else {
+        setCodeAuthList_ = null;
+        setCodeAuthListBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000400);
       if (transferBuilder_ != null) {
         transferBuilder_.clear();
       }
@@ -2546,6 +2614,15 @@ private static final long serialVersionUID = 0L;
         result.accessList_ = accessList_;
       } else {
         result.accessList_ = accessListBuilder_.build();
+      }
+      if (setCodeAuthListBuilder_ == null) {
+        if (((bitField0_ & 0x00000400) != 0)) {
+          setCodeAuthList_ = java.util.Collections.unmodifiableList(setCodeAuthList_);
+          bitField0_ = (bitField0_ & ~0x00000400);
+        }
+        result.setCodeAuthList_ = setCodeAuthList_;
+      } else {
+        result.setCodeAuthList_ = setCodeAuthListBuilder_.build();
       }
     }
 
@@ -2804,6 +2881,32 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getTxType() != 0) {
         setTxType(other.getTxType());
+      }
+      if (setCodeAuthListBuilder_ == null) {
+        if (!other.setCodeAuthList_.isEmpty()) {
+          if (setCodeAuthList_.isEmpty()) {
+            setCodeAuthList_ = other.setCodeAuthList_;
+            bitField0_ = (bitField0_ & ~0x00000400);
+          } else {
+            ensureSetCodeAuthListIsMutable();
+            setCodeAuthList_.addAll(other.setCodeAuthList_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.setCodeAuthList_.isEmpty()) {
+          if (setCodeAuthListBuilder_.isEmpty()) {
+            setCodeAuthListBuilder_.dispose();
+            setCodeAuthListBuilder_ = null;
+            setCodeAuthList_ = other.setCodeAuthList_;
+            bitField0_ = (bitField0_ & ~0x00000400);
+            setCodeAuthListBuilder_ = 
+              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                 internalGetSetCodeAuthListFieldBuilder() : null;
+          } else {
+            setCodeAuthListBuilder_.addAllMessages(other.setCodeAuthList_);
+          }
+        }
       }
       switch (other.getActionCase()) {
         case TRANSFER: {
@@ -3162,6 +3265,19 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000200;
               break;
             } // case 224
+            case 234: {
+              com.github.iotexproject.grpc.types.SetCodeAuthorization m =
+                  input.readMessage(
+                      com.github.iotexproject.grpc.types.SetCodeAuthorization.parser(),
+                      extensionRegistry);
+              if (setCodeAuthListBuilder_ == null) {
+                ensureSetCodeAuthListIsMutable();
+                setCodeAuthList_.add(m);
+              } else {
+                setCodeAuthListBuilder_.addMessage(m);
+              }
+              break;
+            } // case 234
             case 242: {
               input.readMessage(
                   internalGetDepositToRewardingFundFieldBuilder().getBuilder(),
@@ -4049,6 +4165,246 @@ private static final long serialVersionUID = 0L;
       txType_ = 0;
       onChanged();
       return this;
+    }
+
+    private java.util.List<com.github.iotexproject.grpc.types.SetCodeAuthorization> setCodeAuthList_ =
+      java.util.Collections.emptyList();
+    private void ensureSetCodeAuthListIsMutable() {
+      if (!((bitField0_ & 0x00000400) != 0)) {
+        setCodeAuthList_ = new java.util.ArrayList<com.github.iotexproject.grpc.types.SetCodeAuthorization>(setCodeAuthList_);
+        bitField0_ |= 0x00000400;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilder<
+        com.github.iotexproject.grpc.types.SetCodeAuthorization, com.github.iotexproject.grpc.types.SetCodeAuthorization.Builder, com.github.iotexproject.grpc.types.SetCodeAuthorizationOrBuilder> setCodeAuthListBuilder_;
+
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public java.util.List<com.github.iotexproject.grpc.types.SetCodeAuthorization> getSetCodeAuthListList() {
+      if (setCodeAuthListBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(setCodeAuthList_);
+      } else {
+        return setCodeAuthListBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public int getSetCodeAuthListCount() {
+      if (setCodeAuthListBuilder_ == null) {
+        return setCodeAuthList_.size();
+      } else {
+        return setCodeAuthListBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public com.github.iotexproject.grpc.types.SetCodeAuthorization getSetCodeAuthList(int index) {
+      if (setCodeAuthListBuilder_ == null) {
+        return setCodeAuthList_.get(index);
+      } else {
+        return setCodeAuthListBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public Builder setSetCodeAuthList(
+        int index, com.github.iotexproject.grpc.types.SetCodeAuthorization value) {
+      if (setCodeAuthListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSetCodeAuthListIsMutable();
+        setCodeAuthList_.set(index, value);
+        onChanged();
+      } else {
+        setCodeAuthListBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public Builder setSetCodeAuthList(
+        int index, com.github.iotexproject.grpc.types.SetCodeAuthorization.Builder builderForValue) {
+      if (setCodeAuthListBuilder_ == null) {
+        ensureSetCodeAuthListIsMutable();
+        setCodeAuthList_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        setCodeAuthListBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public Builder addSetCodeAuthList(com.github.iotexproject.grpc.types.SetCodeAuthorization value) {
+      if (setCodeAuthListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSetCodeAuthListIsMutable();
+        setCodeAuthList_.add(value);
+        onChanged();
+      } else {
+        setCodeAuthListBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public Builder addSetCodeAuthList(
+        int index, com.github.iotexproject.grpc.types.SetCodeAuthorization value) {
+      if (setCodeAuthListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSetCodeAuthListIsMutable();
+        setCodeAuthList_.add(index, value);
+        onChanged();
+      } else {
+        setCodeAuthListBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public Builder addSetCodeAuthList(
+        com.github.iotexproject.grpc.types.SetCodeAuthorization.Builder builderForValue) {
+      if (setCodeAuthListBuilder_ == null) {
+        ensureSetCodeAuthListIsMutable();
+        setCodeAuthList_.add(builderForValue.build());
+        onChanged();
+      } else {
+        setCodeAuthListBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public Builder addSetCodeAuthList(
+        int index, com.github.iotexproject.grpc.types.SetCodeAuthorization.Builder builderForValue) {
+      if (setCodeAuthListBuilder_ == null) {
+        ensureSetCodeAuthListIsMutable();
+        setCodeAuthList_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        setCodeAuthListBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public Builder addAllSetCodeAuthList(
+        java.lang.Iterable<? extends com.github.iotexproject.grpc.types.SetCodeAuthorization> values) {
+      if (setCodeAuthListBuilder_ == null) {
+        ensureSetCodeAuthListIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, setCodeAuthList_);
+        onChanged();
+      } else {
+        setCodeAuthListBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public Builder clearSetCodeAuthList() {
+      if (setCodeAuthListBuilder_ == null) {
+        setCodeAuthList_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000400);
+        onChanged();
+      } else {
+        setCodeAuthListBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public Builder removeSetCodeAuthList(int index) {
+      if (setCodeAuthListBuilder_ == null) {
+        ensureSetCodeAuthListIsMutable();
+        setCodeAuthList_.remove(index);
+        onChanged();
+      } else {
+        setCodeAuthListBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public com.github.iotexproject.grpc.types.SetCodeAuthorization.Builder getSetCodeAuthListBuilder(
+        int index) {
+      return internalGetSetCodeAuthListFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public com.github.iotexproject.grpc.types.SetCodeAuthorizationOrBuilder getSetCodeAuthListOrBuilder(
+        int index) {
+      if (setCodeAuthListBuilder_ == null) {
+        return setCodeAuthList_.get(index);  } else {
+        return setCodeAuthListBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public java.util.List<? extends com.github.iotexproject.grpc.types.SetCodeAuthorizationOrBuilder> 
+         getSetCodeAuthListOrBuilderList() {
+      if (setCodeAuthListBuilder_ != null) {
+        return setCodeAuthListBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(setCodeAuthList_);
+      }
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public com.github.iotexproject.grpc.types.SetCodeAuthorization.Builder addSetCodeAuthListBuilder() {
+      return internalGetSetCodeAuthListFieldBuilder().addBuilder(
+          com.github.iotexproject.grpc.types.SetCodeAuthorization.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public com.github.iotexproject.grpc.types.SetCodeAuthorization.Builder addSetCodeAuthListBuilder(
+        int index) {
+      return internalGetSetCodeAuthListFieldBuilder().addBuilder(
+          index, com.github.iotexproject.grpc.types.SetCodeAuthorization.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+     */
+    public java.util.List<com.github.iotexproject.grpc.types.SetCodeAuthorization.Builder> 
+         getSetCodeAuthListBuilderList() {
+      return internalGetSetCodeAuthListFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilder<
+        com.github.iotexproject.grpc.types.SetCodeAuthorization, com.github.iotexproject.grpc.types.SetCodeAuthorization.Builder, com.github.iotexproject.grpc.types.SetCodeAuthorizationOrBuilder> 
+        internalGetSetCodeAuthListFieldBuilder() {
+      if (setCodeAuthListBuilder_ == null) {
+        setCodeAuthListBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.github.iotexproject.grpc.types.SetCodeAuthorization, com.github.iotexproject.grpc.types.SetCodeAuthorization.Builder, com.github.iotexproject.grpc.types.SetCodeAuthorizationOrBuilder>(
+                setCodeAuthList_,
+                ((bitField0_ & 0x00000400) != 0),
+                getParentForChildren(),
+                isClean());
+        setCodeAuthList_ = null;
+      }
+      return setCodeAuthListBuilder_;
     }
 
     private com.google.protobuf.SingleFieldBuilder<

@@ -77,6 +77,11 @@ public final class ActionOuterClass extends com.google.protobuf.GeneratedFile {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_iotextypes_BlobTxSidecars_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_iotextypes_SetCodeAuthorization_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_iotextypes_SetCodeAuthorization_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_iotextypes_StakeCreate_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -318,163 +323,167 @@ public final class ActionOuterClass extends com.google.protobuf.GeneratedFile {
       "xSidecar\030\003 \001(\0132\031.iotextypes.BlobTxSideca" +
       "r\"M\n\016BlobTxSidecars\022\016\n\006txHash\030\001 \003(\014\022+\n\010s" +
       "idecars\030\002 \003(\0132\031.iotextypes.BlobTxSidecar" +
-      "\"v\n\013StakeCreate\022\025\n\rcandidateName\030\001 \001(\t\022\024" +
-      "\n\014stakedAmount\030\002 \001(\t\022\026\n\016stakedDuration\030\003" +
-      " \001(\r\022\021\n\tautoStake\030\004 \001(\010\022\017\n\007payload\030\005 \001(\014" +
-      "\"#\n\014StakeMigrate\022\023\n\013bucketIndex\030\001 \001(\004\"4\n" +
-      "\014StakeReclaim\022\023\n\013bucketIndex\030\001 \001(\004\022\017\n\007pa" +
-      "yload\030\002 \001(\014\"G\n\017StakeAddDeposit\022\023\n\013bucket" +
-      "Index\030\001 \001(\004\022\016\n\006amount\030\002 \001(\t\022\017\n\007payload\030\003" +
-      " \001(\014\"_\n\014StakeRestake\022\023\n\013bucketIndex\030\001 \001(" +
-      "\004\022\026\n\016stakedDuration\030\002 \001(\r\022\021\n\tautoStake\030\003" +
-      " \001(\010\022\017\n\007payload\030\004 \001(\014\"S\n\024StakeChangeCand" +
-      "idate\022\023\n\013bucketIndex\030\001 \001(\004\022\025\n\rcandidateN" +
-      "ame\030\002 \001(\t\022\017\n\007payload\030\003 \001(\014\"T\n\026StakeTrans" +
-      "ferOwnership\022\023\n\013bucketIndex\030\001 \001(\004\022\024\n\014vot" +
-      "erAddress\030\002 \001(\t\022\017\n\007payload\030\003 \001(\014\"R\n\022Cand" +
-      "idateBasicInfo\022\014\n\004name\030\001 \001(\t\022\027\n\017operator" +
-      "Address\030\002 \001(\t\022\025\n\rrewardAddress\030\003 \001(\t\"\256\001\n" +
-      "\021CandidateRegister\0221\n\tcandidate\030\001 \001(\0132\036." +
-      "iotextypes.CandidateBasicInfo\022\024\n\014stakedA" +
-      "mount\030\002 \001(\t\022\026\n\016stakedDuration\030\003 \001(\r\022\021\n\ta" +
-      "utoStake\030\004 \001(\010\022\024\n\014ownerAddress\030\005 \001(\t\022\017\n\007" +
-      "payload\030\006 \001(\014\"F\n\032CandidateTransferOwners" +
-      "hip\022\027\n\017newOwnerAddress\030\001 \001(\t\022\017\n\007payload\030" +
-      "\002 \001(\014\"(\n\021CandidateActivate\022\023\n\013bucketInde" +
-      "x\030\001 \001(\004\"H\n\024CandidateEndorsement\022\023\n\013bucke" +
-      "tIndex\030\001 \001(\004\022\017\n\007endorse\030\002 \001(\010\022\n\n\002op\030\003 \001(" +
-      "\r\"\204\001\n\rStartSubChain\022\017\n\007chainID\030\001 \001(\r\022\027\n\017" +
-      "securityDeposit\030\002 \001(\t\022\030\n\020operationDeposi" +
-      "t\030\003 \001(\t\022\023\n\013startHeight\030\004 \001(\004\022\032\n\022parentHe" +
-      "ightOffset\030\005 \001(\004\"L\n\014StopSubChain\022\017\n\007chai" +
-      "nID\030\001 \001(\r\022\022\n\nstopHeight\030\002 \001(\004\022\027\n\017subChai" +
-      "nAddress\030\003 \001(\t\")\n\nMerkleRoot\022\014\n\004name\030\001 \001" +
-      "(\t\022\r\n\005value\030\002 \001(\014\"Z\n\010PutBlock\022\027\n\017subChai" +
-      "nAddress\030\001 \001(\t\022\016\n\006height\030\002 \001(\004\022%\n\005roots\030" +
-      "\003 \003(\0132\026.iotextypes.MerkleRoot\"C\n\rCreateD" +
-      "eposit\022\017\n\007chainID\030\001 \001(\r\022\016\n\006amount\030\002 \001(\t\022" +
-      "\021\n\trecipient\030\003 \001(\t\"A\n\rSettleDeposit\022\016\n\006a" +
-      "mount\030\001 \001(\t\022\021\n\trecipient\030\002 \001(\t\022\r\n\005index\030" +
-      "\003 \001(\004\"\021\n\017CreatePlumChain\"-\n\022TerminatePlu" +
-      "mChain\022\027\n\017subChainAddress\030\001 \001(\t\"\231\001\n\014Plum" +
-      "PutBlock\022\027\n\017subChainAddress\030\001 \001(\t\022\016\n\006hei" +
-      "ght\030\002 \001(\004\0222\n\005roots\030\003 \003(\0132#.iotextypes.Pl" +
-      "umPutBlock.RootsEntry\032,\n\nRootsEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"O\n\021PlumCreat" +
-      "eDeposit\022\027\n\017subChainAddress\030\001 \001(\t\022\016\n\006amo" +
-      "unt\030\002 \001(\t\022\021\n\trecipient\030\003 \001(\t\"\342\001\n\rPlumSta" +
-      "rtExit\022\027\n\017subChainAddress\030\001 \001(\t\022\030\n\020previ" +
-      "ousTransfer\030\002 \001(\014\022\"\n\032previousTransferBlo" +
-      "ckProof\030\003 \001(\014\022#\n\033previousTransferBlockHe" +
-      "ight\030\004 \001(\004\022\024\n\014exitTransfer\030\005 \001(\014\022\036\n\026exit" +
-      "TransferBlockProof\030\006 \001(\014\022\037\n\027exitTransfer" +
-      "BlockHeight\030\007 \001(\004\"\242\001\n\021PlumChallengeExit\022" +
-      "\027\n\017subChainAddress\030\001 \001(\t\022\016\n\006coinID\030\002 \001(\004" +
-      "\022\031\n\021challengeTransfer\030\003 \001(\014\022#\n\033challenge" +
-      "TransferBlockProof\030\004 \001(\014\022$\n\034challengeTra" +
-      "nsferBlockHeight\030\005 \001(\004\"\302\001\n\031PlumResponseC" +
-      "hallengeExit\022\027\n\017subChainAddress\030\001 \001(\t\022\016\n" +
-      "\006coinID\030\002 \001(\004\022\031\n\021challengeTransfer\030\003 \001(\014" +
-      "\022\030\n\020responseTransfer\030\004 \001(\014\022\"\n\032responseTr" +
-      "ansferBlockProof\030\005 \001(\014\022#\n\033previousTransf" +
-      "erBlockHeight\030\006 \001(\004\";\n\020PlumFinalizeExit\022" +
-      "\027\n\017subChainAddress\030\001 \001(\t\022\016\n\006coinID\030\002 \001(\004" +
-      "\"#\n\021PlumSettleDeposit\022\016\n\006coinID\030\001 \001(\004\"V\n" +
-      "\014PlumTransfer\022\016\n\006coinID\030\001 \001(\004\022\024\n\014denomin" +
-      "ation\030\002 \001(\014\022\r\n\005owner\030\003 \001(\t\022\021\n\trecipient\030" +
-      "\004 \001(\t\"\254\021\n\nActionCore\022\017\n\007version\030\001 \001(\r\022\r\n" +
-      "\005nonce\030\002 \001(\004\022\020\n\010gasLimit\030\003 \001(\004\022\020\n\010gasPri" +
-      "ce\030\004 \001(\t\022\017\n\007chainID\030\005 \001(\r\022\021\n\tgasTipCap\030\006" +
-      " \001(\t\022\021\n\tgasFeeCap\030\007 \001(\t\022*\n\nblobTxData\030\010 " +
-      "\001(\0132\026.iotextypes.BlobTxData\022+\n\naccessLis" +
-      "t\030\t \003(\0132\027.iotextypes.AccessTuple\022\016\n\006txTy" +
-      "pe\030\034 \001(\r\022(\n\010transfer\030\n \001(\0132\024.iotextypes." +
-      "TransferH\000\022.\n\013txContainer\030\013 \001(\0132\027.iotext" +
-      "ypes.TxContainerH\000\022*\n\texecution\030\014 \001(\0132\025." +
-      "iotextypes.ExecutionH\000\0222\n\rstartSubChain\030" +
-      "\r \001(\0132\031.iotextypes.StartSubChainH\000\0220\n\014st" +
-      "opSubChain\030\016 \001(\0132\030.iotextypes.StopSubCha" +
-      "inH\000\022(\n\010putBlock\030\017 \001(\0132\024.iotextypes.PutB" +
-      "lockH\000\0222\n\rcreateDeposit\030\020 \001(\0132\031.iotextyp" +
-      "es.CreateDepositH\000\0222\n\rsettleDeposit\030\021 \001(" +
-      "\0132\031.iotextypes.SettleDepositH\000\0226\n\017create" +
-      "PlumChain\030\022 \001(\0132\033.iotextypes.CreatePlumC" +
-      "hainH\000\022<\n\022terminatePlumChain\030\023 \001(\0132\036.iot" +
-      "extypes.TerminatePlumChainH\000\0220\n\014plumPutB" +
-      "lock\030\024 \001(\0132\030.iotextypes.PlumPutBlockH\000\022:" +
-      "\n\021plumCreateDeposit\030\025 \001(\0132\035.iotextypes.P" +
-      "lumCreateDepositH\000\0222\n\rplumStartExit\030\026 \001(" +
-      "\0132\031.iotextypes.PlumStartExitH\000\022:\n\021plumCh" +
-      "allengeExit\030\027 \001(\0132\035.iotextypes.PlumChall" +
-      "engeExitH\000\022J\n\031plumResponseChallengeExit\030" +
-      "\030 \001(\0132%.iotextypes.PlumResponseChallenge" +
-      "ExitH\000\0228\n\020plumFinalizeExit\030\031 \001(\0132\034.iotex" +
-      "types.PlumFinalizeExitH\000\022:\n\021plumSettleDe" +
-      "posit\030\032 \001(\0132\035.iotextypes.PlumSettleDepos" +
-      "itH\000\0220\n\014plumTransfer\030\033 \001(\0132\030.iotextypes." +
-      "PlumTransferH\000\022D\n\026depositToRewardingFund" +
-      "\030\036 \001(\0132\".iotextypes.DepositToRewardingFu" +
-      "ndH\000\022D\n\026claimFromRewardingFund\030\037 \001(\0132\".i" +
-      "otextypes.ClaimFromRewardingFundH\000\022.\n\013gr" +
-      "antReward\030  \001(\0132\027.iotextypes.GrantReward" +
-      "H\000\022.\n\013stakeCreate\030( \001(\0132\027.iotextypes.Sta" +
-      "keCreateH\000\0220\n\014stakeUnstake\030) \001(\0132\030.iotex" +
-      "types.StakeReclaimH\000\0221\n\rstakeWithdraw\030* " +
-      "\001(\0132\030.iotextypes.StakeReclaimH\000\0226\n\017stake" +
-      "AddDeposit\030+ \001(\0132\033.iotextypes.StakeAddDe" +
-      "positH\000\0220\n\014stakeRestake\030, \001(\0132\030.iotextyp" +
-      "es.StakeRestakeH\000\022@\n\024stakeChangeCandidat" +
-      "e\030- \001(\0132 .iotextypes.StakeChangeCandidat" +
-      "eH\000\022D\n\026stakeTransferOwnership\030. \001(\0132\".io" +
-      "textypes.StakeTransferOwnershipH\000\022:\n\021can" +
-      "didateRegister\030/ \001(\0132\035.iotextypes.Candid" +
-      "ateRegisterH\000\0229\n\017candidateUpdate\0300 \001(\0132\036" +
-      ".iotextypes.CandidateBasicInfoH\000\022:\n\021cand" +
-      "idateActivate\0301 \001(\0132\035.iotextypes.Candida" +
-      "teActivateH\000\022@\n\024candidateEndorsement\0303 \001" +
-      "(\0132 .iotextypes.CandidateEndorsementH\000\022L" +
-      "\n\032candidateTransferOwnership\0304 \001(\0132&.iot" +
-      "extypes.CandidateTransferOwnershipH\000\0220\n\014" +
-      "stakeMigrate\0305 \001(\0132\030.iotextypes.StakeMig" +
-      "rateH\000\0222\n\rputPollResult\0302 \001(\0132\031.iotextyp" +
-      "es.PutPollResultH\000B\010\n\006action\"\177\n\006Action\022$" +
-      "\n\004core\030\001 \001(\0132\026.iotextypes.ActionCore\022\024\n\014" +
-      "senderPubKey\030\002 \001(\014\022\021\n\tsignature\030\003 \001(\014\022&\n" +
-      "\010encoding\030\004 \001(\0162\024.iotextypes.Encoding\".\n" +
-      "\007Actions\022#\n\007actions\030\001 \003(\0132\022.iotextypes.A" +
-      "ction\"\032\n\nActionHash\022\014\n\004hash\030\001 \001(\014\"\375\001\n\007Re" +
-      "ceipt\022\016\n\006status\030\001 \001(\004\022\021\n\tblkHeight\030\002 \001(\004" +
-      "\022\017\n\007actHash\030\003 \001(\014\022\023\n\013gasConsumed\030\004 \001(\004\022\027" +
-      "\n\017contractAddress\030\005 \001(\t\022\035\n\004logs\030\006 \003(\0132\017." +
-      "iotextypes.Log\022\032\n\022executionRevertMsg\030\007 \001" +
-      "(\t\022\017\n\007txIndex\030\010 \001(\r\022\023\n\013blobGasUsed\030\t \001(\004" +
-      "\022\024\n\014blobGasPrice\030\n \001(\t\022\031\n\021effectiveGasPr" +
-      "ice\030\013 \001(\t\"\221\001\n\003Log\022\027\n\017contractAddress\030\001 \001" +
-      "(\t\022\016\n\006topics\030\002 \003(\014\022\014\n\004data\030\003 \001(\014\022\021\n\tblkH" +
-      "eight\030\004 \001(\004\022\017\n\007actHash\030\005 \001(\014\022\r\n\005index\030\006 " +
-      "\001(\r\022\017\n\007blkHash\030\007 \001(\014\022\017\n\007txIndex\030\010 \001(\r\"%\n" +
-      "\004Logs\022\035\n\004logs\030\001 \003(\0132\017.iotextypes.Log\"7\n\013" +
-      "EvmTransfer\022\016\n\006amount\030\001 \001(\014\022\014\n\004from\030\002 \001(" +
-      "\t\022\n\n\002to\030\003 \001(\t\"@\n\017EvmTransferList\022-\n\014evmT" +
-      "ransfers\030\001 \003(\0132\027.iotextypes.EvmTransfer\"" +
-      "o\n\021ActionEvmTransfer\022\022\n\nactionHash\030\001 \001(\014" +
-      "\022\027\n\017numEvmTransfers\030\002 \001(\004\022-\n\014evmTransfer" +
-      "s\030\003 \003(\0132\027.iotextypes.EvmTransfer\"{\n\020Bloc" +
-      "kEvmTransfer\022\023\n\013blockHeight\030\001 \001(\004\022\027\n\017num" +
-      "EvmTransfers\030\002 \001(\004\0229\n\022actionEvmTransfers" +
-      "\030\003 \003(\0132\035.iotextypes.ActionEvmTransfer\"6\n" +
-      "\026DepositToRewardingFund\022\016\n\006amount\030\001 \001(\t\022" +
-      "\014\n\004data\030\002 \001(\014\"G\n\026ClaimFromRewardingFund\022" +
-      "\016\n\006amount\030\001 \001(\t\022\014\n\004data\030\002 \001(\014\022\017\n\007address" +
-      "\030\003 \001(\t\"C\n\013GrantReward\022$\n\004type\030\001 \001(\0162\026.io" +
-      "textypes.RewardType\022\016\n\006height\030\002 \001(\004*v\n\010E" +
-      "ncoding\022\022\n\016IOTEX_PROTOBUF\020\000\022\023\n\017ETHEREUM_" +
-      "EIP155\020\001\022\020\n\014ETHEREUM_RLP\020\001\022\030\n\024ETHEREUM_U" +
-      "NPROTECTED\020\002\022\021\n\014TX_CONTAINER\020\200\001\032\002\020\001*.\n\nR" +
-      "ewardType\022\017\n\013BlockReward\020\000\022\017\n\013EpochRewar" +
-      "d\020\001B]\n\"com.github.iotexproject.grpc.type" +
-      "sP\001Z5github.com/iotexproject/iotex-proto" +
-      "/golang/iotextypesb\006proto3"
+      "\"h\n\024SetCodeAuthorization\022\017\n\007chainID\030\001 \001(" +
+      "\r\022\017\n\007address\030\002 \001(\014\022\r\n\005nonce\030\003 \001(\004\022\t\n\001v\030\004" +
+      " \001(\004\022\t\n\001r\030\005 \001(\014\022\t\n\001s\030\006 \001(\014\"v\n\013StakeCreat" +
+      "e\022\025\n\rcandidateName\030\001 \001(\t\022\024\n\014stakedAmount" +
+      "\030\002 \001(\t\022\026\n\016stakedDuration\030\003 \001(\r\022\021\n\tautoSt" +
+      "ake\030\004 \001(\010\022\017\n\007payload\030\005 \001(\014\"#\n\014StakeMigra" +
+      "te\022\023\n\013bucketIndex\030\001 \001(\004\"4\n\014StakeReclaim\022" +
+      "\023\n\013bucketIndex\030\001 \001(\004\022\017\n\007payload\030\002 \001(\014\"G\n" +
+      "\017StakeAddDeposit\022\023\n\013bucketIndex\030\001 \001(\004\022\016\n" +
+      "\006amount\030\002 \001(\t\022\017\n\007payload\030\003 \001(\014\"_\n\014StakeR" +
+      "estake\022\023\n\013bucketIndex\030\001 \001(\004\022\026\n\016stakedDur" +
+      "ation\030\002 \001(\r\022\021\n\tautoStake\030\003 \001(\010\022\017\n\007payloa" +
+      "d\030\004 \001(\014\"S\n\024StakeChangeCandidate\022\023\n\013bucke" +
+      "tIndex\030\001 \001(\004\022\025\n\rcandidateName\030\002 \001(\t\022\017\n\007p" +
+      "ayload\030\003 \001(\014\"T\n\026StakeTransferOwnership\022\023" +
+      "\n\013bucketIndex\030\001 \001(\004\022\024\n\014voterAddress\030\002 \001(" +
+      "\t\022\017\n\007payload\030\003 \001(\014\"R\n\022CandidateBasicInfo" +
+      "\022\014\n\004name\030\001 \001(\t\022\027\n\017operatorAddress\030\002 \001(\t\022" +
+      "\025\n\rrewardAddress\030\003 \001(\t\"\256\001\n\021CandidateRegi" +
+      "ster\0221\n\tcandidate\030\001 \001(\0132\036.iotextypes.Can" +
+      "didateBasicInfo\022\024\n\014stakedAmount\030\002 \001(\t\022\026\n" +
+      "\016stakedDuration\030\003 \001(\r\022\021\n\tautoStake\030\004 \001(\010" +
+      "\022\024\n\014ownerAddress\030\005 \001(\t\022\017\n\007payload\030\006 \001(\014\"" +
+      "F\n\032CandidateTransferOwnership\022\027\n\017newOwne" +
+      "rAddress\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\"(\n\021Candi" +
+      "dateActivate\022\023\n\013bucketIndex\030\001 \001(\004\"H\n\024Can" +
+      "didateEndorsement\022\023\n\013bucketIndex\030\001 \001(\004\022\017" +
+      "\n\007endorse\030\002 \001(\010\022\n\n\002op\030\003 \001(\r\"\204\001\n\rStartSub" +
+      "Chain\022\017\n\007chainID\030\001 \001(\r\022\027\n\017securityDeposi" +
+      "t\030\002 \001(\t\022\030\n\020operationDeposit\030\003 \001(\t\022\023\n\013sta" +
+      "rtHeight\030\004 \001(\004\022\032\n\022parentHeightOffset\030\005 \001" +
+      "(\004\"L\n\014StopSubChain\022\017\n\007chainID\030\001 \001(\r\022\022\n\ns" +
+      "topHeight\030\002 \001(\004\022\027\n\017subChainAddress\030\003 \001(\t" +
+      "\")\n\nMerkleRoot\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002 " +
+      "\001(\014\"Z\n\010PutBlock\022\027\n\017subChainAddress\030\001 \001(\t" +
+      "\022\016\n\006height\030\002 \001(\004\022%\n\005roots\030\003 \003(\0132\026.iotext" +
+      "ypes.MerkleRoot\"C\n\rCreateDeposit\022\017\n\007chai" +
+      "nID\030\001 \001(\r\022\016\n\006amount\030\002 \001(\t\022\021\n\trecipient\030\003" +
+      " \001(\t\"A\n\rSettleDeposit\022\016\n\006amount\030\001 \001(\t\022\021\n" +
+      "\trecipient\030\002 \001(\t\022\r\n\005index\030\003 \001(\004\"\021\n\017Creat" +
+      "ePlumChain\"-\n\022TerminatePlumChain\022\027\n\017subC" +
+      "hainAddress\030\001 \001(\t\"\231\001\n\014PlumPutBlock\022\027\n\017su" +
+      "bChainAddress\030\001 \001(\t\022\016\n\006height\030\002 \001(\004\0222\n\005r" +
+      "oots\030\003 \003(\0132#.iotextypes.PlumPutBlock.Roo" +
+      "tsEntry\032,\n\nRootsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
+      "lue\030\002 \001(\014:\0028\001\"O\n\021PlumCreateDeposit\022\027\n\017su" +
+      "bChainAddress\030\001 \001(\t\022\016\n\006amount\030\002 \001(\t\022\021\n\tr" +
+      "ecipient\030\003 \001(\t\"\342\001\n\rPlumStartExit\022\027\n\017subC" +
+      "hainAddress\030\001 \001(\t\022\030\n\020previousTransfer\030\002 " +
+      "\001(\014\022\"\n\032previousTransferBlockProof\030\003 \001(\014\022" +
+      "#\n\033previousTransferBlockHeight\030\004 \001(\004\022\024\n\014" +
+      "exitTransfer\030\005 \001(\014\022\036\n\026exitTransferBlockP" +
+      "roof\030\006 \001(\014\022\037\n\027exitTransferBlockHeight\030\007 " +
+      "\001(\004\"\242\001\n\021PlumChallengeExit\022\027\n\017subChainAdd" +
+      "ress\030\001 \001(\t\022\016\n\006coinID\030\002 \001(\004\022\031\n\021challengeT" +
+      "ransfer\030\003 \001(\014\022#\n\033challengeTransferBlockP" +
+      "roof\030\004 \001(\014\022$\n\034challengeTransferBlockHeig" +
+      "ht\030\005 \001(\004\"\302\001\n\031PlumResponseChallengeExit\022\027" +
+      "\n\017subChainAddress\030\001 \001(\t\022\016\n\006coinID\030\002 \001(\004\022" +
+      "\031\n\021challengeTransfer\030\003 \001(\014\022\030\n\020responseTr" +
+      "ansfer\030\004 \001(\014\022\"\n\032responseTransferBlockPro" +
+      "of\030\005 \001(\014\022#\n\033previousTransferBlockHeight\030" +
+      "\006 \001(\004\";\n\020PlumFinalizeExit\022\027\n\017subChainAdd" +
+      "ress\030\001 \001(\t\022\016\n\006coinID\030\002 \001(\004\"#\n\021PlumSettle" +
+      "Deposit\022\016\n\006coinID\030\001 \001(\004\"V\n\014PlumTransfer\022" +
+      "\016\n\006coinID\030\001 \001(\004\022\024\n\014denomination\030\002 \001(\014\022\r\n" +
+      "\005owner\030\003 \001(\t\022\021\n\trecipient\030\004 \001(\t\"\347\021\n\nActi" +
+      "onCore\022\017\n\007version\030\001 \001(\r\022\r\n\005nonce\030\002 \001(\004\022\020" +
+      "\n\010gasLimit\030\003 \001(\004\022\020\n\010gasPrice\030\004 \001(\t\022\017\n\007ch" +
+      "ainID\030\005 \001(\r\022\021\n\tgasTipCap\030\006 \001(\t\022\021\n\tgasFee" +
+      "Cap\030\007 \001(\t\022*\n\nblobTxData\030\010 \001(\0132\026.iotextyp" +
+      "es.BlobTxData\022+\n\naccessList\030\t \003(\0132\027.iote" +
+      "xtypes.AccessTuple\022\016\n\006txType\030\034 \001(\r\0229\n\017se" +
+      "tCodeAuthList\030\035 \003(\0132 .iotextypes.SetCode" +
+      "Authorization\022(\n\010transfer\030\n \001(\0132\024.iotext" +
+      "ypes.TransferH\000\022.\n\013txContainer\030\013 \001(\0132\027.i" +
+      "otextypes.TxContainerH\000\022*\n\texecution\030\014 \001" +
+      "(\0132\025.iotextypes.ExecutionH\000\0222\n\rstartSubC" +
+      "hain\030\r \001(\0132\031.iotextypes.StartSubChainH\000\022" +
+      "0\n\014stopSubChain\030\016 \001(\0132\030.iotextypes.StopS" +
+      "ubChainH\000\022(\n\010putBlock\030\017 \001(\0132\024.iotextypes" +
+      ".PutBlockH\000\0222\n\rcreateDeposit\030\020 \001(\0132\031.iot" +
+      "extypes.CreateDepositH\000\0222\n\rsettleDeposit" +
+      "\030\021 \001(\0132\031.iotextypes.SettleDepositH\000\0226\n\017c" +
+      "reatePlumChain\030\022 \001(\0132\033.iotextypes.Create" +
+      "PlumChainH\000\022<\n\022terminatePlumChain\030\023 \001(\0132" +
+      "\036.iotextypes.TerminatePlumChainH\000\0220\n\014plu" +
+      "mPutBlock\030\024 \001(\0132\030.iotextypes.PlumPutBloc" +
+      "kH\000\022:\n\021plumCreateDeposit\030\025 \001(\0132\035.iotexty" +
+      "pes.PlumCreateDepositH\000\0222\n\rplumStartExit" +
+      "\030\026 \001(\0132\031.iotextypes.PlumStartExitH\000\022:\n\021p" +
+      "lumChallengeExit\030\027 \001(\0132\035.iotextypes.Plum" +
+      "ChallengeExitH\000\022J\n\031plumResponseChallenge" +
+      "Exit\030\030 \001(\0132%.iotextypes.PlumResponseChal" +
+      "lengeExitH\000\0228\n\020plumFinalizeExit\030\031 \001(\0132\034." +
+      "iotextypes.PlumFinalizeExitH\000\022:\n\021plumSet" +
+      "tleDeposit\030\032 \001(\0132\035.iotextypes.PlumSettle" +
+      "DepositH\000\0220\n\014plumTransfer\030\033 \001(\0132\030.iotext" +
+      "ypes.PlumTransferH\000\022D\n\026depositToRewardin" +
+      "gFund\030\036 \001(\0132\".iotextypes.DepositToReward" +
+      "ingFundH\000\022D\n\026claimFromRewardingFund\030\037 \001(" +
+      "\0132\".iotextypes.ClaimFromRewardingFundH\000\022" +
+      ".\n\013grantReward\030  \001(\0132\027.iotextypes.GrantR" +
+      "ewardH\000\022.\n\013stakeCreate\030( \001(\0132\027.iotextype" +
+      "s.StakeCreateH\000\0220\n\014stakeUnstake\030) \001(\0132\030." +
+      "iotextypes.StakeReclaimH\000\0221\n\rstakeWithdr" +
+      "aw\030* \001(\0132\030.iotextypes.StakeReclaimH\000\0226\n\017" +
+      "stakeAddDeposit\030+ \001(\0132\033.iotextypes.Stake" +
+      "AddDepositH\000\0220\n\014stakeRestake\030, \001(\0132\030.iot" +
+      "extypes.StakeRestakeH\000\022@\n\024stakeChangeCan" +
+      "didate\030- \001(\0132 .iotextypes.StakeChangeCan" +
+      "didateH\000\022D\n\026stakeTransferOwnership\030. \001(\013" +
+      "2\".iotextypes.StakeTransferOwnershipH\000\022:" +
+      "\n\021candidateRegister\030/ \001(\0132\035.iotextypes.C" +
+      "andidateRegisterH\000\0229\n\017candidateUpdate\0300 " +
+      "\001(\0132\036.iotextypes.CandidateBasicInfoH\000\022:\n" +
+      "\021candidateActivate\0301 \001(\0132\035.iotextypes.Ca" +
+      "ndidateActivateH\000\022@\n\024candidateEndorsemen" +
+      "t\0303 \001(\0132 .iotextypes.CandidateEndorsemen" +
+      "tH\000\022L\n\032candidateTransferOwnership\0304 \001(\0132" +
+      "&.iotextypes.CandidateTransferOwnershipH" +
+      "\000\0220\n\014stakeMigrate\0305 \001(\0132\030.iotextypes.Sta" +
+      "keMigrateH\000\0222\n\rputPollResult\0302 \001(\0132\031.iot" +
+      "extypes.PutPollResultH\000B\010\n\006action\"\177\n\006Act" +
+      "ion\022$\n\004core\030\001 \001(\0132\026.iotextypes.ActionCor" +
+      "e\022\024\n\014senderPubKey\030\002 \001(\014\022\021\n\tsignature\030\003 \001" +
+      "(\014\022&\n\010encoding\030\004 \001(\0162\024.iotextypes.Encodi" +
+      "ng\".\n\007Actions\022#\n\007actions\030\001 \003(\0132\022.iotexty" +
+      "pes.Action\"\032\n\nActionHash\022\014\n\004hash\030\001 \001(\014\"\375" +
+      "\001\n\007Receipt\022\016\n\006status\030\001 \001(\004\022\021\n\tblkHeight\030" +
+      "\002 \001(\004\022\017\n\007actHash\030\003 \001(\014\022\023\n\013gasConsumed\030\004 " +
+      "\001(\004\022\027\n\017contractAddress\030\005 \001(\t\022\035\n\004logs\030\006 \003" +
+      "(\0132\017.iotextypes.Log\022\032\n\022executionRevertMs" +
+      "g\030\007 \001(\t\022\017\n\007txIndex\030\010 \001(\r\022\023\n\013blobGasUsed\030" +
+      "\t \001(\004\022\024\n\014blobGasPrice\030\n \001(\t\022\031\n\021effective" +
+      "GasPrice\030\013 \001(\t\"\221\001\n\003Log\022\027\n\017contractAddres" +
+      "s\030\001 \001(\t\022\016\n\006topics\030\002 \003(\014\022\014\n\004data\030\003 \001(\014\022\021\n" +
+      "\tblkHeight\030\004 \001(\004\022\017\n\007actHash\030\005 \001(\014\022\r\n\005ind" +
+      "ex\030\006 \001(\r\022\017\n\007blkHash\030\007 \001(\014\022\017\n\007txIndex\030\010 \001" +
+      "(\r\"%\n\004Logs\022\035\n\004logs\030\001 \003(\0132\017.iotextypes.Lo" +
+      "g\"7\n\013EvmTransfer\022\016\n\006amount\030\001 \001(\014\022\014\n\004from" +
+      "\030\002 \001(\t\022\n\n\002to\030\003 \001(\t\"@\n\017EvmTransferList\022-\n" +
+      "\014evmTransfers\030\001 \003(\0132\027.iotextypes.EvmTran" +
+      "sfer\"o\n\021ActionEvmTransfer\022\022\n\nactionHash\030" +
+      "\001 \001(\014\022\027\n\017numEvmTransfers\030\002 \001(\004\022-\n\014evmTra" +
+      "nsfers\030\003 \003(\0132\027.iotextypes.EvmTransfer\"{\n" +
+      "\020BlockEvmTransfer\022\023\n\013blockHeight\030\001 \001(\004\022\027" +
+      "\n\017numEvmTransfers\030\002 \001(\004\0229\n\022actionEvmTran" +
+      "sfers\030\003 \003(\0132\035.iotextypes.ActionEvmTransf" +
+      "er\"6\n\026DepositToRewardingFund\022\016\n\006amount\030\001" +
+      " \001(\t\022\014\n\004data\030\002 \001(\014\"G\n\026ClaimFromRewarding" +
+      "Fund\022\016\n\006amount\030\001 \001(\t\022\014\n\004data\030\002 \001(\014\022\017\n\007ad" +
+      "dress\030\003 \001(\t\"C\n\013GrantReward\022$\n\004type\030\001 \001(\016" +
+      "2\026.iotextypes.RewardType\022\016\n\006height\030\002 \001(\004" +
+      "*v\n\010Encoding\022\022\n\016IOTEX_PROTOBUF\020\000\022\023\n\017ETHE" +
+      "REUM_EIP155\020\001\022\020\n\014ETHEREUM_RLP\020\001\022\030\n\024ETHER" +
+      "EUM_UNPROTECTED\020\002\022\021\n\014TX_CONTAINER\020\200\001\032\002\020\001" +
+      "*.\n\nRewardType\022\017\n\013BlockReward\020\000\022\017\n\013Epoch" +
+      "Reward\020\001B]\n\"com.github.iotexproject.grpc" +
+      ".typesP\001Z5github.com/iotexproject/iotex-" +
+      "proto/golang/iotextypesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -540,128 +549,134 @@ public final class ActionOuterClass extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_BlobTxSidecars_descriptor,
         new java.lang.String[] { "TxHash", "Sidecars", });
-    internal_static_iotextypes_StakeCreate_descriptor =
+    internal_static_iotextypes_SetCodeAuthorization_descriptor =
       getDescriptor().getMessageType(10);
+    internal_static_iotextypes_SetCodeAuthorization_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_iotextypes_SetCodeAuthorization_descriptor,
+        new java.lang.String[] { "ChainID", "Address", "Nonce", "V", "R", "S", });
+    internal_static_iotextypes_StakeCreate_descriptor =
+      getDescriptor().getMessageType(11);
     internal_static_iotextypes_StakeCreate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_StakeCreate_descriptor,
         new java.lang.String[] { "CandidateName", "StakedAmount", "StakedDuration", "AutoStake", "Payload", });
     internal_static_iotextypes_StakeMigrate_descriptor =
-      getDescriptor().getMessageType(11);
+      getDescriptor().getMessageType(12);
     internal_static_iotextypes_StakeMigrate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_StakeMigrate_descriptor,
         new java.lang.String[] { "BucketIndex", });
     internal_static_iotextypes_StakeReclaim_descriptor =
-      getDescriptor().getMessageType(12);
+      getDescriptor().getMessageType(13);
     internal_static_iotextypes_StakeReclaim_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_StakeReclaim_descriptor,
         new java.lang.String[] { "BucketIndex", "Payload", });
     internal_static_iotextypes_StakeAddDeposit_descriptor =
-      getDescriptor().getMessageType(13);
+      getDescriptor().getMessageType(14);
     internal_static_iotextypes_StakeAddDeposit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_StakeAddDeposit_descriptor,
         new java.lang.String[] { "BucketIndex", "Amount", "Payload", });
     internal_static_iotextypes_StakeRestake_descriptor =
-      getDescriptor().getMessageType(14);
+      getDescriptor().getMessageType(15);
     internal_static_iotextypes_StakeRestake_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_StakeRestake_descriptor,
         new java.lang.String[] { "BucketIndex", "StakedDuration", "AutoStake", "Payload", });
     internal_static_iotextypes_StakeChangeCandidate_descriptor =
-      getDescriptor().getMessageType(15);
+      getDescriptor().getMessageType(16);
     internal_static_iotextypes_StakeChangeCandidate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_StakeChangeCandidate_descriptor,
         new java.lang.String[] { "BucketIndex", "CandidateName", "Payload", });
     internal_static_iotextypes_StakeTransferOwnership_descriptor =
-      getDescriptor().getMessageType(16);
+      getDescriptor().getMessageType(17);
     internal_static_iotextypes_StakeTransferOwnership_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_StakeTransferOwnership_descriptor,
         new java.lang.String[] { "BucketIndex", "VoterAddress", "Payload", });
     internal_static_iotextypes_CandidateBasicInfo_descriptor =
-      getDescriptor().getMessageType(17);
+      getDescriptor().getMessageType(18);
     internal_static_iotextypes_CandidateBasicInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_CandidateBasicInfo_descriptor,
         new java.lang.String[] { "Name", "OperatorAddress", "RewardAddress", });
     internal_static_iotextypes_CandidateRegister_descriptor =
-      getDescriptor().getMessageType(18);
+      getDescriptor().getMessageType(19);
     internal_static_iotextypes_CandidateRegister_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_CandidateRegister_descriptor,
         new java.lang.String[] { "Candidate", "StakedAmount", "StakedDuration", "AutoStake", "OwnerAddress", "Payload", });
     internal_static_iotextypes_CandidateTransferOwnership_descriptor =
-      getDescriptor().getMessageType(19);
+      getDescriptor().getMessageType(20);
     internal_static_iotextypes_CandidateTransferOwnership_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_CandidateTransferOwnership_descriptor,
         new java.lang.String[] { "NewOwnerAddress", "Payload", });
     internal_static_iotextypes_CandidateActivate_descriptor =
-      getDescriptor().getMessageType(20);
+      getDescriptor().getMessageType(21);
     internal_static_iotextypes_CandidateActivate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_CandidateActivate_descriptor,
         new java.lang.String[] { "BucketIndex", });
     internal_static_iotextypes_CandidateEndorsement_descriptor =
-      getDescriptor().getMessageType(21);
+      getDescriptor().getMessageType(22);
     internal_static_iotextypes_CandidateEndorsement_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_CandidateEndorsement_descriptor,
         new java.lang.String[] { "BucketIndex", "Endorse", "Op", });
     internal_static_iotextypes_StartSubChain_descriptor =
-      getDescriptor().getMessageType(22);
+      getDescriptor().getMessageType(23);
     internal_static_iotextypes_StartSubChain_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_StartSubChain_descriptor,
         new java.lang.String[] { "ChainID", "SecurityDeposit", "OperationDeposit", "StartHeight", "ParentHeightOffset", });
     internal_static_iotextypes_StopSubChain_descriptor =
-      getDescriptor().getMessageType(23);
+      getDescriptor().getMessageType(24);
     internal_static_iotextypes_StopSubChain_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_StopSubChain_descriptor,
         new java.lang.String[] { "ChainID", "StopHeight", "SubChainAddress", });
     internal_static_iotextypes_MerkleRoot_descriptor =
-      getDescriptor().getMessageType(24);
+      getDescriptor().getMessageType(25);
     internal_static_iotextypes_MerkleRoot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_MerkleRoot_descriptor,
         new java.lang.String[] { "Name", "Value", });
     internal_static_iotextypes_PutBlock_descriptor =
-      getDescriptor().getMessageType(25);
+      getDescriptor().getMessageType(26);
     internal_static_iotextypes_PutBlock_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_PutBlock_descriptor,
         new java.lang.String[] { "SubChainAddress", "Height", "Roots", });
     internal_static_iotextypes_CreateDeposit_descriptor =
-      getDescriptor().getMessageType(26);
+      getDescriptor().getMessageType(27);
     internal_static_iotextypes_CreateDeposit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_CreateDeposit_descriptor,
         new java.lang.String[] { "ChainID", "Amount", "Recipient", });
     internal_static_iotextypes_SettleDeposit_descriptor =
-      getDescriptor().getMessageType(27);
+      getDescriptor().getMessageType(28);
     internal_static_iotextypes_SettleDeposit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_SettleDeposit_descriptor,
         new java.lang.String[] { "Amount", "Recipient", "Index", });
     internal_static_iotextypes_CreatePlumChain_descriptor =
-      getDescriptor().getMessageType(28);
+      getDescriptor().getMessageType(29);
     internal_static_iotextypes_CreatePlumChain_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_CreatePlumChain_descriptor,
         new java.lang.String[] { });
     internal_static_iotextypes_TerminatePlumChain_descriptor =
-      getDescriptor().getMessageType(29);
+      getDescriptor().getMessageType(30);
     internal_static_iotextypes_TerminatePlumChain_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_TerminatePlumChain_descriptor,
         new java.lang.String[] { "SubChainAddress", });
     internal_static_iotextypes_PlumPutBlock_descriptor =
-      getDescriptor().getMessageType(30);
+      getDescriptor().getMessageType(31);
     internal_static_iotextypes_PlumPutBlock_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_PlumPutBlock_descriptor,
@@ -673,127 +688,127 @@ public final class ActionOuterClass extends com.google.protobuf.GeneratedFile {
         internal_static_iotextypes_PlumPutBlock_RootsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_iotextypes_PlumCreateDeposit_descriptor =
-      getDescriptor().getMessageType(31);
+      getDescriptor().getMessageType(32);
     internal_static_iotextypes_PlumCreateDeposit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_PlumCreateDeposit_descriptor,
         new java.lang.String[] { "SubChainAddress", "Amount", "Recipient", });
     internal_static_iotextypes_PlumStartExit_descriptor =
-      getDescriptor().getMessageType(32);
+      getDescriptor().getMessageType(33);
     internal_static_iotextypes_PlumStartExit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_PlumStartExit_descriptor,
         new java.lang.String[] { "SubChainAddress", "PreviousTransfer", "PreviousTransferBlockProof", "PreviousTransferBlockHeight", "ExitTransfer", "ExitTransferBlockProof", "ExitTransferBlockHeight", });
     internal_static_iotextypes_PlumChallengeExit_descriptor =
-      getDescriptor().getMessageType(33);
+      getDescriptor().getMessageType(34);
     internal_static_iotextypes_PlumChallengeExit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_PlumChallengeExit_descriptor,
         new java.lang.String[] { "SubChainAddress", "CoinID", "ChallengeTransfer", "ChallengeTransferBlockProof", "ChallengeTransferBlockHeight", });
     internal_static_iotextypes_PlumResponseChallengeExit_descriptor =
-      getDescriptor().getMessageType(34);
+      getDescriptor().getMessageType(35);
     internal_static_iotextypes_PlumResponseChallengeExit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_PlumResponseChallengeExit_descriptor,
         new java.lang.String[] { "SubChainAddress", "CoinID", "ChallengeTransfer", "ResponseTransfer", "ResponseTransferBlockProof", "PreviousTransferBlockHeight", });
     internal_static_iotextypes_PlumFinalizeExit_descriptor =
-      getDescriptor().getMessageType(35);
+      getDescriptor().getMessageType(36);
     internal_static_iotextypes_PlumFinalizeExit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_PlumFinalizeExit_descriptor,
         new java.lang.String[] { "SubChainAddress", "CoinID", });
     internal_static_iotextypes_PlumSettleDeposit_descriptor =
-      getDescriptor().getMessageType(36);
+      getDescriptor().getMessageType(37);
     internal_static_iotextypes_PlumSettleDeposit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_PlumSettleDeposit_descriptor,
         new java.lang.String[] { "CoinID", });
     internal_static_iotextypes_PlumTransfer_descriptor =
-      getDescriptor().getMessageType(37);
+      getDescriptor().getMessageType(38);
     internal_static_iotextypes_PlumTransfer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_PlumTransfer_descriptor,
         new java.lang.String[] { "CoinID", "Denomination", "Owner", "Recipient", });
     internal_static_iotextypes_ActionCore_descriptor =
-      getDescriptor().getMessageType(38);
+      getDescriptor().getMessageType(39);
     internal_static_iotextypes_ActionCore_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_ActionCore_descriptor,
-        new java.lang.String[] { "Version", "Nonce", "GasLimit", "GasPrice", "ChainID", "GasTipCap", "GasFeeCap", "BlobTxData", "AccessList", "TxType", "Transfer", "TxContainer", "Execution", "StartSubChain", "StopSubChain", "PutBlock", "CreateDeposit", "SettleDeposit", "CreatePlumChain", "TerminatePlumChain", "PlumPutBlock", "PlumCreateDeposit", "PlumStartExit", "PlumChallengeExit", "PlumResponseChallengeExit", "PlumFinalizeExit", "PlumSettleDeposit", "PlumTransfer", "DepositToRewardingFund", "ClaimFromRewardingFund", "GrantReward", "StakeCreate", "StakeUnstake", "StakeWithdraw", "StakeAddDeposit", "StakeRestake", "StakeChangeCandidate", "StakeTransferOwnership", "CandidateRegister", "CandidateUpdate", "CandidateActivate", "CandidateEndorsement", "CandidateTransferOwnership", "StakeMigrate", "PutPollResult", "Action", });
+        new java.lang.String[] { "Version", "Nonce", "GasLimit", "GasPrice", "ChainID", "GasTipCap", "GasFeeCap", "BlobTxData", "AccessList", "TxType", "SetCodeAuthList", "Transfer", "TxContainer", "Execution", "StartSubChain", "StopSubChain", "PutBlock", "CreateDeposit", "SettleDeposit", "CreatePlumChain", "TerminatePlumChain", "PlumPutBlock", "PlumCreateDeposit", "PlumStartExit", "PlumChallengeExit", "PlumResponseChallengeExit", "PlumFinalizeExit", "PlumSettleDeposit", "PlumTransfer", "DepositToRewardingFund", "ClaimFromRewardingFund", "GrantReward", "StakeCreate", "StakeUnstake", "StakeWithdraw", "StakeAddDeposit", "StakeRestake", "StakeChangeCandidate", "StakeTransferOwnership", "CandidateRegister", "CandidateUpdate", "CandidateActivate", "CandidateEndorsement", "CandidateTransferOwnership", "StakeMigrate", "PutPollResult", "Action", });
     internal_static_iotextypes_Action_descriptor =
-      getDescriptor().getMessageType(39);
+      getDescriptor().getMessageType(40);
     internal_static_iotextypes_Action_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_Action_descriptor,
         new java.lang.String[] { "Core", "SenderPubKey", "Signature", "Encoding", });
     internal_static_iotextypes_Actions_descriptor =
-      getDescriptor().getMessageType(40);
+      getDescriptor().getMessageType(41);
     internal_static_iotextypes_Actions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_Actions_descriptor,
         new java.lang.String[] { "Actions", });
     internal_static_iotextypes_ActionHash_descriptor =
-      getDescriptor().getMessageType(41);
+      getDescriptor().getMessageType(42);
     internal_static_iotextypes_ActionHash_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_ActionHash_descriptor,
         new java.lang.String[] { "Hash", });
     internal_static_iotextypes_Receipt_descriptor =
-      getDescriptor().getMessageType(42);
+      getDescriptor().getMessageType(43);
     internal_static_iotextypes_Receipt_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_Receipt_descriptor,
         new java.lang.String[] { "Status", "BlkHeight", "ActHash", "GasConsumed", "ContractAddress", "Logs", "ExecutionRevertMsg", "TxIndex", "BlobGasUsed", "BlobGasPrice", "EffectiveGasPrice", });
     internal_static_iotextypes_Log_descriptor =
-      getDescriptor().getMessageType(43);
+      getDescriptor().getMessageType(44);
     internal_static_iotextypes_Log_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_Log_descriptor,
         new java.lang.String[] { "ContractAddress", "Topics", "Data", "BlkHeight", "ActHash", "Index", "BlkHash", "TxIndex", });
     internal_static_iotextypes_Logs_descriptor =
-      getDescriptor().getMessageType(44);
+      getDescriptor().getMessageType(45);
     internal_static_iotextypes_Logs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_Logs_descriptor,
         new java.lang.String[] { "Logs", });
     internal_static_iotextypes_EvmTransfer_descriptor =
-      getDescriptor().getMessageType(45);
+      getDescriptor().getMessageType(46);
     internal_static_iotextypes_EvmTransfer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_EvmTransfer_descriptor,
         new java.lang.String[] { "Amount", "From", "To", });
     internal_static_iotextypes_EvmTransferList_descriptor =
-      getDescriptor().getMessageType(46);
+      getDescriptor().getMessageType(47);
     internal_static_iotextypes_EvmTransferList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_EvmTransferList_descriptor,
         new java.lang.String[] { "EvmTransfers", });
     internal_static_iotextypes_ActionEvmTransfer_descriptor =
-      getDescriptor().getMessageType(47);
+      getDescriptor().getMessageType(48);
     internal_static_iotextypes_ActionEvmTransfer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_ActionEvmTransfer_descriptor,
         new java.lang.String[] { "ActionHash", "NumEvmTransfers", "EvmTransfers", });
     internal_static_iotextypes_BlockEvmTransfer_descriptor =
-      getDescriptor().getMessageType(48);
+      getDescriptor().getMessageType(49);
     internal_static_iotextypes_BlockEvmTransfer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_BlockEvmTransfer_descriptor,
         new java.lang.String[] { "BlockHeight", "NumEvmTransfers", "ActionEvmTransfers", });
     internal_static_iotextypes_DepositToRewardingFund_descriptor =
-      getDescriptor().getMessageType(49);
+      getDescriptor().getMessageType(50);
     internal_static_iotextypes_DepositToRewardingFund_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_DepositToRewardingFund_descriptor,
         new java.lang.String[] { "Amount", "Data", });
     internal_static_iotextypes_ClaimFromRewardingFund_descriptor =
-      getDescriptor().getMessageType(50);
+      getDescriptor().getMessageType(51);
     internal_static_iotextypes_ClaimFromRewardingFund_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_ClaimFromRewardingFund_descriptor,
         new java.lang.String[] { "Amount", "Data", "Address", });
     internal_static_iotextypes_GrantReward_descriptor =
-      getDescriptor().getMessageType(51);
+      getDescriptor().getMessageType(52);
     internal_static_iotextypes_GrantReward_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_iotextypes_GrantReward_descriptor,

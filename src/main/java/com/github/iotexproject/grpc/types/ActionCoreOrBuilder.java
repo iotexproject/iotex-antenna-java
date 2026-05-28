@@ -116,6 +116,30 @@ public interface ActionCoreOrBuilder extends
   int getTxType();
 
   /**
+   * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+   */
+  java.util.List<com.github.iotexproject.grpc.types.SetCodeAuthorization> 
+      getSetCodeAuthListList();
+  /**
+   * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+   */
+  com.github.iotexproject.grpc.types.SetCodeAuthorization getSetCodeAuthList(int index);
+  /**
+   * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+   */
+  int getSetCodeAuthListCount();
+  /**
+   * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+   */
+  java.util.List<? extends com.github.iotexproject.grpc.types.SetCodeAuthorizationOrBuilder> 
+      getSetCodeAuthListOrBuilderList();
+  /**
+   * <code>repeated .iotextypes.SetCodeAuthorization setCodeAuthList = 29;</code>
+   */
+  com.github.iotexproject.grpc.types.SetCodeAuthorizationOrBuilder getSetCodeAuthListOrBuilder(
+      int index);
+
+  /**
    * <code>.iotextypes.Transfer transfer = 10;</code>
    * @return Whether the transfer field is set.
    */
