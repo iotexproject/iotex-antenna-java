@@ -66,6 +66,21 @@ public class SealedEnvelop {
     public Action action() {
         ActionCore.Builder builder = ActionCore.newBuilder()
                 .setVersion(act.getVersion()).setNonce(act.getNonce()).setGasLimit(act.getGasLimit()).setGasPrice(act.getGasPrice()).setChainID(act.getChainID());
+        if (act.getTxType() != null) {
+            builder.setTxType(act.getTxType());
+        }
+        if (act.getGasTipCap() != null) {
+            builder.setGasTipCap(act.getGasTipCap());
+        }
+        if (act.getGasFeeCap() != null) {
+            builder.setGasFeeCap(act.getGasFeeCap());
+        }
+        if (act.getAccessList() != null) {
+            builder.addAllAccessList(act.getAccessList());
+        }
+        if (act.getBlobTxData() != null) {
+            builder.setBlobTxData(act.getBlobTxData());
+        }
         if (act.getTransfer() != null) {
             builder.setTransfer(act.getTransfer());
         }
