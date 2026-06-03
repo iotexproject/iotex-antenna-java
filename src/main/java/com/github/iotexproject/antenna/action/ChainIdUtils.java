@@ -10,5 +10,13 @@ public final class ChainIdUtils {
         return iotexChainId + OFFSET;
     }
 
+    public static int fromEvmChainId(int evmChainId) {
+        int iotexChainId = evmChainId - OFFSET;
+        if (iotexChainId < 1 || iotexChainId > 3) {
+            throw new IllegalArgumentException("invalid EVM chain id: " + evmChainId);
+        }
+        return iotexChainId;
+    }
+
     private ChainIdUtils() {}
 }

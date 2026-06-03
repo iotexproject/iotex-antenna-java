@@ -13,13 +13,13 @@ import org.junit.Test;
  * @author Yang XuePing
  */
 public class RPCMethodTest {
-    public static final String IOTEX_CORE = "api.testnet.iotex.one:80";
+    public static final String IOTEX_CORE = "api.testnet.iotex.one:443";
 
     private RPCMethod rpcMethod;
 
     @Before
     public void init() {
-        this.rpcMethod = new RPCMethod(IOTEX_CORE, 2);
+        this.rpcMethod = new RPCMethod(IOTEX_CORE, true, 2);
     }
 
     @After
@@ -36,6 +36,12 @@ public class RPCMethodTest {
     @Test
     public void testGetServerMeta() {
         GetServerMetaResponse response = rpcMethod.getServerMeta(GetServerMetaRequest.newBuilder().build());
+        Assert.assertNotNull(response);
+    }
+
+    @Test
+    public void testGetChainMeta() {
+        GetChainMetaResponse response = rpcMethod.getChainMeta(GetChainMetaRequest.newBuilder().build());
         Assert.assertNotNull(response);
     }
 

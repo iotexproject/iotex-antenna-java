@@ -95,7 +95,7 @@ public class Envelop {
             if (core.getSetCodeAuthListCount() > 0) {
                 envelop.setSetCodeAuthList(core.getSetCodeAuthListList().stream().map(pb -> {
                     SetCodeAuthorization a = new SetCodeAuthorization();
-                    a.setChainID(pb.getChainID());
+                    a.setChainID(ChainIdUtils.fromEvmChainId(pb.getChainID()));
                     a.setAddress(pb.getAddress().toByteArray());
                     a.setNonce(pb.getNonce());
                     a.setV((int) pb.getV());
