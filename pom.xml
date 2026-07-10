@@ -4,76 +4,91 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.iotexproject</groupId>
+    <groupId>io.iotex</groupId>
     <artifactId>iotex-antenna-java</artifactId>
-    <version>0.7.0</version>
+    <version>0.8.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>IoTeX Antenna Java</name>
-    <description>IoTex java sdk for develop android and java apps.</description>
+    <description>IoTeX Java SDK for developing Android and Java applications on the IoTeX blockchain.</description>
     <url>https://github.com/iotexproject/iotex-antenna-java</url>
 
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
         </license>
     </licenses>
     <organization>
-        <name>IoTeX Group</name>
+        <name>IoTeX Foundation</name>
         <url>https://iotex.io</url>
     </organization>
     <developers>
         <developer>
-            <id>ququzone</id>
-            <name>Yang XuePing</name>
-            <url>https://github.com/ququzone</url>
+            <id>iotex</id>
+            <name>IoTeX Foundation</name>
+            <email>support@iotex.io</email>
+            <organization>IoTeX Foundation</organization>
+            <organizationUrl>https://iotex.io</organizationUrl>
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:git@github.com:iotexproject/iotex-android-sdk.git</connection>
-        <developerConnection>scm:git:git@github.com:iotexproject/iotex-android-sdk.git</developerConnection>
-        <url>git@github.com:iotexproject/iotex-android-sdk.git</url>
+        <connection>scm:git:https://github.com/iotexproject/iotex-antenna-java.git</connection>
+        <developerConnection>scm:git:git@github.com:iotexproject/iotex-antenna-java.git</developerConnection>
+        <url>https://github.com/iotexproject/iotex-antenna-java</url>
     </scm>
+
     <profiles>
         <profile>
             <id>release</id>
             <build>
                 <plugins>
-                    <!-- Source -->
+                    <!-- Source jar -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>2.2.1</version>
+                        <version>3.3.1</version>
                         <executions>
                             <execution>
-                                <phase>package</phase>
+                                <id>attach-sources</id>
                                 <goals>
                                     <goal>jar-no-fork</goal>
                                 </goals>
                             </execution>
                         </executions>
                     </plugin>
-                    <!-- Javadoc -->
+                    <!-- Javadoc jar -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.9.1</version>
+                        <version>3.11.2</version>
+                        <configuration>
+                            <doclint>none</doclint>
+                            <failOnError>false</failOnError>
+                        </configuration>
                         <executions>
                             <execution>
-                                <phase>package</phase>
+                                <id>attach-javadocs</id>
                                 <goals>
                                     <goal>jar</goal>
                                 </goals>
                             </execution>
                         </executions>
                     </plugin>
-                    <!-- GPG -->
+                    <!-- GPG signing -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
                         <version>3.2.7</version>
+                        <configuration>
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
                         <executions>
                             <execution>
+                                <id>sign-artifacts</id>
                                 <phase>verify</phase>
                                 <goals>
                                     <goal>sign</goal>
@@ -81,18 +96,19 @@
                             </execution>
                         </executions>
                     </plugin>
+                    <!-- Publish to Maven Central via the Central Portal -->
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>0.11.0</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <publishingServerId>central</publishingServerId>
+                            <autoPublish>true</autoPublish>
+                        </configuration>
+                    </plugin>
                 </plugins>
             </build>
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-                </snapshotRepository>
-                <repository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
         </profile>
     </profiles>
 
@@ -195,61 +211,8 @@
                             <version>1.18.38</version>
                         </path>
                     </annotationProcessorPaths>
-                    <source>11</source>
-                    <target>11</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>2.2.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <additionalJOption>-Xdoclint:none</additionalJOption>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.central</groupId>
-                <artifactId>central-publishing-maven-plugin</artifactId>
-                <version>0.6.0</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <publishingServerId>oss</publishingServerId>
-                    <autoPublish>true</autoPublish>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
         </plugins>
