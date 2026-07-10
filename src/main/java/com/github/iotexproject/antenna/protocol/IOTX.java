@@ -4,7 +4,6 @@ import com.github.iotexproject.antenna.action.method.ExecutionMethod;
 import com.github.iotexproject.antenna.action.method.StakeCreateMethod;
 import com.github.iotexproject.antenna.action.method.TransferMethod;
 import com.github.iotexproject.antenna.rpc.RPCMethod;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
 /**
  * iotex encapsulate.

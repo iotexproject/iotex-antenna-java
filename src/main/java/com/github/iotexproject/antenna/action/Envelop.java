@@ -1,11 +1,15 @@
 package com.github.iotexproject.antenna.action;
 
 import com.github.iotexproject.grpc.types.*;
+import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * action envelop.
@@ -23,6 +27,14 @@ public class Envelop {
     private String gasPrice;
 
     private Integer chainID;
+
+    // Eth typed-tx fields (present when txType is non-zero)
+    private Integer txType;
+    private String gasTipCap;
+    private String gasFeeCap;
+    private List<AccessTuple> accessList;
+    private BlobTxData blobTxData;
+    private List<SetCodeAuthorization> setCodeAuthList;  // uses IoTeX chain IDs (1/2/3)
 
     // optional fields
     private Transfer transfer;
@@ -65,6 +77,33 @@ public class Envelop {
             envelop.setGasLimit(core.getGasLimit());
             envelop.setGasPrice(core.getGasPrice());
             envelop.setChainID(core.getChainID());
+            if (core.getTxType() != 0) {
+                envelop.setTxType(core.getTxType());
+            }
+            if (!core.getGasTipCap().isEmpty()) {
+                envelop.setGasTipCap(core.getGasTipCap());
+            }
+            if (!core.getGasFeeCap().isEmpty()) {
+                envelop.setGasFeeCap(core.getGasFeeCap());
+            }
+            if (core.getAccessListCount() > 0) {
+                envelop.setAccessList(core.getAccessListList());
+            }
+            if (core.hasBlobTxData()) {
+                envelop.setBlobTxData(core.getBlobTxData());
+            }
+            if (core.getSetCodeAuthListCount() > 0) {
+                envelop.setSetCodeAuthList(core.getSetCodeAuthListList().stream().map(pb -> {
+                    SetCodeAuthorization a = new SetCodeAuthorization();
+                    a.setChainID(ChainIdUtils.fromEvmChainId(pb.getChainID()));
+                    a.setAddress(pb.getAddress().toByteArray());
+                    a.setNonce(pb.getNonce());
+                    a.setV((int) pb.getV());
+                    if (!pb.getR().isEmpty()) a.setR(new java.math.BigInteger(1, pb.getR().toByteArray()));
+                    if (!pb.getS().isEmpty()) a.setS(new java.math.BigInteger(1, pb.getS().toByteArray()));
+                    return a;
+                }).collect(Collectors.toList()));
+            }
 
             if (core.getTransfer().toByteArray().length > 0) {
                 envelop.setTransfer(core.getTransfer());
@@ -111,6 +150,34 @@ public class Envelop {
 
     public ActionCore core() {
         ActionCore.Builder builder = ActionCore.newBuilder().setVersion(version).setNonce(nonce).setGasLimit(gasLimit).setGasPrice(gasPrice).setChainID(chainID);
+        if (txType != null) {
+            builder.setTxType(txType);
+        }
+        if (gasTipCap != null) {
+            builder.setGasTipCap(gasTipCap);
+        }
+        if (gasFeeCap != null) {
+            builder.setGasFeeCap(gasFeeCap);
+        }
+        if (accessList != null) {
+            builder.addAllAccessList(accessList);
+        }
+        if (blobTxData != null) {
+            builder.setBlobTxData(blobTxData);
+        }
+        if (setCodeAuthList != null) {
+            builder.addAllSetCodeAuthList(setCodeAuthList.stream().map(a -> {
+                com.github.iotexproject.grpc.types.SetCodeAuthorization.Builder pb =
+                    com.github.iotexproject.grpc.types.SetCodeAuthorization.newBuilder()
+                        .setChainID(ChainIdUtils.toEvmChainId(a.getChainID()))
+                        .setAddress(ByteString.copyFrom(a.getAddress()))
+                        .setNonce(a.getNonce())
+                        .setV(a.getV());
+                if (a.getR() != null) pb.setR(ByteString.copyFrom(a.getR().toByteArray()));
+                if (a.getS() != null) pb.setS(ByteString.copyFrom(a.getS().toByteArray()));
+                return pb.build();
+            }).collect(Collectors.toList()));
+        }
         if (transfer != null) {
             builder.setTransfer(transfer);
         }

@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      # Compile + package to verify build health. Integration tests
+      # (RPCMethodTest / RawBlockTest / ContractTest) hit a live IoTeX
+      # node, so they are skipped here to keep CI hermetic and green.
+      - name: Build
+        run: mvn -B -DskipTests package

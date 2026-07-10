@@ -8,21 +8,52 @@ network for IoT powered by scalability- and privacy-centric blockchains. Please 
 
 ## Get started
 
-### Install By Maven
+### Build protoc
 
 ```
+protoc --proto_path=src/main/proto --java_out=src/main/java src/main/proto/proto/*/*.proto
+protoc --plugin=/opt/homebrew/bin/protoc-gen-grpc-java \
+    --grpc-java_out="src/main/java" --proto_path=src/main/proto src/main/proto/proto/api/api.proto
+```
+
+### Install by Maven
+
+Available on [Maven Central](https://central.sonatype.com/artifact/io.iotex/iotex-antenna-java) — no extra repository configuration needed:
+
+```xml
 <dependency>
-  <groupId>com.github.iotexproject</groupId>
+  <groupId>io.iotex</groupId>
   <artifactId>iotex-antenna-java</artifactId>
-  <version>0.6.3</version>
+  <version>0.8.1</version>
 </dependency>
 ```
 
 ### Install by Gradle
 
+```groovy
+implementation 'io.iotex:iotex-antenna-java:0.8.1'
 ```
-implementation 'com.github.iotexproject:iotex-antenna-java:0.6.3'
+
+### Legacy: install via JitPack
+
+Older versions were consumed under the `com.github.iotexproject` groupId via [JitPack](https://jitpack.io/#iotexproject/iotex-antenna-java). If you need an older version (a git tag such as `v0.5.2`, or a commit hash), add the JitPack repository:
+
+```xml
+<repositories>
+  <repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+  </repository>
+</repositories>
+
+<dependency>
+  <groupId>com.github.iotexproject</groupId>
+  <artifactId>iotex-antenna-java</artifactId>
+  <version>v0.5.2</version>
+</dependency>
 ```
+
+New projects should use the Maven Central coordinates (`io.iotex:iotex-antenna-java`) above.
 
 
 ### Sample

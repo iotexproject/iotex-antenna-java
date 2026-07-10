@@ -19,12 +19,21 @@ message BlockSync {
   uint64 end = 3;
 }
 
+message ActionSync {
+  repeated bytes hashes = 1;
+}
+
 enum MessageType {
   UNKNOWN = 0;
   ACTION = 1;
   BLOCK = 2;
   CONSENSUS = 3;
   BLOCK_REQUEST = 4;
+  NODE_INFO_REQUEST = 5;
+  NODE_INFO = 6;
+  ACTIONS = 7;
+  ACTION_HASH = 8;
+  ACTION_REQUEST = 9;
   TEST = 10001;
 }
 

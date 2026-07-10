@@ -1,0 +1,59 @@
+name: Publish to Maven Central
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: >-
+          Version to publish (e.g. 0.8.1). Leave empty to publish the
+          version currently in pom.xml (a -SNAPSHOT will go to the
+          Central Portal snapshot repository, not to Maven Central).
+        required: false
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+          # Generates ~/.m2/settings.xml with a <server id="central"> entry
+          # whose credentials come from the env vars below at mvn run time.
+          server-id: central
+          server-username: MAVEN_CENTRAL_USERNAME
+          server-password: MAVEN_CENTRAL_PASSWORD
+          # Imports the GPG private key used by maven-gpg-plugin.
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+
+      - name: Set version to publish
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          if [ "${GITHUB_EVENT_NAME}" = "release" ]; then
+            VERSION="${GITHUB_REF_NAME#v}"
+          else
+            VERSION="${INPUT_VERSION}"
+          fi
+          if [ -n "${VERSION}" ]; then
+            echo "Publishing version: ${VERSION}"
+            mvn -B versions:set -DnewVersion="${VERSION}" -DgenerateBackupPoms=false
+          else
+            echo "No version override; publishing the version in pom.xml"
+          fi
+
+      - name: Publish to Maven Central
+        run: mvn -B deploy -Prelease -DskipTests
+        env:
+          MAVEN_CENTRAL_USERNAME: ${{ secrets.CENTRAL_TOKEN_USERNAME }}
+          MAVEN_CENTRAL_PASSWORD: ${{ secrets.CENTRAL_TOKEN_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
