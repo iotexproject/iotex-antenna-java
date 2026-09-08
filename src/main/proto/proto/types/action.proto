@@ -91,6 +91,21 @@ message StakeMigrate {
   uint64 bucketIndex = 1;
 }
 
+message CandidateDeactivate {
+  uint32 op = 1;
+}
+
+message ScheduleCandidateDeactivation {
+  string delegate = 1;
+}
+
+// Carries no payload: the sender is the delegate opting in.
+message SetVoterRewardOptIn {}
+
+message SetVoterRewardDestination {
+  bytes recipient = 1;
+}
+
 // unstake or withdraw
 message StakeReclaim {
   uint64 bucketIndex = 1;
@@ -129,6 +144,8 @@ message CandidateBasicInfo {
   string name = 1;
   string operatorAddress = 2;
   string rewardAddress = 3;
+  bytes blsPubKey = 4;
+  bytes blsPop = 5;
 }
 
 message CandidateRegister {
@@ -311,6 +328,10 @@ message ActionCore {
     CandidateEndorsement candidateEndorsement = 51;
     CandidateTransferOwnership candidateTransferOwnership = 52;
     StakeMigrate stakeMigrate = 53;
+    CandidateDeactivate candidateDeactivate = 54;
+    ScheduleCandidateDeactivation scheduleCandidateDeactivation = 55;
+    SetVoterRewardOptIn setVoterRewardOptIn = 57;
+    SetVoterRewardDestination setVoterRewardDestination = 58;
 
     PutPollResult putPollResult = 50;
   }

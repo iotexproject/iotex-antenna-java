@@ -698,6 +698,66 @@ public interface ActionCoreOrBuilder extends
   com.github.iotexproject.grpc.types.StakeMigrateOrBuilder getStakeMigrateOrBuilder();
 
   /**
+   * <code>.iotextypes.CandidateDeactivate candidateDeactivate = 54;</code>
+   * @return Whether the candidateDeactivate field is set.
+   */
+  boolean hasCandidateDeactivate();
+  /**
+   * <code>.iotextypes.CandidateDeactivate candidateDeactivate = 54;</code>
+   * @return The candidateDeactivate.
+   */
+  com.github.iotexproject.grpc.types.CandidateDeactivate getCandidateDeactivate();
+  /**
+   * <code>.iotextypes.CandidateDeactivate candidateDeactivate = 54;</code>
+   */
+  com.github.iotexproject.grpc.types.CandidateDeactivateOrBuilder getCandidateDeactivateOrBuilder();
+
+  /**
+   * <code>.iotextypes.ScheduleCandidateDeactivation scheduleCandidateDeactivation = 55;</code>
+   * @return Whether the scheduleCandidateDeactivation field is set.
+   */
+  boolean hasScheduleCandidateDeactivation();
+  /**
+   * <code>.iotextypes.ScheduleCandidateDeactivation scheduleCandidateDeactivation = 55;</code>
+   * @return The scheduleCandidateDeactivation.
+   */
+  com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation getScheduleCandidateDeactivation();
+  /**
+   * <code>.iotextypes.ScheduleCandidateDeactivation scheduleCandidateDeactivation = 55;</code>
+   */
+  com.github.iotexproject.grpc.types.ScheduleCandidateDeactivationOrBuilder getScheduleCandidateDeactivationOrBuilder();
+
+  /**
+   * <code>.iotextypes.SetVoterRewardOptIn setVoterRewardOptIn = 57;</code>
+   * @return Whether the setVoterRewardOptIn field is set.
+   */
+  boolean hasSetVoterRewardOptIn();
+  /**
+   * <code>.iotextypes.SetVoterRewardOptIn setVoterRewardOptIn = 57;</code>
+   * @return The setVoterRewardOptIn.
+   */
+  com.github.iotexproject.grpc.types.SetVoterRewardOptIn getSetVoterRewardOptIn();
+  /**
+   * <code>.iotextypes.SetVoterRewardOptIn setVoterRewardOptIn = 57;</code>
+   */
+  com.github.iotexproject.grpc.types.SetVoterRewardOptInOrBuilder getSetVoterRewardOptInOrBuilder();
+
+  /**
+   * <code>.iotextypes.SetVoterRewardDestination setVoterRewardDestination = 58;</code>
+   * @return Whether the setVoterRewardDestination field is set.
+   */
+  boolean hasSetVoterRewardDestination();
+  /**
+   * <code>.iotextypes.SetVoterRewardDestination setVoterRewardDestination = 58;</code>
+   * @return The setVoterRewardDestination.
+   */
+  com.github.iotexproject.grpc.types.SetVoterRewardDestination getSetVoterRewardDestination();
+  /**
+   * <code>.iotextypes.SetVoterRewardDestination setVoterRewardDestination = 58;</code>
+   */
+  com.github.iotexproject.grpc.types.SetVoterRewardDestinationOrBuilder getSetVoterRewardDestinationOrBuilder();
+
+  /**
    * <code>.iotextypes.PutPollResult putPollResult = 50;</code>
    * @return Whether the putPollResult field is set.
    */

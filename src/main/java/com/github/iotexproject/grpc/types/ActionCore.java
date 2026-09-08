@@ -94,6 +94,10 @@ private static final long serialVersionUID = 0L;
     CANDIDATEENDORSEMENT(51),
     CANDIDATETRANSFEROWNERSHIP(52),
     STAKEMIGRATE(53),
+    CANDIDATEDEACTIVATE(54),
+    SCHEDULECANDIDATEDEACTIVATION(55),
+    SETVOTERREWARDOPTIN(57),
+    SETVOTERREWARDDESTINATION(58),
     PUTPOLLRESULT(50),
     ACTION_NOT_SET(0);
     private final int value;
@@ -146,6 +150,10 @@ private static final long serialVersionUID = 0L;
         case 51: return CANDIDATEENDORSEMENT;
         case 52: return CANDIDATETRANSFEROWNERSHIP;
         case 53: return STAKEMIGRATE;
+        case 54: return CANDIDATEDEACTIVATE;
+        case 55: return SCHEDULECANDIDATEDEACTIVATION;
+        case 57: return SETVOTERREWARDOPTIN;
+        case 58: return SETVOTERREWARDDESTINATION;
         case 50: return PUTPOLLRESULT;
         case 0: return ACTION_NOT_SET;
         default: return null;
@@ -1544,6 +1552,130 @@ private static final long serialVersionUID = 0L;
     return com.github.iotexproject.grpc.types.StakeMigrate.getDefaultInstance();
   }
 
+  public static final int CANDIDATEDEACTIVATE_FIELD_NUMBER = 54;
+  /**
+   * <code>.iotextypes.CandidateDeactivate candidateDeactivate = 54;</code>
+   * @return Whether the candidateDeactivate field is set.
+   */
+  @java.lang.Override
+  public boolean hasCandidateDeactivate() {
+    return actionCase_ == 54;
+  }
+  /**
+   * <code>.iotextypes.CandidateDeactivate candidateDeactivate = 54;</code>
+   * @return The candidateDeactivate.
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.CandidateDeactivate getCandidateDeactivate() {
+    if (actionCase_ == 54) {
+       return (com.github.iotexproject.grpc.types.CandidateDeactivate) action_;
+    }
+    return com.github.iotexproject.grpc.types.CandidateDeactivate.getDefaultInstance();
+  }
+  /**
+   * <code>.iotextypes.CandidateDeactivate candidateDeactivate = 54;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.CandidateDeactivateOrBuilder getCandidateDeactivateOrBuilder() {
+    if (actionCase_ == 54) {
+       return (com.github.iotexproject.grpc.types.CandidateDeactivate) action_;
+    }
+    return com.github.iotexproject.grpc.types.CandidateDeactivate.getDefaultInstance();
+  }
+
+  public static final int SCHEDULECANDIDATEDEACTIVATION_FIELD_NUMBER = 55;
+  /**
+   * <code>.iotextypes.ScheduleCandidateDeactivation scheduleCandidateDeactivation = 55;</code>
+   * @return Whether the scheduleCandidateDeactivation field is set.
+   */
+  @java.lang.Override
+  public boolean hasScheduleCandidateDeactivation() {
+    return actionCase_ == 55;
+  }
+  /**
+   * <code>.iotextypes.ScheduleCandidateDeactivation scheduleCandidateDeactivation = 55;</code>
+   * @return The scheduleCandidateDeactivation.
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation getScheduleCandidateDeactivation() {
+    if (actionCase_ == 55) {
+       return (com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation) action_;
+    }
+    return com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation.getDefaultInstance();
+  }
+  /**
+   * <code>.iotextypes.ScheduleCandidateDeactivation scheduleCandidateDeactivation = 55;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.ScheduleCandidateDeactivationOrBuilder getScheduleCandidateDeactivationOrBuilder() {
+    if (actionCase_ == 55) {
+       return (com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation) action_;
+    }
+    return com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation.getDefaultInstance();
+  }
+
+  public static final int SETVOTERREWARDOPTIN_FIELD_NUMBER = 57;
+  /**
+   * <code>.iotextypes.SetVoterRewardOptIn setVoterRewardOptIn = 57;</code>
+   * @return Whether the setVoterRewardOptIn field is set.
+   */
+  @java.lang.Override
+  public boolean hasSetVoterRewardOptIn() {
+    return actionCase_ == 57;
+  }
+  /**
+   * <code>.iotextypes.SetVoterRewardOptIn setVoterRewardOptIn = 57;</code>
+   * @return The setVoterRewardOptIn.
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.SetVoterRewardOptIn getSetVoterRewardOptIn() {
+    if (actionCase_ == 57) {
+       return (com.github.iotexproject.grpc.types.SetVoterRewardOptIn) action_;
+    }
+    return com.github.iotexproject.grpc.types.SetVoterRewardOptIn.getDefaultInstance();
+  }
+  /**
+   * <code>.iotextypes.SetVoterRewardOptIn setVoterRewardOptIn = 57;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.SetVoterRewardOptInOrBuilder getSetVoterRewardOptInOrBuilder() {
+    if (actionCase_ == 57) {
+       return (com.github.iotexproject.grpc.types.SetVoterRewardOptIn) action_;
+    }
+    return com.github.iotexproject.grpc.types.SetVoterRewardOptIn.getDefaultInstance();
+  }
+
+  public static final int SETVOTERREWARDDESTINATION_FIELD_NUMBER = 58;
+  /**
+   * <code>.iotextypes.SetVoterRewardDestination setVoterRewardDestination = 58;</code>
+   * @return Whether the setVoterRewardDestination field is set.
+   */
+  @java.lang.Override
+  public boolean hasSetVoterRewardDestination() {
+    return actionCase_ == 58;
+  }
+  /**
+   * <code>.iotextypes.SetVoterRewardDestination setVoterRewardDestination = 58;</code>
+   * @return The setVoterRewardDestination.
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.SetVoterRewardDestination getSetVoterRewardDestination() {
+    if (actionCase_ == 58) {
+       return (com.github.iotexproject.grpc.types.SetVoterRewardDestination) action_;
+    }
+    return com.github.iotexproject.grpc.types.SetVoterRewardDestination.getDefaultInstance();
+  }
+  /**
+   * <code>.iotextypes.SetVoterRewardDestination setVoterRewardDestination = 58;</code>
+   */
+  @java.lang.Override
+  public com.github.iotexproject.grpc.types.SetVoterRewardDestinationOrBuilder getSetVoterRewardDestinationOrBuilder() {
+    if (actionCase_ == 58) {
+       return (com.github.iotexproject.grpc.types.SetVoterRewardDestination) action_;
+    }
+    return com.github.iotexproject.grpc.types.SetVoterRewardDestination.getDefaultInstance();
+  }
+
   public static final int PUTPOLLRESULT_FIELD_NUMBER = 50;
   /**
    * <code>.iotextypes.PutPollResult putPollResult = 50;</code>
@@ -1726,6 +1858,18 @@ private static final long serialVersionUID = 0L;
     }
     if (actionCase_ == 53) {
       output.writeMessage(53, (com.github.iotexproject.grpc.types.StakeMigrate) action_);
+    }
+    if (actionCase_ == 54) {
+      output.writeMessage(54, (com.github.iotexproject.grpc.types.CandidateDeactivate) action_);
+    }
+    if (actionCase_ == 55) {
+      output.writeMessage(55, (com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation) action_);
+    }
+    if (actionCase_ == 57) {
+      output.writeMessage(57, (com.github.iotexproject.grpc.types.SetVoterRewardOptIn) action_);
+    }
+    if (actionCase_ == 58) {
+      output.writeMessage(58, (com.github.iotexproject.grpc.types.SetVoterRewardDestination) action_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -1927,6 +2071,22 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(53, (com.github.iotexproject.grpc.types.StakeMigrate) action_);
     }
+    if (actionCase_ == 54) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(54, (com.github.iotexproject.grpc.types.CandidateDeactivate) action_);
+    }
+    if (actionCase_ == 55) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(55, (com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation) action_);
+    }
+    if (actionCase_ == 57) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(57, (com.github.iotexproject.grpc.types.SetVoterRewardOptIn) action_);
+    }
+    if (actionCase_ == 58) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(58, (com.github.iotexproject.grpc.types.SetVoterRewardDestination) action_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -2104,6 +2264,22 @@ private static final long serialVersionUID = 0L;
       case 53:
         if (!getStakeMigrate()
             .equals(other.getStakeMigrate())) return false;
+        break;
+      case 54:
+        if (!getCandidateDeactivate()
+            .equals(other.getCandidateDeactivate())) return false;
+        break;
+      case 55:
+        if (!getScheduleCandidateDeactivation()
+            .equals(other.getScheduleCandidateDeactivation())) return false;
+        break;
+      case 57:
+        if (!getSetVoterRewardOptIn()
+            .equals(other.getSetVoterRewardOptIn())) return false;
+        break;
+      case 58:
+        if (!getSetVoterRewardDestination()
+            .equals(other.getSetVoterRewardDestination())) return false;
         break;
       case 50:
         if (!getPutPollResult()
@@ -2289,6 +2465,22 @@ private static final long serialVersionUID = 0L;
       case 53:
         hash = (37 * hash) + STAKEMIGRATE_FIELD_NUMBER;
         hash = (53 * hash) + getStakeMigrate().hashCode();
+        break;
+      case 54:
+        hash = (37 * hash) + CANDIDATEDEACTIVATE_FIELD_NUMBER;
+        hash = (53 * hash) + getCandidateDeactivate().hashCode();
+        break;
+      case 55:
+        hash = (37 * hash) + SCHEDULECANDIDATEDEACTIVATION_FIELD_NUMBER;
+        hash = (53 * hash) + getScheduleCandidateDeactivation().hashCode();
+        break;
+      case 57:
+        hash = (37 * hash) + SETVOTERREWARDOPTIN_FIELD_NUMBER;
+        hash = (53 * hash) + getSetVoterRewardOptIn().hashCode();
+        break;
+      case 58:
+        hash = (37 * hash) + SETVOTERREWARDDESTINATION_FIELD_NUMBER;
+        hash = (53 * hash) + getSetVoterRewardDestination().hashCode();
         break;
       case 50:
         hash = (37 * hash) + PUTPOLLRESULT_FIELD_NUMBER;
@@ -2566,6 +2758,18 @@ private static final long serialVersionUID = 0L;
       if (stakeMigrateBuilder_ != null) {
         stakeMigrateBuilder_.clear();
       }
+      if (candidateDeactivateBuilder_ != null) {
+        candidateDeactivateBuilder_.clear();
+      }
+      if (scheduleCandidateDeactivationBuilder_ != null) {
+        scheduleCandidateDeactivationBuilder_.clear();
+      }
+      if (setVoterRewardOptInBuilder_ != null) {
+        setVoterRewardOptInBuilder_.clear();
+      }
+      if (setVoterRewardDestinationBuilder_ != null) {
+        setVoterRewardDestinationBuilder_.clear();
+      }
       if (putPollResultBuilder_ != null) {
         putPollResultBuilder_.clear();
       }
@@ -2805,6 +3009,22 @@ private static final long serialVersionUID = 0L;
           stakeMigrateBuilder_ != null) {
         result.action_ = stakeMigrateBuilder_.build();
       }
+      if (actionCase_ == 54 &&
+          candidateDeactivateBuilder_ != null) {
+        result.action_ = candidateDeactivateBuilder_.build();
+      }
+      if (actionCase_ == 55 &&
+          scheduleCandidateDeactivationBuilder_ != null) {
+        result.action_ = scheduleCandidateDeactivationBuilder_.build();
+      }
+      if (actionCase_ == 57 &&
+          setVoterRewardOptInBuilder_ != null) {
+        result.action_ = setVoterRewardOptInBuilder_.build();
+      }
+      if (actionCase_ == 58 &&
+          setVoterRewardDestinationBuilder_ != null) {
+        result.action_ = setVoterRewardDestinationBuilder_.build();
+      }
       if (actionCase_ == 50 &&
           putPollResultBuilder_ != null) {
         result.action_ = putPollResultBuilder_.build();
@@ -3043,6 +3263,22 @@ private static final long serialVersionUID = 0L;
         }
         case STAKEMIGRATE: {
           mergeStakeMigrate(other.getStakeMigrate());
+          break;
+        }
+        case CANDIDATEDEACTIVATE: {
+          mergeCandidateDeactivate(other.getCandidateDeactivate());
+          break;
+        }
+        case SCHEDULECANDIDATEDEACTIVATION: {
+          mergeScheduleCandidateDeactivation(other.getScheduleCandidateDeactivation());
+          break;
+        }
+        case SETVOTERREWARDOPTIN: {
+          mergeSetVoterRewardOptIn(other.getSetVoterRewardOptIn());
+          break;
+        }
+        case SETVOTERREWARDDESTINATION: {
+          mergeSetVoterRewardDestination(other.getSetVoterRewardDestination());
           break;
         }
         case PUTPOLLRESULT: {
@@ -3397,6 +3633,34 @@ private static final long serialVersionUID = 0L;
               actionCase_ = 53;
               break;
             } // case 426
+            case 434: {
+              input.readMessage(
+                  internalGetCandidateDeactivateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionCase_ = 54;
+              break;
+            } // case 434
+            case 442: {
+              input.readMessage(
+                  internalGetScheduleCandidateDeactivationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionCase_ = 55;
+              break;
+            } // case 442
+            case 458: {
+              input.readMessage(
+                  internalGetSetVoterRewardOptInFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionCase_ = 57;
+              break;
+            } // case 458
+            case 466: {
+              input.readMessage(
+                  internalGetSetVoterRewardDestinationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionCase_ = 58;
+              break;
+            } // case 466
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -9377,6 +9641,574 @@ private static final long serialVersionUID = 0L;
       actionCase_ = 53;
       onChanged();
       return stakeMigrateBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.CandidateDeactivate, com.github.iotexproject.grpc.types.CandidateDeactivate.Builder, com.github.iotexproject.grpc.types.CandidateDeactivateOrBuilder> candidateDeactivateBuilder_;
+    /**
+     * <code>.iotextypes.CandidateDeactivate candidateDeactivate = 54;</code>
+     * @return Whether the candidateDeactivate field is set.
+     */
+    @java.lang.Override
+    public boolean hasCandidateDeactivate() {
+      return actionCase_ == 54;
+    }
+    /**
+     * <code>.iotextypes.CandidateDeactivate candidateDeactivate = 54;</code>
+     * @return The candidateDeactivate.
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.CandidateDeactivate getCandidateDeactivate() {
+      if (candidateDeactivateBuilder_ == null) {
+        if (actionCase_ == 54) {
+          return (com.github.iotexproject.grpc.types.CandidateDeactivate) action_;
+        }
+        return com.github.iotexproject.grpc.types.CandidateDeactivate.getDefaultInstance();
+      } else {
+        if (actionCase_ == 54) {
+          return candidateDeactivateBuilder_.getMessage();
+        }
+        return com.github.iotexproject.grpc.types.CandidateDeactivate.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.CandidateDeactivate candidateDeactivate = 54;</code>
+     */
+    public Builder setCandidateDeactivate(com.github.iotexproject.grpc.types.CandidateDeactivate value) {
+      if (candidateDeactivateBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        action_ = value;
+        onChanged();
+      } else {
+        candidateDeactivateBuilder_.setMessage(value);
+      }
+      actionCase_ = 54;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateDeactivate candidateDeactivate = 54;</code>
+     */
+    public Builder setCandidateDeactivate(
+        com.github.iotexproject.grpc.types.CandidateDeactivate.Builder builderForValue) {
+      if (candidateDeactivateBuilder_ == null) {
+        action_ = builderForValue.build();
+        onChanged();
+      } else {
+        candidateDeactivateBuilder_.setMessage(builderForValue.build());
+      }
+      actionCase_ = 54;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateDeactivate candidateDeactivate = 54;</code>
+     */
+    public Builder mergeCandidateDeactivate(com.github.iotexproject.grpc.types.CandidateDeactivate value) {
+      if (candidateDeactivateBuilder_ == null) {
+        if (actionCase_ == 54 &&
+            action_ != com.github.iotexproject.grpc.types.CandidateDeactivate.getDefaultInstance()) {
+          action_ = com.github.iotexproject.grpc.types.CandidateDeactivate.newBuilder((com.github.iotexproject.grpc.types.CandidateDeactivate) action_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          action_ = value;
+        }
+        onChanged();
+      } else {
+        if (actionCase_ == 54) {
+          candidateDeactivateBuilder_.mergeFrom(value);
+        } else {
+          candidateDeactivateBuilder_.setMessage(value);
+        }
+      }
+      actionCase_ = 54;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateDeactivate candidateDeactivate = 54;</code>
+     */
+    public Builder clearCandidateDeactivate() {
+      if (candidateDeactivateBuilder_ == null) {
+        if (actionCase_ == 54) {
+          actionCase_ = 0;
+          action_ = null;
+          onChanged();
+        }
+      } else {
+        if (actionCase_ == 54) {
+          actionCase_ = 0;
+          action_ = null;
+        }
+        candidateDeactivateBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.iotextypes.CandidateDeactivate candidateDeactivate = 54;</code>
+     */
+    public com.github.iotexproject.grpc.types.CandidateDeactivate.Builder getCandidateDeactivateBuilder() {
+      return internalGetCandidateDeactivateFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.iotextypes.CandidateDeactivate candidateDeactivate = 54;</code>
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.CandidateDeactivateOrBuilder getCandidateDeactivateOrBuilder() {
+      if ((actionCase_ == 54) && (candidateDeactivateBuilder_ != null)) {
+        return candidateDeactivateBuilder_.getMessageOrBuilder();
+      } else {
+        if (actionCase_ == 54) {
+          return (com.github.iotexproject.grpc.types.CandidateDeactivate) action_;
+        }
+        return com.github.iotexproject.grpc.types.CandidateDeactivate.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.CandidateDeactivate candidateDeactivate = 54;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.CandidateDeactivate, com.github.iotexproject.grpc.types.CandidateDeactivate.Builder, com.github.iotexproject.grpc.types.CandidateDeactivateOrBuilder> 
+        internalGetCandidateDeactivateFieldBuilder() {
+      if (candidateDeactivateBuilder_ == null) {
+        if (!(actionCase_ == 54)) {
+          action_ = com.github.iotexproject.grpc.types.CandidateDeactivate.getDefaultInstance();
+        }
+        candidateDeactivateBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.iotexproject.grpc.types.CandidateDeactivate, com.github.iotexproject.grpc.types.CandidateDeactivate.Builder, com.github.iotexproject.grpc.types.CandidateDeactivateOrBuilder>(
+                (com.github.iotexproject.grpc.types.CandidateDeactivate) action_,
+                getParentForChildren(),
+                isClean());
+        action_ = null;
+      }
+      actionCase_ = 54;
+      onChanged();
+      return candidateDeactivateBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation, com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation.Builder, com.github.iotexproject.grpc.types.ScheduleCandidateDeactivationOrBuilder> scheduleCandidateDeactivationBuilder_;
+    /**
+     * <code>.iotextypes.ScheduleCandidateDeactivation scheduleCandidateDeactivation = 55;</code>
+     * @return Whether the scheduleCandidateDeactivation field is set.
+     */
+    @java.lang.Override
+    public boolean hasScheduleCandidateDeactivation() {
+      return actionCase_ == 55;
+    }
+    /**
+     * <code>.iotextypes.ScheduleCandidateDeactivation scheduleCandidateDeactivation = 55;</code>
+     * @return The scheduleCandidateDeactivation.
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation getScheduleCandidateDeactivation() {
+      if (scheduleCandidateDeactivationBuilder_ == null) {
+        if (actionCase_ == 55) {
+          return (com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation) action_;
+        }
+        return com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation.getDefaultInstance();
+      } else {
+        if (actionCase_ == 55) {
+          return scheduleCandidateDeactivationBuilder_.getMessage();
+        }
+        return com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.ScheduleCandidateDeactivation scheduleCandidateDeactivation = 55;</code>
+     */
+    public Builder setScheduleCandidateDeactivation(com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation value) {
+      if (scheduleCandidateDeactivationBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        action_ = value;
+        onChanged();
+      } else {
+        scheduleCandidateDeactivationBuilder_.setMessage(value);
+      }
+      actionCase_ = 55;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.ScheduleCandidateDeactivation scheduleCandidateDeactivation = 55;</code>
+     */
+    public Builder setScheduleCandidateDeactivation(
+        com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation.Builder builderForValue) {
+      if (scheduleCandidateDeactivationBuilder_ == null) {
+        action_ = builderForValue.build();
+        onChanged();
+      } else {
+        scheduleCandidateDeactivationBuilder_.setMessage(builderForValue.build());
+      }
+      actionCase_ = 55;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.ScheduleCandidateDeactivation scheduleCandidateDeactivation = 55;</code>
+     */
+    public Builder mergeScheduleCandidateDeactivation(com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation value) {
+      if (scheduleCandidateDeactivationBuilder_ == null) {
+        if (actionCase_ == 55 &&
+            action_ != com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation.getDefaultInstance()) {
+          action_ = com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation.newBuilder((com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation) action_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          action_ = value;
+        }
+        onChanged();
+      } else {
+        if (actionCase_ == 55) {
+          scheduleCandidateDeactivationBuilder_.mergeFrom(value);
+        } else {
+          scheduleCandidateDeactivationBuilder_.setMessage(value);
+        }
+      }
+      actionCase_ = 55;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.ScheduleCandidateDeactivation scheduleCandidateDeactivation = 55;</code>
+     */
+    public Builder clearScheduleCandidateDeactivation() {
+      if (scheduleCandidateDeactivationBuilder_ == null) {
+        if (actionCase_ == 55) {
+          actionCase_ = 0;
+          action_ = null;
+          onChanged();
+        }
+      } else {
+        if (actionCase_ == 55) {
+          actionCase_ = 0;
+          action_ = null;
+        }
+        scheduleCandidateDeactivationBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.iotextypes.ScheduleCandidateDeactivation scheduleCandidateDeactivation = 55;</code>
+     */
+    public com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation.Builder getScheduleCandidateDeactivationBuilder() {
+      return internalGetScheduleCandidateDeactivationFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.iotextypes.ScheduleCandidateDeactivation scheduleCandidateDeactivation = 55;</code>
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.ScheduleCandidateDeactivationOrBuilder getScheduleCandidateDeactivationOrBuilder() {
+      if ((actionCase_ == 55) && (scheduleCandidateDeactivationBuilder_ != null)) {
+        return scheduleCandidateDeactivationBuilder_.getMessageOrBuilder();
+      } else {
+        if (actionCase_ == 55) {
+          return (com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation) action_;
+        }
+        return com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.ScheduleCandidateDeactivation scheduleCandidateDeactivation = 55;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation, com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation.Builder, com.github.iotexproject.grpc.types.ScheduleCandidateDeactivationOrBuilder> 
+        internalGetScheduleCandidateDeactivationFieldBuilder() {
+      if (scheduleCandidateDeactivationBuilder_ == null) {
+        if (!(actionCase_ == 55)) {
+          action_ = com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation.getDefaultInstance();
+        }
+        scheduleCandidateDeactivationBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation, com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation.Builder, com.github.iotexproject.grpc.types.ScheduleCandidateDeactivationOrBuilder>(
+                (com.github.iotexproject.grpc.types.ScheduleCandidateDeactivation) action_,
+                getParentForChildren(),
+                isClean());
+        action_ = null;
+      }
+      actionCase_ = 55;
+      onChanged();
+      return scheduleCandidateDeactivationBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.SetVoterRewardOptIn, com.github.iotexproject.grpc.types.SetVoterRewardOptIn.Builder, com.github.iotexproject.grpc.types.SetVoterRewardOptInOrBuilder> setVoterRewardOptInBuilder_;
+    /**
+     * <code>.iotextypes.SetVoterRewardOptIn setVoterRewardOptIn = 57;</code>
+     * @return Whether the setVoterRewardOptIn field is set.
+     */
+    @java.lang.Override
+    public boolean hasSetVoterRewardOptIn() {
+      return actionCase_ == 57;
+    }
+    /**
+     * <code>.iotextypes.SetVoterRewardOptIn setVoterRewardOptIn = 57;</code>
+     * @return The setVoterRewardOptIn.
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.SetVoterRewardOptIn getSetVoterRewardOptIn() {
+      if (setVoterRewardOptInBuilder_ == null) {
+        if (actionCase_ == 57) {
+          return (com.github.iotexproject.grpc.types.SetVoterRewardOptIn) action_;
+        }
+        return com.github.iotexproject.grpc.types.SetVoterRewardOptIn.getDefaultInstance();
+      } else {
+        if (actionCase_ == 57) {
+          return setVoterRewardOptInBuilder_.getMessage();
+        }
+        return com.github.iotexproject.grpc.types.SetVoterRewardOptIn.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.SetVoterRewardOptIn setVoterRewardOptIn = 57;</code>
+     */
+    public Builder setSetVoterRewardOptIn(com.github.iotexproject.grpc.types.SetVoterRewardOptIn value) {
+      if (setVoterRewardOptInBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        action_ = value;
+        onChanged();
+      } else {
+        setVoterRewardOptInBuilder_.setMessage(value);
+      }
+      actionCase_ = 57;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.SetVoterRewardOptIn setVoterRewardOptIn = 57;</code>
+     */
+    public Builder setSetVoterRewardOptIn(
+        com.github.iotexproject.grpc.types.SetVoterRewardOptIn.Builder builderForValue) {
+      if (setVoterRewardOptInBuilder_ == null) {
+        action_ = builderForValue.build();
+        onChanged();
+      } else {
+        setVoterRewardOptInBuilder_.setMessage(builderForValue.build());
+      }
+      actionCase_ = 57;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.SetVoterRewardOptIn setVoterRewardOptIn = 57;</code>
+     */
+    public Builder mergeSetVoterRewardOptIn(com.github.iotexproject.grpc.types.SetVoterRewardOptIn value) {
+      if (setVoterRewardOptInBuilder_ == null) {
+        if (actionCase_ == 57 &&
+            action_ != com.github.iotexproject.grpc.types.SetVoterRewardOptIn.getDefaultInstance()) {
+          action_ = com.github.iotexproject.grpc.types.SetVoterRewardOptIn.newBuilder((com.github.iotexproject.grpc.types.SetVoterRewardOptIn) action_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          action_ = value;
+        }
+        onChanged();
+      } else {
+        if (actionCase_ == 57) {
+          setVoterRewardOptInBuilder_.mergeFrom(value);
+        } else {
+          setVoterRewardOptInBuilder_.setMessage(value);
+        }
+      }
+      actionCase_ = 57;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.SetVoterRewardOptIn setVoterRewardOptIn = 57;</code>
+     */
+    public Builder clearSetVoterRewardOptIn() {
+      if (setVoterRewardOptInBuilder_ == null) {
+        if (actionCase_ == 57) {
+          actionCase_ = 0;
+          action_ = null;
+          onChanged();
+        }
+      } else {
+        if (actionCase_ == 57) {
+          actionCase_ = 0;
+          action_ = null;
+        }
+        setVoterRewardOptInBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.iotextypes.SetVoterRewardOptIn setVoterRewardOptIn = 57;</code>
+     */
+    public com.github.iotexproject.grpc.types.SetVoterRewardOptIn.Builder getSetVoterRewardOptInBuilder() {
+      return internalGetSetVoterRewardOptInFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.iotextypes.SetVoterRewardOptIn setVoterRewardOptIn = 57;</code>
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.SetVoterRewardOptInOrBuilder getSetVoterRewardOptInOrBuilder() {
+      if ((actionCase_ == 57) && (setVoterRewardOptInBuilder_ != null)) {
+        return setVoterRewardOptInBuilder_.getMessageOrBuilder();
+      } else {
+        if (actionCase_ == 57) {
+          return (com.github.iotexproject.grpc.types.SetVoterRewardOptIn) action_;
+        }
+        return com.github.iotexproject.grpc.types.SetVoterRewardOptIn.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.SetVoterRewardOptIn setVoterRewardOptIn = 57;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.SetVoterRewardOptIn, com.github.iotexproject.grpc.types.SetVoterRewardOptIn.Builder, com.github.iotexproject.grpc.types.SetVoterRewardOptInOrBuilder> 
+        internalGetSetVoterRewardOptInFieldBuilder() {
+      if (setVoterRewardOptInBuilder_ == null) {
+        if (!(actionCase_ == 57)) {
+          action_ = com.github.iotexproject.grpc.types.SetVoterRewardOptIn.getDefaultInstance();
+        }
+        setVoterRewardOptInBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.iotexproject.grpc.types.SetVoterRewardOptIn, com.github.iotexproject.grpc.types.SetVoterRewardOptIn.Builder, com.github.iotexproject.grpc.types.SetVoterRewardOptInOrBuilder>(
+                (com.github.iotexproject.grpc.types.SetVoterRewardOptIn) action_,
+                getParentForChildren(),
+                isClean());
+        action_ = null;
+      }
+      actionCase_ = 57;
+      onChanged();
+      return setVoterRewardOptInBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.SetVoterRewardDestination, com.github.iotexproject.grpc.types.SetVoterRewardDestination.Builder, com.github.iotexproject.grpc.types.SetVoterRewardDestinationOrBuilder> setVoterRewardDestinationBuilder_;
+    /**
+     * <code>.iotextypes.SetVoterRewardDestination setVoterRewardDestination = 58;</code>
+     * @return Whether the setVoterRewardDestination field is set.
+     */
+    @java.lang.Override
+    public boolean hasSetVoterRewardDestination() {
+      return actionCase_ == 58;
+    }
+    /**
+     * <code>.iotextypes.SetVoterRewardDestination setVoterRewardDestination = 58;</code>
+     * @return The setVoterRewardDestination.
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.SetVoterRewardDestination getSetVoterRewardDestination() {
+      if (setVoterRewardDestinationBuilder_ == null) {
+        if (actionCase_ == 58) {
+          return (com.github.iotexproject.grpc.types.SetVoterRewardDestination) action_;
+        }
+        return com.github.iotexproject.grpc.types.SetVoterRewardDestination.getDefaultInstance();
+      } else {
+        if (actionCase_ == 58) {
+          return setVoterRewardDestinationBuilder_.getMessage();
+        }
+        return com.github.iotexproject.grpc.types.SetVoterRewardDestination.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.SetVoterRewardDestination setVoterRewardDestination = 58;</code>
+     */
+    public Builder setSetVoterRewardDestination(com.github.iotexproject.grpc.types.SetVoterRewardDestination value) {
+      if (setVoterRewardDestinationBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        action_ = value;
+        onChanged();
+      } else {
+        setVoterRewardDestinationBuilder_.setMessage(value);
+      }
+      actionCase_ = 58;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.SetVoterRewardDestination setVoterRewardDestination = 58;</code>
+     */
+    public Builder setSetVoterRewardDestination(
+        com.github.iotexproject.grpc.types.SetVoterRewardDestination.Builder builderForValue) {
+      if (setVoterRewardDestinationBuilder_ == null) {
+        action_ = builderForValue.build();
+        onChanged();
+      } else {
+        setVoterRewardDestinationBuilder_.setMessage(builderForValue.build());
+      }
+      actionCase_ = 58;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.SetVoterRewardDestination setVoterRewardDestination = 58;</code>
+     */
+    public Builder mergeSetVoterRewardDestination(com.github.iotexproject.grpc.types.SetVoterRewardDestination value) {
+      if (setVoterRewardDestinationBuilder_ == null) {
+        if (actionCase_ == 58 &&
+            action_ != com.github.iotexproject.grpc.types.SetVoterRewardDestination.getDefaultInstance()) {
+          action_ = com.github.iotexproject.grpc.types.SetVoterRewardDestination.newBuilder((com.github.iotexproject.grpc.types.SetVoterRewardDestination) action_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          action_ = value;
+        }
+        onChanged();
+      } else {
+        if (actionCase_ == 58) {
+          setVoterRewardDestinationBuilder_.mergeFrom(value);
+        } else {
+          setVoterRewardDestinationBuilder_.setMessage(value);
+        }
+      }
+      actionCase_ = 58;
+      return this;
+    }
+    /**
+     * <code>.iotextypes.SetVoterRewardDestination setVoterRewardDestination = 58;</code>
+     */
+    public Builder clearSetVoterRewardDestination() {
+      if (setVoterRewardDestinationBuilder_ == null) {
+        if (actionCase_ == 58) {
+          actionCase_ = 0;
+          action_ = null;
+          onChanged();
+        }
+      } else {
+        if (actionCase_ == 58) {
+          actionCase_ = 0;
+          action_ = null;
+        }
+        setVoterRewardDestinationBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.iotextypes.SetVoterRewardDestination setVoterRewardDestination = 58;</code>
+     */
+    public com.github.iotexproject.grpc.types.SetVoterRewardDestination.Builder getSetVoterRewardDestinationBuilder() {
+      return internalGetSetVoterRewardDestinationFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.iotextypes.SetVoterRewardDestination setVoterRewardDestination = 58;</code>
+     */
+    @java.lang.Override
+    public com.github.iotexproject.grpc.types.SetVoterRewardDestinationOrBuilder getSetVoterRewardDestinationOrBuilder() {
+      if ((actionCase_ == 58) && (setVoterRewardDestinationBuilder_ != null)) {
+        return setVoterRewardDestinationBuilder_.getMessageOrBuilder();
+      } else {
+        if (actionCase_ == 58) {
+          return (com.github.iotexproject.grpc.types.SetVoterRewardDestination) action_;
+        }
+        return com.github.iotexproject.grpc.types.SetVoterRewardDestination.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.iotextypes.SetVoterRewardDestination setVoterRewardDestination = 58;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.iotexproject.grpc.types.SetVoterRewardDestination, com.github.iotexproject.grpc.types.SetVoterRewardDestination.Builder, com.github.iotexproject.grpc.types.SetVoterRewardDestinationOrBuilder> 
+        internalGetSetVoterRewardDestinationFieldBuilder() {
+      if (setVoterRewardDestinationBuilder_ == null) {
+        if (!(actionCase_ == 58)) {
+          action_ = com.github.iotexproject.grpc.types.SetVoterRewardDestination.getDefaultInstance();
+        }
+        setVoterRewardDestinationBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.iotexproject.grpc.types.SetVoterRewardDestination, com.github.iotexproject.grpc.types.SetVoterRewardDestination.Builder, com.github.iotexproject.grpc.types.SetVoterRewardDestinationOrBuilder>(
+                (com.github.iotexproject.grpc.types.SetVoterRewardDestination) action_,
+                getParentForChildren(),
+                isClean());
+        action_ = null;
+      }
+      actionCase_ = 58;
+      onChanged();
+      return setVoterRewardDestinationBuilder_;
     }
 
     private com.google.protobuf.SingleFieldBuilder<
