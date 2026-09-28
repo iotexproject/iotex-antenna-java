@@ -25,8 +25,8 @@ import org.junit.Test;
  * proves the encoding without the side effect.
  */
 public class VoterRewardLiveTest {
-    private static final String ENDPOINT = "api.testnet.iotex.one:443";
-    private static final int CHAIN_ID = 2;
+    private static final String DEFAULT_ENDPOINT = "api.testnet.iotex.one:443";
+    private static final int DEFAULT_CHAIN_ID = 2;
 
     private RPCMethod rpc;
     private Account account;
@@ -35,8 +35,20 @@ public class VoterRewardLiveTest {
     public void init() {
         String key = System.getenv("IOTEX_TEST_KEY");
         Assume.assumeTrue("IOTEX_TEST_KEY unset; skipping live test", key != null && !key.isEmpty());
-        this.rpc = new RPCMethod(ENDPOINT, true, CHAIN_ID);
+        // Endpoint and chain id are overridable so the same test can run against
+        // a local Zanzibar chain, where the fork activates at a two-digit height
+        // and a run costs nothing. IOTEX_TEST_SECURE=false for a plaintext local
+        // node -- TestNet's 443 endpoint needs TLS, a local one does not have it.
+        String endpoint = envOr("IOTEX_TEST_ENDPOINT", DEFAULT_ENDPOINT);
+        int chainId = Integer.parseInt(envOr("IOTEX_TEST_CHAINID", String.valueOf(DEFAULT_CHAIN_ID)));
+        boolean secure = !"false".equalsIgnoreCase(envOr("IOTEX_TEST_SECURE", "true"));
+        this.rpc = new RPCMethod(endpoint, secure, chainId);
         this.account = IotexAccount.create(Numeric.hexStringToByteArray(key));
+    }
+
+    private static String envOr(String name, String fallback) {
+        String v = System.getenv(name);
+        return v == null || v.isEmpty() ? fallback : v;
     }
 
     /**
