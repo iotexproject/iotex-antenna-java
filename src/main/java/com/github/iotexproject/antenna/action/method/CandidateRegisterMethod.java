@@ -5,7 +5,6 @@ import com.github.iotexproject.antenna.protocol.CandidateRegisterRequest;
 import com.github.iotexproject.antenna.rpc.RPCMethod;
 import com.github.iotexproject.antenna.utils.Numeric;
 import com.github.iotexproject.grpc.types.Action;
-import com.github.iotexproject.grpc.types.CandidateBasicInfo;
 import com.github.iotexproject.grpc.types.CandidateRegister;
 import com.google.protobuf.ByteString;
 
@@ -27,11 +26,12 @@ public class CandidateRegisterMethod extends AbstractMethod {
     @Override
     public String execute() {
         envelop.setCandidateRegister(CandidateRegister.newBuilder()
-                .setCandidate(CandidateBasicInfo.newBuilder()
-                        .setName(request.getName())
-                        .setOperatorAddress(request.getOperatorAddress())
-                        .setRewardAddress(request.getRewardAddress())
-                        .build())
+                .setCandidate(candidateBasicInfo(
+                        request.getName(),
+                        request.getOperatorAddress(),
+                        request.getRewardAddress(),
+                        request.getBlsPubKey(),
+                        request.getBlsPop()))
                 .setStakedAmount(request.getStakedAmount())
                 .setStakedDuration(request.getStakedDuration())
                 .setAutoStake(request.isAutoStake())
@@ -43,11 +43,12 @@ public class CandidateRegisterMethod extends AbstractMethod {
 
     public Action signedAction() {
         envelop.setCandidateRegister(CandidateRegister.newBuilder()
-                .setCandidate(CandidateBasicInfo.newBuilder()
-                        .setName(request.getName())
-                        .setOperatorAddress(request.getOperatorAddress())
-                        .setRewardAddress(request.getRewardAddress())
-                        .build())
+                .setCandidate(candidateBasicInfo(
+                        request.getName(),
+                        request.getOperatorAddress(),
+                        request.getRewardAddress(),
+                        request.getBlsPubKey(),
+                        request.getBlsPop()))
                 .setStakedAmount(request.getStakedAmount())
                 .setStakedDuration(request.getStakedDuration())
                 .setAutoStake(request.isAutoStake())
