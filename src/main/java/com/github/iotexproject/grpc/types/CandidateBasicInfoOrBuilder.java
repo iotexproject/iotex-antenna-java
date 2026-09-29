@@ -45,4 +45,16 @@ public interface CandidateBasicInfoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getRewardAddressBytes();
+
+  /**
+   * <code>bytes blsPubKey = 4;</code>
+   * @return The blsPubKey.
+   */
+  com.google.protobuf.ByteString getBlsPubKey();
+
+  /**
+   * <code>bytes blsPop = 5;</code>
+   * @return The blsPop.
+   */
+  com.google.protobuf.ByteString getBlsPop();
 }

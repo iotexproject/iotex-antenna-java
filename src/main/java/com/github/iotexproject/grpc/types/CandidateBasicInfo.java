@@ -31,6 +31,8 @@ private static final long serialVersionUID = 0L;
     name_ = "";
     operatorAddress_ = "";
     rewardAddress_ = "";
+    blsPubKey_ = com.google.protobuf.ByteString.EMPTY;
+    blsPop_ = com.google.protobuf.ByteString.EMPTY;
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -168,6 +170,28 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int BLSPUBKEY_FIELD_NUMBER = 4;
+  private com.google.protobuf.ByteString blsPubKey_ = com.google.protobuf.ByteString.EMPTY;
+  /**
+   * <code>bytes blsPubKey = 4;</code>
+   * @return The blsPubKey.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString getBlsPubKey() {
+    return blsPubKey_;
+  }
+
+  public static final int BLSPOP_FIELD_NUMBER = 5;
+  private com.google.protobuf.ByteString blsPop_ = com.google.protobuf.ByteString.EMPTY;
+  /**
+   * <code>bytes blsPop = 5;</code>
+   * @return The blsPop.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString getBlsPop() {
+    return blsPop_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -191,6 +215,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(rewardAddress_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 3, rewardAddress_);
     }
+    if (!blsPubKey_.isEmpty()) {
+      output.writeBytes(4, blsPubKey_);
+    }
+    if (!blsPop_.isEmpty()) {
+      output.writeBytes(5, blsPop_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -208,6 +238,14 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(rewardAddress_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(3, rewardAddress_);
+    }
+    if (!blsPubKey_.isEmpty()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBytesSize(4, blsPubKey_);
+    }
+    if (!blsPop_.isEmpty()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBytesSize(5, blsPop_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -230,6 +268,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getOperatorAddress())) return false;
     if (!getRewardAddress()
         .equals(other.getRewardAddress())) return false;
+    if (!getBlsPubKey()
+        .equals(other.getBlsPubKey())) return false;
+    if (!getBlsPop()
+        .equals(other.getBlsPop())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -247,6 +289,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getOperatorAddress().hashCode();
     hash = (37 * hash) + REWARDADDRESS_FIELD_NUMBER;
     hash = (53 * hash) + getRewardAddress().hashCode();
+    hash = (37 * hash) + BLSPUBKEY_FIELD_NUMBER;
+    hash = (53 * hash) + getBlsPubKey().hashCode();
+    hash = (37 * hash) + BLSPOP_FIELD_NUMBER;
+    hash = (53 * hash) + getBlsPop().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -381,6 +427,8 @@ private static final long serialVersionUID = 0L;
       name_ = "";
       operatorAddress_ = "";
       rewardAddress_ = "";
+      blsPubKey_ = com.google.protobuf.ByteString.EMPTY;
+      blsPop_ = com.google.protobuf.ByteString.EMPTY;
       return this;
     }
 
@@ -423,6 +471,12 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.rewardAddress_ = rewardAddress_;
       }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.blsPubKey_ = blsPubKey_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.blsPop_ = blsPop_;
+      }
     }
 
     @java.lang.Override
@@ -451,6 +505,12 @@ private static final long serialVersionUID = 0L;
         rewardAddress_ = other.rewardAddress_;
         bitField0_ |= 0x00000004;
         onChanged();
+      }
+      if (!other.getBlsPubKey().isEmpty()) {
+        setBlsPubKey(other.getBlsPubKey());
+      }
+      if (!other.getBlsPop().isEmpty()) {
+        setBlsPop(other.getBlsPop());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -493,6 +553,16 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000004;
               break;
             } // case 26
+            case 34: {
+              blsPubKey_ = input.readBytes();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              blsPop_ = input.readBytes();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -722,6 +792,70 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       rewardAddress_ = value;
       bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.ByteString blsPubKey_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <code>bytes blsPubKey = 4;</code>
+     * @return The blsPubKey.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getBlsPubKey() {
+      return blsPubKey_;
+    }
+    /**
+     * <code>bytes blsPubKey = 4;</code>
+     * @param value The blsPubKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBlsPubKey(com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      blsPubKey_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bytes blsPubKey = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBlsPubKey() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      blsPubKey_ = getDefaultInstance().getBlsPubKey();
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.ByteString blsPop_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <code>bytes blsPop = 5;</code>
+     * @return The blsPop.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getBlsPop() {
+      return blsPop_;
+    }
+    /**
+     * <code>bytes blsPop = 5;</code>
+     * @param value The blsPop to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBlsPop(com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      blsPop_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bytes blsPop = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBlsPop() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      blsPop_ = getDefaultInstance().getBlsPop();
       onChanged();
       return this;
     }

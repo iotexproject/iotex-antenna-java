@@ -4,7 +4,6 @@ import com.github.iotexproject.antenna.action.Envelop;
 import com.github.iotexproject.antenna.protocol.CandidateUpdateRequest;
 import com.github.iotexproject.antenna.rpc.RPCMethod;
 import com.github.iotexproject.grpc.types.Action;
-import com.github.iotexproject.grpc.types.CandidateBasicInfo;
 
 /**
  * CandidateUpdate method.
@@ -23,20 +22,22 @@ public class CandidateUpdateMethod extends AbstractMethod {
 
     @Override
     public String execute() {
-        envelop.setCandidateUpdate(CandidateBasicInfo.newBuilder()
-                .setName(request.getName())
-                .setOperatorAddress(request.getOperatorAddress())
-                .setRewardAddress(request.getRewardAddress())
-                .build());
+        envelop.setCandidateUpdate(candidateBasicInfo(
+                request.getName(),
+                request.getOperatorAddress(),
+                request.getRewardAddress(),
+                request.getBlsPubKey(),
+                request.getBlsPop()));
         return sendAction(envelop);
     }
 
     public Action signedAction() {
-        envelop.setCandidateUpdate(CandidateBasicInfo.newBuilder()
-                .setName(request.getName())
-                .setOperatorAddress(request.getOperatorAddress())
-                .setRewardAddress(request.getRewardAddress())
-                .build());
+        envelop.setCandidateUpdate(candidateBasicInfo(
+                request.getName(),
+                request.getOperatorAddress(),
+                request.getRewardAddress(),
+                request.getBlsPubKey(),
+                request.getBlsPop()));
         return signAction(envelop).action();
     }
 }

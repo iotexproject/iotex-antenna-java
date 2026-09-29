@@ -48,6 +48,8 @@ public class Envelop {
     private StakeTransferOwnership stakeTransferOwnership;
     private CandidateRegister candidateRegister;
     private CandidateBasicInfo candidateUpdate;
+    private SetVoterRewardOptIn setVoterRewardOptIn;
+    private SetVoterRewardDestination setVoterRewardDestination;
     private StartSubChain startSubChain;
     private StopSubChain stopSubChain;
     private PutBlock putBlock;
@@ -141,6 +143,17 @@ public class Envelop {
             if (core.getCandidateUpdate().toByteArray().length > 0) {
                 envelop.setCandidateUpdate(core.getCandidateUpdate());
             }
+            // hasX(), not toByteArray().length: SetVoterRewardOptIn carries no
+            // payload -- the sender is the delegate -- so it serializes to zero
+            // bytes and a length check drops it silently. The oneof's presence
+            // bit is the only thing that distinguishes "opt in" from "no action
+            // set at all".
+            if (core.hasSetVoterRewardOptIn()) {
+                envelop.setSetVoterRewardOptIn(core.getSetVoterRewardOptIn());
+            }
+            if (core.hasSetVoterRewardDestination()) {
+                envelop.setSetVoterRewardDestination(core.getSetVoterRewardDestination());
+            }
 
             return envelop;
         } catch (InvalidProtocolBufferException e) {
@@ -210,6 +223,12 @@ public class Envelop {
         }
         if (candidateUpdate != null) {
             builder.setCandidateUpdate(candidateUpdate);
+        }
+        if (setVoterRewardOptIn != null) {
+            builder.setSetVoterRewardOptIn(setVoterRewardOptIn);
+        }
+        if (setVoterRewardDestination != null) {
+            builder.setSetVoterRewardDestination(setVoterRewardDestination);
         }
         if (startSubChain != null) {
             builder.setStartSubChain(startSubChain);
